@@ -232,8 +232,10 @@
             top: 0;
             z-index: 1000;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            justify-content: flex-start;
             gap: 0.5rem;
             padding: 0.75rem 1rem;
             background: rgba(10, 8, 6, 0.92);
@@ -242,6 +244,8 @@
         }
 
         .site-nav a {
+            white-space: nowrap;
+            flex: 0 0 auto;
             color: #f5efe0;
             text-decoration: none;
             font-size: 0.85rem;
@@ -255,6 +259,14 @@
             border-color: rgba(201, 168, 76, 0.55);
             color: #e8c97a;
             outline: none;
+        }
+
+        @media (min-width: 768px) {
+            .site-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                overflow-x: visible;
+            }
         }
 
         .site-footer {
@@ -363,10 +375,6 @@
 
       </div>
     </main>
-
-    <footer class="text-center py-6 text-[var(--warm-gray)] text-sm">
-      <p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
-    </footer>
   </div>
   <script>
     const volunteerFormContainer = document.getElementById('volunteer-form-container');
