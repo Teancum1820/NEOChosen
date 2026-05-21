@@ -196,8 +196,10 @@
             top: 0;
             z-index: 1000;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            justify-content: flex-start;
             gap: 0.5rem;
             padding: 0.75rem 1rem;
             background: rgba(10, 8, 6, 0.92);
@@ -206,6 +208,8 @@
         }
 
         .site-nav a {
+            white-space: nowrap;
+            flex: 0 0 auto;
             color: #f5efe0;
             text-decoration: none;
             font-size: 0.85rem;
@@ -219,6 +223,14 @@
             border-color: rgba(201, 168, 76, 0.55);
             color: #e8c97a;
             outline: none;
+        }
+
+        @media (min-width: 768px) {
+            .site-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                overflow-x: visible;
+            }
         }
 
         .site-footer {
@@ -261,7 +273,7 @@
             <h2 class="font-cinzel section-title text-3xl mb-4">Become a Sponsor</h2>
             <img src="https://img1.wsimg.com/isteam/ip/c76862d1-4b72-4973-80c5-7d12414010ec/Sponsorluk2.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1240,h:620,cg:true" alt="Handshake representing sponsorship" class="w-full h-64 object-cover mx-auto mb-6 image-frame">
             <figcaption class="body-copy">
-              <a href="https://www.neochosen.com/sponsorship-opportunities" class="gold-link">Click here to learn more about becoming a sponsor!</a>
+              <a href="sponsorship-opportunities.html" class="gold-link">Click here to learn more about becoming a sponsor!</a>
             </figcaption>
           </figure>
 
@@ -271,7 +283,7 @@
             <figcaption class="body-copy space-y-5">
               <div>
                 <h3 class="font-bold text-lg text-[var(--cream)]">Online</h3>
-                <p>Visit our <a href="https://www.neochosen.com/donate" class="gold-link">donation page</a> to make a donation online.</p>
+                <p>Visit our <a href="donations.html" class="gold-link">donation page</a> to make a donation online.</p>
               </div>
               <div>
                 <h3 class="font-bold text-lg text-[var(--cream)]">By Mail</h3>
@@ -319,10 +331,6 @@
         </div>
       </section>
     </main>
-
-    <footer class="text-center py-6 text-[var(--warm-gray)] text-sm">
-      <p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
-    </footer>
   </div>
   <script>
     const volunteerFormContainer = document.getElementById('volunteer-form-container');
