@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved | neochosen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #050505;
+      --charcoal: #11100d;
+      --deep-brown: #19140d;
+      --gold: #d7b956;
+      --soft-gold: #f1dc88;
+      --muted-gold: #8f7830;
+      --cream: #f5efd8;
+      --warm-gray: #b7ad97;
+      --line: rgba(215, 185, 86, 0.32);
+      --panel: rgba(12, 11, 9, 0.86);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 78% 8%, rgba(215, 185, 86, 0.15), transparent 26%),
+        radial-gradient(circle at 20% 22%, rgba(111, 82, 25, 0.22), transparent 30%),
+        linear-gradient(135deg, #060606 0%, #0d0b08 45%, #191207 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 64px 64px;
+      opacity: 0.16;
+      mix-blend-mode: screen;
+      z-index: 0;
+    }
+
+    body::after {
+      content: 'NEOCHOSEN';
+      position: fixed;
+      left: -4vw;
+      top: 2vh;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(88px, 18vw, 240px);
+      letter-spacing: 0.04em;
+      color: rgba(215, 185, 86, 0.055);
+      line-height: 0.85;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .glassmorphism {
+      position: relative;
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+      border-radius: 0;
+    }
+
+    .glassmorphism::before,
+    .content-card::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(215, 185, 86, 0.14);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      color: var(--soft-gold);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 32px rgba(215, 185, 86, 0.22);
+    }
+
+    .hero-subtitle {
+      color: var(--warm-gray);
+      letter-spacing: 0.16em;
+    }
+
+    .content-card {
+      position: relative;
+      background: rgba(0, 0, 0, 0.34);
+      border: 1px solid rgba(215, 185, 86, 0.24);
+      border-radius: 0;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-title {
+      color: var(--soft-gold);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 24px rgba(215, 185, 86, 0.14);
+    }
+
+    .body-copy {
+      color: var(--warm-gray);
+    }
+
+    .gold-link {
+      color: var(--soft-gold);
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .gold-link:hover {
+      color: var(--gold);
+      text-shadow: 0 0 16px rgba(215, 185, 86, 0.25);
+    }
+
+    .gold-button {
+      background: linear-gradient(90deg, var(--muted-gold), var(--gold), var(--muted-gold));
+      color: #080806;
+      border: 1px solid rgba(241, 220, 136, 0.55);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38), 0 0 20px rgba(215, 185, 86, 0.14);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .gold-button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .gold-input {
+      background: rgba(6, 6, 6, 0.88);
+      border: 1px solid rgba(215, 185, 86, 0.32);
+      color: var(--cream);
+      border-radius: 0;
+    }
+
+    .gold-input:focus {
+      outline: none;
+      border-color: var(--soft-gold);
+      box-shadow: 0 0 0 3px rgba(215, 185, 86, 0.18);
+    }
+
+    .image-frame {
+      border: 1px solid rgba(215, 185, 86, 0.28);
+      border-radius: 0;
+      filter: sepia(0.24) saturate(0.9) brightness(0.82);
+    }
+
+    .divider-line {
+      width: 1px;
+      height: 54px;
+      background: linear-gradient(transparent, var(--gold), transparent);
+      margin: 28px auto 0;
+      opacity: 0.75;
+    }
+
+    .thank-you-box {
+      background: rgba(143, 120, 48, 0.22);
+      border: 1px solid rgba(215, 185, 86, 0.36);
+      color: var(--cream);
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <main class="container mx-auto px-6 py-12 md:py-24">
+      <section class="glassmorphism p-8 md:p-12">
+        <header class="text-center mb-12">
+          <p class="font-cinzel text-xs md:text-sm uppercase tracking-[0.55em] text-[var(--gold)] mb-5">Kirtland Heritage Group</p>
+          <h1 class="font-cinzel hero-title text-4xl md:text-6xl">Get Involved</h1>
+          <p class="hero-subtitle text-lg md:text-xl mt-4 uppercase">Become a Sponsor • Donate Money • Donate Time</p>
+          <div class="divider-line"></div>
+        </header>
+
+        <div class="max-w-4xl mx-auto space-y-12">
+          <figure class="content-card p-8 text-center">
+            <h2 class="font-cinzel section-title text-3xl mb-4">Become a Sponsor</h2>
+            <img src="https://img1.wsimg.com/isteam/ip/c76862d1-4b72-4973-80c5-7d12414010ec/Sponsorluk2.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1240,h:620,cg:true" alt="Handshake representing sponsorship" class="w-full h-64 object-cover mx-auto mb-6 image-frame">
+            <figcaption class="body-copy">
+              <a href="https://www.neochosen.com/sponsorship-opportunities" class="gold-link">Click here to learn more about becoming a sponsor!</a>
+            </figcaption>
+          </figure>
+
+          <figure class="content-card p-8 text-center">
+            <h2 class="font-cinzel section-title text-3xl mb-4">Donate Money</h2>
+            <img src="https://t4.ftcdn.net/jpg/01/58/74/77/360_F_158747798_HjZVESHPxkgR11svewry83Mg0wzWgrpn.jpg" alt="Plant growing from coins, representing donations" class="w-full h-64 object-cover mx-auto mb-6 image-frame">
+            <figcaption class="body-copy space-y-5">
+              <div>
+                <h3 class="font-bold text-lg text-[var(--cream)]">Online</h3>
+                <p>Visit our <a href="https://www.neochosen.com/donate" class="gold-link">donation page</a> to make a donation online.</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-[var(--cream)]">By Mail</h3>
+                <p>Please make checks payable to:<br><span class="text-[var(--soft-gold)] font-semibold">The Kirtland Heritage Group</span></p>
+                <p class="mt-2">Mail to:<br>38323 Apollo Parkway Unit 7<br>Willoughby, Ohio 44094</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="content-card p-8 text-center">
+            <h2 class="font-cinzel section-title text-3xl mb-4">Donate Time</h2>
+            <img src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?q=80&w=1240&auto=format&fit=crop" alt="Volunteers working together" class="w-full h-64 object-cover mx-auto mb-6 image-frame">
+            <figcaption class="body-copy">
+              <p class="mb-6">Interested in donating your time? Please fill out the form below and we'll be in touch!</p>
+
+              <div id="volunteer-form-container">
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSecLbZEnc51XTWfnO8HmHafagxf79lwewNz5V1EEuyZ_SLAcA/formResponse" method="POST" target="hidden_iframe_volunteer" id="volunteer-form" class="space-y-4 text-left">
+                  <div class="form-group">
+                    <label for="name" class="block text-sm font-medium text-[var(--warm-gray)]">Full Name</label>
+                    <input type="text" id="name" name="entry.1279868948" placeholder="Your Name" required class="gold-input mt-1 block w-full shadow-sm py-2 px-3">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email" class="block text-sm font-medium text-[var(--warm-gray)]">Email Address</label>
+                    <input type="email" id="email" name="entry.2001665401" placeholder="you@example.com" required class="gold-input mt-1 block w-full shadow-sm py-2 px-3">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone" class="block text-sm font-medium text-[var(--warm-gray)]">Phone Number</label>
+                    <input type="tel" id="phone" name="entry.1702692253" placeholder="(555) 555-5555" required class="gold-input mt-1 block w-full shadow-sm py-2 px-3">
+                  </div>
+
+                  <div class="pt-2 text-center">
+                    <button type="submit" class="gold-button w-full font-bold py-3 px-4 duration-300">Submit Volunteer Form</button>
+                  </div>
+                </form>
+                <iframe name="hidden_iframe_volunteer" id="hidden_iframe_volunteer" style="display:none;"></iframe>
+                <div id="volunteer-thank-you" class="hidden text-center mt-6 p-4 thank-you-box">
+                  <h4 class="font-cinzel text-xl text-[var(--soft-gold)]">Thank You!</h4>
+                  <p class="body-copy mt-2">We've received your information and will be in touch soon.</p>
+                </div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center py-6 text-[var(--warm-gray)] text-sm">
+      <p>&copy; 2025 Kirtland Heritage Group. All Rights Reserved.</p>
+    </footer>
+  </div>
+  <script>
+    const volunteerFormContainer = document.getElementById('volunteer-form-container');
+    if (volunteerFormContainer) {
+      const volunteerForm = volunteerFormContainer.querySelector('#volunteer-form');
+      const volunteerThankYou = volunteerFormContainer.querySelector('#volunteer-thank-you');
+      const volunteerIframe = volunteerFormContainer.querySelector('#hidden_iframe_volunteer');
+      let volunteerFormSubmitted = false;
+
+      volunteerForm.addEventListener('submit', () => {
+        volunteerFormSubmitted = true;
+      });
+
+      volunteerIframe.onload = function() {
+        if (volunteerFormSubmitted) {
+          volunteerForm.reset();
+          volunteerForm.style.display = 'none';
+          volunteerThankYou.classList.remove('hidden');
+        }
+      };
+    }
+  </script>
+
+</body>
+</html>
