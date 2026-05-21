@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsorship Opportunities | Kirtland Heritage Group</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #050505;
+      --charcoal: #11100d;
+      --deep-brown: #19140d;
+      --gold: #d7b956;
+      --soft-gold: #f1dc88;
+      --muted-gold: #8f7830;
+      --cream: #f5efd8;
+      --warm-gray: #b7ad97;
+      --line: rgba(215, 185, 86, 0.32);
+      --panel: rgba(12, 11, 9, 0.86);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 78% 8%, rgba(215, 185, 86, 0.15), transparent 26%),
+        radial-gradient(circle at 20% 22%, rgba(111, 82, 25, 0.22), transparent 30%),
+        linear-gradient(135deg, #060606 0%, #0d0b08 45%, #191207 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 64px 64px;
+      opacity: 0.16;
+      mix-blend-mode: screen;
+      z-index: 0;
+    }
+
+    body::after {
+      content: 'SPONSORSHIP';
+      position: fixed;
+      left: -4vw;
+      top: 2vh;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(72px, 14vw, 190px);
+      letter-spacing: 0.04em;
+      color: rgba(215, 185, 86, 0.055);
+      line-height: 0.85;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .glassmorphism {
+      position: relative;
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+      border-radius: 0;
+    }
+
+    .glassmorphism::before,
+    .tier-card::before,
+    .payment-card::before,
+    .modal-card::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(215, 185, 86, 0.14);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      color: var(--soft-gold);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 32px rgba(215, 185, 86, 0.22);
+    }
+
+    .hero-subtitle,
+    .body-copy {
+      color: var(--warm-gray);
+    }
+
+    .divider-line {
+      width: 1px;
+      height: 54px;
+      background: linear-gradient(transparent, var(--gold), transparent);
+      margin: 28px auto 0;
+      opacity: 0.75;
+    }
+
+    .gold-link {
+      color: var(--soft-gold);
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .gold-link:hover {
+      color: var(--gold);
+      text-shadow: 0 0 16px rgba(215, 185, 86, 0.25);
+    }
+
+    .tier-card,
+    .payment-card,
+    .modal-card {
+      position: relative;
+      background: rgba(0, 0, 0, 0.34);
+      border: 1px solid rgba(215, 185, 86, 0.24);
+      border-radius: 0;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+    }
+
+    .tier-heading {
+      color: var(--soft-gold);
+      font-family: 'Cinzel', serif;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 24px rgba(215, 185, 86, 0.14);
+    }
+
+    .price {
+      color: var(--cream);
+      border: 1px solid rgba(215, 185, 86, 0.32);
+      background: rgba(215, 185, 86, 0.08);
+      padding: 6px 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .accent-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(215,185,86,0.7), transparent);
+      margin: 20px 0;
+      opacity: 0.85;
+    }
+
+    .gold-button {
+      background: linear-gradient(90deg, var(--muted-gold), var(--gold), var(--muted-gold));
+      color: #080806;
+      border: 1px solid rgba(241, 220, 136, 0.55);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38), 0 0 20px rgba(215, 185, 86, 0.14);
+      transition: transform 0.2s ease, filter 0.2s ease;
+      border-radius: 0;
+    }
+
+    .gold-button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .outline-button {
+      color: var(--soft-gold);
+      border: 1px solid rgba(215, 185, 86, 0.5);
+      background: transparent;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      border-radius: 0;
+    }
+
+    .outline-button:hover {
+      background: rgba(215, 185, 86, 0.14);
+      color: var(--cream);
+      transform: translateY(-1px);
+    }
+
+    .gold-input {
+      background: rgba(6, 6, 6, 0.88);
+      border: 1px solid rgba(215, 185, 86, 0.32);
+      color: var(--cream);
+      border-radius: 0;
+    }
+
+    .gold-input:focus {
+      outline: none;
+      border-color: var(--soft-gold);
+      box-shadow: 0 0 0 3px rgba(215, 185, 86, 0.18);
+    }
+
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(6px);
+    }
+
+    .close-button {
+      color: var(--warm-gray);
+      transition: color 0.2s ease;
+    }
+
+    .close-button:hover {
+      color: var(--soft-gold);
+    }
+
+    .thank-you-box {
+      background: rgba(143, 120, 48, 0.22);
+      border: 1px solid rgba(215, 185, 86, 0.36);
+      color: var(--cream);
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <main class="container mx-auto px-6 py-12 md:py-24">
+      <div class="glassmorphism p-8 md:p-12">
+        <header class="text-center mb-10">
+          <p class="font-cinzel text-xs md:text-sm uppercase tracking-[0.55em] text-[var(--gold)] mb-5">Kirtland Heritage Group</p>
+          <h1 class="font-cinzel hero-title text-4xl md:text-6xl">Sponsorship</h1>
+          <p class="hero-subtitle mt-4 max-w-2xl mx-auto uppercase tracking-[0.16em]">Our sponsors are essential to the success of these events!</p>
+          <div class="divider-line"></div>
+        </header>
+
+        <section class="text-center max-w-3xl mx-auto mb-12">
+          <p class="body-copy">The Kirtland Heritage Group is a 501(c)(3) non-profit organization. All donations received are considered a tax-deductible contribution.</p>
+          <div class="mt-6">
+            <a href="https://drive.google.com/file/d/1EO4aLeiOuriIKNfhbjg41WkBiL2NGHhO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gold-link">Click here to download sponsorship agreement</a>
+          </div>
+        </section>
+
+        <section class="space-y-8 max-w-4xl mx-auto">
+          <div class="tier-card p-6 md:p-8">
+            <div class="flex justify-between items-baseline gap-4 flex-wrap">
+              <h2 class="tier-heading text-2xl">Bronze Sponsors</h2>
+              <span class="price text-xl">$500</span>
+            </div>
+            <div class="accent-line"></div>
+            <ul class="list-disc list-inside body-copy space-y-2 marker:text-[var(--gold)]">
+              <li>4 General Seating Tickets</li>
+              <li>Quarter-page, full-color ad in both event programs</li>
+              <li>Social media promotion</li>
+            </ul>
+            <div class="mt-6 flex items-center gap-4 flex-wrap">
+              <a href="https://buy.stripe.com/bJebJ0dEK6RcfPdeoI6g804" target="_blank" rel="noopener noreferrer" class="gold-button inline-block font-bold py-3 px-5 text-sm">Become a Bronze Sponsor Online</a>
+              <button type="button" class="learn-more-btn outline-button inline-block font-bold py-3 px-5 text-sm">Learn More</button>
+            </div>
+          </div>
+
+          <div class="tier-card p-6 md:p-8">
+            <div class="flex justify-between items-baseline gap-4 flex-wrap">
+              <h2 class="tier-heading text-2xl">Silver Sponsors</h2>
+              <span class="price text-xl">$1,000</span>
+            </div>
+            <div class="accent-line"></div>
+            <ul class="list-disc list-inside body-copy space-y-2 marker:text-[var(--gold)]">
+              <li>6 General Seating Tickets</li>
+              <li>Half-page, full-color ad in both event programs</li>
+              <li>Social media promotion</li>
+            </ul>
+            <div class="mt-6 flex items-center gap-4 flex-wrap">
+              <a href="https://buy.stripe.com/9B6cN458e4J446veoI6g803" target="_blank" rel="noopener noreferrer" class="gold-button inline-block font-bold py-3 px-5 text-sm">Become a Silver Sponsor Online</a>
+              <button type="button" class="learn-more-btn outline-button inline-block font-bold py-3 px-5 text-sm">Learn More</button>
+            </div>
+          </div>
+
+          <div class="tier-card p-6 md:p-8">
+            <div class="flex justify-between items-baseline gap-4 flex-wrap">
+              <h2 class="tier-heading text-2xl">Gold Sponsors</h2>
+              <span class="price text-xl">$1,500</span>
+            </div>
+            <div class="accent-line"></div>
+            <ul class="list-disc list-inside body-copy space-y-2 marker:text-[var(--gold)]">
+              <li>8 Priority Seating Tickets</li>
+              <li>Full-page, full-color ad in both event programs</li>
+              <li>Social media promotion</li>
+              <li>Digital signage on video board, 2 still slides per rotation</li>
+              <li>Digital A/V signage, one 30-second video per rotation</li>
+              <li>Business name/logo featured on our webpage</li>
+            </ul>
+            <div class="mt-6 flex items-center gap-4 flex-wrap">
+              <a href="https://buy.stripe.com/cNidR8eIO6RccD14O86g805" target="_blank" rel="noopener noreferrer" class="gold-button inline-block font-bold py-3 px-5 text-sm">Become a Gold Sponsor Online</a>
+              <button type="button" class="learn-more-btn outline-button inline-block font-bold py-3 px-5 text-sm">Learn More</button>
+            </div>
+          </div>
+
+          <div class="tier-card p-6 md:p-8">
+            <div class="flex justify-between items-baseline gap-4 flex-wrap">
+              <h2 class="tier-heading text-2xl">Platinum Sponsors</h2>
+              <span class="price text-xl">$2,500</span>
+            </div>
+            <div class="accent-line"></div>
+            <ul class="list-disc list-inside body-copy space-y-2 marker:text-[var(--gold)]">
+              <li>12 Priority Seating Tickets</li>
+              <li>Private meet-and-greet with cast for up to 12</li>
+              <li>Full-page, full-color ad in both event programs</li>
+              <li>Social media promotion</li>
+              <li>Digital signage on video board, 3 still slides per rotation</li>
+              <li>Digital A/V signage, two 30-second videos per rotation</li>
+              <li>Business name/logo featured on our webpage</li>
+            </ul>
+            <div class="mt-6 flex items-center gap-4 flex-wrap">
+              <a href="https://buy.stripe.com/4gM7sKfMS4J432r1BW6g806" target="_blank" rel="noopener noreferrer" class="gold-button inline-block font-bold py-3 px-5 text-sm">Become a Platinum Sponsor Online</a>
+              <button type="button" class="learn-more-btn outline-button inline-block font-bold py-3 px-5 text-sm">Learn More</button>
+            </div>
+          </div>
+
+          <div class="tier-card p-6 md:p-8">
+            <div class="flex justify-between items-baseline gap-4 flex-wrap">
+              <h2 class="tier-heading text-2xl">Diamond Sponsors</h2>
+              <span class="price text-xl">$5,000+</span>
+            </div>
+            <div class="accent-line"></div>
+            <ul class="list-disc list-inside body-copy space-y-2 marker:text-[var(--gold)]">
+              <li>All Platinum-level benefits, including:</li>
+              <li class="ml-6">12 Priority Seating Tickets</li>
+              <li class="ml-6">Private meet-and-greet with cast for up to 12</li>
+              <li class="ml-6">Full-page, full-color ad in both event programs</li>
+              <li class="ml-6">Social media promotion</li>
+              <li class="ml-6">Digital signage on video board, 3 still slides per rotation</li>
+              <li class="ml-6">Digital A/V signage, two 30-second videos per rotation</li>
+              <li class="ml-6">Business name/logo featured on our webpage</li>
+              <li>PLUS:</li>
+              <li class="ml-6">Sponsor logo featured prominently on all marketing materials</li>
+              <li class="ml-6">Enhanced recognition in press, print, digital, and event promotions</li>
+            </ul>
+            <div class="mt-6 flex items-center gap-4 flex-wrap">
+              <a href="https://buy.stripe.com/14A8wO44a2AW1Ynbcw6g807" target="_blank" rel="noopener noreferrer" class="gold-button inline-block font-bold py-3 px-5 text-sm">Become a Diamond Sponsor Online</a>
+              <button type="button" class="learn-more-btn outline-button inline-block font-bold py-3 px-5 text-sm">Learn More</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="payment-card mt-12 text-center p-6 max-w-2xl mx-auto">
+          <h3 class="font-cinzel text-xl text-[var(--soft-gold)]">Checks payable to The Kirtland Heritage Group</h3>
+        </section>
+      </div>
+    </main>
+
+    <div id="learn-more-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center hidden">
+      <div class="modal-card p-8 max-w-md w-full mx-4 relative">
+        <button id="close-modal-btn" class="close-button absolute top-2 right-4 text-3xl font-bold" aria-label="Close modal">&times;</button>
+        <div id="modal-form-content">
+          <h3 class="font-cinzel text-2xl text-[var(--soft-gold)] mb-6 text-center">Learn More About Sponsorship</h3>
+          <form action="https://docs.google.com/forms/d/e/1FAIpQLSeMawM8IwkTHaAFBbUu9zT7M0I8yIBmSg7Zy13EJe3XnZBoPg/formResponse" method="POST" target="hidden_iframe_sponsor" id="sponsor-info-form" class="space-y-4">
+            <div>
+              <label for="sponsorFullName" class="block text-sm font-medium text-[var(--warm-gray)]">Full Name</label>
+              <input type="text" name="entry.1602168702" id="sponsorFullName" required class="gold-input mt-1 block w-full shadow-sm py-2 px-3">
+            </div>
+            <div>
+              <label for="sponsorPhone" class="block text-sm font-medium text-[var(--warm-gray)]">Phone Number</label>
+              <input type="tel" name="entry.1385661073" id="sponsorPhone" required class="gold-input mt-1 block w-full shadow-sm py-2 px-3">
+            </div>
+            <div>
+              <label for="sponsorEmail" class="block text-sm font-medium text-[var(--warm-gray)]">Email Address</label>
+              <input type="email" name="entry.41308794" id="sponsorEmail" required class="gold-input mt-1 block w-full shadow-sm py-2 px-3">
+            </div>
+            <div class="pt-4 text-center">
+              <button type="submit" class="gold-button w-full font-bold py-3 px-4 duration-300">Submit Request</button>
+            </div>
+          </form>
+        </div>
+        <div id="modal-thank-you" class="hidden text-center thank-you-box p-5">
+          <h4 class="font-cinzel text-2xl text-[var(--soft-gold)]">Thank You!</h4>
+          <p class="body-copy mt-2">We've received your request and will be in touch soon.</p>
+        </div>
+        <iframe name="hidden_iframe_sponsor" id="hidden_iframe_sponsor" style="display:none;"></iframe>
+      </div>
+    </div>
+
+    <footer class="text-center py-6 text-[var(--warm-gray)] text-sm">
+      <p>&copy; 2025 Kirtland Heritage Group. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const learnMoreModal = document.getElementById('learn-more-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
+    const modalFormContent = document.getElementById('modal-form-content');
+    const modalThankYou = document.getElementById('modal-thank-you');
+    const sponsorInfoForm = document.getElementById('sponsor-info-form');
+    const hiddenIframeSponsor = document.getElementById('hidden_iframe_sponsor');
+    let sponsorFormSubmitted = false;
+
+    const openModal = () => {
+      learnMoreModal.classList.remove('hidden');
+    };
+
+    const closeModal = () => {
+      learnMoreModal.classList.add('hidden');
+      modalFormContent.style.display = 'block';
+      modalThankYou.classList.add('hidden');
+      sponsorInfoForm.reset();
+    };
+
+    learnMoreBtns.forEach(btn => {
+      btn.addEventListener('click', openModal);
+    });
+
+    closeModalBtn.addEventListener('click', closeModal);
+
+    learnMoreModal.addEventListener('click', (event) => {
+      if (event.target === learnMoreModal) {
+        closeModal();
+      }
+    });
+
+    sponsorInfoForm.addEventListener('submit', () => {
+      sponsorFormSubmitted = true;
+    });
+
+    hiddenIframeSponsor.onload = function() {
+      if (sponsorFormSubmitted) {
+        modalFormContent.style.display = 'none';
+        modalThankYou.classList.remove('hidden');
+        sponsorFormSubmitted = false;
+      }
+    };
+  </script>
+</body>
+</html>
