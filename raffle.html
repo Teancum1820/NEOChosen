@@ -268,9 +268,64 @@
         letter-spacing: 0.28em;
       }
     }
-  </style>
+  
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(10, 8, 6, 0.92);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.35);
+            backdrop-filter: blur(6px);
+        }
+
+        .site-nav a {
+            color: #f5efe0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            padding: 0.35rem 0.6rem;
+            border: 1px solid transparent;
+        }
+
+        .site-nav a:hover,
+        .site-nav a:focus-visible {
+            border-color: rgba(201, 168, 76, 0.55);
+            color: #e8c97a;
+            outline: none;
+        }
+
+        .site-footer {
+            margin-top: 2rem;
+            padding: 1.25rem 1rem 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            color: rgba(245, 239, 224, 0.85);
+            border-top: 1px solid rgba(201, 168, 76, 0.35);
+            background: rgba(10, 8, 6, 0.92);
+        }
+
+    </style>
 </head>
 <body>
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="home.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="sponsorship-opportunities.html">Sponsorship</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="donations.html">Donations</a>
+        <a href="raffle.html">Raffle</a>
+        <a href="social-media-links.html">Social Media</a>
+        <a href="thank-you.html">Thank You</a>
+    </nav>
+
 
 
   <main class="page">
@@ -341,5 +396,8 @@
       </section>
     </section>
   </main>
+
+    <footer class="site-footer">2026 Kirtland Heritage Group</footer>
+
 </body>
 </html>
