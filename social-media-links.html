@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Links | Kirtland Heritage Group</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #050505;
+      --charcoal: #11100d;
+      --deep-brown: #19140d;
+      --gold: #d7b956;
+      --soft-gold: #f1dc88;
+      --muted-gold: #8f7830;
+      --cream: #f5efd8;
+      --warm-gray: #b7ad97;
+      --line: rgba(215, 185, 86, 0.32);
+      --panel: rgba(12, 11, 9, 0.86);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 78% 8%, rgba(215, 185, 86, 0.15), transparent 26%),
+        radial-gradient(circle at 20% 22%, rgba(111, 82, 25, 0.22), transparent 30%),
+        linear-gradient(135deg, #060606 0%, #0d0b08 45%, #191207 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 64px 64px;
+      opacity: 0.16;
+      mix-blend-mode: screen;
+      z-index: 0;
+    }
+
+    body::after {
+      content: 'FOLLOW US';
+      position: fixed;
+      left: -4vw;
+      top: 2vh;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(80px, 16vw, 220px);
+      letter-spacing: 0.04em;
+      color: rgba(215, 185, 86, 0.055);
+      line-height: 0.85;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .glassmorphism {
+      position: relative;
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+      border-radius: 0;
+    }
+
+    .glassmorphism::before,
+    .social-card::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(215, 185, 86, 0.14);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      color: var(--soft-gold);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 32px rgba(215, 185, 86, 0.22);
+    }
+
+    .hero-subtitle {
+      color: var(--warm-gray);
+      letter-spacing: 0.08em;
+    }
+
+    .divider-line {
+      width: 1px;
+      height: 54px;
+      background: linear-gradient(transparent, var(--gold), transparent);
+      margin: 28px auto 0;
+      opacity: 0.75;
+    }
+
+    .social-card {
+      position: relative;
+      background: rgba(0, 0, 0, 0.34);
+      border: 1px solid rgba(215, 185, 86, 0.24);
+      border-radius: 0;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+      color: var(--cream);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .social-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(241, 220, 136, 0.65);
+      background: rgba(215, 185, 86, 0.08);
+      box-shadow: 0 22px 56px rgba(0, 0, 0, 0.48), 0 0 28px rgba(215, 185, 86, 0.16);
+    }
+
+    .social-icon {
+      color: var(--soft-gold);
+      filter: drop-shadow(0 0 14px rgba(215, 185, 86, 0.18));
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .social-card:hover .social-icon {
+      color: var(--gold);
+      transform: scale(1.04);
+    }
+
+    .social-label {
+      color: var(--cream);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      transition: color 0.25s ease;
+    }
+
+    .social-card:hover .social-label {
+      color: var(--soft-gold);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+  <div class="page-shell flex flex-col min-h-screen">
+    <main class="container mx-auto px-6 py-12 md:py-24 flex flex-grow items-center justify-center">
+      <section class="glassmorphism p-8 md:p-12 w-full max-w-2xl mx-auto">
+        <header class="text-center mb-10">
+          <p class="font-cinzel text-xs md:text-sm uppercase tracking-[0.55em] text-[var(--gold)] mb-5">Kirtland Heritage Group</p>
+          <h1 class="font-cinzel hero-title text-4xl md:text-5xl uppercase">Follow Us</h1>
+          <p class="hero-subtitle mt-4 text-lg uppercase">Stay connected and get the latest updates on our events and initiatives.</p>
+          <div class="divider-line"></div>
+        </header>
+
+        <div class="flex flex-col md:flex-row justify-center gap-8">
+          <a href="https://www.facebook.com/kirtland.heritage.group" target="_blank" rel="noopener noreferrer" class="social-card group flex flex-col items-center justify-center p-8">
+            <svg class="social-icon w-16 h-16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V21.88A9.962 9.962 0 0022 12z" clip-rule="evenodd" />
+            </svg>
+            <span class="social-label mt-4 font-cinzel text-xl">Facebook</span>
+          </a>
+
+          <a href="https://www.instagram.com/kirtland.heritage.group" target="_blank" rel="noopener noreferrer" class="social-card group flex flex-col items-center justify-center p-8">
+            <svg class="social-icon w-16 h-16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7.177a4.823 4.823 0 100 9.646 4.823 4.823 0 000-9.646zm0 7.78a2.953 2.953 0 110-5.906 2.953 2.953 0 010 5.906zM20.15 5.562a1.28 1.28 0 10-2.56 0 1.28 1.28 0 002.56 0z" clip-rule="evenodd" />
+            </svg>
+            <span class="social-label mt-4 font-cinzel text-xl">Instagram</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center py-6 text-[var(--warm-gray)] text-sm">
+      <p>&copy; 2025 Kirtland Heritage Group. All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
