@@ -262,7 +262,15 @@
             color: rgba(245, 239, 224, 0.6);
         }
 
-    </style>
+    
+
+    /* Global motion disabled per request */
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+</style>
 </head>
 <body class="flex flex-col min-h-screen">
     <nav class="site-nav" aria-label="Main navigation">
@@ -353,7 +361,7 @@
       const revealTargets = document.querySelectorAll('main section, .content-card, .glassmorphism, .action-card, .contact-card, .card, .panel, footer');
       revealTargets.forEach((el, index) => {
         el.classList.add('reveal-on-scroll');
-        el.style.transitionDelay = `${Math.min(index * 60, 320)}ms`;
+        el.style.transitionDelay = '0ms';
       });
 
       const liftTargets = document.querySelectorAll('a.btn, button, .action-card, .content-card, .card, .panel');
