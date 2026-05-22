@@ -1,14 +1,14 @@
 const CACHE_NAME = 'neochosen-v2';
 const OFFLINE_URLS = [
   '/',
-  '/about-us',
-  '/donations',
-  '/get-involved',
-  '/raffle',
-  '/social-media-links',
-  '/sponsors',
-  '/sponsorship-opportunities',
-  '/thank-you',
+  '/about-us/',
+  '/donations/',
+  '/get-involved/',
+  '/raffle/',
+  '/social-media-links/',
+  '/sponsors/',
+  '/sponsorship-opportunities/',
+  '/thank-you/',
   '/manifest.webmanifest',
   '/images/favicon.png',
   '/images/hero.png'
@@ -36,7 +36,7 @@ self.addEventListener('fetch', (event) => {
 
   if (requestUrl.origin === self.location.origin && pathname.endsWith('.html') && pathname !== '/index.html') {
     const cleanPath = pathname.replace(/\.html$/, '');
-    const cleanUrl = `${requestUrl.origin}${cleanPath}${requestUrl.search}${requestUrl.hash}`;
+    const cleanUrl = `${requestUrl.origin}${cleanPath}/${requestUrl.search}${requestUrl.hash}`;
     event.respondWith(Response.redirect(cleanUrl, 301));
     return;
   }
