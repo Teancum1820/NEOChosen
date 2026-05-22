@@ -166,14 +166,17 @@
         }
 
         .hero-cta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.9rem;
             opacity: 0;
             animation: fadeUp 1s 1.2s forwards;
         }
 
-        .btn-primary {
+        .btn-primary,
+        .btn-secondary {
             display: inline-block;
-            background: linear-gradient(135deg, var(--gold) 0%, #a87c28 100%);
-            color: var(--dark);
             font-family: 'Cinzel', serif;
             font-size: 0.75rem;
             font-weight: 700;
@@ -181,7 +184,27 @@
             text-transform: uppercase;
             padding: 1rem 2.8rem;
             border-radius: 0;
+            text-decoration: none;
             clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, #a87c28 100%);
+            color: var(--dark);
+        }
+        .btn-secondary {
+            border: 1px solid rgba(201,168,76,0.6);
+            color: var(--cream);
+            background: rgba(10,8,6,0.35);
+        }
+        .btn-tertiary {
+            align-self: center;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-size: 0.7rem;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(201,168,76,0.5);
+            padding-bottom: 0.2rem;
         }
 
         .scroll-indicator {
@@ -828,7 +851,7 @@
 
         .site-nav-links {
             display: none;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 0.45rem;
             margin-top: 0.55rem;
         }
@@ -908,14 +931,11 @@
     <nav class="site-nav" aria-label="Main navigation">
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
         <div class="site-nav-links" id="primary-nav">
-        <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/get-involved">Get Involved</a>
-        <a href="/sponsorship-opportunities">Sponsorship</a>
-        <a href="/sponsors">Sponsors</a>
-        <a href="/donations">Donations</a>
+        <a href="#events">Events</a>
         <a href="/raffle">Raffle</a>
-        <a href="/social-media-links">Social Media</a>
+        <a href="/sponsorship-opportunities">Sponsor</a>
+        <a href="/donations">Donate</a>
+        <a href="#get-updates">Get Updates</a>
         </div>
     </nav>
 
@@ -934,6 +954,7 @@
             <em>The Chosen</em>
         </h1>
         <p class="hero-subtitle">A Weekend of Music, Faith &amp; Inspiration</p>
+        <p class="section-intro" style="margin-bottom:2.2rem;">A three-day Northeast Ohio weekend featuring live music, faith-centered experiences, meet &amp; greets, a VIP dinner, and community fundraising in support of the Kirtland Heritage Group.</p>
 
         <div class="hero-dates">
             <div class="date-pill">Friday, Nov 13 · Lakewood, OH</div>
@@ -942,7 +963,9 @@
         </div>
 
         <div class="hero-cta">
-            <span class="btn-primary">Ticket Info Coming Soon</span>
+            <a class="btn-primary" href="#get-updates">Get Event Updates</a>
+            <a class="btn-secondary" href="#events">View Weekend Schedule</a>
+            <a class="btn-tertiary" href="/get-involved">Support the Event</a>
         </div>
     </div>
 
@@ -979,7 +1002,7 @@
                                 <span class="event-type-badge">Exclusive Dinner</span>
                                 <button onclick="openTicketModal()" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Ticket Information
+                                    Get Updates for This Event
                                 </button>
                             </div>
                         </div>
@@ -997,7 +1020,7 @@
                                 <span class="event-type-badge">Concert &amp; Devotional</span>
                                 <button onclick="openTicketModal()" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Ticket Information
+                                    Get Updates for This Event
                                 </button>
                             </div>
                         </div>
@@ -1026,7 +1049,7 @@
                                 <span class="event-type-badge">Concert &amp; Devotional</span>
                                 <button onclick="openTicketModal()" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Ticket Information
+                                    Get Updates for This Event
                                 </button>
                             </div>
                         </div>
@@ -1043,7 +1066,7 @@
                                 <span class="event-type-badge">Meet &amp; Greet</span>
                                 <button onclick="openTicketModal()" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Ticket Information
+                                    Get Updates for This Event
                                 </button>
                             </div>
                         </div>
@@ -1071,7 +1094,7 @@
                                 <span class="event-type-badge">Willoughby, Ohio</span>
                                 <button onclick="openTicketModal()" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Ticket Information
+                                    Get Updates for This Event
                                 </button>
                             </div>
                         </div>
@@ -1172,7 +1195,7 @@
 
 
 <!-- FRIENDS SUBSCRIBE FORM -->
-<div class="friend-form-section">
+<div class="friend-form-section" id="get-updates">
     <div class="friend-form-container reveal">
         <h2>Become a Friend of <span>NEOChosen</span></h2>
         <p class="friend-form-subtitle">Just add your email and hit subscribe to stay informed.</p>
@@ -1190,6 +1213,12 @@
 <footer>
     <p class="footer-logo">Kirtland Heritage Group</p>
     <p>A 501(c)(3) nonprofit dedicated to uniting neighbors in faith &amp; fellowship.</p>
+    <p style="margin-top:0.75rem;">
+        <a href="/about-us" style="color:rgba(245,239,224,0.75);">About</a> ·
+        <a href="/sponsors" style="color:rgba(245,239,224,0.75);">Sponsors</a> ·
+        <a href="/social-media-links" style="color:rgba(245,239,224,0.75);">Social Media</a> ·
+        <a href="https://www.kirtlandheritagegroup.com/" style="color:rgba(245,239,224,0.75);">Kirtland Heritage Group</a>
+    </p>
     <p style="margin-top:0.5rem;">&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
 </footer>
 
