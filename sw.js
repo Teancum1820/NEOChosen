@@ -1,15 +1,15 @@
 const CACHE_NAME = 'neochosen-v1';
 const OFFLINE_URLS = [
   '/',
-  '/index.html',
-  '/about-us.html',
-  '/donations.html',
-  '/get-involved.html',
-  '/raffle.html',
-  '/social-media-links.html',
-  '/sponsors.html',
-  '/sponsorship-opportunities.html',
-  '/thank-you.html',
+  '/',
+  '/about-us',
+  '/donations',
+  '/get-involved',
+  '/raffle',
+  '/social-media-links',
+  '/sponsors',
+  '/sponsorship-opportunities',
+  '/thank-you',
   '/manifest.webmanifest',
   '/images/favicon.png',
   '/images/hero.png'
@@ -43,7 +43,7 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         })
-        .catch(() => caches.match('/index.html'));
+        .catch(() => caches.match('/'));
     })
   );
 });
