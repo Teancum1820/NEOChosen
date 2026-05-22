@@ -34,7 +34,7 @@
         radial-gradient(circle at 78% 8%, rgba(215, 185, 86, 0.15), transparent 26%),
         radial-gradient(circle at 20% 22%, rgba(111, 82, 25, 0.22), transparent 30%),
         linear-gradient(135deg, #060606 0%, #0d0b08 45%, #191207 100%);
-      background-attachment: fixed;
+      background-attachment: scroll;
       min-height: 100vh;
       line-height: 1.6;
     }
@@ -195,27 +195,48 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            justify-content: flex-start;
-            gap: 0.5rem;
             padding: 0.6rem 0.65rem;
             background: rgba(10, 8, 6, 0.92);
             border-bottom: 1px solid rgba(201, 168, 76, 0.35);
             backdrop-filter: blur(6px);
         }
 
+        .nav-toggle {
+            width: 100%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(201, 168, 76, 0.14);
+            color: #f5efe0;
+            border: 1px solid rgba(201, 168, 76, 0.45);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.68rem;
+            padding: 0.65rem 0.75rem;
+        }
+
+        .site-nav-links {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.45rem;
+            margin-top: 0.55rem;
+        }
+
+        .site-nav.is-open .site-nav-links {
+            display: grid;
+        }
+
         .site-nav a {
             white-space: nowrap;
-            flex: 0 0 auto;
             color: #f5efe0;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 0.04em;
-            padding: 0.3rem 0.5rem;
-            border: 1px solid transparent;
+            padding: 0.5rem 0.55rem;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            text-align: center;
+            background: rgba(0,0,0,0.25);
         }
 
         .site-nav a:hover,
@@ -226,10 +247,19 @@
         }
 
         @media (min-width: 768px) {
-            .site-nav {
+            .nav-toggle { display: none; }
+            .site-nav-links {
+                display: flex !important;
                 flex-wrap: wrap;
                 justify-content: center;
-                overflow-x: visible;
+                gap: 0.5rem;
+                margin-top: 0;
+            }
+
+            .site-nav a {
+                border: 1px solid transparent;
+                padding: 0.3rem 0.5rem;
+                background: transparent;
             }
         }
 
@@ -266,6 +296,8 @@
 </head>
 <body>
     <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <div class="site-nav-links" id="primary-nav">
         <a href="index.html">Home</a>
         <a href="about-us.html">About Us</a>
         <a href="get-involved.html">Get Involved</a>
@@ -274,6 +306,7 @@
         <a href="donations.html">Donations</a>
         <a href="raffle.html">Raffle</a>
         <a href="social-media-links.html">Social Media</a>
+        </div>
     </nav>
 
   <div class="page-shell">
@@ -442,5 +475,15 @@
     })();
   </script>
 
+<script>
+  document.querySelectorAll('.site-nav').forEach((nav) => {
+    const btn = nav.querySelector('.nav-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+</script>
 </body>
 </html>
