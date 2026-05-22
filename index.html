@@ -447,93 +447,7 @@
         }
 
         /* ── TICKET MODAL ── */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(10,8,6,0.85);
-            backdrop-filter: blur(6px);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .modal-overlay.open {
-            opacity: 1;
-            pointer-events: all;
-        }
-        .modal-box {
-            position: relative;
-            max-width: 420px;
-            width: 90%;
-            background: linear-gradient(135deg, #1a1610 0%, #0f0d0a 100%);
-            border: 1px solid rgba(201,168,76,0.35);
-            padding: 3rem 2.5rem 2.5rem;
-            text-align: center;
-            transform: translateY(20px) scale(0.97);
-            transition: transform 0.3s ease;
-        }
-        .modal-overlay.open .modal-box {
-            transform: translateY(0) scale(1);
-        }
-        .modal-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-        }
-        .modal-icon {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto 1.25rem;
-            border: 1px solid rgba(201,168,76,0.4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            color: var(--gold);
-        }
-        .modal-title {
-            font-family: 'Cinzel', serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.35em;
-            color: var(--gold);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-        .modal-message {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 300;
-            line-height: 1.4;
-            color: var(--cream);
-            margin-bottom: 0.75rem;
-        }
-        .modal-sub {
-            font-size: 0.82rem;
-            color: rgba(245,239,224,0.5);
-            font-weight: 300;
-            margin-bottom: 2rem;
-        }
-        .modal-close {
-            font-family: 'Cinzel', serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--dark);
-            background: linear-gradient(135deg, var(--gold) 0%, #a87c28 100%);
-            border: none;
-            padding: 0.75rem 2rem;
-            cursor: pointer;
-            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-            transition: filter 0.2s;
-        }
-        .modal-close:hover { filter: brightness(1.15); }
-
-        @media (max-width: 560px) {
+                @media (max-width: 560px) {
             .event-item {
                 grid-template-columns: 1fr;
                 gap: 0.4rem;
@@ -897,6 +811,22 @@
                 background: transparent;
             }
         }
+        .site-nav a.nav-ticket {
+            background: linear-gradient(135deg, var(--gold), #a87c28);
+            color: #0a0806;
+            border-color: rgba(0,0,0,0.15);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .site-nav a.nav-ticket:hover,
+        .site-nav a.nav-ticket:focus-visible {
+            color: #0a0806;
+            border-color: rgba(0,0,0,0.25);
+            box-shadow: 0 8px 20px rgba(201,168,76,0.35);
+            transform: translateY(-1px);
+        }
+
 
         .site-footer {
             margin-top: 2rem;
@@ -943,6 +873,7 @@
         <a href="/donations/">Donations</a>
         <a href="/raffle/">Raffle</a>
         <a href="/social-media-links/">Social Media</a>
+        <a href="/raffle/#tickets" class="nav-ticket">🎟️ Get Tickets</a>
         </div>
     </nav>
 
@@ -1006,10 +937,10 @@
                             <p class="event-detail-venue">The Music Box Supper Club · 148 Main Ave, Cleveland, OH 44113</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Exclusive Dinner</span>
-                                <button onclick="openTicketModal()" class="ticket-link">
+                                <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
                                     Get Tickets
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1024,10 +955,10 @@
                             <p class="event-detail-venue">Lakewood Civic Auditorium · 14100 Franklin Blvd, Lakewood, OH 44107</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Concert &amp; Devotional</span>
-                                <button onclick="openTicketModal()" class="ticket-link">
+                                <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
                                     Get Tickets
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1053,10 +984,10 @@
                             <p class="event-detail-venue">Akron Civic Theatre · 182 S Main Street, Akron, OH 44308</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Concert &amp; Devotional</span>
-                                <button onclick="openTicketModal()" class="ticket-link">
+                                <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
                                     Get Tickets
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1070,10 +1001,10 @@
                             <p class="event-detail-venue">St. Hilary Church · 2750 W Market St, Fairlawn, OH 44333</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Meet &amp; Greet</span>
-                                <button onclick="openTicketModal()" class="ticket-link">
+                                <a href="https://givebutter.com/meet-greet-experience-fairlawn-yshjnr" target="_blank" rel="noopener noreferrer" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
                                     Get Tickets
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1098,10 +1029,10 @@
                             <p class="event-detail-venue">Willoughby, Ohio</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Willoughby, Ohio</span>
-                                <button onclick="openTicketModal()" class="ticket-link">
+                                <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
                                     Get Tickets
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1182,26 +1113,8 @@
     <div class="reveal" style="display:grid; gap:0.7rem; max-width:900px; margin-inline:auto;">
         <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="kirtland-url">An Evening with The Chosen &amp; The Piano Guys — Lakewood Civic Auditorium</a>
         <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="kirtland-url">Chosen &amp; Piano Guys Meet &amp; Greet — Willoughby</a>
-        <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">Chosen &amp; Piano Guys Meet &amp; Greet Experience — Hudson</a>
+        <a href="https://givebutter.com/meet-greet-experience-fairlawn-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">Chosen &amp; Piano Guys Meet &amp; Greet Experience — Fairlawn</a>
         <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="kirtland-url">VIP Dinner with The Chosen &amp; Piano Guys</a>
-    </div>
-</div>
-
-<!-- TICKET MODAL -->
-<div class="modal-overlay" id="ticketModal" onclick="handleOverlayClick(event)">
-    <div class="modal-box">
-        <div class="modal-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 5v2M15 11v2M15 17v2M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4V7a2 2 0 0 1 2-2z"/>
-            </svg>
-        </div>
-        <p class="modal-title">Tickets</p>
-        <p class="modal-message">Tickets are now available for select events:</p>
-        <p class="modal-sub"><a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light);">An Evening with The Chosen &amp; The Piano Guys — Lakewood Civic Auditorium</a></p>
-        <p class="modal-sub"><a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light);">Chosen &amp; Piano Guys Meet &amp; Greet — Willoughby</a></p>
-        <p class="modal-sub"><a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light);">Chosen &amp; Piano Guys Meet &amp; Greet Experience — Hudson</a></p>
-        <p class="modal-sub"><a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light);">VIP Dinner with The Chosen &amp; Piano Guys</a></p>
-        <button class="modal-close" onclick="closeTicketModal()">Close</button>
     </div>
 </div>
 
@@ -1286,20 +1199,6 @@
             });
         });
     }
-
-    // Ticket modal
-    function openTicketModal() {
-        document.getElementById('ticketModal').classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeTicketModal() {
-        document.getElementById('ticketModal').classList.remove('open');
-        document.body.style.overflow = '';
-    }
-    function handleOverlayClick(e) {
-        if (e.target === document.getElementById('ticketModal')) closeTicketModal();
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTicketModal(); });
 
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
@@ -1470,7 +1369,6 @@
     .btn-primary,
     .btn-secondary,
     .friend-submit-btn,
-    .modal-close,
     .ticket-link,
     .kirtland-url {
       transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
@@ -1479,7 +1377,6 @@
     .btn-primary:hover,
     .btn-secondary:hover,
     .friend-submit-btn:hover,
-    .modal-close:hover,
     .ticket-link:hover,
     .kirtland-url:hover {
       transform: translateY(-2px);
@@ -1523,8 +1420,7 @@
       .btn-primary,
       .btn-secondary,
       .friend-submit-btn,
-      .modal-close,
-      .ticket-link,
+        .ticket-link,
       .kirtland-url {
         transition: none !important;
       }
@@ -1532,8 +1428,7 @@
       .btn-primary:hover,
       .btn-secondary:hover,
       .friend-submit-btn:hover,
-      .modal-close:hover,
-      .ticket-link:hover,
+        .ticket-link:hover,
       .kirtland-url:hover { transform: none !important; }
     }
   </style>
