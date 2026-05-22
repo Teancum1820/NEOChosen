@@ -80,6 +80,9 @@
     .page-shell {
       position: relative;
       z-index: 1;
+      width: min(1200px, 100% - 2rem);
+      margin-inline: auto;
+      padding-bottom: 2rem;
     }
 
     .glassmorphism {
@@ -276,7 +279,7 @@
 
         .site-nav-links {
             display: none;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 0.45rem;
             margin-top: 0.55rem;
         }
@@ -289,7 +292,7 @@
             white-space: nowrap;
             color: #f5efe0;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.86rem;
             letter-spacing: 0.04em;
             padding: 0.5rem 0.55rem;
             border: 1px solid rgba(201, 168, 76, 0.2);
@@ -351,13 +354,6 @@
         }
 
     
-
-    /* Global motion disabled per request */
-    *, *::before, *::after {
-      animation: none !important;
-      transition: none !important;
-      scroll-behavior: auto !important;
-    }
 </style>
 </head>
 <body>
@@ -579,5 +575,131 @@
   });
 </script>
 <script src="pwa-register.js" defer></script>
+
+  <style>
+    /* Professional UI polish pack */
+    :root {
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-soft: 0 12px 30px rgba(0,0,0,.28);
+      --shadow-strong: 0 20px 48px rgba(0,0,0,.36);
+      --surface-glass: rgba(255,255,255,.03);
+    }
+
+    body {
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .site-nav {
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+    }
+
+    .site-nav a {
+      border-radius: var(--radius-sm);
+      transition: transform .2s ease, border-color .2s ease, background-color .2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(201,168,76,.08);
+    }
+
+    section,
+    .content-card,
+    .glassmorphism,
+    .day-block,
+    .action-card,
+    .contact-card,
+    .performer-card,
+    .cta-band,
+    .friend-form-container {
+      border-radius: var(--radius-md);
+    }
+
+    .day-block,
+    .content-card,
+    .glassmorphism,
+    .action-card,
+    .contact-card,
+    .friend-form-container {
+      box-shadow: var(--shadow-soft);
+      background-image: linear-gradient(180deg, rgba(255,255,255,.02), transparent 45%);
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .friend-submit-btn,
+    .modal-close,
+    .ticket-link,
+    .kirtland-url {
+      transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .friend-submit-btn:hover,
+    .modal-close:hover,
+    .ticket-link:hover,
+    .kirtland-url:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    input, textarea, select, button {
+      border-radius: var(--radius-sm);
+    }
+
+    .friend-email-input:focus,
+    input:focus,
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid rgba(241,220,136,.7);
+      outline-offset: 2px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 767px) {
+      body { line-height: 1.65; }
+      .site-nav { padding: .7rem; }
+      section { padding-left: 1rem !important; padding-right: 1rem !important; }
+      .hero-content,
+      .friend-form-container,
+      .content-card,
+      .glassmorphism { padding-left: 1rem; padding-right: 1rem; }
+    }
+
+    @media (min-width: 1200px) {
+      section { max-width: 1180px; }
+      .site-nav-links { gap: .7rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-nav a,
+      .btn-primary,
+      .btn-secondary,
+      .friend-submit-btn,
+      .modal-close,
+      .ticket-link,
+      .kirtland-url {
+        transition: none !important;
+      }
+      .site-nav a:hover,
+      .btn-primary:hover,
+      .btn-secondary:hover,
+      .friend-submit-btn:hover,
+      .modal-close:hover,
+      .ticket-link:hover,
+      .kirtland-url:hover { transform: none !important; }
+    }
+  </style>
+
 </body>
 </html>
