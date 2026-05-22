@@ -1,0 +1,22 @@
+{
+  "name": "An Unforgettable Weekend",
+  "short_name": "Unforgettable",
+  "description": "Event site for The Piano Guys & The Chosen weekend.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0806",
+  "theme_color": "#0a0806",
+  "icons": [
+    {
+      "src": "images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
