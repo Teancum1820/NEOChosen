@@ -1,6 +1,5 @@
-const CACHE_NAME = 'neochosen-v1';
+const CACHE_NAME = 'neochosen-v2';
 const OFFLINE_URLS = [
-  '/',
   '/',
   '/about-us',
   '/donations',
@@ -31,6 +30,16 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+
+  const requestUrl = new URL(event.request.url);
+  const pathname = requestUrl.pathname;
+
+  if (requestUrl.origin === self.location.origin && pathname.endsWith('.html') && pathname !== '/index.html') {
+    const cleanPath = pathname.replace(/\.html$/, '');
+    const cleanUrl = `${requestUrl.origin}${cleanPath}${requestUrl.search}${requestUrl.hash}`;
+    event.respondWith(Response.redirect(cleanUrl, 301));
+    return;
+  }
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
