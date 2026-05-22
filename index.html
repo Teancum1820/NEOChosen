@@ -925,7 +925,15 @@
             color: rgba(245, 239, 224, 0.6);
         }
 
-    </style>
+    
+
+    /* Global motion disabled per request */
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+</style>
 </head>
 <body>
     <nav class="site-nav" aria-label="Main navigation">
@@ -1316,8 +1324,8 @@
         p.className = 'particle';
         p.style.left = Math.random() * 100 + '%';
         p.style.width = p.style.height = (Math.random() * 2 + 1) + 'px';
-        p.style.animationDuration = (Math.random() * 15 + 10) + 's';
-        p.style.animationDelay = (Math.random() * 12) + 's';
+        p.style.animationDuration = '0s';
+        p.style.animationDelay = '0s';
         p.style.opacity = Math.random() * 0.5;
         container.appendChild(p);
     }
@@ -1368,7 +1376,7 @@
       const revealTargets = document.querySelectorAll('main section, .content-card, .glassmorphism, .action-card, .contact-card, .card, .panel, footer');
       revealTargets.forEach((el, index) => {
         el.classList.add('reveal-on-scroll');
-        el.style.transitionDelay = `${Math.min(index * 60, 320)}ms`;
+        el.style.transitionDelay = '0ms';
       });
 
       const liftTargets = document.querySelectorAll('a.btn, button, .action-card, .content-card, .card, .panel');
