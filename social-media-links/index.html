@@ -213,6 +213,7 @@
             background: rgba(0,0,0,0.25);
         }
 
+        .site-nav a[aria-current="page"],
         .site-nav a:hover,
         .site-nav a:focus-visible,
         .nav-dropdown-toggle:hover,
@@ -258,16 +259,25 @@
         }
         .nav-dropdown-menu {
             display: none;
-            position: absolute;
-            top: calc(100% + 0.25rem);
+            position: static;
+            margin-top: 0.35rem;
             left: 0;
             min-width: 200px;
             background: rgba(10, 8, 6, 0.96);
             border: 1px solid rgba(201, 168, 76, 0.35);
             z-index: 10;
         }
-        .nav-dropdown.is-open .nav-dropdown-menu { display: grid; }
+        .nav-dropdown.is-open .nav-dropdown-menu,
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu { display: grid; }
         .nav-dropdown-menu a { padding: 0.5rem 0.6rem; }
+        @media (min-width: 768px) {
+            .nav-dropdown-menu {
+                position: absolute;
+                top: 100%;
+                margin-top: 0;
+            }
+        }
         .nav-dropdown-toggle:hover,.nav-dropdown-toggle:focus-visible {border-color: rgba(201, 168, 76, 0.55);color: #e8c97a;outline:none;}
 
         .site-nav a.nav-ticket {
@@ -276,7 +286,6 @@
             border-color: rgba(0,0,0,0.15);
             font-weight: 700;
             letter-spacing: 0.08em;
-            cursor: pointer;
         }
 
         .site-nav a.nav-ticket:hover,
@@ -334,7 +343,7 @@
     <nav class="site-nav" aria-label="Main navigation">
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
         <div class="site-nav-links" id="primary-nav">
-        <a href="/" aria-current="page">Home</a>
+        <a href="/">Home</a>
         <a href="/about-us/">About Us</a>
         <a href="/get-involved/">Get Involved</a>
                 <a href="/media-kit/">Media Kit</a>
@@ -347,7 +356,7 @@
         </div>
         <a href="/donations/">Donations</a>
         <a href="/raffle/">Raffle</a>
-        <a href="/social-media-links/">Social Media</a>
+        <a href="/social-media-links/" aria-current="page">Social Media</a>
         <a href="/#tickets" class="nav-ticket">🎟️ Get Tickets</a>
         </div>
     </nav>
@@ -435,14 +444,24 @@
 <script>
   document.querySelectorAll('.site-nav').forEach((nav) => {
     const btn = nav.querySelector('.nav-toggle');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+
+    nav.querySelectorAll('.nav-dropdown-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const dropdown = toggle.closest('.nav-dropdown');
+        if (!dropdown) return;
+        const open = dropdown.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
     });
   });
 </script>
-<script src="pwa-register.js" defer></script>
+<script src="/pwa-register.js" defer></script>
 
   <style>
     /* Professional UI polish pack */
@@ -570,5 +589,54 @@
     }
   </style>
 
+<style>
+  .site-nav { padding: 0.6rem 0.65rem !important; }
+  .site-nav-links { align-items: center; gap: 0.5rem !important; }
+  .site-nav a,
+  .nav-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    line-height: 1.2 !important;
+    font-size: 0.86rem !important;
+    padding: 0.5rem 0.55rem !important;
+    border-radius: 10px;
+  }
+  .nav-dropdown-menu a { justify-content: flex-start; min-height: 2rem; }
+  .site-nav a.nav-ticket {
+    background: linear-gradient(135deg, var(--gold), #a87c28) !important;
+    color: #0a0806 !important;
+    border-color: rgba(0,0,0,0.15) !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+  .site-nav a.nav-ticket:hover,
+  .site-nav a.nav-ticket:focus-visible { color: #fff !important; }
+  .site-footer a {
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+  @media (min-width: 768px) {
+    .site-nav a,
+    .nav-dropdown-toggle { padding: 0.3rem 0.5rem !important; }
+  }
+</style>
+<style>
+  @media (min-width: 768px) {
+    .site-nav {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      height: 59px !important;
+      min-height: 59px !important;
+    }
+
+    .site-nav-links {
+      margin-top: 0 !important;
+    }
+  }
+</style>
 </body>
 </html>
