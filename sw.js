@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v2';
+const CACHE_NAME = 'neochosen-v3';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
@@ -8,6 +8,7 @@ const OFFLINE_URLS = [
   '/social-media-links/',
   '/sponsors/',
   '/sponsorship-opportunities/',
+  '/media-kit/',
   '/thank-you/',
   '/manifest.webmanifest',
   '/images/favicon.png',
@@ -21,9 +22,7 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
-    )
+    caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
   );
   self.clients.claim();
 });
@@ -42,17 +41,14 @@ self.addEventListener('fetch', (event) => {
   }
 
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(event.request)
-        .then((response) => {
-          const cloned = response.clone();
-          if (event.request.url.startsWith(self.location.origin)) {
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cloned));
-          }
-          return response;
-        })
-        .catch(() => caches.match('/'));
-    })
+    fetch(event.request, { cache: 'no-store' })
+      .then((response) => {
+        const cloned = response.clone();
+        if (event.request.url.startsWith(self.location.origin)) {
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cloned));
+        }
+        return response;
+      })
+      .catch(() => caches.match(event.request).then((cached) => cached || caches.match('/')))
   );
 });
