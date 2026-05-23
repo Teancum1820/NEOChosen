@@ -8,16 +8,22 @@
   <meta http-equiv="Expires" content="0">
   <title>Media Kit | Kirtland Heritage Group</title>
   <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Cinzel:wght@400;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; background: #0a0806; color: #f5efe0; margin: 0; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
-    h1 { margin-top: 0; }
+    :root { --gold:#c9a84c; --gold-light:#e8c97a; --cream:#f5efe0; --dark:#0a0806; }
+    *{box-sizing:border-box;}
+    body { font-family: 'Raleway', Arial, sans-serif; background: radial-gradient(circle at top, #18120b 0%, #0a0806 58%); color: var(--cream); margin: 0; }
+    .wrap { max-width: 1220px; margin: 0 auto; padding: 2.5rem 1rem 3rem; }
+    h1 { margin: 0 0 .8rem; font-family:'Cormorant Garamond',serif; font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--gold-light); }
+    p { color: rgba(245,239,224,.9); }
     a { color: #e8c97a; }
     .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-    .card { border: 1px solid rgba(201,168,76,.35); padding: 1rem; background: rgba(201,168,76,.08); }
-    .card h2 { font-size: 1rem; margin: 0 0 .75rem; }
+    .card { border: 1px solid rgba(201,168,76,.35); padding: 1rem; background: linear-gradient(180deg, rgba(201,168,76,.13) 0%, rgba(201,168,76,.05) 100%); }
+    .card h2 { font-size: 1.6rem; margin: 0 0 .75rem; font-family:'Cormorant Garamond',serif; color: var(--gold-light);} 
     .preview { width: 100%; height: auto; display: block; border: 1px solid rgba(201,168,76,.35); margin-bottom: .75rem; }
-    .download { display: inline-block; font-weight: 700; }
+    .download { display: inline-block; font-family:'Cinzel',serif; font-size:.9rem; text-transform:uppercase; letter-spacing:.08em; font-weight: 700; }
   </style>
 
   <style>
@@ -28,6 +34,10 @@
     .site-nav a,
         .nav-dropdown-toggle {white-space:nowrap;color:#f5efe0;text-decoration:none;font-size:.86rem;letter-spacing:.04em;padding:.5rem .55rem;border:1px solid rgba(201,168,76,.2);text-align:center;background:rgba(0,0,0,.25);}
     .site-nav a:hover,.site-nav a:focus-visible{border-color:rgba(201,168,76,.55);color:#e8c97a;outline:none;}
+    .nav-dropdown {position:relative;}
+    .nav-dropdown-menu {display:none;position:absolute;top:calc(100% + .25rem);left:0;min-width:200px;background:rgba(10,8,6,.96);border:1px solid rgba(201,168,76,.35);z-index:10;}
+    .nav-dropdown.is-open .nav-dropdown-menu{display:grid;}
+    .nav-dropdown-menu a{display:block;}
     @media (min-width:768px){.nav-toggle{display:none}.site-nav-links{display:flex!important;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:0}.site-nav a{border:1px solid transparent;padding:.3rem .5rem;background:transparent;}}
     .site-nav a.nav-ticket{background:linear-gradient(135deg,#d7b956,#a87c28);color:#0a0806;border-color:rgba(0,0,0,.15);font-weight:700;letter-spacing:.08em;}
     .site-nav a.nav-ticket:hover,.site-nav a.nav-ticket:focus-visible{color:#0a0806 !important;border-color:rgba(0,0,0,.25);box-shadow:none;transform:none;}
@@ -92,7 +102,7 @@
     <p><a href="/about-us/" style="color:rgba(245,239,224,0.75);">About</a> · <a href="/sponsors/" style="color:rgba(245,239,224,0.75);">Sponsors</a> · <a href="/social-media-links/" style="color:rgba(245,239,224,0.75);">Social Media</a> · <a href="https://www.kirtlandheritagegroup.com/" style="color:rgba(245,239,224,0.75);" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group</a></p>
     <p style="margin-top:0.5rem;">&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
   </footer>
-  <script>document.querySelectorAll('.site-nav .nav-toggle').forEach(btn=>btn.addEventListener('click',()=>{const nav=btn.closest('.site-nav');const ex=nav.classList.toggle('is-open');btn.setAttribute('aria-expanded',String(ex));}));</script>
+  <script>document.querySelectorAll('.site-nav').forEach(nav=>{const btn=nav.querySelector('.nav-toggle');if(btn){btn.addEventListener('click',()=>{const ex=nav.classList.toggle('is-open');btn.setAttribute('aria-expanded',String(ex));});}nav.querySelectorAll('.nav-dropdown-toggle').forEach(toggle=>{toggle.addEventListener('click',()=>{const dd=toggle.closest('.nav-dropdown');const ex=dd.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(ex));});});});</script>
 
 </body>
 </html>
