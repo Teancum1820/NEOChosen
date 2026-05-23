@@ -29,11 +29,16 @@
     .nav-toggle {background:transparent;color:#f5efe0;border:1px solid rgba(201,168,76,0.45);padding:.45rem .65rem;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;}
     .site-nav-links {display:none;grid-template-columns:1fr;gap:.45rem;margin-top:.55rem;}
     .site-nav.is-open .site-nav-links {display:grid;}
-    .site-nav a {white-space:nowrap;color:#f5efe0;text-decoration:none;font-size:.86rem;letter-spacing:.04em;padding:.5rem .55rem;border:1px solid rgba(201,168,76,.2);text-align:center;background:rgba(0,0,0,.25);}
+    .site-nav a,
+        .nav-dropdown-toggle {white-space:nowrap;color:#f5efe0;text-decoration:none;font-size:.86rem;letter-spacing:.04em;padding:.5rem .55rem;border:1px solid rgba(201,168,76,.2);text-align:center;background:rgba(0,0,0,.25);}
     .site-nav a:hover,.site-nav a:focus-visible{border-color:rgba(201,168,76,.55);color:#e8c97a;outline:none;}
+    .nav-dropdown {position:relative;}
+    .nav-dropdown-menu {display:none;position:absolute;top:calc(100% + .25rem);left:0;min-width:200px;background:rgba(10,8,6,.96);border:1px solid rgba(201,168,76,.35);z-index:10;}
+    .nav-dropdown.is-open .nav-dropdown-menu{display:grid;}
+    .nav-dropdown-menu a{display:block;}
     @media (min-width:768px){.nav-toggle{display:none}.site-nav-links{display:flex!important;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:0}.site-nav a{border:1px solid transparent;padding:.3rem .5rem;background:transparent;}}
     .site-nav a.nav-ticket{background:linear-gradient(135deg,#d7b956,#a87c28);color:#0a0806;border-color:rgba(0,0,0,.15);font-weight:700;letter-spacing:.08em;}
-    .site-nav a.nav-ticket:hover,.site-nav a.nav-ticket:focus-visible{color:#0a0806 !important;border-color:rgba(0,0,0,.25);box-shadow:0 8px 20px rgba(201,168,76,.35);transform:translateY(-1px);}
+    .site-nav a.nav-ticket:hover,.site-nav a.nav-ticket:focus-visible{color:#0a0806 !important;border-color:rgba(0,0,0,.25);box-shadow:none;transform:none;}
     .site-footer{margin-top:2rem;padding:2.5rem 1rem 2.75rem;text-align:center;background:#000;}
     .site-footer .footer-logo{font-family:"Cinzel",serif;letter-spacing:.35em;font-size:.75rem;text-transform:uppercase;color:#d7b956;margin-bottom:.9rem;}
     .site-footer p{margin:0;color:rgba(245,239,224,.65)} .site-footer p + p{margin-top:.45rem;}
@@ -46,24 +51,30 @@
   <nav class="site-nav" aria-label="Main navigation">
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
     <div class="site-nav-links" id="primary-nav">
-      <a href="/">Home</a><a href="/about-us/">About Us</a><a href="/get-involved/">Get Involved</a><a href="https://canva.link/37n8tsre03xs4b1" target="_blank" rel="noopener noreferrer">Media Kit</a><a href="/sponsors/">Our Sponsors</a><a href="/donations/">Donations</a><a href="/raffle/">Raffle</a><a href="/social-media-links/">Social Media</a><a href="/#tickets" class="nav-ticket">🎟️ Get Tickets</a>
+      <a href="/">Home</a><a href="/about-us/">About Us</a><a href="/get-involved/">Get Involved</a><a href="/media-kit/">Media Kit</a><div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Our Sponsors</button>
+            <div class="nav-dropdown-menu">
+                <a href="/sponsors/">Our Sponsors</a>
+                <a href="/sponsorship-opportunities/">Become a sponsor</a>
+            </div>
+        </div><a href="/donations/">Donations</a><a href="/raffle/">Raffle</a><a href="/social-media-links/">Social Media</a><a href="/#tickets" class="nav-ticket">🎟️ Get Tickets</a>
     </div>
   </nav>
 
   <main class="wrap">
     <h1>Become a Sponsor</h1>
     <p class="blurb">Our events rely on community-minded sponsors to keep cultural programming, family activities, and heritage education accessible and impactful. Sponsorship creates meaningful visibility for your organization while directly supporting event operations, outreach, and guest experiences. Explore the opportunities in the packet below and join us in making this year’s celebration even stronger.</p>
-    <img class="preview" src="/sponsorship-opportunities/2026%20SPONSORSHIP%20PACKET%20(Draft).png" alt="Preview of the 2026 Sponsorship Packet draft">
+    <img class="preview" style="max-width:min(560px,85%);" src="/sponsorship-opportunities/2026%20SPONSORSHIP%20PACKET%20(Draft).png" alt="Preview of the 2026 Sponsorship Packet draft">
     <a class="button" href="/sponsorship-opportunities/2026%20SPONSORSHIP%20PACKET%20(Draft).png" download>Sponsorship Packet</a>
   </main>
 
-  <footer class="site-footer">
+    <footer class="site-footer">
     <p class="footer-logo">Kirtland Heritage Group</p>
     <p>A 501(c)(3) nonprofit dedicated to uniting neighbors in faith &amp; fellowship.</p>
-    <p><a href="/about-us/">About</a> · <a href="/sponsors/">Sponsors</a> · <a href="/social-media-links/">Social Media</a> · <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group</a></p>
-    <p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
+    <p><a href="/about-us/" style="color:rgba(245,239,224,0.75);">About</a> · <a href="/sponsors/" style="color:rgba(245,239,224,0.75);">Sponsors</a> · <a href="/social-media-links/" style="color:rgba(245,239,224,0.75);">Social Media</a> · <a href="https://www.kirtlandheritagegroup.com/" style="color:rgba(245,239,224,0.75);" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group</a></p>
+    <p style="margin-top:0.5rem;">&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
   </footer>
-  <script>document.querySelectorAll('.site-nav .nav-toggle').forEach(btn=>btn.addEventListener('click',()=>{const nav=btn.closest('.site-nav');const ex=nav.classList.toggle('is-open');btn.setAttribute('aria-expanded',String(ex));}));</script>
+  <script>document.querySelectorAll('.site-nav').forEach(nav=>{const btn=nav.querySelector('.nav-toggle');if(btn){btn.addEventListener('click',()=>{const ex=nav.classList.toggle('is-open');btn.setAttribute('aria-expanded',String(ex));});}nav.querySelectorAll('.nav-dropdown-toggle').forEach(toggle=>{toggle.addEventListener('click',()=>{const dd=toggle.closest('.nav-dropdown');const ex=dd.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(ex));});});});</script>
 
 </body>
 </html>

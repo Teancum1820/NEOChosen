@@ -247,7 +247,7 @@
     }
 
     .gold-button:hover {
-      transform: translateY(-1px);
+      transform: none;
       filter: brightness(1.08);
     }
   
@@ -288,7 +288,8 @@
             display: grid;
         }
 
-        .site-nav a {
+        .site-nav a,
+        .nav-dropdown-toggle {
             white-space: nowrap;
             color: #f5efe0;
             text-decoration: none;
@@ -301,7 +302,9 @@
         }
 
         .site-nav a:hover,
-        .site-nav a:focus-visible {
+        .site-nav a:focus-visible,
+        .nav-dropdown-toggle:hover,
+        .nav-dropdown-toggle:focus-visible {
             border-color: rgba(201, 168, 76, 0.55);
             color: #e8c97a;
             outline: none;
@@ -317,12 +320,44 @@
                 margin-top: 0;
             }
 
-            .site-nav a {
+            .site-nav a,
+        .nav-dropdown-toggle {
                 border: 1px solid transparent;
                 padding: 0.3rem 0.5rem;
                 background: transparent;
             }
         }
+        
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown-toggle {
+            white-space: nowrap;
+            color: #f5efe0;
+            text-decoration: none;
+            font-size: 0.86rem;
+            letter-spacing: 0.04em;
+            padding: 0.5rem 0.55rem;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            text-align: center;
+            background: rgba(0,0,0,0.25);
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 0.25rem);
+            left: 0;
+            min-width: 200px;
+            background: rgba(10, 8, 6, 0.96);
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            z-index: 10;
+        }
+        .nav-dropdown.is-open .nav-dropdown-menu { display: grid; }
+        .nav-dropdown-menu a { padding: 0.5rem 0.6rem; }
+        .nav-dropdown-toggle:hover,.nav-dropdown-toggle:focus-visible {border-color: rgba(201, 168, 76, 0.55);color: #e8c97a;outline:none;}
+
         .site-nav a.nav-ticket {
             background: linear-gradient(135deg, var(--gold), #a87c28);
             color: #0a0806;
@@ -335,8 +370,8 @@
         .site-nav a.nav-ticket:focus-visible {
             color: #0a0806 !important;
             border-color: rgba(0,0,0,0.25);
-            box-shadow: 0 8px 20px rgba(201,168,76,0.35);
-            transform: translateY(-1px);
+            box-shadow: none;
+            transform: none;
         }
 
 
@@ -389,8 +424,14 @@
         <a href="/" aria-current="page">Home</a>
         <a href="/about-us/">About Us</a>
         <a href="/get-involved/">Get Involved</a>
-                <a href="https://canva.link/37n8tsre03xs4b1" target="_blank" rel="noopener noreferrer">Media Kit</a>
-        <a href="/sponsors/">Our Sponsors</a>
+                <a href="/media-kit/">Media Kit</a>
+        <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Our Sponsors</button>
+            <div class="nav-dropdown-menu">
+                <a href="/sponsors/">Our Sponsors</a>
+                <a href="/sponsorship-opportunities/">Become a sponsor</a>
+            </div>
+        </div>
         <a href="/donations/">Donations</a>
         <a href="/raffle/">Raffle</a>
         <a href="/social-media-links/">Social Media</a>
@@ -522,12 +563,12 @@
     </main>
   </div>
 
-    <footer class="site-footer">
-      <p class="footer-logo">Kirtland Heritage Group</p>
-      <p>A 501(c)(3) nonprofit dedicated to uniting neighbors in faith &amp; fellowship.</p>
-      <p><a href="/about-us/">About</a> · <a href="/sponsors/">Sponsors</a> · <a href="/social-media-links/">Social Media</a> · <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group</a></p>
-      <p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
-    </footer>
+      <footer class="site-footer">
+    <p class="footer-logo">Kirtland Heritage Group</p>
+    <p>A 501(c)(3) nonprofit dedicated to uniting neighbors in faith &amp; fellowship.</p>
+    <p><a href="/about-us/" style="color:rgba(245,239,224,0.75);">About</a> · <a href="/sponsors/" style="color:rgba(245,239,224,0.75);">Sponsors</a> · <a href="/social-media-links/" style="color:rgba(245,239,224,0.75);">Social Media</a> · <a href="https://www.kirtlandheritagegroup.com/" style="color:rgba(245,239,224,0.75);" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group</a></p>
+    <p style="margin-top:0.5rem;">&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
+  </footer>
 
 
   <style>
@@ -606,14 +647,15 @@
       box-shadow: 0 10px 24px rgba(0,0,0,.35);
     }
 
-    .site-nav a {
+    .site-nav a,
+        .nav-dropdown-toggle {
       border-radius: var(--radius-sm);
       transition: transform .2s ease, border-color .2s ease, background-color .2s ease;
     }
 
     .site-nav a:hover,
     .site-nav a:focus-visible {
-      transform: translateY(-1px);
+      transform: none;
       background: rgba(201,168,76,.08);
     }
 
