@@ -9,19 +9,49 @@
   <title>Media Kit | Kirtland Heritage Group</title>
   <link rel="icon" type="image/png" href="/images/favicon.png">
   <style>
-    body{font-family:Arial,sans-serif;background:#0a0806;color:#f5efe0;margin:0}
-    .wrap{max-width:900px;margin:0 auto;padding:2rem 1rem}
-    a{color:#e8c97a}
-    .card{border:1px solid rgba(201,168,76,.3);padding:1.5rem;background:rgba(201,168,76,.08)}
+    body { font-family: Arial, sans-serif; background: #0a0806; color: #f5efe0; margin: 0; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    h1 { margin-top: 0; }
+    a { color: #e8c97a; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card { border: 1px solid rgba(201,168,76,.35); padding: 1rem; background: rgba(201,168,76,.08); }
+    .card h2 { font-size: 1rem; margin: 0 0 .75rem; }
+    .preview { width: 100%; height: auto; display: block; border: 1px solid rgba(201,168,76,.35); margin-bottom: .75rem; }
+    .download { display: inline-block; font-weight: 700; }
   </style>
 </head>
 <body>
   <main class="wrap">
     <h1>Media Kit</h1>
-    <div class="card">
-      <p>This page is ready for media kit content. We can add downloadable assets, brand guidelines, and press resources here.</p>
-      <p><a href="/">Back to Home</a></p>
+    <p>Download and preview each media asset below.</p>
+    <div class="grid">
+      <article class="card">
+        <h2>Meet &amp; Greet</h2>
+        <img class="preview" src="/media-kit/Meet%20%26%20Greet.png" alt="Meet and Greet preview">
+        <a class="download" href="/media-kit/Meet%20%26%20Greet.png" download>Download PNG</a>
+      </article>
+      <article class="card">
+        <h2>Raffle Form</h2>
+        <img class="preview" src="/media-kit/Raffle%20Form.png" alt="Raffle form preview">
+        <a class="download" href="/media-kit/Raffle%20Form.png" download>Download PNG</a>
+      </article>
+      <article class="card">
+        <h2>Raffle</h2>
+        <img class="preview" src="/media-kit/Raffle.png" alt="Raffle preview">
+        <a class="download" href="/media-kit/Raffle.png" download>Download PNG</a>
+      </article>
+      <article class="card">
+        <h2>VIP Dinner</h2>
+        <img class="preview" src="/media-kit/VIP%20Dinner.png" alt="VIP Dinner preview">
+        <a class="download" href="/media-kit/VIP%20Dinner.png" download>Download PNG</a>
+      </article>
+      <article class="card">
+        <h2>Weekend Schedule</h2>
+        <img class="preview" src="/media-kit/Weekend%20Schedule.png" alt="Weekend schedule preview">
+        <a class="download" href="/media-kit/Weekend%20Schedule.png" download>Download PNG</a>
+      </article>
     </div>
+    <p style="margin-top:1.5rem;"><a href="/">Back to Home</a></p>
   </main>
 </body>
 </html>
