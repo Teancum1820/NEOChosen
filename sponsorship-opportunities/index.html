@@ -26,15 +26,16 @@
     .site-nav-links {display:none;grid-template-columns:1fr;gap:.45rem;margin-top:.55rem;}
     .site-nav.is-open .site-nav-links {display:grid;}
     .site-nav a,
-        .nav-dropdown-toggle {white-space:nowrap;color:#f5efe0;text-decoration:none;font-size:.86rem;letter-spacing:.04em;padding:.5rem .55rem;border:1px solid rgba(201,168,76,.2);text-align:center;background:rgba(0,0,0,.25);}
-    .site-nav a:hover,.site-nav a:focus-visible{border-color:rgba(201,168,76,.55);color:#e8c97a;outline:none;}
+    .nav-dropdown-toggle {white-space:nowrap;color:#f5efe0;text-decoration:none;font-size:.86rem;letter-spacing:.04em;padding:.5rem .55rem;border:1px solid rgba(201,168,76,.2);text-align:center;background:rgba(0,0,0,.25);}
+    .nav-dropdown-toggle{font-family:inherit;cursor:pointer;}
+    .site-nav a:hover,.site-nav a:focus-visible,.nav-dropdown-toggle:hover,.nav-dropdown-toggle:focus-visible{border-color:rgba(201,168,76,.55);color:#e8c97a;outline:none;}
     .nav-dropdown {position:relative;}
     .nav-dropdown-menu {display:none;position:absolute;top:calc(100% + .25rem);left:0;min-width:200px;background:rgba(10,8,6,.96);border:1px solid rgba(201,168,76,.35);z-index:10;}
     .nav-dropdown.is-open .nav-dropdown-menu{display:grid;}
     .nav-dropdown-menu a{display:block;}
-    @media (min-width:768px){.nav-toggle{display:none}.site-nav-links{display:flex!important;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:0}.site-nav a{border:1px solid transparent;padding:.3rem .5rem;background:transparent;}}
+    @media (min-width:768px){.nav-toggle{display:none}.site-nav-links{display:flex!important;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:0}.site-nav a,.nav-dropdown-toggle{border:1px solid transparent;padding:.3rem .5rem;background:transparent;}}
     .site-nav a.nav-ticket{background:linear-gradient(135deg,#d7b956,#a87c28);color:#0a0806;border-color:rgba(0,0,0,.15);font-weight:700;letter-spacing:.08em;}
-    .site-nav a.nav-ticket:hover,.site-nav a.nav-ticket:focus-visible{color:#0a0806 !important;border-color:rgba(0,0,0,.25);box-shadow:none;transform:none;}
+    .site-nav a.nav-ticket:hover,.site-nav a.nav-ticket:focus-visible{color:#0a0806 !important;border-color:rgba(0,0,0,.15);box-shadow:none;transform:none;}
     .site-footer{margin-top:2rem;padding:2.5rem 1rem 2.75rem;text-align:center;background:#000;}
     .site-footer .footer-logo{font-family:"Cinzel",serif;letter-spacing:.35em;font-size:.75rem;text-transform:uppercase;color:#d7b956;margin-bottom:.9rem;}
     .site-footer p{margin:0;color:rgba(245,239,224,.65)} .site-footer p + p{margin-top:.45rem;}
