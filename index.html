@@ -281,6 +281,12 @@
             text-align: center;
             margin-bottom: 1rem;
         }
+        .section-label.schedule-date-range {
+            font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+            letter-spacing: 0.18em;
+            color: var(--gold-light);
+            margin-bottom: 0.65rem;
+        }
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
@@ -344,7 +350,7 @@
         }
         .day-date {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.7rem, 3vw, 2.15rem);
             font-weight: 400;
             color: var(--cream);
         }
@@ -603,6 +609,43 @@
             transition: filter 0.3s, transform 0.3s;
         }
         .cta-band .kirtland-url:hover { filter: brightness(1.15); transform: translateY(-2px); }
+
+        .reserve-links {
+            display: grid;
+            gap: 0.75rem;
+            max-width: 900px;
+            margin-inline: auto;
+        }
+        .cta-band .reserve-links .kirtland-url {
+            display: grid;
+            gap: 0.25rem;
+            justify-items: center;
+            width: 100%;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+        }
+        .reserve-link-date {
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            color: rgba(10,8,6,0.72);
+        }
+        .reserve-link-title {
+            font-size: 0.92rem;
+            letter-spacing: 0.14em;
+        }
+        @media (max-width: 560px) {
+            .cta-band .reserve-links .kirtland-url {
+                padding: 0.95rem 1.1rem;
+            }
+            .reserve-link-date {
+                font-size: 0.68rem;
+                letter-spacing: 0.15em;
+            }
+            .reserve-link-title {
+                font-size: 0.82rem;
+                letter-spacing: 0.09em;
+            }
+        }
 
 
         /* ── FRIENDS SUBSCRIBE FORM ── */
@@ -1046,7 +1089,7 @@
 <!-- WEEKEND SCHEDULE -->
 <div class="strip" id="events">
     <section>
-        <p class="section-label reveal">November 13–15, 2026</p>
+        <p class="section-label schedule-date-range reveal">November 13&ndash;15, 2026</p>
         <h2 class="section-title reveal">Weekend <em>Schedule</em></h2>
         <p class="section-intro reveal">Three days of extraordinary experiences — exclusive dinners, intimate meet &amp; greets, and live concerts — across Northeast Ohio.</p>
 
@@ -1241,11 +1284,23 @@
 <div class="cta-band" id="tickets">
     <h2 class="reveal">Reserve Your Place</h2>
     <p class="reveal">Tickets are now available:</p>
-    <div class="reveal" style="display:grid; gap:0.7rem; max-width:900px; margin-inline:auto;">
-        <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="kirtland-url">An Evening with The Chosen &amp; The Piano Guys — Lakewood Civic Auditorium</a>
-        <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="kirtland-url">Chosen &amp; Piano Guys Meet &amp; Greet — Willoughby</a>
-        <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">Chosen &amp; Piano Guys Meet &amp; Greet Experience — Fairlawn</a>
-        <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="kirtland-url">VIP Dinner with The Chosen &amp; Piano Guys</a>
+    <div class="reserve-links reveal">
+        <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+            <span class="reserve-link-date">Friday, November 13</span>
+            <span class="reserve-link-title">An Evening with The Chosen &amp; The Piano Guys &mdash; Lakewood Civic Auditorium</span>
+        </a>
+        <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+            <span class="reserve-link-date">Sunday, November 15</span>
+            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet &mdash; Willoughby</span>
+        </a>
+        <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+            <span class="reserve-link-date">Saturday, November 14</span>
+            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet Experience &mdash; Fairlawn</span>
+        </a>
+        <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+            <span class="reserve-link-date">Friday, November 13</span>
+            <span class="reserve-link-title">VIP Dinner with The Chosen &amp; Piano Guys</span>
+        </a>
     </div>
 </div>
 
