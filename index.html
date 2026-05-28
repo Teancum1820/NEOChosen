@@ -698,6 +698,51 @@
             gap: 20px;
         }
 
+        #mc_embed_shell,
+        #mc_embed_signup,
+        #mc_embed_signup_scroll,
+        .friend-mailchimp-fields {
+            width: 100%;
+        }
+
+        .friend-mailchimp-fields {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #mc_embed_signup {
+            background: transparent;
+            color: var(--cream);
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .mc-field-group {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .mc-field-group label {
+            color: rgba(245,239,224,0.72);
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .indicates-required {
+            color: rgba(245,239,224,0.48);
+            font-size: 0.82rem;
+            margin-bottom: 1rem;
+        }
+
+        .asterisk {
+            color: var(--gold-light);
+        }
+
         .friend-email-input {
             width: 100%;
             max-width: 400px;
@@ -743,6 +788,33 @@
             cursor: not-allowed;
             background-color: transparent;
             color: var(--gold-light);
+        }
+
+        .mailchimp-responses {
+            width: 100%;
+        }
+
+        .mailchimp-response,
+        #statusMessage {
+            color: var(--gold-light);
+            margin-top: 25px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            font-size: 1.08rem;
+            letter-spacing: 0.5px;
+        }
+
+        #statusMessage {
+            display: none;
+        }
+
+        .mailchimp-response:empty {
+            display: none;
+        }
+
+        .mailchimp-honeypot {
+            position: absolute;
+            left: -5000px;
         }
 
         /* ── FOOTER ── */
@@ -1239,15 +1311,29 @@
         <h2>Become a Friend of <span>NEOChosen</span></h2>
         <p class="friend-form-subtitle">Just add your email and hit subscribe to stay informed.</p>
 
-        <form action="https://kirtlandheritagegroup.us7.list-manage.com/subscribe/post?u=9c0919ea1336a75758fa53aba&amp;id=bf9ddb2f74&amp;f_id=00a9a9e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="friend-form-group validate" target="_blank">
-            <input type="email" id="mce-EMAIL" name="EMAIL" class="friend-email-input required email" required placeholder="Enter your email address" autocomplete="email">
-            <input type="hidden" name="tags" value="3521272">
-            <div aria-hidden="true" style="position:absolute; left:-5000px;">
-                <input type="text" name="b_9c0919ea1336a75758fa53aba_bf9ddb2f74" tabindex="-1" value="">
+        <div id="mc_embed_shell">
+            <div id="mc_embed_signup">
+                <form action="https://kirtlandheritagegroup.us7.list-manage.com/subscribe/post?u=9c0919ea1336a75758fa53aba&amp;id=bf9ddb2f74&amp;f_id=00a9a9e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate friend-form-group" target="_blank">
+                    <div id="mc_embed_signup_scroll" class="friend-mailchimp-fields">
+                        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                        <div class="mc-field-group">
+                            <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                            <input type="email" name="EMAIL" class="required email friend-email-input" id="mce-EMAIL" required value="" placeholder="Enter your email address" autocomplete="email">
+                        </div>
+                        <div id="mce-responses" class="clear mailchimp-responses">
+                            <div class="response mailchimp-response" id="mce-error-response" style="display: none;"></div>
+                            <div class="response mailchimp-response" id="mce-success-response" style="display: none;"></div>
+                        </div>
+                        <div aria-hidden="true" class="mailchimp-honeypot">
+                            <input type="text" name="b_9c0919ea1336a75758fa53aba_bf9ddb2f74" tabindex="-1" value="">
+                        </div>
+                        <div class="clear">
+                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="friend-submit-btn button" value="Subscribe">
+                        </div>
+                    </div>
+                </form>
             </div>
-            <button type="submit" class="friend-submit-btn" id="mc-embedded-subscribe" name="subscribe">Subscribe</button>
-        </form>
-
+        </div>
     </div>
 </div>
 
@@ -1290,6 +1376,17 @@
         p.style.opacity = Math.random() * 0.5;
         container.appendChild(p);
     }
+    }
+</script>
+
+<script src="https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+<script>
+    window.fnames = [];
+    window.ftypes = [];
+    window.fnames[0] = 'EMAIL';
+    window.ftypes[0] = 'email';
+    if (window.jQuery) {
+        window.$mcj = window.jQuery.noConflict(true);
     }
 </script>
 
