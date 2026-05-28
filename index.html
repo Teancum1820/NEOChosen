@@ -281,6 +281,12 @@
             text-align: center;
             margin-bottom: 1rem;
         }
+        .section-label.schedule-date-range {
+            font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+            letter-spacing: 0.18em;
+            color: var(--gold-light);
+            margin-bottom: 0.65rem;
+        }
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
@@ -344,7 +350,7 @@
         }
         .day-date {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.7rem, 3vw, 2.15rem);
             font-weight: 400;
             color: var(--cream);
         }
@@ -604,6 +610,43 @@
         }
         .cta-band .kirtland-url:hover { filter: brightness(1.15); transform: translateY(-2px); }
 
+        .reserve-links {
+            display: grid;
+            gap: 0.75rem;
+            max-width: 900px;
+            margin-inline: auto;
+        }
+        .cta-band .reserve-links .kirtland-url {
+            display: grid;
+            gap: 0.25rem;
+            justify-items: center;
+            width: 100%;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+        }
+        .reserve-link-date {
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            color: rgba(10,8,6,0.72);
+        }
+        .reserve-link-title {
+            font-size: 0.92rem;
+            letter-spacing: 0.14em;
+        }
+        @media (max-width: 560px) {
+            .cta-band .reserve-links .kirtland-url {
+                padding: 0.95rem 1.1rem;
+            }
+            .reserve-link-date {
+                font-size: 0.68rem;
+                letter-spacing: 0.15em;
+            }
+            .reserve-link-title {
+                font-size: 0.82rem;
+                letter-spacing: 0.09em;
+            }
+        }
+
 
         /* ── FRIENDS SUBSCRIBE FORM ── */
         .friend-form-section {
@@ -700,16 +743,6 @@
             cursor: not-allowed;
             background-color: transparent;
             color: var(--gold-light);
-        }
-
-        #statusMessage {
-            color: var(--gold-light);
-            margin-top: 25px;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 300;
-            font-size: 1.08rem;
-            display: none;
-            letter-spacing: 0.5px;
         }
 
         /* ── FOOTER ── */
@@ -984,7 +1017,7 @@
 <!-- WEEKEND SCHEDULE -->
 <div class="strip" id="events">
     <section>
-        <p class="section-label reveal">November 13–15, 2026</p>
+        <p class="section-label schedule-date-range reveal">November 13&ndash;15, 2026</p>
         <h2 class="section-title reveal">Weekend <em>Schedule</em></h2>
         <p class="section-intro reveal">Three days of extraordinary experiences — exclusive dinners, intimate meet &amp; greets, and live concerts — across Northeast Ohio.</p>
 
@@ -1179,11 +1212,23 @@
 <div class="cta-band" id="tickets">
     <h2 class="reveal">Reserve Your Place</h2>
     <p class="reveal">Tickets are now available:</p>
-    <div class="reveal" style="display:grid; gap:0.7rem; max-width:900px; margin-inline:auto;">
-        <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="kirtland-url">An Evening with The Chosen &amp; The Piano Guys — Lakewood Civic Auditorium</a>
-        <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="kirtland-url">Chosen &amp; Piano Guys Meet &amp; Greet — Willoughby</a>
-        <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">Chosen &amp; Piano Guys Meet &amp; Greet Experience — Fairlawn</a>
-        <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="kirtland-url">VIP Dinner with The Chosen &amp; Piano Guys</a>
+    <div class="reserve-links reveal">
+        <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+            <span class="reserve-link-date">Friday, November 13</span>
+            <span class="reserve-link-title">An Evening with The Chosen &amp; The Piano Guys &mdash; Lakewood Civic Auditorium</span>
+        </a>
+        <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+            <span class="reserve-link-date">Sunday, November 15</span>
+            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet &mdash; Willoughby</span>
+        </a>
+        <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+            <span class="reserve-link-date">Saturday, November 14</span>
+            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet Experience &mdash; Fairlawn</span>
+        </a>
+        <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+            <span class="reserve-link-date">Friday, November 13</span>
+            <span class="reserve-link-title">VIP Dinner with The Chosen &amp; Piano Guys</span>
+        </a>
     </div>
 </div>
 
@@ -1194,12 +1239,15 @@
         <h2>Become a Friend of <span>NEOChosen</span></h2>
         <p class="friend-form-subtitle">Just add your email and hit subscribe to stay informed.</p>
 
-        <form id="festForm" class="friend-form-group">
-            <input type="email" id="email" name="email" class="friend-email-input" required placeholder="Enter your email address">
-            <button type="submit" class="friend-submit-btn" id="submitBtn">Subscribe</button>
+        <form action="https://kirtlandheritagegroup.us7.list-manage.com/subscribe/post?u=9c0919ea1336a75758fa53aba&amp;id=bf9ddb2f74&amp;f_id=00a9a9e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="friend-form-group validate" target="_blank">
+            <input type="email" id="mce-EMAIL" name="EMAIL" class="friend-email-input required email" required placeholder="Enter your email address" autocomplete="email">
+            <input type="hidden" name="tags" value="3521272">
+            <div aria-hidden="true" style="position:absolute; left:-5000px;">
+                <input type="text" name="b_9c0919ea1336a75758fa53aba_bf9ddb2f74" tabindex="-1" value="">
+            </div>
+            <button type="submit" class="friend-submit-btn" id="mc-embedded-subscribe" name="subscribe">Subscribe</button>
         </form>
 
-        <div id="statusMessage">Thank you for subscribing!</div>
     </div>
 </div>
 
@@ -1212,57 +1260,6 @@
 </footer>
 
 <script>
-
-    // Friends subscribe form
-    const friendFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSdAVNCYUjOIGanIEdaJ12TkVsxibfWS1uVHSqk4KzWZ3mAZ8Q/formResponse';
-    const friendEmailEntryID = 'entry.2145706275';
-
-    const friendForm = document.getElementById('festForm');
-    const friendSubmitBtn = document.getElementById('submitBtn');
-    const friendStatusMessage = document.getElementById('statusMessage');
-
-    if (friendForm) {
-        friendForm.addEventListener('submit', e => {
-            e.preventDefault();
-
-            friendSubmitBtn.textContent = 'SUBSCRIBING...';
-            friendSubmitBtn.disabled = true;
-
-            const userEmail = document.getElementById('email').value;
-
-            const formData = new URLSearchParams();
-            formData.append(friendEmailEntryID, userEmail);
-
-            fetch(friendFormURL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: formData
-            })
-            .then(() => {
-                friendForm.reset();
-                friendSubmitBtn.textContent = 'SUBSCRIBE';
-                friendSubmitBtn.disabled = false;
-                friendStatusMessage.style.display = 'block';
-                friendStatusMessage.style.color = 'var(--gold-light)';
-                friendStatusMessage.textContent = 'Thank you for subscribing!';
-
-                setTimeout(() => {
-                    friendStatusMessage.style.display = 'none';
-                }, 5000);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                friendSubmitBtn.textContent = 'SUBSCRIBE';
-                friendSubmitBtn.disabled = false;
-                friendStatusMessage.style.display = 'block';
-                friendStatusMessage.style.color = '#ff6b6b';
-                friendStatusMessage.textContent = 'Oops! Something went wrong.';
-            });
-        });
-    }
 
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
