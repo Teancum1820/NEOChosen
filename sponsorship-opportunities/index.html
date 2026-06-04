@@ -306,6 +306,16 @@
       padding: clamp(0.75rem, 2vw, 1.1rem);
     }
 
+    .packet-download-link {
+      display: block;
+      border-radius: var(--radius-sm);
+    }
+
+    .packet-download-link:focus-visible {
+      outline: 3px solid var(--soft-gold);
+      outline-offset: 5px;
+    }
+
     .packet-preview {
       display: block;
       width: 100%;
@@ -470,7 +480,9 @@
 
       <div class="sponsor-layout">
         <div class="content-card packet-frame">
-          <img class="packet-preview" src="/sponsorship-opportunities/2026%20SPONSORSHIP%20PACKET%20(Draft).png" alt="Preview of the 2026 Sponsorship Packet draft" loading="eager" decoding="async">
+          <a class="packet-download-link" href="/sponsorship-opportunities/2026%20SPONSORSHIP%20PACKET%20(Draft).png" download aria-label="Download the 2026 Sponsorship Packet">
+            <img class="packet-preview" src="/sponsorship-opportunities/2026%20SPONSORSHIP%20PACKET%20(Draft).png" alt="Preview of the 2026 Sponsorship Packet draft" loading="eager" decoding="async">
+          </a>
         </div>
 
         <aside class="content-card sponsor-copy">
