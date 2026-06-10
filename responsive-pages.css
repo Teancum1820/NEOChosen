@@ -375,3 +375,16 @@ li {
     padding: 0.95rem !important;
   }
 }
+
+/* Keep the desktop sponsor dropdown connected to its trigger. */
+@media (min-width: 768px) {
+  .nav-dropdown-menu {
+    top: calc(100% - 4px) !important;
+    margin-top: 0 !important;
+  }
+
+  .nav-dropdown-menu a {
+    min-height: 2.75rem !important;
+    padding: 0.65rem 0.8rem !important;
+  }
+}
