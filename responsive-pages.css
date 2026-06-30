@@ -313,6 +313,17 @@ li {
     gap: 0.35rem !important;
   }
 
+  .stripe-button-wrap {
+    justify-content: flex-start !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  stripe-buy-button {
+    max-width: 100% !important;
+  }
+
   .hero {
     padding: 4.5rem 1rem 3.5rem !important;
   }
