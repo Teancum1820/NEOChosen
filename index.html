@@ -609,7 +609,14 @@
             transition: filter 0.3s, transform 0.3s;
         }
         .cta-band .kirtland-url:hover { filter: brightness(1.15); transform: translateY(-2px); }
-
+        .cta-band .kirtland-url-secondary {
+            background: transparent;
+            color: var(--gold-light);
+            border: 1px solid rgba(201,168,76,0.52);
+        }
+        .cta-band .kirtland-url-secondary .reserve-link-date {
+            color: rgba(245,239,224,0.65);
+        }
         .reserve-links {
             display: grid;
             gap: 0.75rem;
@@ -1049,7 +1056,7 @@
         <a href="/donations/">Donations</a>
         <a href="/raffle/">Raffle</a>
         <a href="/social-media-links/">Social Media</a>
-        <a href="#tickets" class="nav-ticket">🎟️ Get Tickets</a>
+        <a href="#tickets" class="nav-ticket">Tickets Not Available Yet</a>
         </div>
     </nav>
 
@@ -1077,7 +1084,7 @@
         </div>
 
         <div class="hero-cta">
-            <a class="btn-primary" href="#tickets">Get Tickets</a>
+            <a class="btn-primary" href="#tickets">Tickets Not Available Yet</a>
             <a class="btn-secondary" href="#events">View Weekend Schedule</a>
         </div>
     </div>
@@ -1113,10 +1120,9 @@
                             <p class="event-detail-venue">The Music Box Supper Club · 148 Main Ave, Cleveland, OH 44113</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Exclusive Dinner</span>
-                                <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="ticket-link">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Get Tickets
-                                </a>
+                                <span class="ticket-link ticket-link-disabled">
+                                    Tickets Not Available Yet
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -1131,10 +1137,9 @@
                             <p class="event-detail-venue">Lakewood Civic Auditorium · 14100 Franklin Blvd, Lakewood, OH 44107</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Concert &amp; Devotional</span>
-                                <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="ticket-link">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Get Tickets
-                                </a>
+                                <span class="ticket-link ticket-link-disabled">
+                                    Tickets Not Available Yet
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -1161,7 +1166,7 @@
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Concert &amp; Devotional</span>
                                 <span class="ticket-link ticket-link-disabled">
-                                    Tickets Coming Soon for This Venue
+                                    Tickets Not Available Yet
                                 </span>
                             </div>
                         </div>
@@ -1176,10 +1181,9 @@
                             <p class="event-detail-venue">St. Hilary Church · 2750 W Market St, Fairlawn, OH 44333</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Meet &amp; Greet</span>
-                                <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="ticket-link">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Get Tickets
-                                </a>
+                                <span class="ticket-link ticket-link-disabled">
+                                    Tickets Not Available Yet
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -1204,10 +1208,9 @@
                             <p class="event-detail-venue">Willoughby, Ohio</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Willoughby, Ohio</span>
-                                <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="ticket-link">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Get Tickets
-                                </a>
+                                <span class="ticket-link ticket-link-disabled">
+                                    Tickets Not Available Yet
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -1283,24 +1286,12 @@
 
 <!-- CTA BAND -->
 <div class="cta-band" id="tickets">
-    <h2 class="reveal">Reserve Your Place</h2>
-    <p class="reveal">Tickets are now available:</p>
+    <h2 class="reveal">Tickets Are Not Available Yet</h2>
+    <p class="reveal">Tickets are not available yet. Please check back for updates.</p>
     <div class="reserve-links reveal">
-        <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="kirtland-url">
-            <span class="reserve-link-date">Friday, November 13</span>
-            <span class="reserve-link-title">An Evening with The Chosen &amp; The Piano Guys &mdash; Lakewood Civic Auditorium</span>
-        </a>
-        <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="kirtland-url">
-            <span class="reserve-link-date">Sunday, November 15</span>
-            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet &mdash; Willoughby</span>
-        </a>
-        <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">
-            <span class="reserve-link-date">Saturday, November 14</span>
-            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet Experience &mdash; Fairlawn</span>
-        </a>
-        <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="kirtland-url">
-            <span class="reserve-link-date">Friday, November 13</span>
-            <span class="reserve-link-title">VIP Dinner with The Chosen &amp; Piano Guys</span>
+        <a href="#get-updates" class="kirtland-url kirtland-url-secondary">
+            <span class="reserve-link-date">Stay Informed</span>
+            <span class="reserve-link-title">Get Email Updates</span>
         </a>
     </div>
 </div>
