@@ -609,7 +609,27 @@
             transition: filter 0.3s, transform 0.3s;
         }
         .cta-band .kirtland-url:hover { filter: brightness(1.15); transform: translateY(-2px); }
-
+        .cta-band .kirtland-url-secondary {
+            background: transparent;
+            color: var(--gold-light);
+            border: 1px solid rgba(201,168,76,0.52);
+        }
+        .cta-band .kirtland-url-secondary .reserve-link-date {
+            color: rgba(245,239,224,0.65);
+        }
+        .cta-band .kirtland-url-disabled {
+            background: rgba(245,239,224,0.08);
+            color: rgba(245,239,224,0.78);
+            border: 1px solid rgba(245,239,224,0.18);
+            box-shadow: none;
+        }
+        .cta-band .kirtland-url-disabled .reserve-link-date {
+            color: rgba(245,239,224,0.55);
+        }
+        .cta-band .kirtland-url-disabled:hover {
+            filter: none;
+            transform: none;
+        }
         .reserve-links {
             display: grid;
             gap: 0.75rem;
@@ -1049,7 +1069,7 @@
         <a href="/donations/">Donations</a>
         <a href="/raffle/">Raffle</a>
         <a href="/social-media-links/">Social Media</a>
-        <a href="#tickets" class="nav-ticket">🎟️ Get Tickets</a>
+        <a href="#tickets" class="nav-ticket">Get Tickets</a>
         </div>
     </nav>
 
@@ -1131,10 +1151,9 @@
                             <p class="event-detail-venue">Lakewood Civic Auditorium · 14100 Franklin Blvd, Lakewood, OH 44107</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Concert &amp; Devotional</span>
-                                <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="ticket-link">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Get Tickets
-                                </a>
+                                <span class="ticket-link ticket-link-disabled">
+                                    Information Coming Soon
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -1161,7 +1180,7 @@
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Concert &amp; Devotional</span>
                                 <span class="ticket-link ticket-link-disabled">
-                                    Tickets Coming Soon for This Venue
+                                    Information Coming Soon
                                 </span>
                             </div>
                         </div>
@@ -1284,23 +1303,31 @@
 <!-- CTA BAND -->
 <div class="cta-band" id="tickets">
     <h2 class="reveal">Reserve Your Place</h2>
-    <p class="reveal">Tickets are now available:</p>
+    <p class="reveal">Tickets are available for select experiences. Concert and devotional information is coming soon.</p>
     <div class="reserve-links reveal">
-        <a href="https://givebutter.com/an-evening-with-the-chosen-the-piano-guys-lakewood-civic-auditorium-wpflkt" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+        <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="kirtland-url">
             <span class="reserve-link-date">Friday, November 13</span>
-            <span class="reserve-link-title">An Evening with The Chosen &amp; The Piano Guys &mdash; Lakewood Civic Auditorium</span>
+            <span class="reserve-link-title">VIP Dinner with The Chosen &amp; Piano Guys</span>
+        </a>
+        <span class="kirtland-url kirtland-url-disabled">
+            <span class="reserve-link-date">Friday, November 13</span>
+            <span class="reserve-link-title">Lakewood Civic Auditorium &mdash; Information Coming Soon</span>
+        </span>
+        <span class="kirtland-url kirtland-url-disabled">
+            <span class="reserve-link-date">Saturday, November 14</span>
+            <span class="reserve-link-title">Akron Civic Theatre &mdash; Information Coming Soon</span>
+        </span>
+        <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+            <span class="reserve-link-date">Saturday, November 14</span>
+            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet Experience &mdash; Fairlawn</span>
         </a>
         <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="kirtland-url">
             <span class="reserve-link-date">Sunday, November 15</span>
             <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet &mdash; Willoughby</span>
         </a>
-        <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">
-            <span class="reserve-link-date">Saturday, November 14</span>
-            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet Experience &mdash; Fairlawn</span>
-        </a>
-        <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="kirtland-url">
-            <span class="reserve-link-date">Friday, November 13</span>
-            <span class="reserve-link-title">VIP Dinner with The Chosen &amp; Piano Guys</span>
+        <a href="/raffle/" class="kirtland-url">
+            <span class="reserve-link-date">Raffle</span>
+            <span class="reserve-link-title">Buy Raffle Tickets</span>
         </a>
     </div>
 </div>
