@@ -14,17 +14,25 @@ Static marketing website for the **Kirtland Heritage Group** "NEO Chosen" weeken
 
 ## Local Preview
 
-Because this is a static site, any local server works. For example:
+Because this is a static site, any local server works. To preview with Cloudflare Pages behavior:
 
 ```bash
-python3 -m http.server 8080
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8080`.
+Then open the local URL printed by Wrangler.
 
 ## Deployment Notes
 
-- `CNAME` is configured for GitHub Pages custom-domain deployment.
+- The site is configured for Cloudflare Pages in `wrangler.jsonc`.
+- Cloudflare Pages project name: `neochosen`.
+- Build command: `npm run build`.
+- Build output directory: `dist`.
+- Root directory: repository root.
+- Production branch: `main`.
+- Custom domain: add `neochosen.com` in Cloudflare Pages > Custom domains after the project is created.
+- For CLI deployment, run `npm run deploy` after authenticating with Wrangler.
 - Keep route pages in directory form (`/page/index.html`) and maintain matching root redirect files (`/page.html`) for compatibility with legacy links.
 
 ## Cleanup Performed
