@@ -2,5 +2,8 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "neochosen",
   "pages_build_output_dir": "./dist",
-  "compatibility_date": "2026-08-17"
+  "compatibility_date": "2026-08-17",
+  "assets": {
+    "directory": "./dist"
+  }
 }
