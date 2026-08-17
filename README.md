@@ -29,6 +29,7 @@ Then open the local URL printed by Wrangler.
 - Cloudflare Pages project name: `neochosen`.
 - Build command: `npm run build`.
 - Build output directory: `dist`.
+- Deploy command: `npx wrangler deploy`.
 - Root directory: repository root.
 - Production branch: `main`.
 - Custom domain: add `neochosen.com` in Cloudflare Pages > Custom domains after the project is created.
