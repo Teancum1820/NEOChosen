@@ -11,7 +11,6 @@ const OFFLINE_URLS = [
   '/media-kit/',
   '/thank-you/',
   '/manifest.webmanifest',
-  '/favicon.svg',
   '/images/favicon.png',
   '/images/hero.png'
 ];
