@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#0a0806">
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -193,7 +192,7 @@
       font-size: 18px;
     }
 
-    .stripe-button-wrap {
+    .zeffy-button-wrap {
       display: flex;
       justify-content: center;
       margin-top: 20px;
@@ -487,13 +486,9 @@
       <section id="tickets" class="ticket-card">
         <div class="eyebrow">Ticket Purchase</div>
         <h2>Purchase Raffle Tickets</h2>
-        <p>Use the secure checkout below to purchase your neochosen Raffle ticket.</p>
-        <div class="stripe-button-wrap">
-          <stripe-buy-button
-            buy-button-id="buy_btn_1TZG9HH4AoUAKtv34cCpy8ku"
-            publishable-key="pk_live_51PcqhQH4AoUAKtv3RPMqcho3dWPMNF85tUTwQZJSEHL5IqME6vdrJ2ZQGzQUOJC3p3W8RMAQ6axzxPdY7tjhnPv900pLrmC1nG"
-          >
-          </stripe-buy-button>
+        <p>Use the secure Zeffy checkout below to purchase your neochosen Raffle ticket.</p>
+        <div class="zeffy-button-wrap">
+          <a class="button" href="https://www.zeffy.com/en-US/ticketing/kirtland-heritage-groups-raffle--2026" target="_blank" rel="noopener noreferrer">Purchase Raffle Tickets</a>
         </div>
       </section>
 
