@@ -6,8 +6,10 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>An Unforgettable Weekend | The Piano Guys & The Chosen</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Free NEOChosen Events | The Piano Guys &amp; The Chosen</title>
+    <meta name="description" content="Reserve free admission to NEOChosen public events and Meet &amp; Greets across Northeast Ohio. Optional donations help Kirtland Heritage Group present the weekend.">
+    <!-- Registration destinations: LAKEWOOD_ZEFFY_URL, FAIRLAWN_ZEFFY_URL, and WILLOUGHBY_ZEFFY_URL are the live links below. -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#0a0806">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -403,6 +405,12 @@
             color: rgba(245,239,224,0.5);
             margin-bottom: 0.1rem;
         }
+        .event-detail-note {
+            font-size: 0.82rem;
+            color: rgba(245,239,224,0.68);
+            margin-top: 0.25rem;
+            line-height: 1.55;
+        }
 
         .event-badges-row {
             display: flex;
@@ -427,6 +435,38 @@
         .event-type-badge.tba {
             color: rgba(245,239,224,0.4);
             border-color: rgba(245,239,224,0.15);
+        }
+
+        .free-admission-banner {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 3.25rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(232,201,122,0.55);
+            background: linear-gradient(135deg, rgba(201,168,76,0.16), rgba(18,16,13,0.96));
+            box-shadow: 0 18px 55px rgba(0,0,0,0.28);
+        }
+        .free-admission-banner h2 {
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            line-height: 1;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.35rem;
+        }
+        .free-admission-banner .free-lead {
+            max-width: 820px;
+            margin: 0 auto 1rem;
+            color: var(--cream);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.75;
+        }
+        .free-admission-banner .nonprofit-note {
+            max-width: 780px;
+            margin: 0 auto;
+            color: rgba(245,239,224,0.72);
+            font-size: 0.92rem;
+            line-height: 1.7;
         }
 
         /* ── TICKET LINK ── */
@@ -1069,7 +1109,7 @@
         <a href="/donations/">Donations</a>
         <a href="/raffle/">Raffle</a>
         <a href="/social-media-links/">Social Media</a>
-        <a href="#tickets" class="nav-ticket">Get Tickets</a>
+        <a href="#tickets" class="nav-ticket">Free Registration</a>
         </div>
     </nav>
 
@@ -1088,7 +1128,7 @@
             <em>The Chosen</em>
         </h1>
         <p class="hero-subtitle">A Weekend of Music, Faith &amp; Inspiration</p>
-        <p class="section-intro" style="margin-bottom:2.2rem;">A three-day Northeast Ohio weekend featuring live music, faith-centered experiences, meet &amp; greets, a VIP dinner, and community fundraising in support of the Kirtland Heritage Group.</p>
+        <p class="section-intro" style="margin-bottom:2.2rem;">A three-day Northeast Ohio weekend featuring free Meet &amp; Greets, live music, and faith-centered community events.</p>
 
         <div class="hero-dates">
             <div class="date-pill">Friday, Nov 13 · Lakewood, OH</div>
@@ -1097,7 +1137,7 @@
         </div>
 
         <div class="hero-cta">
-            <a class="btn-primary" href="#tickets">Get Tickets</a>
+            <a class="btn-primary" href="#tickets">Reserve Free Tickets</a>
             <a class="btn-secondary" href="#events">View Weekend Schedule</a>
         </div>
     </div>
@@ -1107,12 +1147,21 @@
     </div>
 </div>
 
+<!-- FREE ADMISSION -->
+<section aria-labelledby="free-admission-heading">
+    <div class="free-admission-banner reveal">
+        <h2 id="free-admission-heading">FREE ADMISSION</h2>
+        <p class="free-lead">Admission to our public NEOChosen events and Meet &amp; Greets is completely free. No donation is required or expected. If you would like to help Kirtland Heritage Group offset the costs of making these events possible, an optional donation is appreciated.</p>
+        <p class="nonprofit-note">Kirtland Heritage Group is a 501(c)(3) nonprofit organization dedicated to bringing communities together through faith, fellowship, service, and uplifting events.</p>
+    </div>
+</section>
+
 <!-- WEEKEND SCHEDULE -->
 <div class="strip" id="events">
     <section>
         <p class="section-label schedule-date-range reveal">November 13&ndash;15, 2026</p>
         <h2 class="section-title reveal">Weekend <em>Schedule</em></h2>
-        <p class="section-intro reveal">Three days of extraordinary experiences — exclusive dinners, intimate meet &amp; greets, and live concerts — across Northeast Ohio.</p>
+        <p class="section-intro reveal">Three days of extraordinary experiences across Northeast Ohio, including free public events and a separately ticketed Piano Guys concert through the theater.</p>
 
         <div class="schedule-container reveal">
 
@@ -1126,34 +1175,18 @@
 
                     <div class="event-item">
                         <div class="event-time-col">
-                            <p class="event-time">5:00 PM</p>
-                        </div>
-                        <div>
-                            <p class="event-detail-title">Exclusive Dinner with the Cast &amp; The Piano Guys</p>
-                            <p class="event-detail-venue">The Music Box Supper Club · 148 Main Ave, Cleveland, OH 44113</p>
-                            <div class="event-badges-row">
-                                <span class="event-type-badge">Exclusive Dinner</span>
-                                <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="ticket-link">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Get Tickets
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="event-item">
-                        <div class="event-time-col">
                             <p class="event-time">7:30 PM</p>
                             <p class="event-time-sub">Doors 6:00 PM</p>
                         </div>
                         <div>
-                            <p class="event-detail-title">Experience an Evening with The Chosen &amp; The Piano Guys</p>
+                            <p class="event-detail-title">Evening with Cast Members from The Chosen</p>
                             <p class="event-detail-venue">Lakewood Civic Auditorium · 14100 Franklin Blvd, Lakewood, OH 44107</p>
+                            <p class="event-detail-note">Free event featuring cast members from The Chosen. No donation is required or expected.</p>
                             <div class="event-badges-row">
-                                <span class="event-type-badge">Concert &amp; Devotional</span>
-                                <span class="ticket-link ticket-link-disabled">
-                                    Information Coming Soon
-                                </span>
+                                <span class="event-type-badge">Free Admission</span>
+                                <a href="https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen" target="_blank" rel="noopener noreferrer" class="ticket-link">
+                                    Reserve Free Ticket
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1175,12 +1208,14 @@
                             <p class="event-time-sub">Doors 3:00 PM</p>
                         </div>
                         <div>
-                            <p class="event-detail-title">Experience an Afternoon with The Chosen &amp; The Piano Guys</p>
+                            <p class="event-detail-title">The Piano Guys Live</p>
                             <p class="event-detail-venue">Akron Civic Theatre · 182 S Main Street, Akron, OH 44308</p>
+                            <p class="event-detail-note">Paid theater event featuring only The Piano Guys. Tickets will be sold directly through the Akron Civic Theatre, not through NEO Chosen, with expected prices between $50 and $70.</p>
                             <div class="event-badges-row">
-                                <span class="event-type-badge">Concert &amp; Devotional</span>
+                                <span class="event-type-badge">Paid Theater Event</span>
+                                <span class="event-type-badge">$50-$70</span>
                                 <span class="ticket-link ticket-link-disabled">
-                                    Information Coming Soon
+                                    Theater Tickets Coming Soon
                                 </span>
                             </div>
                         </div>
@@ -1191,13 +1226,14 @@
                             <p class="event-time">7:00 PM</p>
                         </div>
                         <div>
-                            <p class="event-detail-title">Meet &amp; Greet with Cast Members from The Chosen &amp; The Piano Guys</p>
+                            <p class="event-detail-title">Fairlawn Meet &amp; Greet</p>
                             <p class="event-detail-venue">St. Hilary Church · 2750 W Market St, Fairlawn, OH 44333</p>
+                            <p class="event-detail-note">Free Meet &amp; Greet. No donation is required or expected.</p>
                             <div class="event-badges-row">
-                                <span class="event-type-badge">Meet &amp; Greet</span>
-                                <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="ticket-link">
+                                <span class="event-type-badge">Free Admission</span>
+                                <a href="https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn" target="_blank" rel="noopener noreferrer" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Get Tickets
+                                    Reserve Free Ticket
                                 </a>
                             </div>
                         </div>
@@ -1219,13 +1255,14 @@
                             <p class="event-time">2:00 PM</p>
                         </div>
                         <div>
-                            <p class="event-detail-title">Meet &amp; Greet with Cast Members from The Chosen</p>
+                            <p class="event-detail-title">Willoughby Meet &amp; Greet</p>
                             <p class="event-detail-venue">Willoughby, Ohio</p>
+                            <p class="event-detail-note">Free Meet &amp; Greet. No donation is required or expected.</p>
                             <div class="event-badges-row">
-                                <span class="event-type-badge">Willoughby, Ohio</span>
-                                <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="ticket-link">
+                                <span class="event-type-badge">Free Admission</span>
+                                <a href="https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-willoughby" target="_blank" rel="noopener noreferrer" class="ticket-link">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><polyline points="16 2 22 2 22 8"/><line x1="22" y1="2" x2="10" y2="14"/></svg>
-                                    Get Tickets
+                                    Reserve Free Ticket
                                 </a>
                             </div>
                         </div>
@@ -1303,29 +1340,25 @@
 <!-- CTA BAND -->
 <div class="cta-band" id="tickets">
     <h2 class="reveal">Reserve Your Place</h2>
-    <p class="reveal">Tickets are available for select experiences. Concert and devotional information is coming soon.</p>
+    <p class="reveal">Reserve free admission to NEOChosen public events and watch for separate theater ticketing details.</p>
     <div class="reserve-links reveal">
-        <a href="https://givebutter.com/vip-dinner-with-the-chosen-piano-guys-9cjo4b" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+        <a href="https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen" target="_blank" rel="noopener noreferrer" class="kirtland-url">
             <span class="reserve-link-date">Friday, November 13</span>
-            <span class="reserve-link-title">VIP Dinner with The Chosen &amp; Piano Guys</span>
+            <span class="reserve-link-title">Free Registration &mdash; Lakewood Evening with The Chosen Cast</span>
         </a>
         <span class="kirtland-url kirtland-url-disabled">
-            <span class="reserve-link-date">Friday, November 13</span>
-            <span class="reserve-link-title">Lakewood Civic Auditorium &mdash; Information Coming Soon</span>
-        </span>
-        <span class="kirtland-url kirtland-url-disabled">
             <span class="reserve-link-date">Saturday, November 14</span>
-            <span class="reserve-link-title">Akron Civic Theatre &mdash; Information Coming Soon</span>
+            <span class="reserve-link-title">Akron Civic Theatre &mdash; The Piano Guys Live</span>
         </span>
-        <a href="https://givebutter.com/meet-greet-experience-hudson-yshjnr" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+        <a href="https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn" target="_blank" rel="noopener noreferrer" class="kirtland-url">
             <span class="reserve-link-date">Saturday, November 14</span>
-            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet Experience &mdash; Fairlawn</span>
+            <span class="reserve-link-title">Free Registration &mdash; Fairlawn Meet &amp; Greet</span>
         </a>
-        <a href="https://givebutter.com/chosen-piano-guys-meet-greet-willoughby-c46zeq" target="_blank" rel="noopener noreferrer" class="kirtland-url">
+        <a href="https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-willoughby" target="_blank" rel="noopener noreferrer" class="kirtland-url">
             <span class="reserve-link-date">Sunday, November 15</span>
-            <span class="reserve-link-title">Chosen &amp; Piano Guys Meet &amp; Greet &mdash; Willoughby</span>
+            <span class="reserve-link-title">Free Registration &mdash; Willoughby Meet &amp; Greet</span>
         </a>
-        <a href="/raffle/" class="kirtland-url">
+        <a href="https://www.zeffy.com/en-US/ticketing/kirtland-heritage-groups-raffle--2026" target="_blank" rel="noopener noreferrer" class="kirtland-url">
             <span class="reserve-link-date">Raffle</span>
             <span class="reserve-link-title">Buy Raffle Tickets</span>
         </a>
