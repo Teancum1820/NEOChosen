@@ -9,6 +9,9 @@
     "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
+    "lucide-react": "^1.33.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "wrangler": "4.123.0"
   }
 }

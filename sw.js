@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v8';
+const CACHE_NAME = 'neochosen-v9';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
@@ -11,6 +11,8 @@ const OFFLINE_URLS = [
   '/media-kit/',
   '/thank-you/',
   '/manifest.webmanifest',
+  '/site.css',
+  '/site.js',
   '/images/favicon.png',
   '/images/hero.png'
 ];
