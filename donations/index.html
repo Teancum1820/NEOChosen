@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donate | Kirtland Heritage Group</title>
-    <meta name="description" content="Support the NEOChosen weekend and learn about the invitation-only VIP Donor Dinner for qualifying donors.">
+  <title>Donate &amp; Become an Event Sponsor | Kirtland Heritage Group</title>
+    <meta name="description" content="Support the NEOChosen weekend, become an Official Event Sponsor, and receive invitations to the exclusive VIP Donor Dinner with each full $200 donated.">
     <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#0a0806">
@@ -192,6 +192,66 @@
     .highlight-text {
       color: var(--soft-gold);
       font-weight: 700;
+    }
+
+    .sponsor-card {
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(215, 185, 86, 0.2), transparent 38%),
+        rgba(0, 0, 0, 0.42);
+    }
+
+    .sponsor-lead {
+      max-width: 850px;
+      margin: 0 auto 1.5rem;
+      color: var(--cream);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      line-height: 1.7;
+    }
+
+    .sponsor-callout {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 1.3rem 1.5rem;
+      border-left: 3px solid var(--gold);
+      background: rgba(215, 185, 86, 0.1);
+      color: var(--cream);
+      text-align: left;
+    }
+
+    .sponsor-tiers {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .sponsor-tier {
+      padding: 1.25rem 0.8rem;
+      border: 1px solid rgba(215, 185, 86, 0.32);
+      background: rgba(215, 185, 86, 0.06);
+    }
+
+    .sponsor-tier strong {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--soft-gold);
+      font-family: 'Cinzel', serif;
+      font-size: 1.35rem;
+    }
+
+    .sponsor-cta {
+      max-width: 570px;
+      margin: 2rem auto 0;
+      padding: 1rem 1.25rem;
+    }
+
+    @media (max-width: 800px) {
+      .sponsor-tiers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .sponsor-tiers { grid-template-columns: 1fr; }
     }
 
     .volunteer-form-card {
@@ -447,15 +507,33 @@
           <p>Kirtland Heritage Group is a 501(c)(3) nonprofit organization dedicated to bringing communities together through faith, fellowship, service, and uplifting events.</p>
         </section>
 
-        <section id="vip-donor-dinner" class="donation-card p-6 md:p-10 mb-12 text-center scroll-mt-24" aria-labelledby="vip-donor-dinner-heading">
-          <p class="font-cinzel text-xs md:text-sm uppercase tracking-[0.35em] text-[var(--gold)] mb-4">An Exclusive Donor Experience</p>
-          <h2 id="vip-donor-dinner-heading" class="font-cinzel section-title text-2xl md:text-3xl uppercase">VIP Donor Dinner</h2>
+        <section id="vip-donor-dinner" class="donation-card sponsor-card p-6 md:p-10 mb-12 text-center scroll-mt-24" aria-labelledby="vip-donor-dinner-heading">
+          <p class="font-cinzel text-xs md:text-sm uppercase tracking-[0.35em] text-[var(--gold)] mb-4">Get Involved</p>
+          <h2 id="vip-donor-dinner-heading" class="font-cinzel section-title text-2xl md:text-4xl uppercase">Become an Official Event Sponsor</h2>
           <div class="accent-line"></div>
           <div class="body-copy space-y-4 max-w-4xl mx-auto">
-            <p>Support the NEOChosen weekend with a donation of $200 or more and become a VIP Donor. Each full $200 given in a single donation earns one exclusive invitation to the VIP Donor Dinner, while space remains.</p>
-            <p>Join us on <strong class="text-[var(--cream)]">Friday, November 13, 2026</strong>, at <strong class="text-[var(--cream)]">Music Box Supper Club, 1148 Main Avenue, Cleveland, Ohio</strong>, for a special evening expected to include The Piano Guys, cast members from <em>The Chosen</em>, and community and faith leaders.</p>
-            <p class="highlight-text">This is a private, invitation-only donor event and is not open for public registration.</p>
-            <p>VIP donor donation and invitation details are coming soon.</p>
+            <p class="sponsor-lead">Help make the NEOChosen weekend possible&mdash;and join cast members from <em>The Chosen</em>, The Piano Guys, community and faith leaders, and fellow supporters for an exclusive evening.</p>
+            <p>This weekend is about more than a series of events. It is a chance to bring people together across faith traditions through music, service, fellowship, and shared purpose&mdash;and your support makes it possible.</p>
+            <p>With a donation of $200 or more, you will become an Official Event Sponsor. Every full $200 donated in a single transaction includes one invitation to the VIP Donor Dinner on <strong class="text-[var(--cream)]">Friday, November 13, 2026</strong>, at <strong class="text-[var(--cream)]">Music Box Supper Club, 1148 Main Avenue, Cleveland, Ohio</strong>, while space remains.</p>
+            <p>This intimate evening will bring together cast members from <em>The Chosen</em>, The Piano Guys, community and religious leaders, event partners, and the generous people helping make the weekend possible.</p>
+
+            <p class="sponsor-callout"><strong>This is more than a dinner ticket.</strong> It is an invitation to become part of the mission behind the entire weekend.</p>
+
+            <h3 class="font-cinzel text-xl md:text-2xl text-[var(--soft-gold)] uppercase tracking-[0.1em]">Your Donation = Your Sponsorship</h3>
+            <div class="sponsor-tiers" aria-label="Sponsorship donation levels">
+              <div class="sponsor-tier"><strong>$200</strong><span>1 dinner invitation</span></div>
+              <div class="sponsor-tier"><strong>$400</strong><span>2 dinner invitations</span></div>
+              <div class="sponsor-tier"><strong>$600</strong><span>3 dinner invitations</span></div>
+              <div class="sponsor-tier"><strong>$800</strong><span>4 dinner invitations</span></div>
+            </div>
+            <p>For every additional full $200 donated, you will receive one additional VIP Donor Dinner invitation, while space remains.</p>
+
+            <h3 class="font-cinzel text-xl md:text-2xl text-[var(--soft-gold)] uppercase tracking-[0.1em] pt-4">Your Support Makes This Possible</h3>
+            <p>Your sponsorship helps us welcome thousands of people, strengthen relationships across faith traditions, and create meaningful opportunities to connect through faith, music, service, and fellowship.</p>
+            <p>Kirtland Heritage Group is a 501(c)(3) nonprofit organization. Whether you give $200, $400, $1,000, or more, your support makes a real difference and helps us continue bringing these experiences to Northeast Ohio.</p>
+            <p class="highlight-text">Thank you for believing in our mission, supporting our community, and helping us bring people together. We cannot do this without you.</p>
+
+            <a href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener noreferrer" class="gold-button sponsor-cta font-bold duration-300">Become an Official Event Sponsor</a>
           </div>
         </section>
 
