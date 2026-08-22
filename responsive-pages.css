@@ -6,9 +6,14 @@
   --interior-card-border: rgba(215, 185, 86, 0.24);
 }
 
-html,
-body {
+html {
   overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 body {
