@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>neochosen Raffle</title>
+  <title>NEOChosen Raffle | Win Up to $15,000</title>
+    <meta name="description" content="Support Kirtland Heritage Group and enter the NEOChosen Raffle for a chance to win up to $15,000. The drawing takes place November 15, 2026, in Chesterland, Ohio.">
     <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#0a0806">
@@ -253,6 +254,218 @@
       color: var(--gold);
     }
 
+    .raffle-hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(5rem, 10vw, 8rem) 1.5rem clamp(4rem, 8vw, 6.5rem);
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 50% 20%, rgba(215, 185, 86, 0.24), transparent 35%),
+        linear-gradient(115deg, rgba(5,5,5,.98), rgba(28,20,8,.9), rgba(5,5,5,.98));
+    }
+
+    .raffle-hero::before {
+      content: '$15,000';
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(215, 185, 86, 0.055);
+      font-family: 'Cinzel', serif;
+      font-size: clamp(6rem, 22vw, 17rem);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .raffle-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .raffle-hero h1 {
+      margin: 0.6rem 0 1.2rem;
+      color: var(--soft-gold);
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.8rem, 7vw, 5.8rem) !important;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .raffle-hero-copy {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      color: var(--cream);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+    }
+
+    .raffle-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.2rem;
+      padding: 0.9rem 1.5rem;
+      border: 1px solid rgba(241, 220, 136, 0.62);
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold), #a87c28);
+      color: #080806;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      box-shadow: 0 14px 34px rgba(0,0,0,.4);
+    }
+
+    .raffle-button:hover,
+    .raffle-button:focus-visible {
+      filter: brightness(1.08);
+      color: #080806;
+    }
+
+    .raffle-button-secondary {
+      background: transparent;
+      color: var(--soft-gold);
+    }
+
+    .raffle-button-secondary:hover,
+    .raffle-button-secondary:focus-visible { color: var(--cream); }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    .raffle-page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    .raffle-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: -3.4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .raffle-stat {
+      padding: 1.5rem 1rem;
+      text-align: center;
+      background: rgba(10, 9, 7, .96);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 44px rgba(0,0,0,.4);
+    }
+
+    .raffle-stat strong {
+      display: block;
+      color: var(--soft-gold);
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.1;
+    }
+
+    .raffle-stat span {
+      color: var(--warm-gray);
+      font-size: .9rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .raffle-section {
+      margin-top: 2rem;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 50px rgba(0,0,0,.34);
+    }
+
+    .raffle-section h2 { max-width: 800px; }
+
+    .mission-grid,
+    .drawing-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .drawing-panel {
+      padding: 1.5rem;
+      border: 1px solid rgba(215,185,86,.45);
+      background: linear-gradient(135deg, rgba(215,185,86,.18), rgba(215,185,86,.04));
+    }
+
+    .drawing-panel p { margin: .45rem 0; }
+    .drawing-panel strong { color: var(--soft-gold); }
+
+    .featured-prizes {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(4, minmax(0, 1fr));
+      gap: .8rem;
+      margin: 1.5rem 0;
+    }
+
+    .featured-prize {
+      min-height: 150px;
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(215,185,86,.3);
+      background: rgba(215,185,86,.06);
+    }
+
+    .featured-prize:first-child {
+      background: linear-gradient(135deg, rgba(215,185,86,.25), rgba(215,185,86,.06));
+      border-color: var(--gold);
+    }
+
+    .featured-prize span { color: var(--warm-gray); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; }
+    .featured-prize strong { color: var(--soft-gold); font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 3vw, 2.4rem); }
+
+    .prize-tiers {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .8rem;
+    }
+
+    .prize-tier {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(215,185,86,.22);
+      color: var(--warm-gray);
+    }
+
+    .prize-tier strong { color: var(--soft-gold); white-space: nowrap; }
+
+    .rules-details {
+      margin-top: 1rem;
+      border: 1px solid rgba(215,185,86,.3);
+      background: rgba(0,0,0,.22);
+    }
+
+    .rules-details summary {
+      padding: 1.1rem 1.25rem;
+      color: var(--soft-gold);
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .rules-details .rules-list { padding: 0 2rem 1rem 2.8rem; }
+
+    .final-cta { text-align: center; }
+    .final-cta p { max-width: 700px; margin: 0 auto 1.5rem; color: var(--warm-gray); }
+
     @media (max-width: 760px) {
       .hero {
         padding: 72px 20px 58px;
@@ -272,6 +485,22 @@
       .eyebrow {
         letter-spacing: 0.28em;
       }
+
+      .raffle-stats,
+      .mission-grid,
+      .drawing-grid,
+      .prize-tiers { grid-template-columns: 1fr; }
+
+      .raffle-stats { margin-top: -2rem; }
+      .featured-prizes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .featured-prize:first-child { grid-column: 1 / -1; }
+      .hero-actions { flex-direction: column; }
+      .raffle-button { width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .featured-prizes { grid-template-columns: 1fr; }
+      .featured-prize:first-child { grid-column: auto; }
     }
   
 
@@ -476,71 +705,97 @@
         <a href="/#tickets" class="nav-ticket">Get Tickets</a>
         </div>
     </nav>
+  <header class="raffle-hero">
+    <div class="raffle-hero-inner">
+      <div class="eyebrow">NEOChosen Raffle</div>
+      <h1>Win Up to $15,000</h1>
+      <p class="raffle-hero-copy">Support meaningful community and interfaith experiences across Northeast Ohio while entering for your chance to win one of up to 20 cash prizes.</p>
+      <div class="hero-actions">
+        <a class="raffle-button" href="https://www.zeffy.com/en-US/ticketing/kirtland-heritage-groups-raffle--2026" target="_blank" rel="noopener noreferrer">Purchase Raffle Tickets</a>
+        <a class="raffle-button raffle-button-secondary" href="#prizes">Explore the Prizes</a>
+      </div>
+    </div>
+  </header>
 
+  <main class="raffle-page">
+    <section class="raffle-stats" aria-label="Raffle highlights">
+      <div class="raffle-stat"><strong>$100</strong><span>Per ticket</span></div>
+      <div class="raffle-stat"><strong>20</strong><span>Cash prizes</span></div>
+      <div class="raffle-stat"><strong>$15,000</strong><span>Top prize</span></div>
+    </section>
 
+    <section class="raffle-section mission-grid" aria-labelledby="raffle-mission-heading">
+      <div>
+        <div class="eyebrow">Why We Are Doing This</div>
+        <h2 id="raffle-mission-heading">Your ticket supports more than one incredible weekend.</h2>
+      </div>
+      <div>
+        <p class="intro">Raffle proceeds help Kirtland Heritage Group create community events, outreach efforts, school visits, service projects, and uplifting gatherings built around faith, hope, music, and fellowship.</p>
+        <p class="intro">Every entry helps us bring people together, strengthen relationships, and create experiences that make a lasting difference throughout Northeast Ohio.</p>
+      </div>
+    </section>
 
-  <main class="page">
-    <section class="content">
-      <div class="eyebrow">Raffle Information</div>
-      <h2>Support the Kirtland Heritage Group during the NEO Chosen weekend — and enter for your chance to win exciting cash prizes!</h2>
-      <p class="intro">Each raffle ticket gives you a chance to win! Up to 20 cash prizes will be awarded, ranging from $15,000 to $500. The raffle will close when 3,000 tickets are sold or on November 1, 2026 — whichever comes first. See official rules below.</p>
-      <p class="intro">The raffle drawing will be held on Friday, November 13, 2026, at 7:30 PM at the Lakewood Civic Auditorium. Winners do not need to be present to win.</p>
+    <section class="raffle-section drawing-grid" aria-labelledby="drawing-heading">
+      <div>
+        <div class="eyebrow">Closing &amp; Drawing</div>
+        <h2 id="drawing-heading">Join us Sunday in Chesterland.</h2>
+        <p class="intro">Ticket sales close when 3,000 tickets are sold or during the Sunday Meet &amp; Greet, whichever comes first. Winners do not need to be present to win.</p>
+      </div>
+      <div class="drawing-panel">
+        <p><strong>Sunday, November 15, 2026</strong></p>
+        <p>Meet &amp; Greet begins at 2:00 PM</p>
+        <p><strong>The United Methodist Church in Chesterland</strong></p>
+        <p>7747 Mayfield Rd<br>Chesterland, OH 44026</p>
+        <p>The raffle drawing will take place during the event.</p>
+      </div>
+    </section>
 
-      <section id="tickets" class="ticket-card">
-        <div class="eyebrow">Ticket Purchase</div>
-        <h2>Purchase Raffle Tickets</h2>
-        <p>Use the secure Zeffy checkout below to purchase your neochosen Raffle ticket.</p>
-        <div class="zeffy-button-wrap">
-          <a class="button" href="https://www.zeffy.com/en-US/ticketing/kirtland-heritage-groups-raffle--2026" target="_blank" rel="noopener noreferrer">Purchase Raffle Tickets</a>
-        </div>
-      </section>
+    <section id="prizes" class="raffle-section" aria-labelledby="prizes-heading">
+      <div class="eyebrow">Prize List</div>
+      <h2 id="prizes-heading">Twenty chances to win.</h2>
+      <div class="featured-prizes">
+        <div class="featured-prize"><span>1st Prize</span><strong>$15,000</strong></div>
+        <div class="featured-prize"><span>2nd Prize</span><strong>$7,500</strong></div>
+        <div class="featured-prize"><span>3rd Prize</span><strong>$5,000</strong></div>
+        <div class="featured-prize"><span>4th Prize</span><strong>$2,500</strong></div>
+        <div class="featured-prize"><span>5th Prize</span><strong>$2,000</strong></div>
+      </div>
+      <div class="prize-tiers">
+        <div class="prize-tier"><span>6th&ndash;7th Prizes</span><strong>$1,500 each</strong></div>
+        <div class="prize-tier"><span>8th&ndash;12th Prizes</span><strong>$1,000 each</strong></div>
+        <div class="prize-tier"><span>13th&ndash;20th Prizes</span><strong>$500 each</strong></div>
+      </div>
+    </section>
 
-      <section id="prizes" class="prize-card">
-        <div class="eyebrow">Prize List</div>
-        <h2>Raffle Prizes</h2>
-        <div class="prize-grid">
-          <div class="prize"><span>1st Prize</span><span>$15,000</span></div>
-          <div class="prize"><span>2nd Prize</span><span>$7,500</span></div>
-          <div class="prize"><span>3rd Prize</span><span>$5,000</span></div>
-          <div class="prize"><span>4th Prize</span><span>$2,500</span></div>
-          <div class="prize"><span>5th Prize</span><span>$2,000</span></div>
-          <div class="prize"><span>6th Prize</span><span>$1,500</span></div>
-          <div class="prize"><span>7th Prize</span><span>$1,500</span></div>
-          <div class="prize"><span>8th Prize</span><span>$1,000</span></div>
-          <div class="prize"><span>9th Prize</span><span>$1,000</span></div>
-          <div class="prize"><span>10th Prize</span><span>$1,000</span></div>
-          <div class="prize"><span>11th Prize</span><span>$1,000</span></div>
-          <div class="prize"><span>12th Prize</span><span>$1,000</span></div>
-          <div class="prize"><span>13th Prize</span><span>$500</span></div>
-          <div class="prize"><span>14th Prize</span><span>$500</span></div>
-          <div class="prize"><span>15th Prize</span><span>$500</span></div>
-          <div class="prize"><span>16th Prize</span><span>$500</span></div>
-          <div class="prize"><span>17th Prize</span><span>$500</span></div>
-          <div class="prize"><span>18th Prize</span><span>$500</span></div>
-          <div class="prize"><span>19th Prize</span><span>$500</span></div>
-          <div class="prize"><span>20th Prize</span><span>$500</span></div>
-        </div>
-      </section>
-
-      <section id="rules" class="rules-card">
-        <div class="eyebrow">Official Details</div>
-        <h2>Official Raffle Rules</h2>
+    <section id="rules" class="raffle-section" aria-labelledby="rules-heading">
+      <div class="eyebrow">Official Details</div>
+      <h2 id="rules-heading">Official Raffle Rules</h2>
+      <p class="intro">Please review the eligibility, drawing, and prize-claim requirements before purchasing.</p>
+      <details class="rules-details">
+        <summary>Read the official rules</summary>
         <ul class="rules-list">
           <li>Must be at least 18 years of age to purchase a ticket.</li>
           <li>Must be a legal resident of the United States to be eligible.</li>
           <li>Winners are solely responsible for any applicable federal, state, or local taxes associated with prizes.</li>
           <li>Raffle ticket purchases are not tax deductible.</li>
-          <li>Personal information and email addresses collected will only be used in connection with communications related to neochosen and The Kirtland Heritage Group.</li>
+          <li>Personal information and email addresses collected will only be used in connection with communications related to NEOChosen and The Kirtland Heritage Group.</li>
           <li>Winners do not need to be present to win.</li>
           <li>A maximum of 3,000 tickets will be sold. A minimum of 1,200 tickets must be sold for the raffle drawing to take place. If the drawing is canceled, all monies will be refunded to purchasers.</li>
-          <li>Proper identification, such as a valid driver’s license or other approved government-issued ID, is required to claim any prize.</li>
+          <li>Proper identification, such as a valid driver&rsquo;s license or other approved government-issued ID, is required to claim any prize.</li>
           <li>All prizes must be claimed within 30 days of notification.</li>
           <li>All ticket stubs must be submitted by the published deadline to guarantee entry into the drawing.</li>
-          <li>Purchasers will receive a completed raffle ticket within 7 business days of purchase once online purchasing is available.</li>
+          <li>Purchasers will receive a completed raffle ticket within 7 business days of purchase.</li>
           <li>All proceeds benefit the Kirtland Heritage Group, a 501(c)(3) nonprofit organization.</li>
-          <li>neochosen, The Kirtland Heritage Group, and any other person, organization, or business sponsoring or participating in this raffle assume no liability for any claims, injuries, losses, or damages arising from participation in the raffle or the acceptance, possession, or use of any prize won. By purchasing a ticket, participants acknowledge and accept this limitation of liability.</li>
+          <li>NEOChosen, The Kirtland Heritage Group, and any other person, organization, or business sponsoring or participating in this raffle assume no liability for any claims, injuries, losses, or damages arising from participation in the raffle or the acceptance, possession, or use of any prize won. By purchasing a ticket, participants acknowledge and accept this limitation of liability.</li>
         </ul>
-      </section>
+      </details>
+    </section>
+
+    <section class="raffle-section final-cta" aria-labelledby="raffle-cta-heading">
+      <div class="eyebrow">Enter Today</div>
+      <h2 id="raffle-cta-heading">Your chance to win. Your chance to make a difference.</h2>
+      <p>Secure your raffle ticket through Zeffy and help Kirtland Heritage Group continue bringing people together throughout Northeast Ohio.</p>
+      <a class="raffle-button" href="https://www.zeffy.com/en-US/ticketing/kirtland-heritage-groups-raffle--2026" target="_blank" rel="noopener noreferrer">Purchase Raffle Tickets</a>
     </section>
   </main>
 
