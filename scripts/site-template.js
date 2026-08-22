@@ -50,6 +50,7 @@ const icons = __LUCIDE_ICONS__;
   document.body.append(backdrop);
 
   let returnFocus = null;
+  let lockedScrollY = 0;
   const desktop = () => matchMedia('(min-width: 1100px)').matches;
   const closeSponsor = () => {
     if (!sponsorToggle || !sponsorMenu) return;
@@ -58,25 +59,30 @@ const icons = __LUCIDE_ICONS__;
     setSponsorIcon(false);
   };
   const closeNav = (restore = true) => {
+    const wasOpen = document.documentElement.classList.contains('nav-open');
     links.classList.remove('is-open');
     backdrop.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open navigation');
     setMenuIcon(false);
+    document.documentElement.classList.remove('nav-open');
     document.body.classList.remove('nav-open');
     closeSponsor();
-    if (restore && returnFocus && !desktop()) returnFocus.focus();
+    if (restore && returnFocus && !desktop()) returnFocus.focus({ preventScroll: true });
+    if (wasOpen) requestAnimationFrame(() => scrollTo(0, lockedScrollY));
     returnFocus = null;
   };
   const openNav = () => {
     returnFocus = document.activeElement;
+    lockedScrollY = scrollY;
     links.classList.add('is-open');
     backdrop.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close navigation');
     setMenuIcon(true);
+    document.documentElement.classList.add('nav-open');
     document.body.classList.add('nav-open');
-    requestAnimationFrame(() => links.querySelector('a, button')?.focus());
+    requestAnimationFrame(() => links.querySelector('a, button')?.focus({ preventScroll: true }));
   };
 
   toggle.addEventListener('click', (event) => {
