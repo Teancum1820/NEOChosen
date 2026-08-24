@@ -436,7 +436,14 @@
       .page-shell { width: min(100% - 1rem, 1400px); padding-top: 1rem; }
       .glassmorphism { padding: 1rem; }
       .asset-body { padding: 1rem; }
-      .asset-actions { grid-template-columns: 1fr; }
+      .asset-actions { gap: 0.45rem; }
+      .asset-actions .gold-button {
+        min-height: 2.55rem;
+        padding: 0.55rem 0.35rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.045em;
+        white-space: nowrap;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
