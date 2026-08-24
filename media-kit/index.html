@@ -283,8 +283,25 @@
 
     .media-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.1rem;
+    }
+
+    .media-section + .media-section {
+      margin-top: 2.75rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(215, 185, 86, 0.2);
+    }
+
+    .media-section-heading {
+      margin: 0 0 1.25rem;
+      font-family: 'Cinzel', serif;
+      color: var(--soft-gold);
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     .asset-card {
@@ -306,14 +323,21 @@
       box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
     }
 
+    .asset-preview-link {
+      display: block;
+      background: rgba(0, 0, 0, 0.32);
+    }
+
+    .asset-preview-link:focus-visible {
+      outline: 2px solid var(--soft-gold);
+      outline-offset: -4px;
+    }
+
     .asset-preview {
-      aspect-ratio: 4 / 5;
       width: 100%;
-      object-fit: cover;
-      object-position: top center;
+      height: auto;
       display: block;
       border-bottom: 1px solid rgba(215, 185, 86, 0.2);
-      background: rgba(0, 0, 0, 0.32);
     }
 
     .asset-body {
@@ -370,12 +394,17 @@
 
     .asset-actions {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.65rem;
       margin-top: auto;
     }
 
     .asset-actions .gold-button {
       margin-top: 0;
+    }
+
+    .event-flyers .asset-actions {
+      grid-template-columns: 1fr;
     }
 
     .site-footer {
@@ -411,6 +440,14 @@
       .page-shell { width: min(100% - 1rem, 1400px); padding-top: 1rem; }
       .glassmorphism { padding: 1rem; }
       .asset-body { padding: 1rem; }
+      .asset-actions { gap: 0.45rem; }
+      .asset-actions .gold-button {
+        min-height: 2.55rem;
+        padding: 0.55rem 0.35rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.045em;
+        white-space: nowrap;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -453,19 +490,150 @@
       <header class="page-header">
         <p class="eyebrow">Kirtland Heritage Group</p>
         <h1>Media Kit</h1>
-        <p class="hero-subtitle">Updated NEOChosen raffle materials are being prepared.</p>
+        <p class="hero-subtitle">View, download, print, and share the latest NEOChosen event flyers, schedule, and raffle materials.</p>
         <div class="divider-line"></div>
       </header>
 
-      <div class="media-grid">
-        <article class="asset-card">
-          <div class="asset-body">
-            <h2>Updated Materials Coming Soon</h2>
-            <p>Our raffle flyer and mail-in form are being updated with the new Chesterland drawing details. Please use the live raffle page for current information and online ticket purchases.</p>
-            <a class="gold-button" href="/raffle/">View Current Raffle Details</a>
-          </div>
-        </article>
-      </div>
+      <section class="media-section" aria-labelledby="weekend-overview-heading">
+        <h2 class="media-section-heading" id="weekend-overview-heading">Weekend Overview</h2>
+        <div class="media-grid">
+          <article class="asset-card">
+            <a class="asset-preview-link" href="/media-kit/2026-weekend-schedule.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size 2026 NEOChosen weekend schedule">
+              <img class="asset-preview" src="/media-kit/2026-weekend-schedule.png" width="1545" height="2000" alt="2026 NEOChosen weekend schedule for November 13 through 15" loading="lazy" decoding="async">
+            </a>
+            <div class="asset-body">
+              <h2>2026 Weekend Schedule</h2>
+              <p>A complete overview of the November 13–15 event weekend across Northeast Ohio.</p>
+              <div class="asset-actions">
+                <a class="gold-button" href="/media-kit/2026-weekend-schedule.png" download>Download PNG</a>
+                <a class="gold-button" href="/media-kit/2026-weekend-schedule.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="media-section event-flyers" aria-labelledby="event-flyers-heading">
+        <h2 class="media-section-heading" id="event-flyers-heading">Event Flyers</h2>
+        <div class="media-grid">
+          <article class="asset-card">
+            <a class="asset-preview-link" href="/media-kit/2026-vip-sponsor-dinner.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size VIP sponsor dinner flyer">
+              <img class="asset-preview" src="/media-kit/2026-vip-sponsor-dinner.png" width="1545" height="2000" alt="Exclusive sponsor dinner flyer for Friday, November 13, 2026" loading="lazy" decoding="async">
+            </a>
+            <div class="asset-body">
+              <h2>VIP Sponsor Dinner</h2>
+              <p>Details for the exclusive Friday dinner with The Piano Guys and cast members from The Chosen.</p>
+              <div class="asset-actions">
+                <a class="gold-button" href="/media-kit/2026-vip-sponsor-dinner.png" download>Download PNG</a>
+                <a class="gold-button" href="/media-kit/2026-vip-sponsor-dinner.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <a class="asset-preview-link" href="/media-kit/2026-lakewood-evening-with-the-chosen.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Lakewood event flyer">
+              <img class="asset-preview" src="/media-kit/2026-lakewood-evening-with-the-chosen.png" width="1545" height="2000" alt="An Evening with cast members from The Chosen in Lakewood on November 13, 2026" loading="lazy" decoding="async">
+            </a>
+            <div class="asset-body">
+              <h2>Lakewood Evening with The Chosen</h2>
+              <p>Flyer for the free Friday evening of stories, testimony, and audience questions with cast members.</p>
+              <div class="asset-actions">
+                <a class="gold-button" href="/media-kit/2026-lakewood-evening-with-the-chosen.png" download>Download PNG</a>
+                <a class="gold-button" href="/media-kit/2026-lakewood-evening-with-the-chosen.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <a class="asset-preview-link" href="/media-kit/2026-akron-piano-guys-concert.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Akron Piano Guys concert flyer">
+              <img class="asset-preview" src="/media-kit/2026-akron-piano-guys-concert.png" width="1545" height="2000" alt="The Piano Guys concert in Akron on November 14, 2026" loading="lazy" decoding="async">
+            </a>
+            <div class="asset-body">
+              <h2>Akron Piano Guys Concert</h2>
+              <p>Flyer for The Piano Guys’ separately ticketed Saturday performance at the Akron Civic Theatre.</p>
+              <div class="asset-actions">
+                <a class="gold-button" href="/media-kit/2026-akron-piano-guys-concert.png" download>Download PNG</a>
+                <a class="gold-button" href="/media-kit/2026-akron-piano-guys-concert.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <a class="asset-preview-link" href="/media-kit/2026-meet-and-greet-overview.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Meet and Greet overview flyer">
+              <img class="asset-preview" src="/media-kit/2026-meet-and-greet-overview.png" width="1545" height="2000" alt="Overview of the free Fairlawn and Chesterland Meet and Greet events" loading="lazy" decoding="async">
+            </a>
+            <div class="asset-body">
+              <h2>Meet &amp; Greet Overview</h2>
+              <p>A combined overview of both free Meet &amp; Greet opportunities in Fairlawn and Chesterland.</p>
+              <div class="asset-actions">
+                <a class="gold-button" href="/media-kit/2026-meet-and-greet-overview.png" download>Download PNG</a>
+                <a class="gold-button" href="/media-kit/2026-meet-and-greet-overview.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <a class="asset-preview-link" href="/media-kit/2026-fairlawn-meet-and-greet.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Fairlawn Meet and Greet flyer">
+              <img class="asset-preview" src="/media-kit/2026-fairlawn-meet-and-greet.png" width="1545" height="2000" alt="Free Meet and Greet in Fairlawn on November 14, 2026" loading="lazy" decoding="async">
+            </a>
+            <div class="asset-body">
+              <h2>Fairlawn Meet &amp; Greet</h2>
+              <p>Location, time, and guest details for Saturday evening at St. Hilary Church.</p>
+              <div class="asset-actions">
+                <a class="gold-button" href="/media-kit/2026-fairlawn-meet-and-greet.png" download>Download PNG</a>
+                <a class="gold-button" href="/media-kit/2026-fairlawn-meet-and-greet.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <a class="asset-preview-link" href="/media-kit/2026-chesterland-meet-and-greet.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Chesterland Meet and Greet flyer">
+              <img class="asset-preview" src="/media-kit/2026-chesterland-meet-and-greet.png" width="1545" height="2000" alt="Free Meet and Greet in Chesterland on November 15, 2026" loading="lazy" decoding="async">
+            </a>
+            <div class="asset-body">
+              <h2>Chesterland Meet &amp; Greet</h2>
+              <p>Location, time, and guest details for Sunday afternoon at the United Methodist Church in Chesterland.</p>
+              <div class="asset-actions">
+                <a class="gold-button" href="/media-kit/2026-chesterland-meet-and-greet.png" download>Download PNG</a>
+                <a class="gold-button" href="/media-kit/2026-chesterland-meet-and-greet.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="media-section" aria-labelledby="raffle-materials-heading">
+        <h2 class="media-section-heading" id="raffle-materials-heading">Raffle Materials</h2>
+        <div class="media-grid">
+          <article class="asset-card">
+            <a class="asset-preview-link" href="/media-kit/2026-raffle-flyer.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size 2026 NEOChosen raffle flyer">
+              <img class="asset-preview" src="/media-kit/2026-raffle-flyer.png" width="1545" height="2000" alt="2026 NEOChosen raffle flyer with prize and entry details" loading="lazy" decoding="async">
+            </a>
+            <div class="asset-body">
+              <h2>2026 Raffle Flyer</h2>
+              <p>Shareable raffle overview with prize amounts, entry options, drawing information, and official rules summary.</p>
+              <div class="asset-actions">
+                <a class="gold-button" href="/media-kit/2026-raffle-flyer.png" download>Download PNG</a>
+                <a class="gold-button" href="/media-kit/2026-raffle-flyer.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="asset-card">
+            <a class="asset-preview-link" href="/media-kit/2026-raffle-mail-in-form.png" target="_blank" rel="noopener noreferrer" aria-label="View the full-size 2026 raffle mail-in entry form">
+              <img class="asset-preview" src="/media-kit/2026-raffle-mail-in-form.png" width="1545" height="2000" alt="Printable 2026 NEOChosen raffle mail-in entry form" loading="lazy" decoding="async">
+            </a>
+            <div class="asset-body">
+              <h2>Raffle Mail-In Entry Form</h2>
+              <p>Printable entry form for participants who prefer to enter the raffle by mail.</p>
+              <div class="asset-actions">
+                <a class="gold-button" href="/media-kit/2026-raffle-mail-in-form.png" download>Download PNG</a>
+                <a class="gold-button" href="/media-kit/2026-raffle-mail-in-form.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
     </section>
   </main>
 
