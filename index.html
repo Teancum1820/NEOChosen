@@ -412,6 +412,42 @@
             line-height: 1.55;
         }
 
+        .event-presenting-sponsor {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.45rem 0.75rem;
+            margin: 0.35rem 0 0.2rem;
+            padding: 0.45rem 0.7rem;
+            border: 1px solid rgba(201,168,76,0.24);
+            background: rgba(201,168,76,0.06);
+            color: var(--cream);
+            text-decoration: none;
+            transition: background 0.25s, border-color 0.25s;
+        }
+        .event-presenting-sponsor:hover {
+            background: rgba(201,168,76,0.12);
+            border-color: rgba(201,168,76,0.5);
+        }
+        .event-presenting-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.52rem;
+            letter-spacing: 0.16em;
+            color: var(--gold-light);
+            text-transform: uppercase;
+        }
+        .event-presenting-logo {
+            width: auto;
+            height: 2rem;
+            max-width: 9rem;
+            object-fit: contain;
+        }
+        .event-presenting-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.92rem;
+            line-height: 1.1;
+        }
+
         .event-badges-row {
             display: flex;
             flex-wrap: nowrap;
@@ -1206,6 +1242,11 @@
                         </div>
                         <div>
                             <p class="event-detail-title">Fairlawn Meet &amp; Greet</p>
+                            <a class="event-presenting-sponsor" href="https://www.acendodontics.com" target="_blank" rel="noopener noreferrer" aria-label="Advanced Care Endodontics, presenting sponsor of the Fairlawn Meet and Greet">
+                                <span class="event-presenting-label">Presenting Sponsor</span>
+                                <img src="https://www.acendodontics.com/wp-content/uploads/sites/478/2013/03/Harris-Logo-e1363376953680.png" alt="" class="event-presenting-logo" referrerpolicy="no-referrer" loading="lazy" onerror="this.style.display='none';" decoding="async">
+                                <span class="event-presenting-name">Advanced Care Endodontics</span>
+                            </a>
                             <p class="event-detail-venue">St. Hilary Church · 2750 W Market St, Fairlawn, OH 44333</p>
                             <p class="event-detail-note">Free Meet &amp; Greet. No donation is required or expected.</p>
                             <div class="event-badges-row">
