@@ -39,6 +39,8 @@ const footer = `
     <p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
   </footer>`;
 
+const sponsorshipContactPath = `${sponsorshipBasePath}/contact/`;
+
 const page = ({ title, description, canonicalPath, body }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,13 +172,47 @@ const detailBody = (deck) => {
           <a href="mailto:info@kirtlandheritagegroup.com">info@kirtlandheritagegroup.com</a><br>
           <a href="/">NEOChosen.com</a>
         </address>
-        <a class="gold-button" href="mailto:info@kirtlandheritagegroup.com?subject=NEOChosen%202026%20Sponsorship%20Inquiry">Contact Us About Sponsorship</a>
+        <a class="gold-button" href="${sponsorshipContactPath}">Contact Us About Sponsorship</a>
       </section>
 
       <a class="return-link" href="${sponsorshipBasePath}/">← Return to All Sponsorship Opportunities</a>
     </section>
   </main>`;
 };
+
+const contactBody = `
+  <main class="page-shell sponsorship-shell sponsorship-contact-page">
+    <nav class="sponsorship-breadcrumb" aria-label="Breadcrumb">
+      <a href="${sponsorshipBasePath}/">Become a Sponsor</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Sponsorship Contact</span>
+    </nav>
+    <section class="glassmorphism sponsorship-panel">
+      <header class="page-header sponsorship-contact-page__header">
+        <p class="eyebrow">Let's Partner</p>
+        <h1>Contact Us About Sponsorship</h1>
+        <p class="hero-subtitle">Connect with Kirtland Heritage Group to discuss a NEOChosen sponsorship opportunity that fits your organization.</p>
+        <div class="divider-line"></div>
+      </header>
+
+      <section class="sponsorship-contact sponsorship-contact--page" aria-labelledby="sponsorship-contact-name">
+        <p class="section-kicker">Sponsorship Contact</p>
+        <h2 id="sponsorship-contact-name">Joe Jackson</h2>
+        <p>President, Kirtland Heritage Group</p>
+        <address>
+          <a href="tel:+14407961642">440&#8209;796&#8209;1642</a><br>
+          <a href="mailto:info@kirtlandheritagegroup.com">info@kirtlandheritagegroup.com</a><br>
+          <a href="/">NEOChosen.com</a>
+        </address>
+        <div class="sponsorship-actions sponsorship-contact-page__actions">
+          <a class="gold-button" href="mailto:info@kirtlandheritagegroup.com?subject=NEOChosen%202026%20Sponsorship%20Inquiry">Email About Sponsorship</a>
+          <a class="outline-button" href="tel:+14407961642">Call&nbsp;440&#8209;796&#8209;1642</a>
+        </div>
+      </section>
+
+      <a class="return-link" href="${sponsorshipBasePath}/">← Return to All Sponsorship Opportunities</a>
+    </section>
+  </main>`;
 
 export async function writeSponsorshipPages(outDir) {
   const landingDir = path.join(outDir, "sponsorship-opportunities");
@@ -186,6 +222,15 @@ export async function writeSponsorshipPages(outDir) {
     description: "Explore NEOChosen 2026 presenting, event, leadership, community, advertising, and activation sponsorship opportunities.",
     canonicalPath: `${sponsorshipBasePath}/`,
     body: landingBody
+  }), "utf8");
+
+  const contactDir = path.join(landingDir, "contact");
+  await mkdir(contactDir, { recursive: true });
+  await writeFile(path.join(contactDir, "index.html"), page({
+    title: "Sponsorship Contact | NEOChosen 2026",
+    description: "Contact Joe Jackson at Kirtland Heritage Group to discuss NEOChosen 2026 sponsorship opportunities.",
+    canonicalPath: sponsorshipContactPath,
+    body: contactBody
   }), "utf8");
 
   for (const deck of sponsorshipDecks) {
