@@ -5,6 +5,7 @@
   "description": "Static NEO Chosen event website for Cloudflare Pages.",
   "scripts": {
     "build": "node scripts/build-static.mjs",
+    "check:sponsorships": "node scripts/check-sponsorship-pages.mjs",
     "dev": "npm run build && wrangler pages dev dist",
     "deploy": "npm run build && wrangler deploy"
   },
