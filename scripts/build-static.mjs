@@ -3,6 +3,7 @@ import path from "node:path";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { ChevronDown, Heart, Menu, Minus, Plus, Ticket, X } from "lucide-react";
+import { writeSponsorshipPages } from "./sponsorship-pages.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -18,6 +19,7 @@ const siteDirs = [
   "raffle",
   "social-media-links",
   "sponsors",
+  "sponsorships",
   "sponsorship-opportunities",
   "thank-you"
 ];
@@ -58,3 +60,5 @@ for (const entry of await readdir(root, { withFileTypes: true })) {
 for (const dir of siteDirs) {
   await cp(path.join(root, dir), path.join(outDir, dir), { recursive: true });
 }
+
+await writeSponsorshipPages(outDir);

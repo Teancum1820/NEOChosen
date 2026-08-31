@@ -9,7 +9,8 @@ Static marketing website for the **Kirtland Heritage Group** "NEO Chosen" weeken
 - `*.html` in the repository root — lightweight redirect pages that forward `.html` routes to canonical directory routes.
 - `images/` — shared site imagery and favicon assets.
 - `media-kit/` — downloadable media-kit graphics and gallery page.
-- `sponsorship-opportunities/` — sponsorship packet page and downloadable packet image.
+- `sponsorship-opportunities/` — shared sponsorship portal styles; the landing page and eight detail routes are generated at build time from `scripts/sponsorship-decks.mjs`.
+- `sponsorships/` — the eight downloadable sponsorship PDFs and static Quick Summary images.
 - `manifest.webmanifest`, `sw.js`, `pwa-register.js` — PWA metadata and service worker support.
 
 ## Local Preview
