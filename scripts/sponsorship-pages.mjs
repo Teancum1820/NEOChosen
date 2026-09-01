@@ -103,6 +103,15 @@ ${sponsorshipDecks.map(card).join("\n")}
 const detailBody = (deck) => {
   const pdfUrl = `${sponsorshipAssetPath}/${encodeURIComponent(deck.pdfFile)}`;
   const summaryUrl = `${sponsorshipAssetPath}/summaries/${encodeURIComponent(deck.summaryImage)}`;
+  const detailTitle = deck.detailTitle ?? deck.title;
+  const detailDescription = deck.detailDescription ?? deck.description;
+  const downloadFile = deck.downloadFile ?? deck.pdfFile;
+  const summaryAlt = deck.summaryAlt ?? `Quick Summary for ${deck.shortTitle}`;
+  const downloadAttribute = deck.downloadFile ? `download="${escapeHtml(downloadFile)}"` : "download";
+  const primaryAction = deck.slug === "all"
+    ? `<a class="gold-button" href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open Full Deck</a>`
+    : `<a class="gold-button" href="#full-deck">View Full Deck</a>`;
+  const embedStartPage = deck.slug === "all" ? 1 : 2;
   return `
   <main class="page-shell sponsorship-shell sponsorship-detail">
     <nav class="sponsorship-breadcrumb" aria-label="Breadcrumb">
@@ -113,16 +122,16 @@ const detailBody = (deck) => {
     <section class="glassmorphism sponsorship-panel">
       <header class="sponsorship-detail__header">
         <p class="eyebrow">${escapeHtml(deck.category)}</p>
-        <h1>${escapeHtml(deck.title)}</h1>
-        <p class="hero-subtitle">${escapeHtml(deck.description)}</p>
+        <h1>${escapeHtml(detailTitle)}</h1>
+        <p class="hero-subtitle">${escapeHtml(detailDescription)}</p>
         <div class="sponsorship-investment" role="group" aria-label="${escapeHtml(deck.priceLabel)}: ${escapeHtml(deck.price)}">
           <span>${escapeHtml(deck.priceLabel)}</span>
           <strong>${escapeHtml(deck.price)}</strong>
           ${deck.availability ? `<small>${escapeHtml(deck.availability)}</small>` : ""}
         </div>
         <div class="sponsorship-actions" role="group" aria-label="Sponsorship deck actions">
-          <a class="gold-button" href="#full-deck">View Full Deck</a>
-          <a class="outline-button" href="${pdfUrl}" download>Download PDF</a>
+          ${primaryAction}
+          <a class="outline-button" href="${pdfUrl}" ${downloadAttribute}>Download PDF</a>
           <a class="outline-button" href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open PDF in New Tab</a>
         </div>
       </header>
@@ -134,7 +143,7 @@ const detailBody = (deck) => {
           <p>Review the key investment levels, benefits, audience, and important approval guidelines before exploring the complete deck.</p>
         </div>
         <a class="summary-preview" href="${pdfUrl}#page=1&amp;view=FitH" target="_blank" rel="noopener noreferrer" aria-label="Open the ${escapeHtml(deck.shortTitle)} quick summary in a new tab">
-          <img src="${summaryUrl}" alt="Quick Summary for ${escapeHtml(deck.shortTitle)}" width="${deck.summaryWidth}" height="${deck.summaryHeight}">
+          <img src="${summaryUrl}" alt="${escapeHtml(summaryAlt)}" width="${deck.summaryWidth}" height="${deck.summaryHeight}">
           <span>Swipe to read; tap or click to enlarge the Quick Summary</span>
         </a>
       </section>
@@ -147,17 +156,17 @@ const detailBody = (deck) => {
         </div>
         <div class="sponsorship-actions sponsorship-actions--section">
           <a class="gold-button" href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open Full Deck</a>
-          <a class="outline-button" href="${pdfUrl}" download>Download PDF</a>
+          <a class="outline-button" href="${pdfUrl}" ${downloadAttribute}>Download PDF</a>
         </div>
         <div class="pdf-viewer">
-          <object data="${pdfUrl}#page=2&amp;view=FitH" type="application/pdf" title="${escapeHtml(deck.shortTitle)} full sponsorship deck">
+          <object data="${pdfUrl}#page=${embedStartPage}&amp;view=FitH" type="application/pdf" title="${escapeHtml(deck.shortTitle)} full sponsorship deck">
             <p>Your browser cannot display the embedded PDF. <a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open the full sponsorship deck in a new tab.</a></p>
           </object>
         </div>
         <div class="pdf-mobile-fallback">
           <p>For the best reading experience on a phone, open the full deck in your device's PDF viewer.</p>
           <a class="gold-button" href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open Full Deck</a>
-          <a class="outline-button" href="${pdfUrl}" download>Download PDF</a>
+          <a class="outline-button" href="${pdfUrl}" ${downloadAttribute}>Download PDF</a>
         </div>
       </section>
 
