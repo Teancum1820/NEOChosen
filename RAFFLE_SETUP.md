@@ -17,6 +17,7 @@ The D1 database `neochosen-raffle` and private R2 bucket `neochosen-raffle-uploa
 - Secret `RESEND_API_KEY`.
 - Variable `RAFFLE_ALERT_FROM` using a verified `neochosen.com` sender.
 - Variable `RAFFLE_ALERT_TO=info@kirtlandheritagegroup.com`.
+- Keep `PRIZE_FORM_ENABLED` unset while the form is coming soon. Set it to `true` only when the reviewed form is restored and ready to accept submissions.
 - Add a Cloudflare rate-limiting rule for `POST /api/prize-donations` (recommended threshold: 5 requests per IP per 10 minutes).
 
 The prize form stores its record before sending an alert. Failed alerts are marked `alert_failed` in D1 for follow-up. Uploaded objects are keyed by the submission UUID and are never rendered publicly.

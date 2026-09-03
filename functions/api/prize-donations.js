@@ -37,6 +37,7 @@ async function sendAlert(env, id, values, logoKey, photoKey) {
 }
 
 export async function onRequestPost({ request, env }) {
+  if (env.PRIZE_FORM_ENABLED !== 'true') return json({ error: 'Prize submissions are coming soon.' }, 503);
   if (!env.RAFFLE_DB || !env.RAFFLE_UPLOADS) return json({ error: 'Prize submissions are not configured yet. Please email info@kirtlandheritagegroup.com.' }, 503);
   const contentType = request.headers.get('content-type') || '';
   if (!contentType.startsWith('multipart/form-data')) return json({ error: 'Unsupported request.' }, 415);

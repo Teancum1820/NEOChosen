@@ -20,9 +20,10 @@ for (const prohibited of [
 for (const required of [
   'NEOChosen Raffle Coming Soon | Kirtland Heritage Group',
   'Win Extraordinary Experiences.', 'Tickets Are Not on Sale Yet',
-  'neochosen-raffle-interest', 'id="prize-donation-form"',
+  'neochosen-raffle-interest', 'Donate or Pledge a Prize — Coming Soon',
   'A general donation does not purchase a raffle ticket'
 ]) assert(raffle.includes(required), `Required coming-soon content missing: ${required}`);
 
 assert(corpus.includes('Raffle — Coming Soon'), 'Coming-soon navigation label is missing.');
+assert(!raffle.includes('id="prize-donation-form"'), 'Prize form must remain disabled while marked coming soon.');
 console.log(`Validated raffle coming-soon content across ${files.length} built text assets.`);

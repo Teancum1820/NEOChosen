@@ -25,13 +25,13 @@ const validForm = () => {
 };
 const originalFetch = globalThis.fetch;
 globalThis.fetch = async (url) => String(url).startsWith('https://api.resend.com/') ? new Response('{}', { status: 200 }) : originalFetch(url);
-response = await prize.onRequestPost({ request: new Request('https://example.com/api/prize-donations', { method: 'POST', body: validForm() }), env: { RAFFLE_DB: db, RAFFLE_UPLOADS: bucket, RESEND_API_KEY: 'test', RAFFLE_ALERT_FROM: 'test@example.com' } });
+response = await prize.onRequestPost({ request: new Request('https://example.com/api/prize-donations', { method: 'POST', body: validForm() }), env: { PRIZE_FORM_ENABLED: 'true', RAFFLE_DB: db, RAFFLE_UPLOADS: bucket, RESEND_API_KEY: 'test', RAFFLE_ALERT_FROM: 'test@example.com' } });
 assert.equal(response.status, 201);
 assert.equal(objects.size, 1);
 assert(statementLog.some(({ sql }) => sql.includes('INSERT INTO prize_donations')));
 
 const invalid = validForm(); invalid.set('email', 'invalid');
-response = await prize.onRequestPost({ request: new Request('https://example.com/api/prize-donations', { method: 'POST', body: invalid }), env: { RAFFLE_DB: db, RAFFLE_UPLOADS: bucket, RESEND_API_KEY: 'test' } });
+response = await prize.onRequestPost({ request: new Request('https://example.com/api/prize-donations', { method: 'POST', body: invalid }), env: { PRIZE_FORM_ENABLED: 'true', RAFFLE_DB: db, RAFFLE_UPLOADS: bucket, RESEND_API_KEY: 'test' } });
 assert.equal(response.status, 400);
 globalThis.fetch = originalFetch;
 console.log('Validated raffle analytics and prize-submission handlers with mocked D1, R2, and Resend.');
