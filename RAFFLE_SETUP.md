@@ -12,9 +12,8 @@ The raffle page remains a draft until these account-side steps are complete.
 
 ## Cloudflare resources
 
-Create and bind these resources to both Preview and Production in the `neochosen` Pages project:
+The D1 database `neochosen-raffle` is created, migrated, and bound as `RAFFLE_DB` in `wrangler.jsonc`. Complete the remaining resources for both Preview and Production in the `neochosen` Pages project:
 
-- D1 binding `RAFFLE_DB`; apply `migrations/0001_raffle_forms.sql`.
 - Private R2 binding `RAFFLE_UPLOADS`; do not expose a public bucket URL.
 - Secret `RESEND_API_KEY`.
 - Variable `RAFFLE_ALERT_FROM` using a verified `neochosen.com` sender.
