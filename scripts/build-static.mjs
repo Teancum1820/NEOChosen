@@ -20,8 +20,7 @@ const siteDirs = [
   "social-media-links",
   "sponsors",
   "sponsorships",
-  "sponsorship-opportunities",
-  "thank-you"
+  "sponsorship-opportunities"
 ];
 
 await rm(outDir, { recursive: true, force: true });
