@@ -12,9 +12,8 @@ The raffle page remains a draft until these account-side steps are complete.
 
 ## Cloudflare resources
 
-The D1 database `neochosen-raffle` is created, migrated, and bound as `RAFFLE_DB` in `wrangler.jsonc`. Complete the remaining resources for both Preview and Production in the `neochosen` Pages project:
+The D1 database `neochosen-raffle` and private R2 bucket `neochosen-raffle-uploads` are created and bound in `wrangler.jsonc` as `RAFFLE_DB` and `RAFFLE_UPLOADS`. Complete the remaining configuration for both Preview and Production in the `neochosen` Pages project:
 
-- Private R2 binding `RAFFLE_UPLOADS`; do not expose a public bucket URL.
 - Secret `RESEND_API_KEY`.
 - Variable `RAFFLE_ALERT_FROM` using a verified `neochosen.com` sender.
 - Variable `RAFFLE_ALERT_TO=info@kirtlandheritagegroup.com`.

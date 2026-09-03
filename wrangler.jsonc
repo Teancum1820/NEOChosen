@@ -12,5 +12,11 @@
       "database_name": "neochosen-raffle",
       "database_id": "bd1712c6-7ec2-4b3a-be0b-ef525d4c99c2"
     }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "RAFFLE_UPLOADS",
+      "bucket_name": "neochosen-raffle-uploads"
+    }
   ]
 }
