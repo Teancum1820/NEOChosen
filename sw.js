@@ -1,7 +1,8 @@
-const CACHE_NAME = 'neochosen-v11-raffle-coming-soon';
+const CACHE_NAME = 'neochosen-v12-mayfield-church';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
+  '/chesterland/',
   '/donations/',
   '/get-involved/',
   '/raffle/',
@@ -14,7 +15,8 @@ const OFFLINE_URLS = [
   '/site.css',
   '/site.js',
   '/images/favicon.png',
-  '/images/hero.png'
+  '/images/hero.png',
+  '/images/mayfield-united-methodist-church-logo.jpg'
 ];
 
 self.addEventListener('install', (event) => {

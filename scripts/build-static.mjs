@@ -12,6 +12,7 @@ const rootFilePattern = /(\.html|\.css|\.js|\.svg|\.webmanifest)$/;
 const rootFiles = new Set(["_headers", "_redirects"]);
 const siteDirs = [
   "about-us",
+  "chesterland",
   "donations",
   "get-involved",
   "images",
