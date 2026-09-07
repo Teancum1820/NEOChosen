@@ -4,6 +4,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { ChevronDown, Heart, Menu, Minus, Plus, Ticket, X } from "lucide-react";
 import { writeSponsorshipPages } from "./sponsorship-pages.mjs";
+import { applySharedLayout } from "./shared-layout.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -62,3 +63,19 @@ for (const dir of siteDirs) {
 }
 
 await writeSponsorshipPages(outDir);
+
+const htmlFiles = [];
+const collectHtml = async (dir) => {
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) await collectHtml(file);
+    else if (entry.name.endsWith(".html")) htmlFiles.push(file);
+  }
+};
+await collectHtml(outDir);
+for (const file of htmlFiles) {
+  const relative = path.relative(outDir, file).replaceAll("\\", "/");
+  const route = relative === "index.html" ? "home" : relative.split("/")[0].replace(/\.html$/, "");
+  const html = await readFile(file, "utf8");
+  await writeFile(file, applySharedLayout(html, route), "utf8");
+}

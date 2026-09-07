@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { sponsorshipAssetPath, sponsorshipBasePath, sponsorshipDecks } from "./sponsorship-decks.mjs";
+import { sharedFooter as footer, sharedHeader as nav } from "./shared-layout.mjs";
 
 const escapeHtml = (value) => String(value)
   .replaceAll("&", "&amp;")
@@ -8,36 +9,6 @@ const escapeHtml = (value) => String(value)
   .replaceAll(">", "&gt;")
   .replaceAll('"', "&quot;")
   .replaceAll("'", "&#39;");
-
-const nav = `
-  <nav class="site-nav" aria-label="Main navigation">
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-    <div class="site-nav-links" id="primary-nav">
-      <a href="/">Home</a>
-      <a href="/about-us/">About Us</a>
-      <a href="/get-involved/">Get Involved</a>
-      <a href="/media-kit/">Media Kit</a>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Our Sponsors</button>
-        <div class="nav-dropdown-menu">
-          <a href="/sponsors/">Our Sponsors</a>
-          <a href="${sponsorshipBasePath}/" aria-current="page">Become a sponsor</a>
-        </div>
-      </div>
-      <a href="/donations/">Donations</a>
-      <a href="/raffle/">Raffle — Coming Soon</a>
-      <a href="/social-media-links/">Social Media</a>
-      <a href="/#tickets" class="nav-ticket">Get Tickets</a>
-    </div>
-  </nav>`;
-
-const footer = `
-  <footer class="site-footer">
-    <p class="footer-logo">Kirtland Heritage Group</p>
-    <p>A 501(c)(3) nonprofit dedicated to uniting neighbors in faith &amp; fellowship.</p>
-    <p><a href="/about-us/">About</a> &middot; <a href="/sponsors/">Sponsors</a> &middot; <a href="/social-media-links/">Social Media</a> &middot; <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group</a></p>
-    <p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
-  </footer>`;
 
 const sponsorshipContactPath = `${sponsorshipBasePath}/contact/`;
 

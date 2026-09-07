@@ -11,21 +11,31 @@ const icons = __LUCIDE_ICONS__;
   if (!links || !toggle) return;
 
   nav.classList.add('site-header');
-  const wordmark = document.createElement('a');
-  wordmark.className = 'site-wordmark';
-  wordmark.href = '/';
-  wordmark.setAttribute('aria-label', 'NEOChosen home');
-  wordmark.innerHTML = 'NEO<span>Chosen</span>';
-
-  const actions = document.createElement('div');
-  actions.className = 'site-nav-actions';
-  const donate = document.createElement('a');
-  donate.className = 'site-donate';
-  donate.href = '/donations/';
-  donate.innerHTML = `${icons.heart}<span>Donate</span>`;
-  actions.append(donate, toggle);
-  nav.prepend(wordmark);
-  nav.append(actions);
+  let wordmark = nav.querySelector('.site-wordmark');
+  if (!wordmark) {
+    wordmark = document.createElement('a');
+    wordmark.className = 'site-wordmark';
+    wordmark.href = '/';
+    wordmark.setAttribute('aria-label', 'NEOChosen home');
+    wordmark.innerHTML = 'NEO<span>Chosen</span>';
+    nav.prepend(wordmark);
+  }
+  let actions = nav.querySelector('.site-nav-actions');
+  if (!actions) {
+    actions = document.createElement('div');
+    actions.className = 'site-nav-actions';
+    actions.append(toggle);
+    nav.append(actions);
+  }
+  let donate = actions.querySelector('.site-donate');
+  if (!donate) {
+    donate = document.createElement('a');
+    donate.className = 'site-donate';
+    donate.href = '/donations/';
+    donate.innerHTML = '<span>Donate</span>';
+    actions.prepend(donate);
+  }
+  if (!donate.querySelector('.site-icon')) donate.insertAdjacentHTML('afterbegin', icons.heart);
 
   const setMenuIcon = (open) => {
     toggle.innerHTML = open ? icons.close : icons.menu;
