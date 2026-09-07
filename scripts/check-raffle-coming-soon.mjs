@@ -30,6 +30,8 @@ for (const { file, html } of publicPages) {
   const footer = html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)?.[0] ?? '';
   for (const href of canonicalNavLinks) assert(nav.includes(`href="${href}"`), `${file} is missing shared navigation link ${href}`);
   for (const href of canonicalFooterLinks) assert(footer.includes(`href="${href}"`), `${file} is missing shared footer link ${href}`);
+  assert.equal((html.match(/href="\/site\.css"/g) ?? []).length, 1, `${file} must load the shared stylesheet exactly once`);
+  assert(html.lastIndexOf('href="/site.css"') < html.indexOf('</head>'), `${file} must load the shared stylesheet at the end of the head`);
 }
 
 console.log(`Validated the raffle teaser and shared navigation/footer across ${publicPages.length} public pages.`);

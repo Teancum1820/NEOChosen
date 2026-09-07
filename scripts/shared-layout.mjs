@@ -32,7 +32,17 @@ export const sharedFooter = `
 export function applySharedLayout(html, route) {
   if (!html.includes('class="site-nav"') || !html.includes('class="site-footer"')) return html;
   const header = sharedHeader.replace(`data-nav-route="${route}"`, `data-nav-route="${route}" aria-current="page"`);
-  return html
+  const headEnd = html.indexOf('</head>');
+  const trailingStyles = [];
+  const normalizedHtml = html.replace(/<style(?:\s[^>]*)?>[\s\S]*?<\/style>/g, (style, offset) => {
+    if (offset < headEnd) return style;
+    trailingStyles.push(style);
+    return '';
+  });
+  const sharedStyles = `${trailingStyles.join('\n')}\n  <link rel="stylesheet" href="/site.css">`;
+  return normalizedHtml
+    .replace(/\s*<link rel="stylesheet" href="\/site\.css">/g, '')
+    .replace('</head>', `${sharedStyles}\n</head>`)
     .replace(/\s*<nav class="site-nav"[\s\S]*?<\/nav>/, `\n${header}`)
     .replace(/\s*<footer class="site-footer"[\s\S]*?<\/footer>/, `\n${sharedFooter}`);
 }
