@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/build-static.mjs",
     "check:sponsorships": "node scripts/check-sponsorship-pages.mjs",
+    "check:site-chrome": "node scripts/check-site-chrome.mjs",
     "check:raffle": "node scripts/check-raffle-coming-soon.mjs",
     "test:raffle-functions": "node scripts/test-raffle-functions.mjs",
     "dev": "npm run build && wrangler pages dev dist",

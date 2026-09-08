@@ -40,6 +40,22 @@ const footer = `
   </footer>`;
 
 const sponsorshipContactPath = `${sponsorshipBasePath}/contact/`;
+const advertisingSpecsUrl = `${sponsorshipAssetPath}/neochosen-program-advertising-specifications-2026.pdf`;
+
+const advertisingSpecsSection = `
+      <section class="sponsorship-section program-advertising-specs" id="program-advertising-specs" aria-labelledby="program-advertising-specs-heading">
+        <div class="sponsorship-section__heading">
+          <p class="section-kicker">Program Advertising</p>
+          <h2 id="program-advertising-specs-heading">Program Advertising Artwork Specifications</h2>
+          <p>Purchased an advertisement in the NEOChosen event program? Download the artwork requirements for dimensions, bleed, resolution, file format, safe-area guidelines, and submission instructions.</p>
+        </div>
+        <p><strong>Artwork Deadline: <time datetime="2026-10-15">October 15, 2026</time></strong></p>
+        <p>Completed artwork should be emailed to:<br><a href="mailto:info@kirtlandheritagegroup.com">info@kirtlandheritagegroup.com</a></p>
+        <div class="sponsorship-actions" role="group" aria-label="Program advertising artwork specifications">
+          <a class="gold-button" href="${advertisingSpecsUrl}" target="_blank" rel="noopener noreferrer">View Artwork Specifications</a>
+          <a class="outline-button" href="${advertisingSpecsUrl}" download="neochosen-program-advertising-specifications-2026.pdf">Download PDF</a>
+        </div>
+      </section>`;
 
 const page = ({ title, description, canonicalPath, body }) => `<!DOCTYPE html>
 <html lang="en">
@@ -98,6 +114,7 @@ const landingBody = `
 ${sponsorshipDecks.map(card).join("\n")}
       </ul>
     </section>
+    ${advertisingSpecsSection}
   </main>`;
 
 const detailBody = (deck) => {

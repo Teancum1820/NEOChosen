@@ -5,6 +5,8 @@ Static marketing website for the **Kirtland Heritage Group** "NEO Chosen" weeken
 ## Project Structure
 
 - `index.html` — main landing page.
+- `scripts/site-chrome.mjs` — shared navigation and footer, applied to every content page during the build. Update this module instead of individual page headers and footers.
+- `site.css` and `scripts/site-template.js` — shared responsive styling and accessible menu behavior. Run `npm run check:site-chrome` after building to validate navigation, footer links, and retired signup removal.
 - `<page>/index.html` — canonical subpages served from directory routes (for example, `/about-us/`, `/donations/`, `/raffle/`).
 - `*.html` in the repository root — lightweight redirect pages that forward `.html` routes to canonical directory routes.
 - `images/` — shared site imagery and favicon assets.
