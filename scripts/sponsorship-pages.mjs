@@ -100,6 +100,9 @@ const card = (deck) => {
           </li>`;
 };
 
+const presentingRecognition = "<p class=\"presenting-recognition\"><strong>Akron Civic Theatre presenting sponsors:</strong> <a href=\"https://www.fnaohio.com/\" target=\"_blank\" rel=\"noopener noreferrer\">FNA Wealth Management</a>.</p><p class=\"presenting-recognition\"><strong>Fairlawn Meet &amp; Greet presenting sponsors:</strong> <a href=\"https://www.acendodontics.com\" target=\"_blank\" rel=\"noopener noreferrer\">Advanced Care Endodontics</a> and <a href=\"https://www.fnaohio.com/\" target=\"_blank\" rel=\"noopener noreferrer\">FNA Wealth Management</a>.</p>";
+const eventRecognition = { all: presentingRecognition, 'piano-guys': "<p class=\"presenting-recognition\"><strong>Akron Civic Theatre presenting sponsors:</strong> <a href=\"https://www.fnaohio.com/\" target=\"_blank\" rel=\"noopener noreferrer\">FNA Wealth Management</a>.</p>", 'meet-and-greet': "<p class=\"presenting-recognition\"><strong>Fairlawn Meet &amp; Greet presenting sponsors:</strong> <a href=\"https://www.acendodontics.com\" target=\"_blank\" rel=\"noopener noreferrer\">Advanced Care Endodontics</a> and <a href=\"https://www.fnaohio.com/\" target=\"_blank\" rel=\"noopener noreferrer\">FNA Wealth Management</a>.</p>" };
+
 const landingBody = `
   <main class="page-shell sponsorship-shell">
     <section class="glassmorphism sponsorship-panel">
@@ -110,6 +113,7 @@ const landingBody = `
         <p class="sponsorship-header__prompt">Choose a sponsorship opportunity below to see pricing, benefits, and partnership opportunities.</p>
         <div class="divider-line"></div>
       </header>
+      ${presentingRecognition}
       <ul class="sponsorship-grid" aria-label="Sponsorship opportunities">
 ${sponsorshipDecks.map(card).join("\n")}
       </ul>
@@ -153,6 +157,7 @@ const detailBody = (deck) => {
         </div>
       </header>
 
+      ${eventRecognition[deck.slug] ?? ""}
       <section class="sponsorship-section quick-summary" aria-labelledby="quick-summary-heading">
         <div class="sponsorship-section__heading">
           <p class="section-kicker">At a Glance</p>
