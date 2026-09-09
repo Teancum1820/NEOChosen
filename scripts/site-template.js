@@ -9,7 +9,7 @@ const icons = __LUCIDE_ICONS__;
   if (!links || !toggle) return;
   const breakpoint = matchMedia('(min-width: 1200px)');
   const dropdowns = [...nav.querySelectorAll('.nav-dropdown')];
-  const background = [...document.querySelectorAll('main, .site-footer')];
+  const background = [...document.querySelectorAll('main, .site-footer, .site-follow-bar')];
   const previousInert = new Map();
   if (donate) donate.innerHTML = `${icons.heart}<span>Donate</span>`;
   links.querySelector('.nav-ticket')?.insertAdjacentHTML('afterbegin', icons.ticket);

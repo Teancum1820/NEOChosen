@@ -402,42 +402,36 @@
         <header class="text-center mb-12">
           <p class="font-cinzel text-xs md:text-sm uppercase tracking-[0.55em] text-[var(--gold)] mb-5">Kirtland Heritage Group</p>
           <h1 class="font-cinzel hero-title text-4xl md:text-6xl">Get Involved</h1>
-          <p class="hero-subtitle text-lg md:text-xl mt-4 uppercase">Become a Sponsor • Donate Money • Donate Time</p>
+          <p class="hero-subtitle text-lg md:text-xl mt-4">Help us bring uplifting events and community experiences to Northeast Ohio.</p>
           <div class="divider-line"></div>
         </header>
 
-        <div class="max-w-6xl mx-auto space-y-12">
-          <figure class="content-card p-8 text-center">
-            <h2 class="font-cinzel section-title text-3xl mb-4">Become a Sponsor</h2>
-            <img src="https://img1.wsimg.com/isteam/ip/c76862d1-4b72-4973-80c5-7d12414010ec/Sponsorluk2.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1240,h:620,cg:true" alt="Handshake representing sponsorship" class="w-full h-64 object-cover mx-auto mb-6 image-frame" loading="lazy" decoding="async">
-            <figcaption class="body-copy">
-              <p class="mb-4">Sponsors help Kirtland Heritage Group offset the significant costs of presenting a free community weekend. Sponsorship is optional and does not purchase access to performers.</p>
-              <a href="/sponsorship-opportunities/" class="gold-link">Learn about sponsoring the weekend</a>
-            </figcaption>
-          </figure>
-
-          <figure class="content-card p-8 text-center">
-            <h2 class="font-cinzel section-title text-3xl mb-4">Donate Money</h2>
-            <img src="https://t4.ftcdn.net/jpg/01/58/74/77/360_F_158747798_HjZVESHPxkgR11svewry83Mg0wzWgrpn.jpg" alt="Plant growing from coins, representing donations" class="w-full h-64 object-cover mx-auto mb-6 image-frame" loading="lazy" decoding="async">
-            <figcaption class="body-copy space-y-5">
-              <div>
-                <h3 class="font-bold text-lg text-[var(--cream)]">Online</h3>
-                <p>Admission is free and no donation is required or expected. If you choose to help offset event costs, visit our <a href="/donations/" class="gold-link">donation page</a>.</p>
-              </div>
-              <div>
-                <h3 class="font-bold text-lg text-[var(--cream)]">By Mail</h3>
-                <p>Please make checks payable to:<br><span class="text-[var(--soft-gold)] font-semibold">The Kirtland Heritage Group</span></p>
-                <p class="mt-2">Mail to:<br>38323 Apollo Parkway Unit 7<br>Willoughby, Ohio 44094</p>
-              </div>
-            </figcaption>
-          </figure>
-
-          <figure class="content-card p-8 text-center">
-            <h2 class="font-cinzel section-title text-3xl mb-4">Donate Time</h2>
-            <img src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?q=80&w=1240&auto=format&fit=crop" alt="Volunteers working together" class="w-full h-64 object-cover mx-auto mb-6 image-frame" loading="lazy" decoding="async">
-            <figcaption class="body-copy">
+        <div class="involvement-grid">
+          <article class="involvement-card">
+            <span class="support-kicker">Partner with us</span>
+            <h2>Become a Sponsor</h2>
+            <p>Bring your business or organization alongside a weekend of faith, music, and fellowship. Help make it possible while gaining meaningful visibility in our community.</p>
+            <a class="support-cta" href="/sponsorship-opportunities/">View Sponsorship Opportunities <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="involvement-card">
+            <span class="support-kicker">Make a difference</span>
+            <h2>Donate</h2>
+            <p>Your generosity helps make free events and community experiences possible. Every gift supports moments that bring Northeast Ohio neighbors together.</p>
+            <p class="support-note">Donations are optional. No donation is required for free events.</p>
+            <a class="support-cta" href="/donations/">Make a Donation <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="involvement-card">
+            <span class="support-kicker">Serve together</span>
+            <h2>Volunteer</h2>
+            <p>Share your time, welcome our neighbors, and help make the weekend a success. Be part of the community bringing these uplifting experiences to life.</p>
+            <a class="support-cta" href="#volunteer">Volunteer / Donate Your Time <span aria-hidden="true">↓</span></a>
+          </article>
+        </div>
+        <div class="max-w-6xl mx-auto">
+          <section id="volunteer" class="content-card volunteer-panel p-8" aria-labelledby="volunteer-heading">
+            <h2 id="volunteer-heading" class="font-cinzel section-title text-3xl mb-4">Volunteer with Us</h2>
+            <div class="body-copy">
               <p class="mb-6">Interested in donating your time? Please fill out the form below and we'll be in touch!</p>
-
               <div id="volunteer-form-container">
                 <form action="https://docs.google.com/forms/d/e/1FAIpQLSecLbZEnc51XTWfnO8HmHafagxf79lwewNz5V1EEuyZ_SLAcA/formResponse" method="POST" target="hidden_iframe_volunteer" id="volunteer-form" class="space-y-4 text-left">
                   <div class="form-group">
@@ -465,8 +459,8 @@
                   <p class="body-copy mt-2">We've received your information and will be in touch soon.</p>
                 </div>
               </div>
-            </figcaption>
-          </figure>
+            </div>
+          </section>
         </div>
       </section>
     </main>

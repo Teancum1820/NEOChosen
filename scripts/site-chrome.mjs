@@ -1,3 +1,8 @@
+const socialLinks = `<a href="https://www.facebook.com/people/Kirtland-Heritage-Group/61572253884775/" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)"><svg class="follow-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V21.88A9.962 9.962 0 0022 12z" clip-rule="evenodd" />
+            </svg><span>Facebook</span></a><a href="https://www.instagram.com/kirtland.heritage.group" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)"><svg class="follow-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7.177a4.823 4.823 0 100 9.646 4.823 4.823 0 000-9.646zm0 7.78a2.953 2.953 0 110-5.906 2.953 2.953 0 010 5.906zM20.15 5.562a1.28 1.28 0 10-2.56 0 1.28 1.28 0 002.56 0z" clip-rule="evenodd" />
+            </svg><span>Instagram</span></a>`;
 // Shared static navigation and footer for every built content page.
 const link = (href, label, currentPath, className = '') =>
   `<a href="${href}"${className ? ` class="${className}"` : ''}${href === currentPath ? ' aria-current="page"' : ''}>${label}</a>`;
@@ -28,7 +33,7 @@ export function applySiteChrome(html, currentPath) {
       <a class="site-donate" href="/donations/">Donate</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">Menu</button>
     </div>
-  </nav>`;
+  </nav><div class="site-follow-bar" role="group" aria-label="Follow NEOChosen"><span class="follow-label">Follow Us</span>${socialLinks}</div>`;
   const footer = `<footer class="site-footer">
     <div class="site-footer-grid">
       <div class="site-footer-brand">
@@ -42,13 +47,14 @@ export function applySiteChrome(html, currentPath) {
       </nav>
       <nav class="site-footer-links" aria-label="Support and resources">
         <h2>Get Involved</h2>
-        ${item('/sponsorship-opportunities/', 'Become a Sponsor')}${item('/sponsors/', 'Our Sponsors')}${item('/donations/', 'Make a Donation')}${item('/get-involved/', 'Volunteer')}${item('/sponsorship-opportunities/#program-advertising-specs', 'Program Advertising Specs')}${item('/media-kit/', 'Media Kit')}
+        ${item('/sponsorship-opportunities/', 'Become a Sponsor')}${item('/sponsors/', 'Our Sponsors')}${item('/donations/', 'Make a Donation')}${item('/get-involved/#volunteer', 'Volunteer')}${item('/sponsorship-opportunities/#program-advertising-specs', 'Program Advertising Specs')}${item('/media-kit/', 'Media Kit')}
       </nav>
       <div class="site-footer-contact">
         <h2>Stay Connected</h2>
         <a href="mailto:info@kirtlandheritagegroup.com">info@kirtlandheritagegroup.com</a>
         <a href="tel:+14407961642">440-796-1642</a>
-        ${item('/social-media-links/', 'Follow Us on Social Media')}
+        <div class="site-follow-links">${socialLinks}</div>
+        ${item('/social-media-links/', 'All social links')}
         <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group <span aria-label="(opens in a new tab)">↗</span></a>
       </div>
     </div>
