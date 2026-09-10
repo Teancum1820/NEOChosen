@@ -1,0 +1,146 @@
+[
+  {
+    "id": "advanced-care",
+    "name": "Advanced Care Endodontics",
+    "logo": "https://www.acendodontics.com/wp-content/uploads/sites/478/2013/03/Harris-Logo-e1363376953680.png",
+    "url": "https://www.acendodontics.com",
+    "linkLabel": "acendodontics.com",
+    "tier": "presenting",
+    "events": [
+      "fairlawn"
+    ],
+    "background": "light"
+  },
+  {
+    "id": "fna",
+    "name": "FNA Wealth Management",
+    "logo": "/images/fniconred.svg",
+    "url": "https://www.fnaohio.com/",
+    "linkLabel": "fnaohio.com",
+    "tier": "presenting",
+    "events": [
+      "akron",
+      "fairlawn"
+    ],
+    "background": "light"
+  },
+  {
+    "id": "rogish",
+    "name": "Rogish Farms",
+    "logo": "https://ofbf.org/app/uploads/2023/07/IMG_0210-1.jpg",
+    "url": "https://rogishfarm.com",
+    "linkLabel": "rogishfarm.com",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
+    "id": "piano-guys",
+    "name": "The Piano Guys",
+    "logo": "https://thepianoguys.com/cdn/shop/files/white-logo_256x.jpg?v=1613783381",
+    "url": "https://thepianoguys.com",
+    "linkLabel": "thepianoguys.com",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
+    "id": "down-the-block",
+    "name": "Down the Block",
+    "logo": "https://shop-logos.imgix.net/shops/100385/original/down_the_block.png?auto=compress,format",
+    "url": "https://downtheblockmenu.com",
+    "linkLabel": "downtheblockmenu.com",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
+    "id": "casa-rosa",
+    "name": "Casa Rosa",
+    "logo": "https://casarosacucina.com/wp-content/uploads/2025/06/cropped-Untitled-design-38.png",
+    "url": "https://casarosacucina.com",
+    "linkLabel": "casarosacucina.com",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
+    "id": "tour-lake-county",
+    "name": "Tour Lake County",
+    "logo": "https://images.squarespace-cdn.com/content/v1/65049ab99a8f8f0a19e6b4ac/212b3ba0-98fa-4244-9110-f0d7eef88f7b/White+Outline+Main+Logo.png?format=1500w",
+    "url": "https://tourlakecounty.com",
+    "linkLabel": "tourlakecounty.com",
+    "tier": "community",
+    "events": [],
+    "background": "dark"
+  },
+  {
+    "id": "this-is-the-place",
+    "name": "This Is The Place",
+    "logo": null,
+    "url": "https://thisistheplacebookstore.com",
+    "linkLabel": "thisistheplacebookstore.com",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
+    "id": "maggies",
+    "name": "Maggie's Doughnuts and Cafe",
+    "logo": "https://images.squarespace-cdn.com/content/v1/629a13f8235fe04af0a4fcf3/7251170c-3be1-49a4-9df0-e016e794ae30/maggies+logo.jpeg?format=1500w",
+    "url": "https://maggiesdonutshop.com",
+    "linkLabel": "maggiesdonutshop.com",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
+    "id": "cleveland-diocese",
+    "name": "Cleveland Diocese",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAB92nfbiKmdHkqGyQW4hM_J-Ax-Pa6P2BgA&s",
+    "url": "https://dioceseofcleveland.org",
+    "linkLabel": "dioceseofcleveland.org",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
+    "id": "khg",
+    "name": "Kirtland Heritage Group",
+    "logo": "https://static-assets.justserve.org/images/2bec3193-66cf-4707-b501-7f13c097d965.png",
+    "url": "https://kirtlandheritagegroup.com",
+    "linkLabel": "kirtlandheritagegroup.com",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
+    "id": "historic-kirtland",
+    "name": "Historic Kirtland Sites",
+    "logo": null,
+    "url": "https://www.churchofjesuschrist.org/learn/locations/historic-kirtland-visitors-center?y_source=1_MjU4ODAwMDgtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+    "linkLabel": "Historic Kirtland Visitors' Center",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
+    "id": "fest",
+    "name": "The FEST",
+    "logo": "https://thefest.us/wp-content/uploads/2026/01/The-FEST-2026-white.png",
+    "url": "https://thefest.us/",
+    "linkLabel": "thefest.us",
+    "tier": "community",
+    "events": [],
+    "background": "dark"
+  },
+  {
+    "id": "hallmark",
+    "name": "Hallmark Homecare",
+    "logo": "/images/Hallmark_Homecare_Logo.svg",
+    "tier": "community",
+    "events": [],
+    "background": "light",
+    "phone": "216-390-1090"
+  }
+]

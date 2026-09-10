@@ -293,18 +293,6 @@ a.support-cta:hover { background:#f5dfa0; }
 @media(min-width:1001px) { .involvement-card .support-cta { min-height:88px; } }
 @media(max-width:700px) { .venmo-panel { padding:24px 20px !important; } }
 
-/* Presenting sponsor recognition */
-.event-sponsor-group { margin: .6rem 0; }
-.event-sponsor-list { display: flex; flex-wrap: wrap; gap: .5rem; }
-.event-sponsor-group .event-presenting-label { font-size: .75rem; letter-spacing: .12em; margin: 0 0 .3rem; }
-.event-sponsor-group .event-presenting-sponsor { display: flex; flex: 0 1 18rem; min-width: 0; max-width: 100%; box-sizing: border-box; margin: 0; }
-.event-sponsor-group .event-presenting-name { flex: 1 1 9rem; font-size: 1rem; line-height: 1.35; overflow-wrap: anywhere; }
-.event-sponsor-group .event-presenting-logo { width: 3.5rem; height: 2.5rem; object-fit: contain; flex: 0 0 auto; }
-.presenting-sponsor-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
-.presenting-heading { font-size: 1.5rem; text-align: center; margin: 1rem 0 1.5rem; color: var(--gold); }
-.presenting-designation { color: var(--gold); font-size: .875rem; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
-.presenting-sponsor-grid .sponsor-logo { max-width: 100%; object-fit: contain; }
+/* Compact sponsorship portal recognition; cards use sponsor-system.css. */
 .presenting-recognition { font-size: 1rem; line-height: 1.6; margin: 1rem 0; overflow-wrap: anywhere; }
 .presenting-recognition a { color: inherit; text-decoration: underline; text-underline-offset: .2em; }
-@media (max-width: 640px) { .presenting-sponsor-grid { grid-template-columns: minmax(0, 1fr); } }
-img[src="/images/fniconred.png"] { filter: none; background: transparent; }

@@ -1,3 +1,4 @@
+import { renderPresentingRecognition } from './sponsor-system.mjs';
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { sponsorshipAssetPath, sponsorshipBasePath, sponsorshipDecks } from "./sponsorship-decks.mjs";
@@ -100,8 +101,8 @@ const card = (deck) => {
           </li>`;
 };
 
-const presentingRecognition = "<p class=\"presenting-recognition\"><strong>Akron Civic Theatre presenting sponsors:</strong> <a href=\"https://www.fnaohio.com/\" target=\"_blank\" rel=\"noopener noreferrer\">FNA Wealth Management</a>.</p><p class=\"presenting-recognition\"><strong>Fairlawn Meet &amp; Greet presenting sponsors:</strong> <a href=\"https://www.acendodontics.com\" target=\"_blank\" rel=\"noopener noreferrer\">Advanced Care Endodontics</a> and <a href=\"https://www.fnaohio.com/\" target=\"_blank\" rel=\"noopener noreferrer\">FNA Wealth Management</a>.</p>";
-const eventRecognition = { all: presentingRecognition, 'piano-guys': "<p class=\"presenting-recognition\"><strong>Akron Civic Theatre presenting sponsors:</strong> <a href=\"https://www.fnaohio.com/\" target=\"_blank\" rel=\"noopener noreferrer\">FNA Wealth Management</a>.</p>", 'meet-and-greet': "<p class=\"presenting-recognition\"><strong>Fairlawn Meet &amp; Greet presenting sponsors:</strong> <a href=\"https://www.acendodontics.com\" target=\"_blank\" rel=\"noopener noreferrer\">Advanced Care Endodontics</a> and <a href=\"https://www.fnaohio.com/\" target=\"_blank\" rel=\"noopener noreferrer\">FNA Wealth Management</a>.</p>" };
+const presentingRecognition = renderPresentingRecognition('akron') + renderPresentingRecognition('fairlawn');
+const eventRecognition = { all: presentingRecognition, 'piano-guys': renderPresentingRecognition('akron'), 'meet-and-greet': renderPresentingRecognition('fairlawn') };
 
 const landingBody = `
   <main class="page-shell sponsorship-shell">

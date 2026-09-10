@@ -5,6 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { ChevronDown, Heart, Menu, Minus, Plus, Ticket, X } from "lucide-react";
 import { writeSponsorshipPages } from "./sponsorship-pages.mjs";
 import { applySiteChrome } from "./site-chrome.mjs";
+import { applySponsorSystem } from "./sponsor-system.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -70,7 +71,7 @@ async function updateChrome(dir) {
     if (entry.isDirectory()) await updateChrome(file);
     else if (entry.name.endsWith('.html')) {
       const route = '/' + path.relative(outDir, file).split(path.sep).join('/').replace(/index\.html$/, '');
-      await writeFile(file, applySiteChrome(await readFile(file, 'utf8'), route), 'utf8');
+      await writeFile(file, applySiteChrome(applySponsorSystem(await readFile(file, 'utf8')), route), 'utf8');
     }
   }
 }
