@@ -24,6 +24,15 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   assert(!/mailchimp|list-manage\.com|become a friend/i.test(html), `${route}: retired signup`);
   const chrome = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0]
     + html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)[0];
+  const header = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0];
+  assert(!html.includes('class="site-follow-bar"'), `${route}: duplicate social strip`);
+  for (const [name, url] of [
+    ['Facebook', 'https://www.facebook.com/people/Kirtland-Heritage-Group/61572253884775/'],
+    ['Instagram', 'https://www.instagram.com/kirtland.heritage.group']
+  ]) {
+    assert(header.includes(`href="${url}" target="_blank" rel="noopener noreferrer" aria-label="Follow us on ${name}"`), `${route}: accessible header ${name} link`);
+    assert.equal(chrome.split(`href="${url}"`).length - 1, 2, `${route}: ${name} in header and footer`);
+  }
   pages.set(route, { html, ids, chrome });
 }
 assert.equal(pages.size, 19, 'Expected all 19 content pages to have shared navigation and footer');
