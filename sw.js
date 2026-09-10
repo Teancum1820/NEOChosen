@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v12-mayfield-church';
+const CACHE_NAME = 'neochosen-v13-sponsor-flyers';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
