@@ -15,19 +15,21 @@ for (const sponsor of sponsors) {
 }
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const presenters = event => sponsors.filter(s => s.tier === 'presenting' && s.events.includes(event));
-const logo = s => `<div class="neo-sponsor-art neo-sponsor-art--${s.background || 'light'}">${s.logo
+const identityLink = s => s.linkIdentity && s.url;
+const linkAttributes = s => `href="${escape(s.url)}" target="_blank" rel="noopener noreferrer"`;
+const logo = s => `<${identityLink(s) ? `a ${linkAttributes(s)}` : 'div'} class="neo-sponsor-art neo-sponsor-art--${s.background || 'light'}">${s.logo
   ? `<img src="${escape(s.logo)}" alt="${escape(s.name)} logo" loading="lazy" decoding="async" referrerpolicy="no-referrer">`
-  : `<span class="neo-sponsor-placeholder">${escape(s.name)}</span>`}</div>`;
+  : `<span class="neo-sponsor-placeholder">${escape(s.name)}</span>`}</${identityLink(s) ? 'a' : 'div'}>`;
 
 export function renderSponsorCard(s, { event = false } = {}) {
   const presenting = s.tier === 'presenting';
   return `<article class="neo-sponsor-card neo-sponsor-card--${presenting ? 'presenting' : 'community'}${event ? ' neo-sponsor-card--event' : ''}" data-sponsor="${escape(s.id)}">
     ${presenting ? '<p class="neo-sponsor-tier">Presenting Sponsor</p>' : ''}
     ${logo(s)}
-    <h3 class="neo-sponsor-name">${escape(s.name)}</h3>
+    <h3 class="neo-sponsor-name">${identityLink(s) ? `<a class="neo-sponsor-identity" ${linkAttributes(s)}>${escape(s.name)}</a>` : escape(s.name)}</h3>
     ${!event && presenting ? `<p class="neo-sponsor-scope">${s.events.map(e=>escape(events[e])).join('<br>')}</p>` : ''}
     ${s.phone ? `<a class="neo-sponsor-contact" href="tel:+1${s.phone.replace(/\D/g,'')}">${escape(s.phone)}</a>` : ''}
-    ${s.url ? `<a class="neo-sponsor-contact" href="${escape(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${escape(s.name)} website">${presenting && !event ? escape(s.linkLabel) : 'Visit website'}</a>` : ''}
+    ${s.url && !identityLink(s) ? `<a class="neo-sponsor-contact" href="${escape(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${escape(s.name)} website">${presenting && !event ? escape(s.linkLabel) : 'Visit website'}</a>` : ''}
   </article>`;
 }
 
