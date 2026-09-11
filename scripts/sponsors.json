@@ -136,6 +136,8 @@
   },
   {
     "id": "hallmark",
+    "url": "https://hallmarkhomecare.com/hhc-160/",
+    "linkIdentity": true,
     "name": "Hallmark Homecare",
     "logo": "/images/Hallmark_Homecare_Logo.svg",
     "tier": "community",

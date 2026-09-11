@@ -17,6 +17,9 @@
 .neo-sponsor-card .neo-sponsor-scope { margin:0 0 14px; color:#c9c1af; font:400 .95rem/1.6 Montserrat,Arial,sans-serif; }
 .neo-sponsor-card .neo-sponsor-contact { display:flex; justify-content:center; align-items:center; min-height:44px; margin-top:auto; color:#f1dc88; font:600 .875rem/1.45 Montserrat,Arial,sans-serif; text-decoration:underline; text-underline-offset:4px; overflow-wrap:anywhere; }
 .neo-sponsor-contact:hover { color:#fff; }
+.neo-sponsor-card .neo-sponsor-identity { color:inherit; text-decoration:none; }
+.neo-sponsor-identity:hover { text-decoration:underline; }
+.neo-sponsor-identity:focus-visible, a.neo-sponsor-art:focus-visible { outline:2px solid #f1dc88; outline-offset:4px; }
 .neo-sponsor-contact:focus-visible { outline:2px solid #f1dc88; outline-offset:4px; }
 .neo-sponsor-placeholder { color:#51431d; font:600 .85rem/1.4 Montserrat,Arial,sans-serif; }
 .neo-event-sponsors { margin:16px 0; max-width:680px; }
