@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Chosen & Piano Guys Meet & Greet in Fairlawn — Registration Confirmed | NEOChosen</title>
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://neochosen.com/thank-you/fairlawn/">
+  <meta name="description" content="Registration confirmation and next steps for the NEOChosen weekend presented by Kirtland Heritage Group.">
+  <link rel="stylesheet" href="/thank-you/styles.css">
+</head>
+<body>
+  <div class="top"></div>
+  <main>
+    <section class="hero wrap">
+      <div class="check" aria-hidden="true">✓</div>
+      <div class="eyebrow">Kirtland Heritage Group presents</div>
+      <h1>You’re registered!</h1>
+      <p class="lede" id="lede">Your place is reserved for The Chosen & Piano Guys Meet & Greet in Fairlawn. We are looking forward to welcoming you.</p>
+      <p class="event-recap">Saturday, November 14, 2026 · 7:00–9:00 PM Eastern. St. Hilary Church, 2750 W Market St, Fairlawn, OH 44333.</p>
+      <div class="ticket-note">Check your email for your tickets and keep them for event check-in.</div>
+    </section>
+    <section class="grid wrap">
+      <article class="card">
+        <div class="eyebrow">Stay informed</div>
+        <h2>Follow us before the event</h2>
+        <p>Guest announcements, arrival details, schedule changes, photos, and last-minute information will be shared through Kirtland Heritage Group social media.</p>
+        <div class="social">
+          <a class="btn primary" href="https://www.facebook.com/people/Kirtland-Heritage-Group/61572253884775/" target="_blank" rel="noopener">Follow on Facebook</a>
+          <a class="btn outline" href="https://www.instagram.com/kirtland.heritage.group" target="_blank" rel="noopener">Follow on Instagram</a>
+        </div>
+      </article>
+      <article class="card" id="dinner-card">
+        <div class="eyebrow">Friday, November 13</div>
+        <h2>Join the VIP Donor Dinner</h2>
+        <p>Gather at Music Box Supper Club in Cleveland with special guests from The Chosen and The Piano Guys. Every full $200 donated in a single transaction includes one invitation while space remains.</p>
+        <a class="btn gold" href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener">Reserve your place</a>
+      </article>
+      <article class="card wide">
+        <div class="eyebrow">Make a weekend of it</div>
+        <h2>Explore the other NEOChosen events</h2>
+        <p>Each free event requires a separate reservation.</p>
+        <div class="event-list" id="events"></div>
+        <p style="margin-top:18px">The Piano Guys concert at Akron Civic Theatre on Saturday, November 14 at 4:00 PM is a separate paid theater event. Watch our social channels and <a href="https://neochosen.com/" target="_blank" rel="noopener">NEOChosen.com</a> for the ticket link.</p>
+      </article>
+      <article class="card support wide">
+        <div class="eyebrow" style="color:#f4d98f">Help make the weekend possible</div>
+        <h2 id="support-heading">Admission is free because people choose to give</h2>
+        <p id="support-copy">If you are able, please consider a suggested gift of $25 per person. Your support helps cover venue, travel, production, hospitality, and community outreach costs. A donation is appreciated, but never required.</p>
+        <div class="actions">
+          <a class="btn gold" id="donate-button" href="https://neochosen.com/donations/" target="_blank" rel="noopener">Make an optional donation</a>
+          <a class="btn outline" href="https://neochosen.com/" target="_blank" rel="noopener">Invite friends and family</a>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer class="footer wrap">Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit organization · <a href="https://neochosen.com/" target="_blank" rel="noopener">NEOChosen.com</a></footer>
+  <script src="/thank-you/registration-links.js"></script>
+  <script>
+    const data = {
+      lakewood: { name: "An Evening with The Chosen in Lakewood", detail: "Friday, November 13 · 7:30 PM · Lakewood Civic Auditorium" },
+      fairlawn: { name: "The Chosen & Piano Guys Meet & Greet in Fairlawn", detail: "Saturday, November 14 · 7:00 PM · St. Hilary Church" },
+      chesterland: { name: "The Chosen & Piano Guys Meet & Greet in Chesterland", detail: "Sunday, November 15 · 2:00 PM · Mayfield United Methodist Church" }
+    };
+    const links = {
+      lakewood: "https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen",
+      fairlawn: "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
+      chesterland: "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland"
+    };
+    document.querySelector('.social a.primary').href = NEOCHOSEN_LINKS.facebook;
+    document.querySelector('.social a.outline').href = NEOCHOSEN_LINKS.instagram;
+    document.getElementById('donate-button').href = NEOCHOSEN_LINKS.donation;
+    const eventDetails = {
+      lakewood: 'Friday, November 13, 2026 · 7:30–9:30 PM Eastern. Doors open at 6:00 PM. Lakewood Civic Auditorium, 14100 Franklin Blvd, Lakewood, OH 44107.',
+      fairlawn: 'Saturday, November 14, 2026 · 7:00–9:00 PM Eastern. St. Hilary Church, 2750 W Market St, Fairlawn, OH 44333.',
+      chesterland: 'Sunday, November 15, 2026 · 2:00–4:00 PM Eastern. Mayfield United Methodist Church, 7747 Mayfield Road, Chesterland, OH 44026.',
+      'donor-dinner': 'Friday, November 13, 2026 · 5:00–6:45 PM Eastern. Music Box Supper Club, 1148 Main Avenue, Cleveland, OH 44113.'
+    };
+    const key = "fairlawn";
+
+    if (key === 'fairlawn') {
+      const sponsors = document.createElement('div');
+      sponsors.className = 'confirmation-sponsors';
+      sponsors.innerHTML = '<strong>Presenting Sponsors</strong><a href="https://www.acendodontics.com/" target="_blank" rel="noopener noreferrer">Advanced Care Endodontics</a><a href="https://www.fnaohio.com/" target="_blank" rel="noopener noreferrer">FNA Wealth Management</a>';
+      document.querySelector('.ticket-note').after(sponsors);
+    }
+    if (data[key]) {
+      document.getElementById("lede").textContent = `Your place is reserved for ${data[key].name}. We are looking forward to welcoming you.`;
+    }
+    if (key === "donor-dinner") {
+      document.getElementById("lede").textContent = "Thank you for supporting the NEOChosen weekend. Your invitation to the VIP Donor Dinner is reserved, and we look forward to welcoming you.";
+      document.getElementById("dinner-card").hidden = true;
+      document.getElementById("support-heading").textContent = "Thank you for making this weekend possible";
+      document.getElementById("support-copy").textContent = "Your support helps cover venue, travel, production, hospitality, and community outreach costs for the NEOChosen weekend.";
+      document.getElementById("donate-button").hidden = true;
+    }
+    document.getElementById("events").innerHTML = Object.keys(data)
+      .filter(k => k !== key)
+      .map(k => `<a class="event" href="${links[k]}" target="_blank" rel="noopener"><strong>${data[k].name}</strong><span>${data[k].detail}</span></a>`)
+      .join("");
+  </script>
+</body>
+</html>

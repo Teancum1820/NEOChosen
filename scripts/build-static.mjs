@@ -13,6 +13,7 @@ const outDir = path.join(root, "dist");
 const rootFilePattern = /(\.html|\.css|\.js|\.svg|\.webmanifest)$/;
 const rootFiles = new Set(["_headers", "_redirects"]);
 const siteDirs = [
+  "thank-you",
   "about-us",
   "chesterland",
   "donations",
