@@ -469,6 +469,7 @@
   <link rel="stylesheet" href="/responsive-pages.css">
   <link rel="stylesheet" href="/site.css">
   <script src="/site.js" defer></script>
+  <link rel="stylesheet" href="/donations/donations.css">
 </head>
 <body class="flex flex-col min-h-screen">
     <nav class="site-nav" aria-label="Main navigation">
@@ -507,6 +508,36 @@
           <p>Bringing <em>The Chosen</em> cast, The Piano Guys, and these special community experiences to Northeast Ohio comes with significant costs. Your support helps Kirtland Heritage Group keep these events free and open to everyone while creating a weekend centered on faith, unity, fellowship, and community.</p>
         </section>
 
+        <section id="ways-to-donate" aria-labelledby="ways-to-donate-heading">
+          <h2 id="ways-to-donate-heading" class="font-cinzel section-title text-2xl text-center mb-8 uppercase">Ways to Donate</h2>
+          <p class="donation-intro">Choose the way to give that works for you. Donations are optional and separate from registration for free events.</p>
+          <div class="donation-methods">
+            <section class="giving-method" aria-labelledby="venmo-heading">
+              <div>
+              <h3 id="venmo-heading">Venmo</h3>
+              <p>Give to our Venmo business profile:</p>
+              <p class="venmo-account">@KirtlandHeritageGroup</p>
+              </div>
+              <a href="https://venmo.com/u/KirtlandHeritageGroup" target="_blank" rel="noopener noreferrer" class="support-cta" aria-label="Donate with Venmo (opens in a new tab)">Donate with Venmo <span aria-hidden="true">↗</span></a>
+              <p class="payment-help">Sign in to Venmo or continue in the app if prompted. On a computer, you can also scan the QR code on our Venmo profile with your phone.</p>
+            </section>
+            <section class="giving-method" aria-labelledby="card-heading">
+              <div>
+              <h3 id="card-heading">Credit or debit card</h3>
+              <p>Choose your donation amount on our secure Stripe checkout page.</p>
+              </div>
+              <a href="https://buy.stripe.com/5kQ3cv9i7eEUfhD5kF6g80b" target="_blank" rel="noopener noreferrer" class="support-cta" aria-label="Donate by card (opens in a new tab)">Donate by card <span aria-hidden="true">↗</span></a>
+              <p class="payment-help">Look for “Kirtland Heritage Group Donation” at checkout.</p>
+            </section>
+          </div>
+          <p class="donation-intro payment-return">Payment links open in a new tab. Return to this tab to continue browsing NEOChosen.</p>
+          <section class="giving-check" aria-labelledby="check-heading">
+            <h3 id="check-heading">Give by check</h3>
+            <div><p>Make checks payable to:</p><p class="highlight-text">The Kirtland Heritage Group</p></div>
+            <div><p>Mail to:</p><address>38323 Apollo Parkway Unit 7<br>Willoughby, Ohio 44094</address></div>
+          </section>
+        </section>
+
         <section id="vip-donor-dinner" class="donation-card sponsor-card p-6 md:p-10 mb-12 text-center scroll-mt-24" aria-labelledby="vip-donor-dinner-heading">
           <p class="font-cinzel text-xs md:text-sm uppercase tracking-[0.35em] text-[var(--gold)] mb-4">Get Involved</p>
           <h2 id="vip-donor-dinner-heading" class="font-cinzel section-title text-2xl md:text-4xl uppercase">Become an Official Event Sponsor</h2>
@@ -533,49 +564,7 @@
             <p>Kirtland Heritage Group is a 501(c)(3) nonprofit organization. Whether you give $200, $400, $1,000, or more, your support makes a real difference and helps us continue bringing these experiences to Northeast Ohio.</p>
             <p class="highlight-text">Thank you for believing in our mission, supporting our community, and helping us bring people together. We cannot do this without you.</p>
 
-            <a href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener noreferrer" class="gold-button sponsor-cta font-bold duration-300">Become an Official Event Sponsor</a>
-          </div>
-        </section>
-
-        <section id="ways-to-donate">
-          <h2 class="font-cinzel section-title text-2xl text-center mb-8 uppercase">Ways to Donate</h2>
-          <section class="venmo-panel" aria-labelledby="venmo-heading">
-            <div>
-              <span class="support-kicker">An optional way to give</span>
-              <h3 id="venmo-heading">Donate with Venmo</h3>
-              <p>Support the NEOChosen weekend with a gift to Kirtland Heritage Group.</p>
-              <p class="venmo-account">@KirtlandHeritageGroup</p>
-              <p class="support-note">Donations are optional and separate from event registration. No donation is required for free events.</p>
-            </div>
-            <div class="venmo-action">
-              <a href="https://venmo.com/u/KirtlandHeritageGroup" target="_blank" rel="noopener noreferrer" class="support-cta" aria-label="Donate with Venmo (opens in a new tab)">Donate with Venmo <span aria-hidden="true">↗</span></a>
-              <p>Opens our Venmo business profile. Sign in to Venmo to give, or continue in the app if prompted.</p>
-            </div>
-          </section>
-          <div class="grid md:grid-cols-2 gap-10">
-            <div class="donation-card p-6 space-y-6">
-              <h3 class="font-cinzel text-xl text-[var(--soft-gold)] text-center uppercase tracking-[0.12em]">Online</h3>
-              <div class="accent-line"></div>
-              <div class="space-y-4">
-                <a href="https://buy.stripe.com/5kQ3cv9i7eEUfhD5kF6g80b" target="_blank" rel="noopener noreferrer" class="gold-button font-bold py-3 px-4 duration-300">Donate via Credit Card</a>
-
-              </div>
-            </div>
-
-            <div class="check-card p-6">
-              <h3 class="font-cinzel text-xl text-[var(--soft-gold)] text-center uppercase tracking-[0.12em]">By Check</h3>
-              <div class="accent-line"></div>
-              <div class="body-copy text-center space-y-4">
-                <div>
-                  <p>Please make checks payable to:</p>
-                  <p class="highlight-text text-lg mt-1">The Kirtland Heritage Group</p>
-                </div>
-                <div>
-                  <p>Mail to:</p>
-                  <p class="highlight-text text-lg mt-1">38323 Apollo Parkway Unit 7<br>Willoughby, Ohio 44094</p>
-                </div>
-              </div>
-            </div>
+            <a href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener noreferrer" class="support-cta sponsor-cta" aria-label="Become an Official Event Sponsor (opens in a new tab)">Become an Official Event Sponsor <span aria-hidden="true">↗</span></a>
           </div>
         </section>
 

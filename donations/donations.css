@@ -1,0 +1,26 @@
+/* Donation-only layout; shared navigation and event pages keep their styles. */
+#ways-to-donate { margin-bottom: 48px; scroll-margin-top: 100px; }
+#ways-to-donate .donation-intro { max-width: 680px; margin: 0 auto 24px; color: var(--warm-gray); text-align: center; font-size: 1rem; line-height: 1.7; }
+.donation-methods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+#ways-to-donate .giving-method { display: flex; flex-direction: column; min-width: 0; padding: 28px !important; border: 1px solid #64512b; border-top: 4px solid #d7b956; border-radius: 8px; background: #15110b; }
+.giving-method h3, .giving-check h3 { margin: 0 0 16px; color: #f5efd8; font-family: Cinzel, Georgia, serif; font-size: 1.5rem; line-height: 1.3; }
+.giving-method p, .giving-check p, .giving-check address { margin: 0 0 16px; color: #b7ad97; font-size: 1rem; line-height: 1.7; }
+.giving-method .venmo-account { color: #f1dc88; font-weight: 700; overflow-wrap: anywhere; }
+.giving-method a.support-cta { margin-top: auto; }
+.giving-method .payment-help { margin: 16px 0 0; font-size: .875rem; line-height: 1.65; }
+#ways-to-donate .payment-return { margin: 20px auto 28px; font-size: .875rem; }
+#ways-to-donate .giving-check { display: grid; grid-template-columns: .8fr 1fr 1.2fr; gap: 24px; align-items: start; padding: 24px !important; border: 1px solid #64512b; border-radius: 8px; }
+.giving-check p:last-child, .giving-check address { margin: 0; color: #f5efd8; }
+.giving-check address { font-style: normal; }
+#vip-donor-dinner .support-cta { max-width: 680px; margin: 24px auto 0; text-transform: none; letter-spacing: 0; }
+#ways-to-donate a.support-cta:focus-visible, #vip-donor-dinner a.support-cta:focus-visible { outline: 3px solid #f1dc88; outline-offset: 4px; }
+@media (max-width: 760px) {
+  .donation-methods { grid-template-columns: 1fr; gap: 20px; }
+  #ways-to-donate .giving-method { padding: 24px 16px !important; }
+  #ways-to-donate .giving-check { grid-template-columns: 1fr; gap: 16px; padding: 24px 16px !important; }
+  .giving-check h3 { margin-bottom: 0; }
+}
+@media (min-width: 761px) {
+  #ways-to-donate .giving-method { display: grid; grid-template-rows: subgrid; grid-row: span 3; gap: 0; }
+  .giving-method a.support-cta { align-self: start; }
+}
