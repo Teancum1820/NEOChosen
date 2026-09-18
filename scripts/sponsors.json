@@ -1,5 +1,20 @@
 [
   {
+    "id": "barons-bus",
+    "name": "Barons Bus",
+    "logo": "/images/barons-bus-logo.png",
+    "photo": "/images/barons-bus-rock-hall.jpg",
+    "photoAlt": "Barons Bus motorcoach outside the Rock & Roll Hall of Fame in Cleveland",
+    "url": "https://baronsbus.com/",
+    "linkLabel": "Visit Website",
+    "tier": "platinum",
+    "scope": "Platinum Sponsor of NEOChosen 2026",
+    "tagline": "Ride Like Royalty",
+    "events": [],
+    "background": "light",
+    "linkIdentity": true
+  },
+  {
     "id": "advanced-care",
     "name": "Advanced Care Endodontics",
     "logo": "https://www.acendodontics.com/wp-content/uploads/sites/478/2013/03/Harris-Logo-e1363376953680.png",
