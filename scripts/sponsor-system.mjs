@@ -10,7 +10,7 @@ const sponsorIds = new Set();
 for (const sponsor of sponsors) {
   if (sponsorIds.has(sponsor.id) || !sponsor.id || !sponsor.name) throw Error('Sponsor records require unique IDs and names');
   sponsorIds.add(sponsor.id);
-  if (!['presenting', 'community'].includes(sponsor.tier)) throw Error(`Unrecognized sponsor tier for ${sponsor.name}`);
+  if (!['platinum', 'presenting', 'community'].includes(sponsor.tier)) throw Error(`Unrecognized sponsor tier for ${sponsor.name}`);
   if (sponsor.events.some(event => !events[event])) throw Error(`Unrecognized event for ${sponsor.name}`);
 }
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -23,18 +23,23 @@ const logo = s => `<${identityLink(s) ? `a ${linkAttributes(s)}` : 'div'} class=
 
 export function renderSponsorCard(s, { event = false } = {}) {
   const presenting = s.tier === 'presenting';
-  return `<article class="neo-sponsor-card neo-sponsor-card--${presenting ? 'presenting' : 'community'}${event ? ' neo-sponsor-card--event' : ''}" data-sponsor="${escape(s.id)}">
-    ${presenting ? '<p class="neo-sponsor-tier">Presenting Sponsor</p>' : ''}
+  const platinum = s.tier === 'platinum';
+  return `<article class="neo-sponsor-card neo-sponsor-card--${s.tier}${event ? ' neo-sponsor-card--event' : ''}" data-sponsor="${escape(s.id)}">
+    ${presenting ? '<p class="neo-sponsor-tier">Presenting Sponsor</p>' : platinum ? '<p class="neo-sponsor-tier">Platinum Sponsor</p>' : ''}
     ${logo(s)}
     <h3 class="neo-sponsor-name">${identityLink(s) ? `<a class="neo-sponsor-identity" ${linkAttributes(s)}>${escape(s.name)}</a>` : escape(s.name)}</h3>
     ${!event && presenting ? `<p class="neo-sponsor-scope">${s.events.map(e=>escape(events[e])).join('<br>')}</p>` : ''}
+    ${!event && platinum && s.scope ? `<p class="neo-sponsor-scope">${escape(s.scope)}</p>` : ''}
+    ${!event && platinum && s.tagline ? `<p class="neo-sponsor-tagline">${escape(s.tagline)}</p>` : ''}
+    ${!event && platinum && s.photo ? `<figure class="neo-sponsor-photo"><img src="${escape(s.photo)}" alt="${escape(s.photoAlt || '')}" loading="lazy" decoding="async"></figure>` : ''}
     ${s.phone ? `<a class="neo-sponsor-contact" href="tel:+1${s.phone.replace(/\D/g,'')}">${escape(s.phone)}</a>` : ''}
-    ${s.url && !identityLink(s) ? `<a class="neo-sponsor-contact" href="${escape(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${escape(s.name)} website">${presenting && !event ? escape(s.linkLabel) : 'Visit website'}</a>` : ''}
+    ${s.url && (!identityLink(s) || platinum) ? `<a class="neo-sponsor-contact" href="${escape(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${escape(s.name)} website">${!event && s.linkLabel ? escape(s.linkLabel) : 'Visit website'}</a>` : ''}
   </article>`;
 }
 
 export function renderSponsorDirectory() {
   return [
+    ['platinum', 'Platinum Sponsor'],
     ['presenting', 'Presenting Sponsors'],
     ['community', 'Community Partners']
   ].map(([tier,title])=>{
@@ -45,6 +50,22 @@ export function renderSponsorDirectory() {
       <div class="neo-sponsor-grid neo-sponsor-grid--${tier}">${group.map(s=>renderSponsorCard(s)).join('\n')}</div>
     </section>`;
   }).join('\n');
+}
+
+export function renderWeekendSponsorRecognition() {
+  const sponsor = sponsors.find(s => s.tier === 'platinum');
+  if (!sponsor) return '';
+  return `<aside class="neo-weekend-sponsor" aria-label="NEOChosen weekend Platinum Sponsor">
+    <p class="neo-weekend-sponsor-tier">NEOChosen Platinum Sponsor</p>
+    <a class="neo-weekend-sponsor-logo" ${linkAttributes(sponsor)} aria-label="Visit ${escape(sponsor.name)} website">
+      <img src="${escape(sponsor.logo)}" alt="${escape(sponsor.name)} logo" loading="lazy" decoding="async">
+    </a>
+    <div class="neo-weekend-sponsor-copy">
+      <p class="neo-weekend-sponsor-name"><a ${linkAttributes(sponsor)}>${escape(sponsor.name)}</a></p>
+      <p class="neo-weekend-sponsor-tagline">${escape(sponsor.tagline)}</p>
+    </div>
+    <a class="neo-weekend-sponsor-link" ${linkAttributes(sponsor)} aria-label="Visit ${escape(sponsor.name)} website">Visit Website</a>
+  </aside>`;
 }
 
 export function renderEventSponsors(event) {
@@ -62,6 +83,7 @@ export function renderPresentingRecognition(event) {
 
 export function applySponsorSystem(html) {
   return html.replace('<!-- SPONSOR_DIRECTORY -->',renderSponsorDirectory())
+    .replace(/<!-- WEEKEND_PLATINUM_SPONSOR -->/g,renderWeekendSponsorRecognition())
     .replace(/<!-- EVENT_SPONSORS:(\w+) -->/g,(_,event)=>{
       if(!events[event]) throw Error(`Unknown sponsor event: ${event}`);
       return renderEventSponsors(event);
