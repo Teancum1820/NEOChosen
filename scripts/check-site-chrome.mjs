@@ -35,7 +35,7 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   }
   pages.set(route, { html, ids, chrome });
 }
-assert.equal(pages.size, 19, 'Expected all 19 content pages to have shared navigation and footer');
+assert.equal(pages.size, 20, 'Expected all 20 content pages to have shared navigation and footer');
 for (const [route, { chrome }] of pages) {
   for (const [, href] of chrome.matchAll(/href="([^"]+)"/g)) {
     const url = new URL(href, `https://local.test${route}`);

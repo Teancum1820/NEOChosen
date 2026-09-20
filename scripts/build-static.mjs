@@ -18,6 +18,7 @@ const siteDirs = [
   "chesterland",
   "donations",
   "get-involved",
+  "giveaway-rules",
   "images",
   "media-kit",
   "raffle",
