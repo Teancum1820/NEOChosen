@@ -1,4 +1,4 @@
-import { renderPresentingRecognition } from './sponsor-system.mjs';
+import { renderPresentingRecognition, renderWeekendTextRecognition } from './sponsor-system.mjs';
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { sponsorshipAssetPath, sponsorshipBasePath, sponsorshipDecks } from "./sponsorship-decks.mjs";
@@ -114,6 +114,7 @@ const landingBody = `
         <p class="sponsorship-header__prompt">Choose a sponsorship opportunity below to see pricing, benefits, and partnership opportunities.</p>
         <div class="divider-line"></div>
       </header>
+      ${renderWeekendTextRecognition()}
       ${presentingRecognition}
       <ul class="sponsorship-grid" aria-label="Sponsorship opportunities">
 ${sponsorshipDecks.map(card).join("\n")}
@@ -158,7 +159,7 @@ const detailBody = (deck) => {
         </div>
       </header>
 
-      ${eventRecognition[deck.slug] ?? ""}
+      ${eventRecognition[deck.slug] ? renderWeekendTextRecognition() + eventRecognition[deck.slug] : ""}
       <section class="sponsorship-section quick-summary" aria-labelledby="quick-summary-heading">
         <div class="sponsorship-section__heading">
           <p class="section-kicker">At a Glance</p>
