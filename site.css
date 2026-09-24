@@ -317,3 +317,5 @@ a.support-cta:hover { background:#f5dfa0; }
 /* Compact sponsorship portal recognition; cards use sponsor-system.css. */
 .presenting-recognition { font-size: 1rem; line-height: 1.6; margin: 1rem 0; overflow-wrap: anywhere; }
 .presenting-recognition a { color: inherit; text-decoration: underline; text-underline-offset: .2em; }
+.neo-weekend-sponsor-credit { margin:1rem 0; color:#f5efe0; font:400 .86rem/1.55 Montserrat,Arial,sans-serif; overflow-wrap:anywhere; }
+.neo-weekend-sponsor-credit a { color:#f1dc88; text-underline-offset:3px; }
