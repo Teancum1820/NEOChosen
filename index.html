@@ -976,10 +976,11 @@
                         <div class="event-time-col">
                             <p class="event-time">Private</p>
                             <p class="event-time-sub">VIP Donors</p>
+                            <p class="event-time-sub">5:00&ndash;6:45 PM Eastern</p>
                         </div>
                         <div>
                             <p class="event-detail-title">VIP Donor Dinner</p>
-                            <p class="event-detail-venue">Music Box Supper Club &middot; 1148 Main Avenue, Cleveland, OH 44113</p>
+                            <p class="event-detail-venue">Windows on the River &middot; 2000 Sycamore Street, Cleveland, OH 44113</p>
                             <p class="event-detail-note">Become an Official Event Sponsor with a donation of $200 or more. Every full $200 donated in a single transaction includes one invitation to this special evening with The Piano Guys, cast members from <em>The Chosen</em>, and community and faith leaders, while space remains.</p>
                             <div class="event-badges-row">
                                 <span class="event-type-badge">Private Event</span>
@@ -1287,7 +1288,8 @@
   <script>
     (() => {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const revealTargets = document.querySelectorAll('main section, .content-card, .glassmorphism, .action-card, .contact-card, .card, .panel, footer');
+      // The tall schedule reveals its children and cannot reach this threshold on mobile.
+      const revealTargets = document.querySelectorAll('main section:not(#events > section), .content-card, .glassmorphism, .action-card, .contact-card, .card, .panel, footer');
       revealTargets.forEach((el, index) => {
         el.classList.add('reveal-on-scroll');
         el.style.transitionDelay = '0ms';
