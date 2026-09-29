@@ -1,5 +1,10 @@
 node_modules/
 dist/
+artifacts/
+.lighthouseci/
+playwright-report/
+test-results/
+storybook-static/
 .wrangler/
 .env
 .dev.vars
