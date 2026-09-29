@@ -18,7 +18,7 @@ const presenters = event => sponsors.filter(s => s.tier === 'presenting' && s.ev
 const identityLink = s => s.linkIdentity && s.url;
 const linkAttributes = s => `href="${escape(s.url)}" target="_blank" rel="noopener noreferrer"`;
 const logo = s => `<${identityLink(s) ? `a ${linkAttributes(s)}` : 'div'} class="neo-sponsor-art neo-sponsor-art--${s.background || 'light'}">${s.logo
-  ? `<img src="${escape(s.logo)}" alt="${escape(s.alt || `${s.name} logo`)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">`
+  ? `<img src="${escape(s.logo)}" alt="${escape(s.alt || `${s.name} logo`)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`
   : `<span class="neo-sponsor-placeholder">${escape(s.name)}</span>`}</${identityLink(s) ? 'a' : 'div'}>`;
 
 export function renderSponsorCard(s, { event = false, eventId = '' } = {}) {
@@ -52,6 +52,29 @@ export function renderSponsorDirectory() {
       <div class="neo-sponsor-grid neo-sponsor-grid--${tier}">${group.map(s=>renderSponsorCard(s)).join('\n')}</div>
     </section>`;
   }).join('\n');
+}
+
+// A compact recognition system for the homepage. The organizer and featured
+// performer keep their own roles there; the complete directory remains intact.
+export function renderHomepageSponsorDirectory() {
+  const groups = [
+    ['weekend-presenting', 'Weekend Presenting Sponsor'],
+    ['presenting', 'Event Presenting Sponsors'],
+    ['platinum', 'Platinum Sponsor'],
+    ['community', 'Community Partners']
+  ];
+  return groups.map(([tier, title]) => {
+    const members = sponsors.filter(s => s.tier === tier && !['khg', 'piano-guys'].includes(s.id));
+    if (!members.length) return '';
+    return `<div class="home-sponsor-tier home-sponsor-tier--${tier}">
+      <h3>${title}</h3>
+      <div class="home-sponsor-list">${members.map(s => `<a class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" ${linkAttributes(s)} aria-label="Visit ${escape(s.name)} website">
+        ${s.logo ? `<img src="${escape(s.logo)}" alt="${escape(s.name)} logo" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : `<span>${escape(s.name)}</span>`}
+        <strong>${escape(s.name)}</strong>
+        ${tier === 'presenting' ? `<small>${s.events.map(e => e === 'akron' ? 'The Piano Guys concert' : 'Fairlawn Meet &amp; Greet').join(' · ')}</small>` : ''}
+      </a>`).join('')}</div>
+    </div>`;
+  }).join('');
 }
 
 export function renderWeekendSponsorRecognition() {
@@ -88,7 +111,6 @@ export function renderEventSponsors(event) {
   return `<div class="neo-event-sponsors" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(events[event])} presenting sponsors">
     ${event === 'akron' ? '<p class="neo-event-presenter">Presented by: Kirtland Heritage Group</p>' : ''}
     <div class="neo-sponsor-grid neo-sponsor-grid--event">${group.map(s=>renderSponsorCard(s,{event:true,eventId:event})).join('\n')}</div>
-    ${renderWeekendTextRecognition()}
   </div>`;
 }
 
@@ -104,6 +126,7 @@ export function renderPresentingRecognition(event) {
 
 export function applySponsorSystem(html) {
   return html.replace('<!-- SPONSOR_DIRECTORY -->',renderSponsorDirectory())
+    .replace('<!-- HOMEPAGE_SPONSOR_DIRECTORY -->',renderHomepageSponsorDirectory())
     .replace(/<!-- WEEKEND_PLATINUM_SPONSOR -->/g,renderWeekendSponsorRecognition())
     .replace(/<!-- WEEKEND_PRESENTING_CREDIT -->/g,renderWeekendTextRecognition())
     .replace(/<!-- EVENT_SPONSORS:(\w+) -->/g,(_,event)=>{
