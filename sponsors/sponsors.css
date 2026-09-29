@@ -1,0 +1,45 @@
+.sponsors-page { margin: 0; background: #f7f5ee; color: #191b1b; font: 400 16px/1.65 Montserrat,Arial,sans-serif; }
+.sponsors-page * { box-sizing: border-box; }
+.sponsors-page em { font-family: "Cormorant Garamond",Georgia,serif; font-size: 1.06em; font-weight: 600; }
+.sponsors-shell { width: min(100% - 64px, 1220px); margin-inline: auto; }
+.sponsors-hero { padding: clamp(76px,9vw,135px) 0; background: linear-gradient(90deg,rgba(11,16,17,.96),rgba(11,16,17,.65)),url('/images/NeoHeader.webp') center 42%/cover; color: #fffaf0; }
+.sponsors-kicker { margin: 0 0 15px; color: #e2bf78; font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.sponsors-hero h1 { margin: 0 0 22px; font-size: clamp(58px,8vw,110px); line-height: 1; letter-spacing: -.06em; }
+.sponsors-hero h1 em { color: #e2bf78; }
+.sponsors-hero p:not(.sponsors-kicker) { max-width: 700px; margin: 0 0 18px; font-size: clamp(18px,2vw,24px); }
+.sponsors-hero .sponsors-organizer { max-width: 750px; margin-bottom: 0; color: #e7dfcf; font-size: 14px !important; }
+.sponsors-content { padding-block: 80px 100px; }
+.sponsors-page .neo-sponsor-section { margin-bottom: 70px; }
+.sponsors-page .neo-sponsor-heading { margin: 0 0 24px; padding-bottom: 16px; border-bottom: 1px solid #c6b78f; color: #88652b; font: 800 clamp(24px,3.2vw,40px)/1.2 Montserrat,Arial,sans-serif; letter-spacing: -.035em; text-align: left; }
+.sponsors-page .neo-sponsor-grid--weekend-presenting,.sponsors-page .neo-sponsor-grid--platinum { grid-template-columns: 1fr; }
+.sponsors-page .neo-sponsor-grid--presenting { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.sponsors-page .neo-sponsor-grid--community { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.sponsors-page .neo-sponsor-card { align-items: flex-start; padding: 25px; border: 1px solid #d5d2c8; border-radius: 0; background: #fffefa; box-shadow: 0 14px 38px rgba(17,23,24,.06); text-align: left; }
+.sponsors-page .neo-sponsor-card--weekend-presenting { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap: 0 42px; padding: clamp(30px,5vw,60px); border-color: #d1b476; border-top: 5px solid #d1b476; background: #202729; color: #fffaf0; }
+.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-tier { grid-column: 1/-1; color: #e2bf78; }
+.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-art { grid-row: span 4; align-self: center; min-height: 160px; background: #fff; }
+.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-name { align-self: end; color: #fffaf0; font-size: clamp(27px,3vw,41px) !important; }
+.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-description { color: #e3dfd5; }
+.sponsors-page .neo-sponsor-card--platinum { border-top: 4px solid #d1b476; }
+.sponsors-page .neo-sponsor-card--presenting { border-top: 3px solid #b9924d; }
+.sponsors-page .neo-sponsor-card .neo-sponsor-art { align-self: stretch; width: 100%; height: 130px; padding: 12px; border: 1px solid #e6e3da; background: #fff; }
+.sponsors-page .neo-sponsor-card--community .neo-sponsor-art { height: 85px; }
+.sponsors-page .neo-sponsor-card .neo-sponsor-name { color: #1c2324; font-size: 19px !important; }
+.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-name { color: #fffaf0; }
+.sponsors-page .neo-sponsor-tier { color: #88652b !important; }
+.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-tier { color: #e2bf78 !important; }
+.sponsors-page .neo-sponsor-description,.sponsors-page .neo-sponsor-scope { margin: 0 0 13px; color: #555d5d; font-size: 13px; }
+.sponsors-page .neo-sponsor-card--community .neo-sponsor-name { font-size: 15px !important; }
+.sponsors-page .neo-sponsor-card .neo-sponsor-contact { min-height: 44px; align-self: flex-start; margin-top: auto; padding: 9px 0; border: 0; border-radius: 0; background: none; color: #6d501e; font-size: 12px; text-decoration: underline; text-transform: none; }
+.sponsors-page .neo-sponsor-card .neo-sponsor-contact:hover { background: none; color: #1c2324; }
+.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-contact { color: #e2bf78; }
+.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-contact:hover { color: #fffaf0; }
+.sponsors-page .neo-sponsor-photo { width: min(100%,450px); }
+.sponsors-page .neo-sponsor-tagline { color: #785525; }
+.sponsors-inquiry { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: clamp(30px,5vw,60px); background: #202729; color: #fffaf0; }
+.sponsors-inquiry h2 { margin: 0 0 12px; font-size: clamp(29px,3vw,42px); }
+.sponsors-inquiry p:last-child { margin: 0; }
+.sponsors-inquiry a { display: inline-flex; align-items: center; gap: 20px; min-height: 52px; padding: 12px 19px; background: #e2bf78; color: #171b1c; font-size: 12px; font-weight: 800; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+@media(max-width:900px) { .sponsors-page .neo-sponsor-grid--community { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media(max-width:700px) { .sponsors-shell { width: min(100% - 32px,1220px); } .sponsors-content { padding-block: 58px 80px; } .sponsors-page .neo-sponsor-grid--presenting { grid-template-columns: 1fr; } .sponsors-page .neo-sponsor-grid--community { grid-template-columns: repeat(2,minmax(0,1fr)); } .sponsors-page .neo-sponsor-card--weekend-presenting { display: flex; gap: 0; } .sponsors-inquiry { flex-direction: column; align-items: stretch; } .sponsors-inquiry a { justify-content: center; } }
+@media(max-width:420px) { .sponsors-page .neo-sponsor-grid--community { grid-template-columns: 1fr; } }

@@ -2,6 +2,7 @@ import { renderPresentingRecognition, renderWeekendTextRecognition } from './spo
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { sponsorshipAssetPath, sponsorshipBasePath, sponsorshipDecks } from "./sponsorship-decks.mjs";
+import { sponsorshipContent } from "./sponsorship-content.mjs";
 
 const escapeHtml = (value) => String(value)
   .replaceAll("&", "&amp;")
@@ -65,7 +66,7 @@ const page = ({ title, description, canonicalPath, body }) => `<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
-  <link rel="canonical" href="https://neochosenevents.com${escapeHtml(canonicalPath)}">
+  <link rel="canonical" href="https://neochosen.com${escapeHtml(canonicalPath)}">
   <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#0a0806">
@@ -103,6 +104,21 @@ const card = (deck) => {
 
 const presentingRecognition = renderPresentingRecognition('akron') + renderPresentingRecognition('fairlawn');
 const eventRecognition = { all: presentingRecognition, 'piano-guys': renderPresentingRecognition('akron'), 'meet-and-greet': renderPresentingRecognition('fairlawn') };
+const readableDetails = (deck) => {
+  const content = sponsorshipContent[deck.slug];
+  if (!content) throw Error(`Missing readable sponsorship details for ${deck.slug}`);
+  return `<section class="sponsorship-section sponsorship-readable" aria-labelledby="sponsorship-readable-heading">
+    <div class="sponsorship-section__heading">
+      <p class="section-kicker">Sponsorship Details</p>
+      <h2 id="sponsorship-readable-heading">Investment, audience &amp; benefits</h2>
+      <p>Read the key details here. The PDF below provides the complete package language.</p>
+    </div>
+    <div class="sponsorship-readable__audience"><h3>Audience and setting</h3><p>${escapeHtml(content.audience)}</p></div>
+    <div class="sponsorship-readable__table-wrap"><table class="sponsorship-readable__table"><caption>Investment levels for ${escapeHtml(deck.shortTitle)}</caption><thead><tr><th scope="col">Opportunity</th><th scope="col">Investment</th><th scope="col">Scope or limit</th></tr></thead><tbody>${content.levels.map(([name, price, scope]) => `<tr><th scope="row">${escapeHtml(name)}</th><td data-label="Investment">${escapeHtml(price)}</td><td data-label="Scope or limit">${escapeHtml(scope || 'Ask about availability')}</td></tr>`).join('')}</tbody></table></div>
+    <div class="sponsorship-readable__columns"><div><h3>Included and potential benefits</h3><ul>${content.benefits.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul></div><div><h3>Availability and approvals</h3><ul>${content.guidelines.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul></div></div>
+    <p class="sponsorship-readable__inquiry"><strong>Interested?</strong> <a href="${sponsorshipContactPath}">Ask about current availability and a written package</a> before committing.</p>
+  </section>`;
+};
 
 const landingBody = `
   <main class="page-shell sponsorship-shell">
@@ -131,9 +147,7 @@ const detailBody = (deck) => {
   const downloadFile = deck.downloadFile ?? deck.pdfFile;
   const summaryAlt = deck.summaryAlt ?? `Quick Summary for ${deck.shortTitle}`;
   const downloadAttribute = deck.downloadFile ? `download="${escapeHtml(downloadFile)}"` : "download";
-  const primaryAction = deck.slug === "all"
-    ? `<a class="gold-button" href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open Full Deck</a>`
-    : `<a class="gold-button" href="#full-deck">View Full Deck</a>`;
+  const primaryAction = `<a class="gold-button" href="#sponsorship-readable-heading">Read Sponsorship Details</a>`;
   const embedStartPage = deck.slug === "all" ? 1 : 2;
   return `
   <main class="page-shell sponsorship-shell sponsorship-detail">
@@ -159,12 +173,14 @@ const detailBody = (deck) => {
         </div>
       </header>
 
-      ${eventRecognition[deck.slug] ? renderWeekendTextRecognition() + eventRecognition[deck.slug] : ""}
+      ${renderWeekendTextRecognition()}
+      ${eventRecognition[deck.slug] || ""}
+      ${readableDetails(deck)}
       <section class="sponsorship-section quick-summary" aria-labelledby="quick-summary-heading">
         <div class="sponsorship-section__heading">
           <p class="section-kicker">At a Glance</p>
           <h2 id="quick-summary-heading">Quick Summary</h2>
-          <p>Review the key investment levels, benefits, audience, and important approval guidelines before exploring the complete deck.</p>
+          <p>Download or enlarge the one-page visual summary after reviewing the readable details above.</p>
         </div>
         <a class="summary-preview" href="${pdfUrl}#page=1&amp;view=FitH" target="_blank" rel="noopener noreferrer" aria-label="Open the ${escapeHtml(deck.shortTitle)} quick summary in a new tab">
           <img src="${summaryUrl}" alt="${escapeHtml(summaryAlt)}" width="${deck.summaryWidth}" height="${deck.summaryHeight}">

@@ -3,3 +3,13 @@
 .event-recap{max-width:760px;margin:20px auto;line-height:1.65;overflow-wrap:break-word}.confirmation-sponsors{max-width:600px;margin:24px auto 0;display:flex;flex-direction:column;align-items:center;gap:8px}.confirmation-sponsors a{display:flex;align-items:center;justify-content:center;min-height:44px;line-height:1.5;padding:0 12px;text-underline-offset:4px}.btn{min-height:44px;box-sizing:border-box}.event{overflow-wrap:break-word}
 
 [hidden]{display:none!important}a:focus-visible{outline:3px solid #6557c9;outline-offset:4px}.eyebrow{font-size:.875rem}
+
+/* Match the current NEOChosen charcoal, gold, and warm-paper system. */
+:root{--ink:#1c2324;--navy:#202729;--gold:#e2bf78;--cream:#f7f5ee;--violet:#936a2b;--line:#d5d2c8}
+body{background:#f7f5ee;color:var(--ink)}
+.top{background:#d1b476}
+.card,.event{border-radius:0}
+.support{background:#202729}
+.confirmation-weekend-sponsor{margin:21px auto 0;color:#555d5b;font-size:.84rem;font-weight:700}
+.confirmation-weekend-sponsor a{color:#6d501e;text-underline-offset:3px}
+a:focus-visible{outline-color:#936a2b}

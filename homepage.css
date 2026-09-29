@@ -106,6 +106,9 @@
 .home-event-card-supporting .home-event-cta { border: 1px solid #7e6131; background: transparent; color: #4a3414; }
 .home-event-card-supporting .home-event-cta:hover { background: #f1e6cc; }
 .home-event-secondary { display: inline-flex; align-items: center; min-height: 44px; color: #4f5b59; font-size: 12px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.home-event-card .neo-weekend-sponsor-credit { margin: 16px 0 0; padding-top: 12px; border-top: 1px solid rgba(87,95,94,.2); color: #59605e; font-size: 11px; line-height: 1.5; }
+.home-event-card .neo-weekend-sponsor-credit strong { color: #765220; }
+.home-event-card .neo-weekend-sponsor-credit a { color: inherit; text-underline-offset: 3px; }
 .home-event-card-featured { grid-column: 1 / -1; display: grid; align-content: center; min-height: 535px; border: 0; background: #14191a; color: #fff8ea; box-shadow: 0 22px 55px rgba(18,23,24,.2); }
 .home-event-card-featured .home-event-art { position: absolute; inset: 0; width: 100%; height: 100%; }
 .home-event-card-featured .home-event-art img { object-position: center 22%; }
@@ -131,6 +134,9 @@
 .home-event-card-featured .home-event-organizer { color: #c6c7c0; }
 .home-event-card-featured .home-event-sponsor-label { color: #f0cd84; }
 .home-event-card-featured .home-event-sponsor-list a { color: #fff8e9; }
+.home-event-card-featured .home-event-secondary { color: #f0cd84; }
+.home-event-card-featured .neo-weekend-sponsor-credit { border-color: rgba(255,255,255,.24); color: #dedbd1; }
+.home-event-card-featured .neo-weekend-sponsor-credit strong { color: #f0cd84; }
 
 /* Artists */
 .home-performers { background: #101516; color: #fff8e9; }

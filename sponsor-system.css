@@ -29,6 +29,9 @@
 .neo-sponsor-card--platinum .neo-sponsor-name { color:#17130b; font-size:1.35rem !important; }
 .neo-sponsor-card--weekend-presenting .neo-sponsor-name { color:#17130b; font-size:1.5rem !important; }
 .neo-sponsor-card .neo-sponsor-scope { margin:0 0 14px; color:#c9c1af; font:400 .95rem/1.6 Montserrat,Arial,sans-serif; }
+.neo-weekend-sponsor-credits { max-width: 920px; margin: 1.5rem auto; padding: 1rem 1.25rem; border-left: 3px solid #d7b956; background: rgba(215,185,86,.1); }
+.neo-weekend-sponsor-credits p { margin: .2rem 0; }
+.neo-weekend-sponsor-credits a { color: #f1dc88; text-underline-offset: 3px; }
 .neo-sponsor-card--presenting .neo-sponsor-scope { color:#6a6253; }
 .neo-sponsor-card--platinum .neo-sponsor-scope { margin-bottom:6px; color:#554d3e; font-weight:600; }
 .neo-sponsor-tagline { margin:0 0 20px; color:#a00f20; font:italic 600 1.12rem/1.4 "Cormorant Garamond",Georgia,serif; }

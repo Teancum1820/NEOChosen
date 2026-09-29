@@ -9,6 +9,7 @@
     "events": [],
     "background": "light",
     "linkIdentity": true,
+    "description": "Presenting partner across NEO Chosen Weekend, November 13–15, 2026.",
     "alt": "Great Lakes Auto Group — NEO Chosen Weekend Presenting Sponsor"
   },
   {
@@ -21,6 +22,7 @@
     "linkLabel": "Visit Website",
     "tier": "platinum",
     "scope": "Platinum Sponsor of NEOChosen 2026",
+    "description": "Platinum partner supporting the NEOChosen weekend.",
     "tagline": "Ride Like Royalty",
     "events": [],
     "background": "light",
@@ -29,10 +31,11 @@
   {
     "id": "advanced-care",
     "name": "Advanced Care Endodontics",
-    "logo": "https://www.acendodontics.com/wp-content/uploads/sites/478/2013/03/Harris-Logo-e1363376953680.png",
+    "logo": null,
     "url": "https://www.acendodontics.com",
     "linkLabel": "acendodontics.com",
     "tier": "presenting",
+    "description": "Co-presenting sponsor of the Fairlawn Meet & Greet.",
     "events": [
       "fairlawn"
     ],
@@ -45,6 +48,7 @@
     "url": "https://www.fnaohio.com/",
     "linkLabel": "fnaohio.com",
     "tier": "presenting",
+    "description": "Presenting sponsor of The Piano Guys concert and co-presenting sponsor of the Fairlawn Meet & Greet.",
     "events": [
       "akron",
       "fairlawn"
@@ -57,16 +61,6 @@
     "logo": "https://ofbf.org/app/uploads/2023/07/IMG_0210-1.jpg",
     "url": "https://rogishfarm.com",
     "linkLabel": "rogishfarm.com",
-    "tier": "community",
-    "events": [],
-    "background": "light"
-  },
-  {
-    "id": "piano-guys",
-    "name": "The Piano Guys",
-    "logo": "https://thepianoguys.com/cdn/shop/files/white-logo_256x.jpg?v=1613783381",
-    "url": "https://thepianoguys.com",
-    "linkLabel": "thepianoguys.com",
     "tier": "community",
     "events": [],
     "background": "light"
@@ -127,16 +121,6 @@
     "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAB92nfbiKmdHkqGyQW4hM_J-Ax-Pa6P2BgA&s",
     "url": "https://dioceseofcleveland.org",
     "linkLabel": "dioceseofcleveland.org",
-    "tier": "community",
-    "events": [],
-    "background": "light"
-  },
-  {
-    "id": "khg",
-    "name": "Kirtland Heritage Group",
-    "logo": "https://static-assets.justserve.org/images/2bec3193-66cf-4707-b501-7f13c097d965.png",
-    "url": "https://kirtlandheritagegroup.com",
-    "linkLabel": "kirtlandheritagegroup.com",
     "tier": "community",
     "events": [],
     "background": "light"

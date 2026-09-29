@@ -26,7 +26,7 @@ for (const required of [
   'NEOChosen Raffle Coming Soon | Kirtland Heritage Group',
   'Win Extraordinary Experiences.', 'Tickets are not on sale yet.',
   'Approximately 50 prizes are coming', 'neochosen-raffle-interest',
-  'Donate or pledge a prize — coming soon',
+  'Have a prize to offer?', 'mailto:info@kirtlandheritagegroup.com?subject=NEOChosen%20Raffle%20Prize%20Donation',
   'A general donation does not purchase a raffle ticket',
   'Raffle and Legal Notice', 'class="site-footer"'
 ]) assert(raffleLower.includes(required.toLowerCase()), `Required coming-soon content missing: ${required}`);

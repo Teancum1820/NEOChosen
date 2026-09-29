@@ -4,6 +4,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { ChevronDown, Heart, Menu, Minus, Plus, Ticket, X } from "lucide-react";
 import { writeSponsorshipPages } from "./sponsorship-pages.mjs";
+import { writeEventPages } from "./event-pages.mjs";
 import { applySiteChrome } from "./site-chrome.mjs";
 import { applySponsorSystem } from "./sponsor-system.mjs";
 
@@ -15,8 +16,8 @@ const rootFiles = new Set(["_headers", "_redirects"]);
 const siteDirs = [
   "thank-you",
   "about-us",
-  "chesterland",
   "donations",
+  "events",
   "get-involved",
   "giveaway-rules",
   "images",
@@ -66,6 +67,7 @@ for (const dir of siteDirs) {
 }
 
 await writeSponsorshipPages(outDir);
+await writeEventPages(outDir);
 
 async function updateChrome(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {

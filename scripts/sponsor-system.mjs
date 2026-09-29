@@ -17,9 +17,7 @@ const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<'
 const presenters = event => sponsors.filter(s => s.tier === 'presenting' && s.events.includes(event));
 const identityLink = s => s.linkIdentity && s.url;
 const linkAttributes = s => `href="${escape(s.url)}" target="_blank" rel="noopener noreferrer"`;
-const logo = s => `<${identityLink(s) ? `a ${linkAttributes(s)}` : 'div'} class="neo-sponsor-art neo-sponsor-art--${s.background || 'light'}">${s.logo
-  ? `<img src="${escape(s.logo)}" alt="${escape(s.alt || `${s.name} logo`)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`
-  : `<span class="neo-sponsor-placeholder">${escape(s.name)}</span>`}</${identityLink(s) ? 'a' : 'div'}>`;
+const logo = s => s.logo ? `<${identityLink(s) ? `a ${linkAttributes(s)}` : 'div'} class="neo-sponsor-art neo-sponsor-art--${s.background || 'light'}"><img src="${escape(s.logo)}" alt="${escape(s.alt || `${s.name} logo`)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"></${identityLink(s) ? 'a' : 'div'}>` : '';
 
 export function renderSponsorCard(s, { event = false, eventId = '' } = {}) {
   const presenting = s.tier === 'presenting';
@@ -29,6 +27,7 @@ export function renderSponsorCard(s, { event = false, eventId = '' } = {}) {
     ${weekendPresenting ? '<p class="neo-sponsor-tier">NEO Chosen Weekend Presenting Sponsor</p>' : presenting ? `<p class="neo-sponsor-tier">${eventId === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Presenting Sponsor'}</p>` : platinum ? '<p class="neo-sponsor-tier">Platinum Sponsor</p>' : ''}
     ${logo(s)}
     <h3 class="neo-sponsor-name">${identityLink(s) ? `<a class="neo-sponsor-identity" ${linkAttributes(s)}>${escape(s.name)}</a>` : escape(s.name)}</h3>
+    ${!event && s.description ? `<p class="neo-sponsor-description">${escape(s.description)}</p>` : ''}
     ${!event && presenting ? `<p class="neo-sponsor-scope">${s.events.map(e=>escape(events[e])).join('<br>')}</p>` : ''}
     ${!event && platinum && s.scope ? `<p class="neo-sponsor-scope">${escape(s.scope)}</p>` : ''}
     ${!event && platinum && s.tagline ? `<p class="neo-sponsor-tagline">${escape(s.tagline)}</p>` : ''}
@@ -54,8 +53,8 @@ export function renderSponsorDirectory() {
   }).join('\n');
 }
 
-// A compact recognition system for the homepage. The organizer and featured
-// performer keep their own roles there; the complete directory remains intact.
+// A compact recognition system for the homepage. The organizer and performers
+// have their own roles and are not sponsor records.
 export function renderHomepageSponsorDirectory() {
   const groups = [
     ['weekend-presenting', 'Weekend Presenting Sponsor'],
@@ -64,7 +63,7 @@ export function renderHomepageSponsorDirectory() {
     ['community', 'Community Partners']
   ];
   return groups.map(([tier, title]) => {
-    const members = sponsors.filter(s => s.tier === tier && !['khg', 'piano-guys'].includes(s.id));
+    const members = sponsors.filter(s => s.tier === tier);
     if (!members.length) return '';
     return `<div class="home-sponsor-tier home-sponsor-tier--${tier}">
       <h3>${title}</h3>
@@ -74,7 +73,7 @@ export function renderHomepageSponsorDirectory() {
         const scope = tier === 'presenting' ? s.events.map(e => e === 'akron' ? 'The Piano Guys concert' : 'Fairlawn Meet &amp; Greet').join(' · ') : '';
         return `<a class="home-sponsor-logo home-sponsor-logo--${escape(artBackground)}" data-sponsor="${escape(s.id)}" ${linkAttributes(s)} aria-label="Visit ${escape(s.name)} website">
           ${tier === 'platinum' && s.photo ? `<img class="home-sponsor-photo" src="${escape(s.photo)}" alt="${escape(s.photoAlt || '')}" loading="lazy" decoding="async">` : ''}
-          <span class="home-sponsor-art">${artwork ? `<img src="${escape(artwork)}" alt="${escape(s.name)} logo" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}</span>
+          ${artwork ? `<span class="home-sponsor-art"><img src="${escape(artwork)}" alt="${escape(s.name)} logo" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"></span>` : ''}
           <span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${scope ? `<small>${scope}</small>` : ''}</span>
         </a>`;
       }).join('')}</div>
@@ -85,28 +84,10 @@ export function renderHomepageSponsorDirectory() {
 export function renderWeekendSponsorRecognition() {
   const presentingSponsor = sponsors.find(s => s.tier === 'weekend-presenting');
   const platinumSponsor = sponsors.find(s => s.tier === 'platinum');
-  const presentingBlock = presentingSponsor ? `<aside class="neo-weekend-sponsor neo-weekend-sponsor--presenting" aria-label="NEO Chosen Weekend Presenting Sponsor">
-    <p class="neo-weekend-sponsor-tier">NEO Chosen Weekend Presenting Sponsor</p>
-    <a class="neo-weekend-sponsor-logo" ${linkAttributes(presentingSponsor)} aria-label="Visit ${escape(presentingSponsor.name)} website">
-      <img src="${escape(presentingSponsor.logo)}" alt="${escape(presentingSponsor.alt)}" loading="lazy" decoding="async">
-    </a>
-    <div class="neo-weekend-sponsor-copy">
-      <p class="neo-weekend-sponsor-name"><a ${linkAttributes(presentingSponsor)}>${escape(presentingSponsor.name)}</a></p>
-      <p class="neo-weekend-sponsor-description">Great Lakes Auto Group is the Presenting Sponsor of NEO Chosen Weekend. We are grateful for their support in helping bring this special weekend of music, faith, and community to Northeast Ohio.</p>
-    </div>
-    <a class="neo-weekend-sponsor-link" ${linkAttributes(presentingSponsor)}>Visit Great Lakes Auto Group</a>
-  </aside>` : '';
-  if (!platinumSponsor) return presentingBlock;
-  return presentingBlock + `<aside class="neo-weekend-sponsor" aria-label="NEOChosen weekend Platinum Sponsor">
-    <p class="neo-weekend-sponsor-tier">NEOChosen Platinum Sponsor</p>
-    <a class="neo-weekend-sponsor-logo" ${linkAttributes(platinumSponsor)} aria-label="Visit ${escape(platinumSponsor.name)} website">
-      <img src="${escape(platinumSponsor.logo)}" alt="${escape(platinumSponsor.name)} logo" loading="lazy" decoding="async">
-    </a>
-    <div class="neo-weekend-sponsor-copy">
-      <p class="neo-weekend-sponsor-name"><a ${linkAttributes(platinumSponsor)}>${escape(platinumSponsor.name)}</a></p>
-      <p class="neo-weekend-sponsor-tagline">${escape(platinumSponsor.tagline)}</p>
-    </div>
-    <a class="neo-weekend-sponsor-link" ${linkAttributes(platinumSponsor)} aria-label="Visit ${escape(platinumSponsor.name)} website">Visit Website</a>
+  return `<aside class="neo-weekend-sponsor-credits" aria-label="Weekend sponsors">
+    ${presentingSponsor ? `<p><strong>NEO Chosen Weekend Presenting Sponsor:</strong> <a ${linkAttributes(presentingSponsor)}>${escape(presentingSponsor.name)}</a></p>` : ''}
+    ${platinumSponsor ? `<p><strong>Platinum Sponsor:</strong> <a ${linkAttributes(platinumSponsor)}>${escape(platinumSponsor.name)}</a></p>` : ''}
+    <a href="/sponsors/">View all sponsors</a>
   </aside>`;
 }
 

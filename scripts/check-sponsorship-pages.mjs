@@ -2,6 +2,7 @@ import { access, readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { sponsorshipDecks } from "./sponsorship-decks.mjs";
+import { sponsorshipContent } from "./sponsorship-content.mjs";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
@@ -55,6 +56,11 @@ for (const deck of sponsorshipDecks) {
   assert(detail.includes(deck.pdfFile), `PDF link is missing for ${deck.slug}.`);
   assert(detail.includes(deck.summaryImage), `Summary image is missing for ${deck.slug}.`);
   assert(detail.includes("Quick Summary") && detail.includes("Full Sponsorship Deck"), `Required sections are missing for ${deck.slug}.`);
+  assert(detail.includes('class="sponsorship-section sponsorship-readable"'), `Readable HTML section is missing for ${deck.slug}.`);
+  assert(detail.includes('class="sponsorship-readable__table"') && detail.includes('Audience and setting') && detail.includes('Availability and approvals'), `Investment, audience, or availability details are missing for ${deck.slug}.`);
+  for (const [name, price] of sponsorshipContent[deck.slug].levels) {
+    assert(detail.includes(escapeHtml(name)) && detail.includes(escapeHtml(price)), `HTML investment level ${name} is missing for ${deck.slug}.`);
+  }
   assert((detail.match(/ download/g) || []).length >= 2, `Download controls are missing for ${deck.slug}.`);
   assert(detail.includes("tel:+14407961642"), `Telephone link is missing for ${deck.slug}.`);
   assert(detail.includes("mailto:info@kirtlandheritagegroup.com"), `Email link is missing for ${deck.slug}.`);
