@@ -6,7 +6,7 @@ The first redesign had the right sequence and verified event information, but it
 
 ## AFTER
 
-The page opens with a larger three-line event name over the existing hero photo, followed by a slim Great Lakes presenting ribbon. The [desktop](1440-full.webp) and [mobile](390-full.webp) captures show stronger light and dark pacing across the same section sequence. The [Piano Guys concert](1440-concert.webp) is the full-width event feature using the supplied photo, and the [performer](1440-performers.webp) and [sponsor](1440-partners.webp) sections carry more visual weight.
+The page opens with a larger three-line event name over the supplied header collage, saved as `images/NeoHeader.webp`, followed by a slim Great Lakes presenting ribbon. On narrow screens, the full collage appears above the headline so every portrait remains visible. The [desktop](1440-full.webp) and [mobile](390-full.webp) captures show stronger light and dark pacing across the same section sequence. The [Piano Guys concert](1440-concert.webp) is the full-width event feature using the supplied photo, and the [performer](1440-performers.webp) and [sponsor](1440-partners.webp) sections carry more visual weight.
 
 ## WHAT CHANGED
 
