@@ -1,0 +1,139 @@
+.neo-workshop {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: var(--space-section-sm) var(--space-6);
+  background: var(--color-brand-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  line-height: var(--leading-body);
+}
+.neo-workshop * {
+  box-sizing: border-box;
+}
+.neo-workshop--light {
+  background: var(--color-surface-light);
+  color: var(--color-text-inverse);
+}
+.neo-workshop__inner {
+  width: min(100%, var(--content-standard));
+  margin-inline: auto;
+}
+.neo-workshop__stack {
+  display: grid;
+  gap: var(--space-6);
+}
+.neo-workshop__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+.neo-workshop__mobile {
+  width: min(100%, 390px);
+  margin-inline: auto;
+}
+.neo-workshop__label {
+  margin: 0 0 var(--space-4);
+  color: var(--color-brand-gold);
+  font: 800 var(--type-eyebrow)/1.5 var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.neo-workshop__swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-4);
+}
+.neo-workshop__swatch {
+  padding: var(--space-4);
+  min-height: 100px;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--swatch);
+  color: var(--swatch-text, white);
+  font-size: var(--type-small);
+  font-weight: 700;
+}
+.neo-workshop__space {
+  height: var(--size);
+  width: min(100%, 20rem);
+  background: var(--color-brand-gold);
+}
+.neo-workshop-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-3) var(--space-6);
+  border: 1px solid var(--color-brand-gold);
+  border-radius: var(--neo-radius-sm);
+  background: var(--color-brand-gold);
+  color: var(--color-text-inverse);
+  font: 800 var(--type-small)/1.4 var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--motion-fast) var(--easing-standard);
+}
+.neo-workshop-button:hover,
+.neo-workshop-button.is-hover {
+  background: var(--color-brand-gold-bright);
+}
+.neo-workshop-button:focus-visible,
+.neo-workshop-button.is-focus {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+.neo-workshop-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.neo-workshop-button[aria-busy="true"] {
+  cursor: progress;
+}
+.neo-workshop-link {
+  color: var(--color-brand-gold-bright);
+  text-underline-offset: 0.25em;
+}
+.neo-workshop-field {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 25rem;
+  font-size: var(--type-small);
+  font-weight: 700;
+}
+.neo-workshop-field input,
+.neo-workshop-field select,
+.neo-workshop-field textarea {
+  min-height: 44px;
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--neo-radius-sm);
+  background: var(--color-surface-light);
+  color: var(--color-text-inverse);
+  font: 400 var(--type-body)/1.4 var(--font-body);
+}
+.neo-workshop-field [aria-invalid="true"] {
+  border: 2px solid var(--color-error);
+}
+.neo-workshop-error {
+  color: #ffb9c2;
+  font-size: var(--type-small);
+}
+.neo-workshop .neo-sponsor-grid {
+  max-width: 880px;
+}
+.neo-workshop .neo-sponsor-card {
+  max-width: 640px;
+}
+.neo-workshop .event-item {
+  max-width: 900px;
+}
+.neo-workshop .performer-card {
+  max-width: 320px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .neo-workshop-button {
+    transition: none;
+  }
+}

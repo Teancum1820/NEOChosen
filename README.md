@@ -17,6 +17,8 @@ Static marketing website for the **Kirtland Heritage Group** "NEO Chosen" weeken
 
 ## Local Preview
 
+The frontend review and QA workflow is documented in [docs/frontend-workflow.md](docs/frontend-workflow.md). Design tokens and image guidance are in [docs/design-system.md](docs/design-system.md); the initial Lighthouse results are in [docs/performance-baseline.md](docs/performance-baseline.md).
+
 Because this is a static site, any local server works. To preview with Cloudflare Pages behavior:
 
 ```bash
