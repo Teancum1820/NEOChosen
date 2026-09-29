@@ -68,11 +68,16 @@ export function renderHomepageSponsorDirectory() {
     if (!members.length) return '';
     return `<div class="home-sponsor-tier home-sponsor-tier--${tier}">
       <h3>${title}</h3>
-      <div class="home-sponsor-list">${members.map(s => `<a class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" ${linkAttributes(s)} aria-label="Visit ${escape(s.name)} website">
-        ${s.logo ? `<img src="${escape(s.logo)}" alt="${escape(s.name)} logo" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : `<span>${escape(s.name)}</span>`}
-        <strong>${escape(s.name)}</strong>
-        ${tier === 'presenting' ? `<small>${s.events.map(e => e === 'akron' ? 'The Piano Guys concert' : 'Fairlawn Meet &amp; Greet').join(' · ')}</small>` : ''}
-      </a>`).join('')}</div>
+      <div class="home-sponsor-list">${members.map(s => {
+        const artwork = tier === 'weekend-presenting' ? '/images/great-lakes-auto-group-white.webp' : s.logo;
+        const artBackground = tier === 'weekend-presenting' ? 'dark' : (s.background || 'light');
+        const scope = tier === 'presenting' ? s.events.map(e => e === 'akron' ? 'The Piano Guys concert' : 'Fairlawn Meet &amp; Greet').join(' · ') : '';
+        return `<a class="home-sponsor-logo home-sponsor-logo--${escape(artBackground)}" data-sponsor="${escape(s.id)}" ${linkAttributes(s)} aria-label="Visit ${escape(s.name)} website">
+          ${tier === 'platinum' && s.photo ? `<img class="home-sponsor-photo" src="${escape(s.photo)}" alt="${escape(s.photoAlt || '')}" loading="lazy" decoding="async">` : ''}
+          <span class="home-sponsor-art">${artwork ? `<img src="${escape(artwork)}" alt="${escape(s.name)} logo" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}</span>
+          <span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${scope ? `<small>${scope}</small>` : ''}</span>
+        </a>`;
+      }).join('')}</div>
     </div>`;
   }).join('');
 }
@@ -108,9 +113,10 @@ export function renderWeekendSponsorRecognition() {
 export function renderEventSponsors(event) {
   const group = presenters(event);
   if(!group.length) return '';
-  return `<div class="neo-event-sponsors" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(events[event])} presenting sponsors">
-    ${event === 'akron' ? '<p class="neo-event-presenter">Presented by: Kirtland Heritage Group</p>' : ''}
-    <div class="neo-sponsor-grid neo-sponsor-grid--event">${group.map(s=>renderSponsorCard(s,{event:true,eventId:event})).join('\n')}</div>
+  return `<div class="home-event-sponsors" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(events[event])} presenting sponsors">
+    ${event === 'akron' ? '<p class="home-event-organizer">Presented by Kirtland Heritage Group</p>' : ''}
+    <p class="home-event-sponsor-label">${event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet &amp; Greet Presenting Sponsors'}</p>
+    <div class="home-event-sponsor-list">${group.map(s => `<a ${linkAttributes(s)} aria-label="Visit ${escape(s.name)} website">${s.logo ? `<img src="${escape(s.logo)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}<strong>${escape(s.name)}</strong></a>`).join('')}</div>
   </div>`;
 }
 

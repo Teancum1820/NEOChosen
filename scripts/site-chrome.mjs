@@ -38,7 +38,27 @@ export function applySiteChrome(html, currentPath) {
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">Menu</button>
     </div>
   </nav>`;
-  const footer = `<footer class="site-footer">
+  const footer = currentPath === '/' ? `<footer class="site-footer">
+    <div class="site-footer-grid">
+      <div class="site-footer-brand">
+        <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span>Chosen</span></a>
+        <p>Uniting neighbors in faith &amp; fellowship across Northeast Ohio.</p>
+        <p>Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Explore NEOChosen">
+        <h2>Explore</h2>
+        ${item('/#events', 'Weekend Events')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}
+      </nav>
+      <div class="site-footer-contact">
+        <h2>Contact</h2>
+        <a href="mailto:info@kirtlandheritagegroup.com">info@kirtlandheritagegroup.com</a>
+        <a href="tel:+14407961642">440-796-1642</a>
+        <div class="site-follow-links">${socialLinks}</div>
+        <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group <span aria-label="(opens in a new tab)">↗</span></a>
+      </div>
+    </div>
+    <div class="site-footer-bottom"><p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p><a href="#main-content">Back to top ↑</a></div>
+  </footer>` : `<footer class="site-footer">
     <div class="site-footer-grid">
       <div class="site-footer-brand">
         <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span>Chosen</span></a>
