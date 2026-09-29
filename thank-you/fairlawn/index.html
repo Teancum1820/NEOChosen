@@ -7,6 +7,7 @@
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://neochosen.com/thank-you/fairlawn/">
   <meta name="description" content="Registration confirmation and next steps for the NEOChosen weekend presented by Kirtland Heritage Group.">
+  <link rel="stylesheet" href="/sponsor-system.css">
   <link rel="stylesheet" href="/thank-you/styles.css">
 </head>
 <body>
@@ -19,7 +20,8 @@
       <p class="lede" id="lede">Your place is reserved for Fairlawn Meet & Greet with The Piano Guys and cast members from The Chosen. We are looking forward to welcoming you.</p>
       <p class="event-recap">Saturday, November 14, 2026 · 7:00–9:00 PM Eastern. St. Hilary Church, 2750 W Market St, Fairlawn, OH 44333.</p>
       <div class="ticket-note">Check your email for your tickets and keep them for event check-in.</div>
-      <p class="confirmation-weekend-sponsor">NEO Chosen Weekend Presenting Sponsor: <a href="https://glakesautogroup.com/" target="_blank" rel="noopener noreferrer">Great Lakes Auto Group</a></p>
+      <!-- WEEKEND_PRESENTING_CREDIT -->
+      <!-- EVENT_SPONSORS:fairlawn -->
     </section>
     <section class="grid wrap">
       <article class="card">
@@ -79,12 +81,7 @@
     };
     const key = "fairlawn";
 
-    if (key === 'fairlawn') {
-      const sponsors = document.createElement('div');
-      sponsors.className = 'confirmation-sponsors';
-      sponsors.innerHTML = '<strong>Presenting Sponsors</strong><a href="https://www.acendodontics.com/" target="_blank" rel="noopener noreferrer">Advanced Care Endodontics</a><a href="https://www.fnaohio.com/" target="_blank" rel="noopener noreferrer">FNA Wealth Management</a>';
-      document.querySelector('.ticket-note').after(sponsors);
-    }
+    // Sponsor credits are rendered from shared data at build time.
     if (data[key]) {
       document.getElementById("lede").textContent = `Your place is reserved for ${data[key].name}. We are looking forward to welcoming you.`;
     }

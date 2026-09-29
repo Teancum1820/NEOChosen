@@ -17,6 +17,7 @@
 .neo-sponsor-art { box-sizing:border-box; display:flex; align-items:center; justify-content:center; height:96px; padding:12px; margin:0 0 14px; border-radius:4px; overflow:hidden; }
 .neo-sponsor-art--light { background:#fff; }
 .neo-sponsor-art--dark { background:#111; }
+.neo-sponsor-art:empty { display:none; }
 .neo-sponsor-art img { display:block; width:100%; height:100%; max-width:100%; object-fit:contain; object-position:center; padding:0; filter:none; }
 .neo-sponsor-card--presenting .neo-sponsor-art { height:144px; padding:6px 12px; margin-bottom:18px; background:transparent; }
 .neo-sponsor-card--platinum .neo-sponsor-art { height:154px; padding:8px 16px; margin-bottom:18px; background:#fff; }
@@ -103,3 +104,25 @@
   .neo-weekend-sponsor-link { justify-self:center; }
 }
 @media(max-width:340px) { .neo-sponsor-grid--community { grid-template-columns:minmax(0,1fr); } }
+
+/* One compact event credit across the schedule, event pages, and media kit. */
+.neo-event-sponsor-credit { margin: 18px 0; padding: 16px 0; border-block: 1px solid currentColor; border-color: rgba(122,90,41,.23); }
+.neo-event-sponsor-label { margin: 0 0 10px; color: #785721; font: 800 11px/1.5 Montserrat,Arial,sans-serif; letter-spacing: .065em; text-transform: uppercase; }
+.neo-event-sponsor-list { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.neo-event-sponsor-list a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: inherit; text-decoration: none; }
+.neo-event-sponsor-list a:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+.neo-event-sponsor-list strong { font: 700 13px/1.35 Montserrat,Arial,sans-serif; }
+.neo-event-sponsor-list .neo-sponsor-art { flex: 0 0 50px; width: 50px; height: 44px; margin: 0; padding: 3px; background: transparent; overflow: visible; }
+.neo-event-sponsor-list .neo-sponsor-art img { width: 100%; height: 100%; object-fit: contain; }
+.neo-event-sponsor-list a:focus-visible { outline: 2px solid #a77326; outline-offset: 3px; }
+.sponsorship-panel .neo-event-sponsor-label,.media-section .neo-event-sponsor-label { color: #f1dc88; }
+.sponsorship-panel .neo-event-sponsor-list,.media-section .neo-event-sponsor-list { color: #f5efe0; }
+.neo-sponsor-roles { padding-left: 18px; margin: 0 0 14px; color: #5a513f; font: 600 14px/1.5 Montserrat,Arial,sans-serif; }
+.neo-sponsor-roles li + li { margin-top: 3px; }
+.neo-sponsor-card-copy { min-width: 0; }
+.neo-sponsor-card .neo-sponsor-description { font: 400 14px/1.6 Montserrat,Arial,sans-serif; }
+@media(max-width:420px) {
+  .neo-event-sponsor-label { font-size: 11px; }
+  .neo-event-sponsor-list { flex-direction: column; gap: 3px; }
+  .neo-event-sponsor-list strong { font-size: 13px; }
+}

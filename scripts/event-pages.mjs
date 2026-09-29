@@ -75,6 +75,7 @@ const page = event => `<!doctype html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/site.css">
+  <link rel="stylesheet" href="/sponsor-system.css">
   <link rel="stylesheet" href="/events/event.css">
   <script type="application/ld+json">${JSON.stringify(schema(event))}</script>
   <script src="/site.js" defer></script>
@@ -103,7 +104,7 @@ const page = event => `<!doctype html>
         <p class="event-kicker">Plan your visit</p>
         <h2>Join us in <em>${escape(event.city)}</em></h2>
         <p>${escape(event.detail)}</p>
-        <div class="event-recognition">${renderWeekendTextRecognition()}${event.sponsor ? renderPresentingRecognition(event.sponsor) : ''}</div>
+        <div class="event-recognition">${event.sponsor ? renderPresentingRecognition(event.sponsor) : ''}${renderWeekendTextRecognition()}</div>
         <div class="event-actions">${action(event.url,event.cta)}<a class="event-text-link" href="/#events">View the full weekend lineup</a></div>
       </div>
     </section>

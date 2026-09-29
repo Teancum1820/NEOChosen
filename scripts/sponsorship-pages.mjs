@@ -76,6 +76,7 @@ const page = ({ title, description, canonicalPath, body }) => `<!DOCTYPE html>
   <link rel="stylesheet" href="${sponsorshipBasePath}/sponsorship.css">
   <link rel="stylesheet" href="/responsive-pages.css">
   <link rel="stylesheet" href="/site.css">
+  <link rel="stylesheet" href="/sponsor-system.css">
   <script src="/site.js" defer></script>
 </head>
 <body>

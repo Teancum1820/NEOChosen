@@ -13,3 +13,8 @@ body{background:#f7f5ee;color:var(--ink)}
 .confirmation-weekend-sponsor{margin:21px auto 0;color:#555d5b;font-size:.84rem;font-weight:700}
 .confirmation-weekend-sponsor a{color:#6d501e;text-underline-offset:3px}
 a:focus-visible{outline-color:#936a2b}
+.hero .neo-weekend-sponsor-credit{margin:20px auto 0;color:#555d5b;font-size:13px;font-weight:600}
+.hero .neo-weekend-sponsor-credit a{color:#6d501e;text-underline-offset:3px}
+.hero .neo-event-sponsor-credit{width:min(100%,600px);margin:16px auto 0;text-align:left}
+.hero .neo-event-sponsor-list{justify-content:center}
+.hero .neo-event-sponsor-label{text-align:center}

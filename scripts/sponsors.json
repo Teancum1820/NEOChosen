@@ -3,6 +3,7 @@
     "id": "great-lakes-auto-group",
     "name": "Great Lakes Auto Group",
     "logo": "/images/great-lakes-auto-group-black.webp",
+    "logoReversed": "/images/great-lakes-auto-group-white.webp",
     "url": "https://glakesautogroup.com/",
     "linkLabel": "Visit Great Lakes Auto Group",
     "tier": "weekend-presenting",
@@ -36,6 +37,8 @@
     "linkLabel": "acendodontics.com",
     "tier": "presenting",
     "description": "Co-presenting sponsor of the Fairlawn Meet & Greet.",
+    "roles": ["Fairlawn Meet & Greet Presenting Sponsor"],
+    "sortOrder": 2,
     "events": [
       "fairlawn"
     ],
@@ -49,6 +52,8 @@
     "linkLabel": "fnaohio.com",
     "tier": "presenting",
     "description": "Presenting sponsor of The Piano Guys concert and co-presenting sponsor of the Fairlawn Meet & Greet.",
+    "roles": ["The Piano Guys Concert Presenting Sponsor", "Fairlawn Meet & Greet Presenting Sponsor"],
+    "sortOrder": 1,
     "events": [
       "akron",
       "fairlawn"
