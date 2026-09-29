@@ -33,9 +33,9 @@ export const Overview = {
       <div class="neo-workshop__swatch" style="--swatch: var(--color-accent-teal)">Teal accent</div>
     </div>
     <div class="neo-workshop__row">${button()} <a class="neo-workshop-link" href="/sponsors/">View sponsors</a></div>
-    ${existing("home", ".event-item")}
+    ${existing("home", ".home-event-card")}
     ${sponsor("great-lakes-auto-group")}
-    ${existing("home", ".performer-card")}
+    ${existing("home", ".home-performer-card")}
   </div>`),
 };
 
@@ -106,12 +106,12 @@ export const Section = {
 };
 export const Heading = { render: Typography.render };
 export const EventCard = {
-  render: () => frame(existing("home", ".event-item")),
+  render: () => frame(existing("home", ".home-event-card")),
 };
 export const EventCardLongText = {
   render: () =>
     frame(
-      existing("home", ".event-item").replace(
+      existing("home", ".home-event-card").replace(
         "VIP Donor Dinner",
         "A deliberately long event title that tests wrapping on a narrow phone",
       ),
@@ -142,10 +142,10 @@ export const SponsorTier = {
   render: () => frame(existing("sponsors", ".neo-sponsor-section")),
 };
 export const PerformerCard = {
-  render: () => frame(existing("home", ".performer-card")),
+  render: () => frame(existing("home", ".home-performer-card")),
 };
 export const CTASection = {
-  render: () => frame(existing("home", ".cta-band")),
+  render: () => frame(existing("home", ".home-final")),
 };
 export const Navigation = { render: () => existing("home", ".site-nav") };
 export const FormControls = {

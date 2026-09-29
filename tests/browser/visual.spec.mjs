@@ -14,9 +14,9 @@ test("current desktop header, hero, event card, sponsor, and footer", async ({
 }) => {
   for (const [name, selector] of [
     ["header", ".site-nav"],
-    ["hero", ".hero"],
-    ["event-card", ".event-item"],
-    ["weekend-sponsor", ".neo-weekend-sponsor--presenting"],
+    ["hero", ".home-hero"],
+    ["event-card", ".home-event-card"],
+    ["weekend-sponsor", ".home-sponsor-ribbon"],
     ["footer", ".site-footer"],
   ]) {
     const item = page.locator(selector).first();

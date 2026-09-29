@@ -20,6 +20,10 @@ const routes = [
   ["home", "/"],
   ["sponsors", "/sponsors/"],
   ["chesterland", "/chesterland/"],
+  ["vip-dinner", "/vip-dinner/"],
+  ["lakewood", "/lakewood/"],
+  ["piano-guys", "/piano-guys/"],
+  ["fairlawn", "/fairlawn/"],
   ["about", "/about-us/"],
   ["get-involved", "/get-involved/"],
   ["media-kit", "/media-kit/"],
@@ -49,9 +53,25 @@ try {
         fullPage: true,
         animations: "disabled",
       });
-      await sharp(png)
-        .webp({ quality: 82 })
-        .toFile(path.join(out, `${name}-${width}x${height}.webp`));
+      const { width: imageWidth, height: imageHeight } =
+        await sharp(png).metadata();
+      const segmentHeight = 12000;
+      for (
+        let top = 0, part = 1;
+        top < imageHeight;
+        top += segmentHeight, part += 1
+      ) {
+        const suffix = imageHeight > segmentHeight ? `-part${part}` : "";
+        await sharp(png)
+          .extract({
+            left: 0,
+            top,
+            width: imageWidth,
+            height: Math.min(segmentHeight, imageHeight - top),
+          })
+          .webp({ quality: 82 })
+          .toFile(path.join(out, `${name}-${width}x${height}${suffix}.webp`));
+      }
     }
     await page.goto(base + "/#events");
     const events = await page

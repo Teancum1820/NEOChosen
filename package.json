@@ -24,7 +24,7 @@
     "images:optimize": "node scripts/optimize-images.mjs",
     "lint": "eslint .",
     "typecheck": "tsc --project tsconfig.tooling.json",
-    "test": "npm run build && npm run check:sponsorships && npm run check:site-chrome && npm run check:raffle && npm run test:raffle-functions",
+    "test": "npm run build && npm run check:sponsorships && npm run check:site-chrome && npm run check:local-links && npm run check:events && npm run check:sponsors && npm run check:raffle && npm run test:raffle-functions",
     "format:check": "prettier --check .storybook stories design-system tests/browser playwright.config.mjs lighthouserc.json eslint.config.mjs tsconfig.tooling.json",
     "dev": "npm run build && wrangler pages dev dist",
     "deploy": "npm run build && wrangler deploy"

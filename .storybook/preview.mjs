@@ -1,5 +1,7 @@
 import "../site.css";
 import "../sponsor-system.css";
+import "../homepage.css";
+import "../sponsors/sponsors.css";
 import "../stories/workshop.css";
 import homepage from "../dist/index.html?raw";
 import directory from "../dist/sponsors/index.html?raw";
