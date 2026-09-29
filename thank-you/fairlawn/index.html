@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>The Chosen & Piano Guys Meet & Greet in Fairlawn — Registration Confirmed | NEOChosen</title>
+  <title>Fairlawn Meet & Greet with The Piano Guys and cast members from The Chosen — Registration Confirmed | NEOChosen</title>
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://neochosen.com/thank-you/fairlawn/">
   <meta name="description" content="Registration confirmation and next steps for the NEOChosen weekend presented by Kirtland Heritage Group.">
+  <link rel="stylesheet" href="/sponsor-system.css">
   <link rel="stylesheet" href="/thank-you/styles.css">
 </head>
 <body>
@@ -16,9 +17,11 @@
       <div class="check" aria-hidden="true">✓</div>
       <div class="eyebrow">Kirtland Heritage Group presents</div>
       <h1>You’re registered!</h1>
-      <p class="lede" id="lede">Your place is reserved for The Chosen & Piano Guys Meet & Greet in Fairlawn. We are looking forward to welcoming you.</p>
+      <p class="lede" id="lede">Your place is reserved for Fairlawn Meet & Greet with The Piano Guys and cast members from The Chosen. We are looking forward to welcoming you.</p>
       <p class="event-recap">Saturday, November 14, 2026 · 7:00–9:00 PM Eastern. St. Hilary Church, 2750 W Market St, Fairlawn, OH 44333.</p>
       <div class="ticket-note">Check your email for your tickets and keep them for event check-in.</div>
+      <!-- WEEKEND_PRESENTING_CREDIT -->
+      <!-- EVENT_SPONSORS:fairlawn -->
     </section>
     <section class="grid wrap">
       <article class="card">
@@ -33,7 +36,7 @@
       <article class="card" id="dinner-card">
         <div class="eyebrow">Friday, November 13</div>
         <h2>Join the VIP Donor Dinner</h2>
-        <p>Gather at Windows on the River in Cleveland with special guests from The Chosen and The Piano Guys. Every full $200 donated in a single transaction includes one invitation while space remains.</p>
+        <p>Gather at Windows on the River in Cleveland with cast members from The Chosen and The Piano Guys. Every full $200 donated in a single transaction includes one invitation while space remains.</p>
         <a class="btn gold" href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener">Reserve your place</a>
       </article>
       <article class="card wide">
@@ -58,9 +61,9 @@
   <script src="/thank-you/registration-links.js"></script>
   <script>
     const data = {
-      lakewood: { name: "An Evening with The Chosen in Lakewood", detail: "Friday, November 13 · 7:30 PM · Lakewood Civic Auditorium" },
-      fairlawn: { name: "The Chosen & Piano Guys Meet & Greet in Fairlawn", detail: "Saturday, November 14 · 7:00 PM · St. Hilary Church" },
-      chesterland: { name: "The Chosen & Piano Guys Meet & Greet in Chesterland", detail: "Sunday, November 15 · 2:00 PM · Mayfield United Methodist Church" }
+      lakewood: { name: "An Evening with Cast Members from The Chosen in Lakewood", detail: "Friday, November 13 · 7:30 PM · Lakewood Civic Auditorium" },
+      fairlawn: { name: "Fairlawn Meet & Greet with The Piano Guys and cast members from The Chosen", detail: "Saturday, November 14 · 7:00 PM · St. Hilary Church" },
+      chesterland: { name: "Chesterland Meet & Greet with The Piano Guys and cast members from The Chosen", detail: "Sunday, November 15 · 2:00 PM · Mayfield United Methodist Church" }
     };
     const links = {
       lakewood: "https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen",
@@ -78,12 +81,7 @@
     };
     const key = "fairlawn";
 
-    if (key === 'fairlawn') {
-      const sponsors = document.createElement('div');
-      sponsors.className = 'confirmation-sponsors';
-      sponsors.innerHTML = '<strong>Presenting Sponsors</strong><a href="https://www.acendodontics.com/" target="_blank" rel="noopener noreferrer">Advanced Care Endodontics</a><a href="https://www.fnaohio.com/" target="_blank" rel="noopener noreferrer">FNA Wealth Management</a>';
-      document.querySelector('.ticket-note').after(sponsors);
-    }
+    // Sponsor credits are rendered from shared data at build time.
     if (data[key]) {
       document.getElementById("lede").textContent = `Your place is reserved for ${data[key].name}. We are looking forward to welcoming you.`;
     }

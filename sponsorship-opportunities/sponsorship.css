@@ -402,6 +402,22 @@ h1 {
   color: var(--warm-gray);
 }
 
+.sponsorship-readable__audience { max-width: 900px; margin: 0 auto 1.6rem; }
+.sponsorship-readable h3 { margin: 0 0 .5rem; color: var(--soft-gold); font-size: 1.2rem; }
+.sponsorship-readable__audience p { margin: 0; }
+.sponsorship-readable__table-wrap { width: 100%; overflow-x: auto; }
+.sponsorship-readable__table { width: 100%; border-collapse: collapse; text-align: left; }
+.sponsorship-readable__table caption { padding-bottom: .65rem; color: var(--warm-gray); font-size: .85rem; text-align: left; }
+.sponsorship-readable__table th, .sponsorship-readable__table td { padding: .8rem .7rem; border-bottom: 1px solid rgba(215,185,86,.23); vertical-align: top; }
+.sponsorship-readable__table thead th { color: var(--soft-gold); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+.sponsorship-readable__table tbody th { color: var(--cream); font-weight: 600; }
+.sponsorship-readable__table tbody td:nth-child(2) { white-space: nowrap; }
+.sponsorship-readable__columns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; margin-top: 2rem; }
+.sponsorship-readable__columns ul { margin: 0; padding-left: 1.25rem; }
+.sponsorship-readable__columns li { margin-block: .5rem; }
+.sponsorship-readable__inquiry { margin: 1.8rem 0 0; padding: 1rem 1.2rem; border-left: 3px solid var(--gold); background: rgba(215,185,86,.09); }
+.sponsorship-readable__inquiry a { text-underline-offset: 3px; }
+
 .summary-preview {
   display: block;
   overflow: hidden;
@@ -528,6 +544,15 @@ h1 {
   }
 
   .sponsorship-card__description { font-size: 1rem; }
+  .sponsorship-readable__columns { grid-template-columns: 1fr; gap: 1rem; }
+  .sponsorship-readable__table { font-size: .85rem; }
+  .sponsorship-readable__table th, .sponsorship-readable__table td { padding: .65rem .45rem; }
+  .sponsorship-readable__table tbody td:nth-child(2) { white-space: normal; }
+  .sponsorship-readable__table thead { display: none; }
+  .sponsorship-readable__table tbody tr { display: block; margin-bottom: .8rem; padding: .5rem; border: 1px solid rgba(215,185,86,.25); }
+  .sponsorship-readable__table tbody th,.sponsorship-readable__table tbody td { display: block; border: 0; }
+  .sponsorship-readable__table tbody th { color: var(--soft-gold); font-size: 1rem; }
+  .sponsorship-readable__table tbody td::before { content: attr(data-label) ': '; color: var(--warm-gray); font-size: .78rem; font-weight: 700; text-transform: uppercase; }
 
   .sponsorship-breadcrumb {
     align-items: flex-start;
