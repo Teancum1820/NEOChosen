@@ -32,6 +32,7 @@ export function applySiteChrome(html, currentPath) {
       ${item('/get-involved/', 'Get Involved')}
       ${dropdown('sponsor-navigation', 'Sponsors', item('/sponsors/', 'Our Sponsors') + item('/sponsorship-opportunities/', 'Become a Sponsor'))}
       ${dropdown('resource-navigation', 'More', item('/vip-dinner/', 'VIP Donor Dinner') + item('/lakewood/', 'Lakewood Event') + item('/piano-guys/', 'The Piano Guys Concert') + item('/fairlawn/', 'Fairlawn Meet &amp; Greet') + item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/raffle/', 'Raffle — Coming Soon') + item('/social-media-links/', 'Social Media'))}
+      ${item('/donations/', 'Donate', 'nav-donate')}
       ${item('/#events', 'Explore Weekend', 'nav-ticket')}
     </div>
     <div class="site-nav-actions">
