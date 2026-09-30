@@ -17,6 +17,8 @@ export function renderImage({
   srcSet = [],
   sizes,
   priority = false,
+  eager = false,
+  className = "",
   position = "center",
 }) {
   if (
@@ -33,5 +35,5 @@ export function renderImage({
   const sources = srcSet.length
     ? ` srcset="${escape(srcSet.map((item) => `${item.src} ${item.width}w`).join(", "))}"`
     : "";
-  return `<img src="${escape(src)}" alt="${escape(alt)}" width="${width}" height="${height}"${sources}${sizes ? ` sizes="${escape(sizes)}"` : ""} loading="${priority ? "eager" : "lazy"}" decoding="async"${priority ? ' fetchpriority="high"' : ""} style="object-position:${escape(position)}">`;
+  return `<img${className ? ` class="${escape(className)}"` : ""} src="${escape(src)}" alt="${escape(alt)}" width="${width}" height="${height}"${sources}${sizes ? ` sizes="${escape(sizes)}"` : ""} loading="${priority || eager ? "eager" : "lazy"}" decoding="async"${priority ? ' fetchpriority="high"' : ""} style="object-position:${escape(position)}">`;
 }

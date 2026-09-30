@@ -16,6 +16,7 @@ const types = {
   ".webp": "image/webp",
   ".avif": "image/avif",
   ".pdf": "application/pdf",
+  ".woff2": "font/woff2",
   ".webmanifest": "application/manifest+json",
 };
 

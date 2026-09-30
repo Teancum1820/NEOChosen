@@ -1,0 +1,79 @@
+[
+  {
+    "id": "rogish",
+    "source": "https://ofbf.org/app/uploads/2023/07/IMG_0210-1.jpg",
+    "sourceSHA256": "766f8a935432a5f317b0ecdaf96cd6901f47c1ebfe7660305bf9c6b449f32f3f",
+    "originalDimensions": [
+      1181,
+      880
+    ],
+    "local": "/images/partners/rogish.webp",
+    "status": "saved"
+  },
+  {
+    "id": "down-the-block",
+    "source": "https://shop-logos.imgix.net/shops/100385/original/down_the_block.png?auto=compress,format",
+    "sourceSHA256": "de0b1362b14407d48ee4d1a731e7b3ecff28d462c9b9f80f300978635daecfdf",
+    "originalDimensions": [
+      270,
+      275
+    ],
+    "local": "/images/partners/down-the-block.webp",
+    "status": "saved"
+  },
+  {
+    "id": "casa-rosa",
+    "source": "https://casarosacucina.com/wp-content/uploads/2025/06/cropped-Untitled-design-38.png",
+    "sourceSHA256": "e3279f5c8bc38ea4e5e22842ca4c24965e4925b73e820a0dc3b811dc6868e18d",
+    "originalDimensions": [
+      1200,
+      1200
+    ],
+    "local": "/images/partners/casa-rosa.webp",
+    "status": "saved"
+  },
+  {
+    "id": "tour-lake-county",
+    "source": "https://images.squarespace-cdn.com/content/v1/65049ab99a8f8f0a19e6b4ac/212b3ba0-98fa-4244-9110-f0d7eef88f7b/White+Outline+Main+Logo.png?format=1500w",
+    "sourceSHA256": "5aeb092d07b2d7cc6b83aa42178fb422084506dc7c094d89a5856e2d13b68b9a",
+    "originalDimensions": [
+      1333,
+      565
+    ],
+    "local": "/images/partners/tour-lake-county.webp",
+    "status": "saved"
+  },
+  {
+    "id": "maggies",
+    "source": "https://images.squarespace-cdn.com/content/v1/629a13f8235fe04af0a4fcf3/7251170c-3be1-49a4-9df0-e016e794ae30/maggies+logo.jpeg?format=1500w",
+    "sourceSHA256": "d45e9f07096c1dd608f3373a7302985c21087ca3fe12a20dbabce20c0f6b217f",
+    "originalDimensions": [
+      827,
+      505
+    ],
+    "local": "/images/partners/maggies.webp",
+    "status": "saved"
+  },
+  {
+    "id": "cleveland-diocese",
+    "source": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAB92nfbiKmdHkqGyQW4hM_J-Ax-Pa6P2BgA&s",
+    "sourceSHA256": "71edf317352df59013d2dfa6de1f4ae466ea031b52eb59ae7dbe561e1d423464",
+    "originalDimensions": [
+      417,
+      121
+    ],
+    "local": "/images/partners/cleveland-diocese.webp",
+    "status": "saved"
+  },
+  {
+    "id": "fest",
+    "source": "https://thefest.us/wp-content/uploads/2026/01/The-FEST-2026-white.png",
+    "sourceSHA256": "0e6010582c60e35db51141f1cb6dc8035952fb28e06cb948d40586b411e3cecf",
+    "originalDimensions": [
+      442,
+      65
+    ],
+    "local": "/images/partners/fest.webp",
+    "status": "saved"
+  }
+]

@@ -12,9 +12,10 @@ const link = (href, label, currentPath, className = '') =>
 
 export function applySiteChrome(html, currentPath) {
   if (!html.includes('class="site-nav"')) return html; // Preserve redirect documents.
-  if (!html.includes('family=Montserrat')) {
-    html = html.replace('</head>', '<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">\n</head>');
-  }
+  // Same approved fonts, served locally for reliable critical rendering.
+  html = html.replace(/\s*<link[^>]+href="https:\/\/(?:fonts.googleapis.com|fonts.gstatic.com)[^>]+>/g, '')
+    .replace('href="/images/favicon.png"', 'href="/images/neo-favicon.png"');
+  if (!html.includes('href="/fonts.css"')) html = html.replace('</head>', '<link rel="stylesheet" href="/fonts.css">\n</head>');
   const item = (href, label, className) => link(href, label, currentPath, className);
   const dropdown = (id, label, content) => `<div class="nav-dropdown">
     <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="${id}">${label}</button>
@@ -22,16 +23,16 @@ export function applySiteChrome(html, currentPath) {
   </div>`;
   const nav = `<a class="site-skip-link" href="#main-content">Skip to content</a>
   <nav class="site-nav" aria-label="Main navigation">
-    <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span>Chosen</span></a>
+    <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
     <div class="site-nav-links" id="primary-nav">
-      ${item('/', 'Home')}
       ${item('/#events', 'Events')}
+      ${item('/#performers', 'Performers')}
       ${item('/about-us/', 'About Us')}
       ${item('/get-involved/', 'Get Involved')}
       ${dropdown('sponsor-navigation', 'Sponsors', item('/sponsors/', 'Our Sponsors') + item('/sponsorship-opportunities/', 'Become a Sponsor'))}
-      ${dropdown('resource-navigation', 'Explore', item('/vip-dinner/', 'VIP Donor Dinner') + item('/lakewood/', 'Lakewood Event') + item('/piano-guys/', 'The Piano Guys Concert') + item('/fairlawn/', 'Fairlawn Meet &amp; Greet') + item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/raffle/', 'Raffle — Coming Soon') + item('/social-media-links/', 'Social Media'))}
+      ${dropdown('resource-navigation', 'More', item('/vip-dinner/', 'VIP Donor Dinner') + item('/lakewood/', 'Lakewood Event') + item('/piano-guys/', 'The Piano Guys Concert') + item('/fairlawn/', 'Fairlawn Meet &amp; Greet') + item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/raffle/', 'Raffle — Coming Soon') + item('/social-media-links/', 'Social Media'))}
       <div class="nav-social-links" role="group" aria-label="Follow NEOChosen">${headerSocialLinks}</div>
-      ${item('/#tickets', 'Get Tickets', 'nav-ticket')}
+      ${item('/#tickets', 'Explore Weekend', 'nav-ticket')}
     </div>
     <div class="site-nav-actions">
       <a class="site-donate" href="/donations/">Donate</a>
@@ -41,7 +42,7 @@ export function applySiteChrome(html, currentPath) {
   const footer = currentPath === '/' ? `<footer class="site-footer">
     <div class="site-footer-grid">
       <div class="site-footer-brand">
-        <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span>Chosen</span></a>
+        <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
         <p>Uniting neighbors in faith &amp; fellowship across Northeast Ohio.</p>
         <p>Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit.</p>
       </div>
@@ -61,7 +62,7 @@ export function applySiteChrome(html, currentPath) {
   </footer>` : `<footer class="site-footer">
     <div class="site-footer-grid">
       <div class="site-footer-brand">
-        <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span>Chosen</span></a>
+        <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
         <p>Uniting neighbors in faith &amp; fellowship across Northeast Ohio.</p>
         <p>Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit.</p>
       </div>

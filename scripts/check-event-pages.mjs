@@ -4,7 +4,8 @@ import path from 'node:path';
 
 const root = path.resolve('dist');
 const home = await readFile(path.join(root,'index.html'),'utf8');
-assert(home.indexOf('class="home-sponsor-ribbon"') < home.indexOf('class="home-hero"'), 'Weekend sponsor ribbon must be above the opening image');
+assert(home.indexOf('class="home-sponsor-ribbon"') > home.indexOf('class="home-hero"'), 'Approved weekend sponsor ribbon must follow the hero');
+assert(home.indexOf('class="home-sponsor-ribbon"') < home.indexOf('class="home-overview'), 'Sponsor ribbon must immediately precede the overview');
 assert(home.includes('Kirtland Heritage Group Presents'), 'Organizer credit must remain in the hero');
 const cards = [...home.matchAll(/<article class="home-event-card[^"]*"[^>]*>([\s\S]*?)<\/article>/g)].map(match=>match[1]);
 assert.equal(cards.length,5,'Homepage must contain five event cards');

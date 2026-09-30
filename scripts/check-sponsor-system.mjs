@@ -20,7 +20,7 @@ assert.ok(sponsors.filter(s => s.tier === 'community').length > 0);
 assert.ok(directory.indexOf('Weekend Presenting Sponsor') < directory.indexOf('Event Presenting Sponsors'));
 assert.ok(directory.indexOf('Event Presenting Sponsors') < directory.indexOf('Platinum Sponsor'));
 assert.ok(directory.indexOf('Platinum Sponsor') < directory.indexOf('Community Partners'));
-assert.match(home, /NEO CHOSEN WEEKEND PRESENTING SPONSOR/);
+assert.match(home, /NEO CHOSEN WEEKEND<br>PRESENTING SPONSOR/);
 for (const document of [home, directory, media, akron, fairlawn, thanks]) {
   assert.doesNotMatch(document, /<!-- (?:EVENT_SPONSORS|WEEKEND_PRESENTING_CREDIT|PRESENTING_SPONSOR_RIBBON)/);
 }

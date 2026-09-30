@@ -24,9 +24,9 @@ const external = s => `href="${escape(s.url)}" target="_blank" rel="noopener nor
 
 // Artwork keeps its natural aspect ratio. Live name text is the fallback when
 // approved logo artwork is unavailable; no imitation mark is manufactured.
-export function renderSponsorLogo(s, { reversed = false, className = '' } = {}) {
+export function renderSponsorLogo(s, { reversed = false, className = '', decorative = false } = {}) {
   const artwork = reversed ? (s.logoReversed || s.logo) : s.logo;
-  return artwork ? `<span class="neo-sponsor-art neo-sponsor-art--${escape(reversed ? 'dark' : (s.background || 'light'))}${className ? ` ${escape(className)}` : ''}"><img src="${escape(artwork)}" alt="${escape(s.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"></span>` : '';
+  return artwork ? `<span class="neo-sponsor-art neo-sponsor-art--${escape(reversed ? 'dark' : (s.background || 'light'))}${className ? ` ${escape(className)}` : ''}"><img src="${escape(artwork)}" alt="${decorative ? '' : escape(s.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"></span>` : '';
 }
 export const renderSponsorDescription = s => s.description ? `<p class="neo-sponsor-description">${escape(s.description)}</p>` : '';
 const roleLines = s => s.roles?.length ? s.roles : s.events.map(event => `${events[event]} Presenting Sponsor`);
@@ -35,7 +35,7 @@ export function renderSponsorCard(s) {
   const role = s.tier === 'weekend-presenting' ? 'NEO Chosen Weekend Presenting Sponsor' : s.tier === 'platinum' ? 'Platinum Sponsor' : s.tier === 'community' ? 'Community Partner' : 'Event Presenting Sponsor';
   return `<article class="neo-sponsor-card neo-sponsor-card--${s.tier}" data-sponsor="${escape(s.id)}">
     <p class="neo-sponsor-tier">${role}</p>
-    ${renderSponsorLogo(s, { reversed: s.tier === 'weekend-presenting' })}
+    ${renderSponsorLogo(s, { reversed: s.tier === 'weekend-presenting', decorative: true })}
     <div class="neo-sponsor-card-copy">
       <h3 class="neo-sponsor-name">${escape(s.name)}</h3>
       ${s.tier === 'presenting' ? `<ul class="neo-sponsor-roles">${roleLines(s).map(role => `<li>${escape(role)}</li>`).join('')}</ul>` : ''}
@@ -51,20 +51,20 @@ export function renderSponsorTierSection(tier, title) {
 export const renderSponsorDirectory = () => tiers.map(([tier, title]) => renderSponsorTierSection(tier, title)).join('\n');
 
 export function renderPresentingSponsorRibbon() {
-  return weekend ? `<aside class="home-sponsor-ribbon" aria-label="NEO Chosen Weekend Presenting Sponsor"><div class="home-shell home-sponsor-ribbon-inner"><p>NEO CHOSEN WEEKEND PRESENTING SPONSOR</p><a ${external(weekend)} aria-label="Visit ${escape(weekend.name)} website">${renderSponsorLogo(weekend, { reversed: true })}</a></div></aside>` : '';
+  return weekend ? `<aside class="home-sponsor-ribbon" aria-label="NEO Chosen Weekend Presenting Sponsor"><div class="home-shell home-sponsor-ribbon-inner"><p>NEO CHOSEN WEEKEND<br>PRESENTING SPONSOR</p><a ${external(weekend)} aria-label="Visit ${escape(weekend.name)} website">${renderSponsorLogo(weekend, { decorative: true })}<span class="sr-only">${escape(weekend.name)}</span></a><p class="home-sponsor-weekend">NOV 13–15 <span aria-hidden="true">·</span> FIVE EXPERIENCES</p></div></aside>` : '';
 }
 export function renderHomepageSponsorDirectory() {
   return tiers.map(([tier, title]) => {
     const group = byTier(tier);
     if (!group.length) return '';
-    return `<div class="home-sponsor-tier home-sponsor-tier--${tier}"><h3>${title}</h3><div class="home-sponsor-list">${group.map(s => `<a class="home-sponsor-logo home-sponsor-logo--${escape(tier === 'weekend-presenting' ? 'dark' : (s.background || 'light'))}" data-sponsor="${escape(s.id)}" ${external(s)} aria-label="Visit ${escape(s.name)} website">${tier === 'platinum' && s.photo ? `<img class="home-sponsor-photo" src="${escape(s.photo)}" alt="" loading="lazy" decoding="async">` : ''}${renderSponsorLogo(s, { reversed: tier === 'weekend-presenting', className: 'home-sponsor-art' })}<span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${tier === 'presenting' ? `<small>${s.events.map(event => escape(events[event])).join(' · ')}</small>` : ''}</span></a>`).join('')}</div></div>`;
+    return `<div class="home-sponsor-tier home-sponsor-tier--${tier}"><h3>${title}</h3><div class="home-sponsor-list">${group.map(s => `<a class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" data-sponsor="${escape(s.id)}" ${external(s)} title="Visit ${escape(s.name)} website">${renderSponsorLogo(s, { className: 'home-sponsor-art', decorative: true })}<span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${tier === 'presenting' ? `<small>${s.events.map(event => escape(events[event])).join(' · ')}</small>` : ''}</span></a>`).join('')}</div></div>`;
   }).join('');
 }
 export function renderEventSponsorCredit(event, { compact = false } = {}) {
   const group = presenters(event);
   if (!group.length) return '';
   const label = event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsors';
-  return `<div class="neo-event-sponsor-credit${compact ? ' neo-event-sponsor-credit--compact' : ''}" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(label)}"><p class="neo-event-sponsor-label">${escape(label)}</p><div class="neo-event-sponsor-list">${group.map(s => `<a ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s)}<strong>${escape(s.name)}</strong></a>`).join('')}</div></div>`;
+  return `<div class="neo-event-sponsor-credit${compact ? ' neo-event-sponsor-credit--compact' : ''}" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(label)}"><p class="neo-event-sponsor-label">${escape(label)}</p><div class="neo-event-sponsor-list">${group.map(s => `<a ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s, { decorative: true })}<strong>${escape(s.name)}</strong></a>`).join('')}</div></div>`;
 }
 export const renderEventSponsors = event => renderEventSponsorCredit(event, { compact: true });
 export function renderWeekendTextRecognition() {

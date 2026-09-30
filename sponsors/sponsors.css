@@ -54,3 +54,9 @@
 @media(max-width:900px) { .sponsors-page .neo-sponsor-grid--community { grid-template-columns: repeat(3,minmax(0,1fr)); } }
 @media(max-width:700px) { .sponsors-shell { width: min(100% - 32px,1220px); } .sponsors-content { padding-block: 58px 80px; } .sponsors-page .neo-sponsor-grid--presenting { grid-template-columns: 1fr; } .sponsors-page .neo-sponsor-grid--community { grid-template-columns: repeat(2,minmax(0,1fr)); } .sponsors-page .neo-sponsor-card--weekend-presenting { display: flex; gap: 0; } .sponsors-inquiry { flex-direction: column; align-items: stretch; } .sponsors-inquiry a { justify-content: center; } }
 @media(max-width:420px) { .sponsors-page .neo-sponsor-grid--community { grid-template-columns: 1fr; } }
+
+/* Coordinate the directory with the shared Concept A type and surfaces. */
+.sponsors-page { background: var(--color-surface-light); color: var(--color-text-inverse); }
+.sponsors-hero h1 { font-family: var(--font-display); font-size: clamp(42px,6vw,86px); line-height: 1.16; font-weight: 400; }
+.sponsors-page .neo-sponsor-heading { font-family: var(--font-display); font-weight: 400; color: var(--color-accent-teal); letter-spacing: -.02em; }
+.sponsors-page .neo-sponsor-card--weekend-presenting, .sponsors-inquiry { background: var(--color-brand-background); }

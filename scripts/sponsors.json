@@ -37,7 +37,9 @@
     "linkLabel": "acendodontics.com",
     "tier": "presenting",
     "description": "Co-presenting sponsor of the Fairlawn Meet & Greet.",
-    "roles": ["Fairlawn Meet & Greet Presenting Sponsor"],
+    "roles": [
+      "Fairlawn Meet & Greet Presenting Sponsor"
+    ],
     "sortOrder": 2,
     "events": [
       "fairlawn"
@@ -52,7 +54,10 @@
     "linkLabel": "fnaohio.com",
     "tier": "presenting",
     "description": "Presenting sponsor of The Piano Guys concert and co-presenting sponsor of the Fairlawn Meet & Greet.",
-    "roles": ["The Piano Guys Concert Presenting Sponsor", "Fairlawn Meet & Greet Presenting Sponsor"],
+    "roles": [
+      "The Piano Guys Concert Presenting Sponsor",
+      "Fairlawn Meet & Greet Presenting Sponsor"
+    ],
     "sortOrder": 1,
     "events": [
       "akron",
@@ -63,42 +68,46 @@
   {
     "id": "rogish",
     "name": "Rogish Farms",
-    "logo": "https://ofbf.org/app/uploads/2023/07/IMG_0210-1.jpg",
+    "logo": "/images/partners/rogish.webp",
     "url": "https://rogishfarm.com",
     "linkLabel": "rogishfarm.com",
     "tier": "community",
     "events": [],
-    "background": "light"
+    "background": "light",
+    "logoSource": "https://ofbf.org/app/uploads/2023/07/IMG_0210-1.jpg"
   },
   {
     "id": "down-the-block",
     "name": "Down the Block",
-    "logo": "https://shop-logos.imgix.net/shops/100385/original/down_the_block.png?auto=compress,format",
+    "logo": "/images/partners/down-the-block.webp",
     "url": "https://downtheblockmenu.com",
     "linkLabel": "downtheblockmenu.com",
     "tier": "community",
     "events": [],
-    "background": "light"
+    "background": "light",
+    "logoSource": "https://shop-logos.imgix.net/shops/100385/original/down_the_block.png?auto=compress,format"
   },
   {
     "id": "casa-rosa",
     "name": "Casa Rosa",
-    "logo": "https://casarosacucina.com/wp-content/uploads/2025/06/cropped-Untitled-design-38.png",
+    "logo": "/images/partners/casa-rosa.webp",
     "url": "https://casarosacucina.com",
     "linkLabel": "casarosacucina.com",
     "tier": "community",
     "events": [],
-    "background": "light"
+    "background": "light",
+    "logoSource": "https://casarosacucina.com/wp-content/uploads/2025/06/cropped-Untitled-design-38.png"
   },
   {
     "id": "tour-lake-county",
     "name": "Tour Lake County",
-    "logo": "https://images.squarespace-cdn.com/content/v1/65049ab99a8f8f0a19e6b4ac/212b3ba0-98fa-4244-9110-f0d7eef88f7b/White+Outline+Main+Logo.png?format=1500w",
+    "logo": "/images/partners/tour-lake-county.webp",
     "url": "https://tourlakecounty.com",
     "linkLabel": "tourlakecounty.com",
     "tier": "community",
     "events": [],
-    "background": "dark"
+    "background": "dark",
+    "logoSource": "https://images.squarespace-cdn.com/content/v1/65049ab99a8f8f0a19e6b4ac/212b3ba0-98fa-4244-9110-f0d7eef88f7b/White+Outline+Main+Logo.png?format=1500w"
   },
   {
     "id": "this-is-the-place",
@@ -113,22 +122,24 @@
   {
     "id": "maggies",
     "name": "Maggie's Doughnuts and Cafe",
-    "logo": "https://images.squarespace-cdn.com/content/v1/629a13f8235fe04af0a4fcf3/7251170c-3be1-49a4-9df0-e016e794ae30/maggies+logo.jpeg?format=1500w",
+    "logo": "/images/partners/maggies.webp",
     "url": "https://maggiesdonutshop.com",
     "linkLabel": "maggiesdonutshop.com",
     "tier": "community",
     "events": [],
-    "background": "light"
+    "background": "light",
+    "logoSource": "https://images.squarespace-cdn.com/content/v1/629a13f8235fe04af0a4fcf3/7251170c-3be1-49a4-9df0-e016e794ae30/maggies+logo.jpeg?format=1500w"
   },
   {
     "id": "cleveland-diocese",
     "name": "Cleveland Diocese",
-    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAB92nfbiKmdHkqGyQW4hM_J-Ax-Pa6P2BgA&s",
+    "logo": "/images/partners/cleveland-diocese.webp",
     "url": "https://dioceseofcleveland.org",
     "linkLabel": "dioceseofcleveland.org",
     "tier": "community",
     "events": [],
-    "background": "light"
+    "background": "light",
+    "logoSource": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAB92nfbiKmdHkqGyQW4hM_J-Ax-Pa6P2BgA&s"
   },
   {
     "id": "historic-kirtland",
@@ -143,12 +154,13 @@
   {
     "id": "fest",
     "name": "The FEST",
-    "logo": "https://thefest.us/wp-content/uploads/2026/01/The-FEST-2026-white.png",
+    "logo": "/images/partners/fest.webp",
     "url": "https://thefest.us/",
     "linkLabel": "thefest.us",
     "tier": "community",
     "events": [],
-    "background": "dark"
+    "background": "dark",
+    "logoSource": "https://thefest.us/wp-content/uploads/2026/01/The-FEST-2026-white.png"
   },
   {
     "id": "hallmark",

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v13-sponsor-flyers';
+const CACHE_NAME = 'neochosen-v14-concept-a';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
@@ -14,6 +14,12 @@ const OFFLINE_URLS = [
   '/manifest.webmanifest',
   '/site.css',
   '/site.js',
+  '/fonts.css',
+  '/homepage.css',
+  '/homepage.js',
+  '/sponsor-system.css',
+  '/images/fonts/cinzel.woff2',
+  '/images/fonts/montserrat.woff2',
   '/images/favicon.png',
   '/images/hero.png',
   '/images/mayfield-united-methodist-church-logo.jpg'

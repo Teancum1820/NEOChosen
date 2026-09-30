@@ -30,3 +30,15 @@
 .event-overview .event-button { background: #202729; color: #fffaf0; }
 .event-text-link { font-size: 13px; font-weight: 700; }
 @media(max-width:720px) { .event-shell { width: min(100% - 32px,1220px); } .event-hero { min-height: 580px; } .event-hero-content { padding-block: 80px 65px; } .event-overview { grid-template-columns: 1fr; gap: 48px; } .event-actions .event-button { width: 100%; } }
+
+/* Shared event details adopt Concept A while keeping their verified content. */
+.event-page { background: var(--color-surface-light); color: var(--color-text-inverse); }
+.event-hero { background: var(--color-brand-background); }
+.event-hero > picture { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.event-hero > picture img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.event-hero h1 { font-family: var(--font-display); font-size: clamp(38px,5.6vw,82px); line-height: 1.14; letter-spacing: -.035em; }
+.event-overview-copy h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(32px,4.6vw,56px); }
+.event-overview .event-kicker { color: var(--color-accent-teal); }
+.event-overview-copy h2 em { color: var(--color-accent-teal); }
+.event-facts { background: var(--color-brand-background); }
+.event-overview .event-button { background: var(--color-brand-background); }

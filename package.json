@@ -19,6 +19,7 @@
     "test:visual": "npm run build && playwright test --project=visual",
     "test:visual:update": "npm run build && playwright test --project=visual --update-snapshots",
     "screenshots": "npm run build && node scripts/run-screenshots.mjs",
+    "screenshots:review": "npm run build && node scripts/capture-implementation.mjs",
     "lighthouse": "npm run build && lhci collect && lhci assert",
     "images:audit": "node scripts/audit-images.mjs",
     "images:optimize": "node scripts/optimize-images.mjs",

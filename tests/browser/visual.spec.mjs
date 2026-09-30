@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test("current desktop header, hero, event card, sponsor, and footer", async ({
+test("approved Concept A desktop header, hero, event card, sponsor, and footer", async ({
   page,
 }) => {
   for (const [name, selector] of [
@@ -25,22 +25,40 @@ test("current desktop header, hero, event card, sponsor, and footer", async ({
   }
 });
 
-test("current mobile navigation and event sponsor credit", async ({ page }) => {
+test("approved mobile navigation and event sponsor credit", async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.reload();
   await page.addStyleTag({
     content:
       "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}.reveal{opacity:1!important;transform:none!important}",
   });
-  await expect(page.locator(".site-nav")).toHaveScreenshot("mobile-header.png");
+  await expect
+    .soft(page.locator(".site-nav"))
+    .toHaveScreenshot("mobile-header.png");
   const credit = page.locator('[data-sponsor-event="akron"]').first();
   await credit.scrollIntoViewIfNeeded();
   await expect(credit).toHaveScreenshot("mobile-event-sponsor.png");
 });
 
-test("current sponsor directory major tier", async ({ page }) => {
+test("coordinated sponsor directory major tier", async ({ page }) => {
   await page.goto("/sponsors/");
   const tier = page.locator(".neo-sponsor-section").first();
   await tier.scrollIntoViewIfNeeded();
   await expect(tier).toHaveScreenshot("sponsor-tier.png");
+});
+
+test("approved mobile hero and separate sponsor ribbon", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  for (const [name, selector] of [
+    ["mobile-hero", ".home-hero"],
+    ["mobile-ribbon", ".home-sponsor-ribbon"],
+  ]) {
+    await expect(page.locator(selector)).toHaveScreenshot(`${name}.png`, {
+      style:
+        ".site-nav{visibility:hidden!important}.site-skip-link{display:none!important}",
+    });
+  }
 });

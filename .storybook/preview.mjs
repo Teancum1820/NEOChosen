@@ -1,4 +1,5 @@
 import "../site.css";
+import "../fonts.css";
 import "../sponsor-system.css";
 import "../homepage.css";
 import "../sponsors/sponsors.css";

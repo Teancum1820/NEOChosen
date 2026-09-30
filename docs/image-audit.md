@@ -1,4 +1,4 @@
-# Image audit
+# Image audit — preimplementation baseline
 
 Run `npm run images:audit` to reproduce the file metadata audit. It inspects local `images/`, `media-kit/`, and sponsorship summary files, plus raw homepage `<img>` markup. This is a source audit; remotely hosted images need manual review.
 
@@ -12,4 +12,8 @@ Run `npm run images:audit` to reproduce the file metadata audit. It inspects loc
 | Missing alt | None of the five raw homepage `<img>` elements lacked an `alt` attribute | Continue checking whether each value describes its purpose, including remote art. |
 | Exact duplicates | No duplicate hashes in the scanned local directories | Keep auditing when new assets arrive. |
 
-The scanner cannot reliably determine photographic quality, aspect-ratio distortion in CSS, or whether remote images are sufficiently large for each viewport. Visual QA must inspect those cases, especially the 390px sponsor view and hero focal point. Do not AI-modify artist/cast photography or alter sponsor logos. `npm run images:optimize` writes optional WebP and AVIF hero variants to ignored `artifacts/optimized-images/`; it never overwrites an original or changes a production page.
+The scanner cannot reliably determine photographic quality, aspect-ratio distortion in CSS, or whether remote images are sufficiently large for each viewport. Visual QA must inspect those cases, especially the 390px sponsor view and hero focal point. Do not AI-modify artist/cast photography or alter sponsor logos.
+
+## Approved implementation — September 30, 2026
+
+The table above records the earlier combined-branch baseline. The approved implementation now delivers separate original performer photographs through responsive WebP/AVIF sources with intrinsic dimensions. It uses correctly sized favicon and app-icon derivatives and local partner display assets. `npm run images:optimize` reproduces performer and icon derivatives from preserved sources; it performs normal resizing and encoding without changing source photography. See [implementation review](implementation-review-2026-09-30.md) and [photograph provenance](performer-asset-provenance.json).

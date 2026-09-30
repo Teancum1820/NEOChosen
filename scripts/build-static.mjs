@@ -7,6 +7,7 @@ import { writeSponsorshipPages } from "./sponsorship-pages.mjs";
 import { writeEventPages } from "./event-pages.mjs";
 import { applySiteChrome } from "./site-chrome.mjs";
 import { applySponsorSystem } from "./sponsor-system.mjs";
+import { applyHomepage } from "./homepage.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -75,7 +76,8 @@ async function updateChrome(dir) {
     if (entry.isDirectory()) await updateChrome(file);
     else if (entry.name.endsWith('.html')) {
       const route = '/' + path.relative(outDir, file).split(path.sep).join('/').replace(/index\.html$/, '');
-      await writeFile(file, applySiteChrome(applySponsorSystem(await readFile(file, 'utf8')), route), 'utf8');
+      const source = await readFile(file, 'utf8');
+      await writeFile(file, applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : source), route), 'utf8');
     }
   }
 }

@@ -1,0 +1,142 @@
+{
+  "piano-guys": {
+    "width": 1440,
+    "height": 1086,
+    "variants": [
+      {
+        "width": 160,
+        "webp": "/images/performers/piano-guys-160.webp",
+        "avif": "/images/performers/piano-guys-160.avif"
+      },
+      {
+        "width": 320,
+        "webp": "/images/performers/piano-guys-320.webp",
+        "avif": "/images/performers/piano-guys-320.avif"
+      },
+      {
+        "width": 480,
+        "webp": "/images/performers/piano-guys-480.webp",
+        "avif": "/images/performers/piano-guys-480.avif"
+      },
+      {
+        "width": 800,
+        "webp": "/images/performers/piano-guys-800.webp",
+        "avif": "/images/performers/piano-guys-800.avif"
+      },
+      {
+        "width": 1200,
+        "webp": "/images/performers/piano-guys-1200.webp",
+        "avif": "/images/performers/piano-guys-1200.avif"
+      },
+      {
+        "width": 1440,
+        "webp": "/images/performers/piano-guys-1440.webp",
+        "avif": "/images/performers/piano-guys-1440.avif"
+      }
+    ]
+  },
+  "shaan-sharma": {
+    "width": 500,
+    "height": 500,
+    "variants": [
+      {
+        "width": 160,
+        "webp": "/images/performers/shaan-sharma-160.webp",
+        "avif": "/images/performers/shaan-sharma-160.avif"
+      },
+      {
+        "width": 320,
+        "webp": "/images/performers/shaan-sharma-320.webp",
+        "avif": "/images/performers/shaan-sharma-320.avif"
+      },
+      {
+        "width": 480,
+        "webp": "/images/performers/shaan-sharma-480.webp",
+        "avif": "/images/performers/shaan-sharma-480.avif"
+      },
+      {
+        "width": 500,
+        "webp": "/images/performers/shaan-sharma-500.webp",
+        "avif": "/images/performers/shaan-sharma-500.avif"
+      }
+    ]
+  },
+  "noah-james": {
+    "width": 2400,
+    "height": 3000,
+    "variants": [
+      {
+        "width": 160,
+        "webp": "/images/performers/noah-james-160.webp",
+        "avif": "/images/performers/noah-james-160.avif"
+      },
+      {
+        "width": 320,
+        "webp": "/images/performers/noah-james-320.webp",
+        "avif": "/images/performers/noah-james-320.avif"
+      },
+      {
+        "width": 480,
+        "webp": "/images/performers/noah-james-480.webp",
+        "avif": "/images/performers/noah-james-480.avif"
+      },
+      {
+        "width": 720,
+        "webp": "/images/performers/noah-james-720.webp",
+        "avif": "/images/performers/noah-james-720.avif"
+      }
+    ]
+  },
+  "vanessa-benavente": {
+    "width": 1000,
+    "height": 1340,
+    "variants": [
+      {
+        "width": 160,
+        "webp": "/images/performers/vanessa-benavente-160.webp",
+        "avif": "/images/performers/vanessa-benavente-160.avif"
+      },
+      {
+        "width": 320,
+        "webp": "/images/performers/vanessa-benavente-320.webp",
+        "avif": "/images/performers/vanessa-benavente-320.avif"
+      },
+      {
+        "width": 480,
+        "webp": "/images/performers/vanessa-benavente-480.webp",
+        "avif": "/images/performers/vanessa-benavente-480.avif"
+      },
+      {
+        "width": 720,
+        "webp": "/images/performers/vanessa-benavente-720.webp",
+        "avif": "/images/performers/vanessa-benavente-720.avif"
+      }
+    ]
+  },
+  "yasmine-al-bustami": {
+    "width": 1000,
+    "height": 1500,
+    "variants": [
+      {
+        "width": 160,
+        "webp": "/images/performers/yasmine-al-bustami-160.webp",
+        "avif": "/images/performers/yasmine-al-bustami-160.avif"
+      },
+      {
+        "width": 320,
+        "webp": "/images/performers/yasmine-al-bustami-320.webp",
+        "avif": "/images/performers/yasmine-al-bustami-320.avif"
+      },
+      {
+        "width": 480,
+        "webp": "/images/performers/yasmine-al-bustami-480.webp",
+        "avif": "/images/performers/yasmine-al-bustami-480.avif"
+      },
+      {
+        "width": 720,
+        "webp": "/images/performers/yasmine-al-bustami-720.webp",
+        "avif": "/images/performers/yasmine-al-bustami-720.avif"
+      }
+    ]
+  }
+}

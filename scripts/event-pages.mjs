@@ -1,9 +1,10 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { renderWeekendTextRecognition, renderPresentingRecognition } from './sponsor-system.mjs';
+import { renderPhoto } from './performer-images.mjs';
 
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const events = [
+export const events = [
   {
     slug: 'vip-dinner', title: 'VIP Donor Dinner', eyebrow: 'Friday · November 13', date: 'Friday, November 13, 2026', time: '5:00–6:45 PM Eastern', startDate: '2026-11-13T17:00:00-05:00', admission: 'Sponsor invitation · $200 per guest', venue: 'Windows on the River', city: 'Cleveland', street: '2000 Sycamore Street', zip: '44113', address: '2000 Sycamore Street, Cleveland, OH 44113', image: '/images/hero.webp', imageAlt: '',
     description: 'A private sponsor evening with The Piano Guys, cast members from The Chosen, and Northeast Ohio community and faith leaders.',
@@ -84,7 +85,7 @@ const page = event => `<!doctype html>
   <nav class="site-nav" aria-label="Main navigation"></nav>
   <main id="main-content">
     <header class="event-hero">
-      <img src="${escape(event.image)}" alt="${escape(event.imageAlt)}" decoding="async">
+      ${event.slug === 'vip-dinner' ? `<img src="${escape(event.image)}" alt="${escape(event.imageAlt)}" width="1448" height="1086" fetchpriority="high" decoding="async">` : renderPhoto(event.slug === 'piano-guys' ? 'piano-guys' : event.slug === 'lakewood' ? 'shaan-sharma' : event.slug === 'fairlawn' ? 'vanessa-benavente' : 'yasmine-al-bustami', { alt: event.imageAlt, sizes: '100vw', priority: true, position: 'center 30%' })}
       <div class="event-hero-shade"></div>
       <div class="event-shell event-hero-content">
         <p class="event-kicker">NEOChosen Weekend · ${escape(event.eyebrow)}</p>

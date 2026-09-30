@@ -1,0 +1,32 @@
+[
+  {
+    "id": "piano-guys",
+    "file": "images/piano-guys-feature.webp",
+    "sourceSHA256": "6c0b93747ec91e9d981c75432adbc3f7f838af41719b59b29b7dd8e867c3e64e",
+    "origin": "Previously approved optimized copy of the user-supplied image (10).png; the Downloads original is no longer present."
+  },
+  {
+    "id": "shaan-sharma",
+    "file": "source-assets/performers/shaan-sharma.png",
+    "sourceSHA256": "3321fe075858ccd3f80e7f85fd16c2b67b507c040e4dc7bcb2e596e7e0e01128",
+    "origin": "Exact image bytes from approved Figma Concept A image asset 9823e.png."
+  },
+  {
+    "id": "noah-james",
+    "file": "source-assets/performers/noah-james.png",
+    "sourceSHA256": "42d0af7ffc7bea2655765508d46d7e22449dd222727e71de44b4626749a2e586",
+    "origin": "Exact image bytes from approved Figma Concept A image asset 51c41.png."
+  },
+  {
+    "id": "vanessa-benavente",
+    "file": "source-assets/performers/vanessa-benavente.png",
+    "sourceSHA256": "f7b146ccd882f052b276386cc6bad604c42bf7c2d131b8e36610d257790d666a",
+    "origin": "Exact image bytes from approved Figma Concept A image asset d2728.png."
+  },
+  {
+    "id": "yasmine-al-bustami",
+    "file": "source-assets/performers/yasmine-al-bustami.png",
+    "sourceSHA256": "677e35fd6ceace8876bcf28b034c2599ae492ef20a8dda8a2156171c991e9e5a",
+    "origin": "Exact image bytes from approved Figma Concept A image asset bf6cb.png."
+  }
+]

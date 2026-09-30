@@ -1,16 +1,16 @@
 :root {
   /* Semantic theme tokens for new work; legacy aliases below preserve the site. */
-  --color-brand-background: #070604;
-  --color-surface-dark: #14120e;
-  --color-surface-light: #f5efe0;
-  --color-surface-elevated: #202729;
-  --color-text-primary: #f5efe0;
-  --color-text-secondary: #c8bea8;
-  --color-text-inverse: #100d08;
+  --color-brand-background: #101a2d;
+  --color-surface-dark: #101a2d;
+  --color-surface-light: #f8f4ed;
+  --color-surface-elevated: #1c2a40;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cbd3df;
+  --color-text-inverse: #122035;
   --color-border-subtle: rgba(215, 185, 86, .25);
-  --color-brand-gold: #d7b956;
+  --color-brand-gold: #cda76a;
   --color-brand-gold-bright: #f0d77e;
-  --color-accent-teal: #2d6565;
+  --color-accent-teal: #2e756f;
   --color-error: #a82c3a;
   --color-success: #316c4e;
   --color-focus: #f0d77e;
@@ -373,3 +373,18 @@ a.support-cta:hover { background:#f5dfa0; }
 .presenting-recognition a { color: inherit; text-decoration: underline; text-underline-offset: .2em; }
 .neo-weekend-sponsor-credit { margin:1rem 0; color:#f5efe0; font:400 .86rem/1.55 Montserrat,Arial,sans-serif; overflow-wrap:anywhere; }
 .neo-weekend-sponsor-credit a { color:#f1dc88; text-underline-offset:3px; }
+
+/* Approved Concept A shared chrome, composed with the existing menu behavior. */
+nav.site-nav { background: var(--color-brand-background) !important; box-shadow: none !important; border-bottom-color: rgba(255,255,255,.12) !important; }
+nav.site-nav .site-wordmark, .site-footer .site-wordmark { text-transform: uppercase; }
+.site-wordmark span { color: inherit; }
+nav.site-nav .site-nav-links { background: var(--color-brand-background) !important; }
+nav.site-nav .nav-dropdown-menu { background: var(--color-surface-elevated) !important; }
+nav.site-nav .site-nav-links .nav-ticket { border-radius: var(--neo-radius-sm) !important; background: var(--color-brand-gold) !important; color: var(--color-text-inverse) !important; }
+nav.site-nav .site-donate { background: transparent !important; color: var(--color-brand-gold-bright) !important; border-radius: var(--neo-radius-sm) !important; font-size: 13px !important; }
+.site-footer { background: var(--color-brand-background) !important; }
+@media(min-width:1200px) {
+  nav.site-nav .nav-social-links { display: none; }
+  nav.site-nav { gap: 16px !important; }
+  nav.site-nav .site-nav-links > a, nav.site-nav .nav-dropdown-toggle { padding-inline: 10px !important; font-size: 13px !important; }
+}
