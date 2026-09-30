@@ -71,6 +71,15 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 
 ## Verification
 
+### Regional footer and Lakewood recognition
+
+- Homepage Community Partners now use four desktop columns, taller 78px logo areas and slightly larger names. The two-column mobile arrangement is retained.
+- Every shared site footer now has an original navy-and-gold, Cleveland-inspired skyline SVG with layered towers, a bridge and water reflections. It is a decorative illustration, not venue photography. A dark overlay preserves the existing link contrast; mobile sizing anchors the skyline beneath the contact and copyright area.
+- Lakewood now has the same large organizer/presenting recognition treatment as Chesterland: the supplied KHG mark under “Presented by” and Great Lakes under “NEO Chosen Weekend Presenting Sponsor.”
+- Ten rendered route/width checks at 320, 390, 768, 1024 and 1440px confirm the footer treatment, Lakewood logo delivery and no horizontal overflow. Reviewed desktop/mobile captures are in `artifacts/regional-footer/`.
+- Static checks cover 1,460 local references across 37 HTML documents. Lint and all 33 browser tests pass; the reviewed desktop footer screenshot baseline is refreshed for this requested design change.
+- Changes remain local on `codex/private-figma-redesign`; no pull request was merged and nothing was pushed or deployed.
+
 ### Latest event-logo refinements
 
 - Homepage: Haven of Rest's white raster background is composited into the light card surface; mobile Great Lakes recognition now uses a centered, full-width logo treatment. The mobile partner-directory logo is also larger.

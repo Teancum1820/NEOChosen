@@ -383,6 +383,10 @@ nav.site-nav .nav-dropdown-menu { background: var(--color-surface-elevated) !imp
 nav.site-nav .site-nav-links .nav-ticket { border-radius: var(--neo-radius-sm) !important; background: var(--color-brand-gold) !important; color: var(--color-text-inverse) !important; }
 nav.site-nav .site-donate { background: transparent !important; color: var(--color-brand-gold-bright) !important; border-radius: var(--neo-radius-sm) !important; font-size: 13px !important; }
 .site-footer { background: var(--color-brand-background) !important; }
+.site-footer { isolation:isolate; }
+.site-footer::before { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:linear-gradient(180deg,rgba(16,26,45,.9),rgba(16,26,45,.4) 55%,rgba(16,26,45,.15)),url('/images/northeast-ohio-skyline.svg') center bottom / cover no-repeat; }
+.site-footer-grid,.site-footer-bottom { position:relative; z-index:1; }
+@media(max-width:599px) { .site-footer::before { background-size:100% 100%,auto 380px; background-position:center,center bottom; } }
 @media(min-width:1200px) {
   nav.site-nav { gap: 16px !important; }
   nav.site-nav .site-nav-links > a, nav.site-nav .nav-dropdown-toggle { padding-inline: 10px !important; font-size: 13px !important; }

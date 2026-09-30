@@ -112,11 +112,11 @@
 .home-sponsor-tier--presenting .home-sponsor-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .home-sponsor-tier--community { grid-column: 1/-1; background: transparent; padding: 12px 0 0; color: var(--color-text-primary); }
 .home-sponsor-tier--community h3 { color: var(--color-brand-gold); }
-.home-sponsor-tier--community .home-sponsor-list { grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; }
+.home-sponsor-tier--community .home-sponsor-list { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
 .home-sponsor-tier--community .home-sponsor-logo { padding: 14px; background: var(--color-surface-elevated); justify-content: center; }
-.home-sponsor-tier--community .home-sponsor-meta strong { font: 600 12px/1.5 var(--font-body); }
+.home-sponsor-tier--community .home-sponsor-meta strong { font: 600 13px/1.5 var(--font-body); }
 .home-sponsor-tier--community .home-sponsor-meta small { color:#dbe2ef; }
-.home-sponsor-tier--community .home-sponsor-art { background: #fff; height: 55px; }
+.home-sponsor-tier--community .home-sponsor-art { width:100%; background: #fff; height: 78px; }
 .home-sponsor-tier--community .neo-sponsor-art--dark { background: var(--color-brand-background); }
 .home-sponsor-directory :focus-visible { outline-color: var(--color-accent-teal) !important; }
 .home-sponsor-tier--community :focus-visible { outline-color: var(--color-brand-gold-bright) !important; }

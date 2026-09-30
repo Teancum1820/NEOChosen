@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 560" width="1920" height="560">
+  <title>Northeast Ohio skyline at dusk — original Cleveland-inspired illustration</title>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#101a2d"/><stop offset="1" stop-color="#21384d"/></linearGradient>
+    <linearGradient id="water" x2="0" y2="1"><stop stop-color="#1c3246"/><stop offset="1" stop-color="#101a2d"/></linearGradient>
+    <linearGradient id="tower" x2="0" y2="1"><stop stop-color="#33485c"/><stop offset="1" stop-color="#172a40"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#b99a66" stop-opacity=".15"/><stop offset="1" stop-color="#b99a66" stop-opacity="0"/></radialGradient>
+    <pattern id="windows" width="22" height="26" patternUnits="userSpaceOnUse"><rect x="7" y="8" width="4" height="8" rx="1" fill="#cda76a" opacity=".35"/><rect x="16" y="8" width="3" height="8" fill="#57718a" opacity=".3"/></pattern>
+    <pattern id="fineWindows" width="17" height="22" patternUnits="userSpaceOnUse"><rect x="5" y="6" width="3" height="6" fill="#cda76a" opacity=".3"/></pattern>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1920v560H0z"/>
+  <ellipse cx="990" cy="400" rx="810" ry="260" fill="url(#glow)"/>
+  <g fill="#203247" opacity=".75">
+    <path d="M0 430h45v-65h53v26h30v-70h54v-32h19v32h47v79h25v-134h71v124h24v-89h63v-47h19v47h48v85h21v-120h50v-33h20v33h54v127h47v-74h87v-48h41v48h65v66h40v-112h71v103h54v-170h80v183h35v-84h58v-100h24v100h46v95h36v-121h69v138h32v-82h92v-29h28v29h41v57h34v-116h85v136h34v-174h66v157h27v-92h62v118h35v-150h22v-25h16v25h50v118h41v-71h51v89h78v-43h40v78H0z"/>
+  </g>
+  <g fill="url(#tower)" stroke="#61778b" stroke-opacity=".3" stroke-width="2">
+    <path d="M262 480V301h38v-26h62v26h38v179z"/>
+    <path d="M433 480V231l53-20 53 20v249z"/>
+    <path d="M553 480V317h109v163z"/>
+    <path d="M671 480V299h15V209h14v-29h12v-28h16v-27l16-25 16 25v27h16v28h12v29h14v90h15v181z"/>
+    <path d="M833 480V214h24v-19h81v19h25v266z"/>
+    <path d="M994 480V290h74v190z"/>
+    <path d="M1090 480V166h14v-28h16V99h17l23-37 23 37h17v39h16v28h14v314z"/>
+    <path d="M1260 480V244l26-29h66l26 29v236z"/>
+    <path d="M1410 480V321h120v159z"/>
+    <path d="M1557 480V273h35v-20h63v20h35v207z"/>
+  </g>
+  <g fill="url(#windows)">
+    <path d="M270 310h122v170H270zM443 241h86v239h-86zM563 327h89v153h-89zM698 218h91v262h-91zM843 224h110v256H843zM1004 300h54v180h-54zM1101 177h118v303h-118zM1270 254h98v226h-98zM1420 331h100v149h-100zM1567 283h113v197h-113z"/>
+  </g>
+  <g fill="none" stroke="#cda76a" opacity=".55">
+    <path d="M712 181h64M728 152h32M730 126h28M706 209h76M1120 138h80M1137 99h46" stroke-width="3"/>
+    <path d="M744 100V83M1160 62V42" stroke-width="2"/>
+  </g>
+  <g fill="#15263a" stroke="#6b7a85" stroke-opacity=".3">
+    <path d="M150 481v-39l75-17h54v56zM410 482v-80h45v-20h110v20h41v80zM660 482v-84h177v84zM853 482v-67h70v-17h84v84zM1030 482v-57h42l59-60 108 117zM1210 482v-73h151v73zM1375 482v-62h72v-18h145v80zM1708 482v-84h101v84z"/>
+  </g>
+  <g fill="url(#fineWindows)"><path d="M421 412h174v65H421zM671 409h154v68H671zM864 425h132v52H864zM1220 419h131v58h-131zM1448 413h132v64h-132z"/></g>
+  <g fill="none" stroke="#8c856d" stroke-opacity=".45" stroke-width="3">
+    <path d="M0 482h1920"/>
+    <path d="M0 447h236M16 446v34M93 446v34M170 446v34M20 480q34-63 70 0M97 480q34-63 70 0M174 480q30-59 60 0"/>
+  </g>
+  <path d="M0 485h1920v75H0z" fill="url(#water)"/>
+  <g stroke="#b99a66" stroke-linecap="round" opacity=".2">
+    <path d="M274 500h89M294 512h44M688 500h91M714 513h38M1110 501h95M1137 515h43M1268 500h82M1289 512h42M1578 502h79M1597 513h47" stroke-width="3"/>
+    <path d="M490 527h67M625 538h98M1024 533h110M1197 543h77M1373 525h58M1700 540h101" stroke-width="2"/>
+  </g>
+</svg>

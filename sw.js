@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v18-event-partner-logos';
+const CACHE_NAME = 'neochosen-v19-regional-footer';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
