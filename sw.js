@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v23-dinner-photos';
+const CACHE_NAME = 'neochosen-v24-lakewood-photos';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',

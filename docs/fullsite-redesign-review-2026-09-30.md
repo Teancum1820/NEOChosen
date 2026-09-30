@@ -64,6 +64,8 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 
 ## Latest preview polish
 
+- Lakewood now uses Caleb's supplied auditorium interior as its main image and the supplied exterior photograph in its lower venue section. The main placeholder label is removed. Original PNGs are preserved in `source-assets/venues/`; responsive WebP deliveries respect each photograph's original resolution (1280px interior, 512px exterior). Static checks, lint and the Lakewood/dinner/concert accessibility checks pass. Local and hosted reviews at 320/390/768/1024/1440px verify image order, successful loading and no overflow. Captures are in `artifacts/lakewood-update/`. Only the review Worker was updated; production remains pinned to `f752694d-4a7c-4b33-b851-2f286875820a` at 100%.
+
 - VIP Donor Dinner now uses both Caleb-supplied Windows on the River photographs in the requested order, replacing its main and lower venue placeholders. Originals are preserved in `source-assets/venues/`; responsive WebP deliveries are 480/960/1110px wide. Static checks, lint and the existing dinner accessibility test pass; local and hosted checks at five widths confirm both photos load, correct order, no remaining dinner placeholders and no overflow. Captures are in `artifacts/dinner-update/`. Only the separate review Worker was updated; production is still pinned to `f752694d-4a7c-4b33-b851-2f286875820a` at 100%.
 
 - About Us now displays the existing official Kirtland Heritage Group logo linked to its website, plus Caleb's supplied community gathering photo. The original PNG is preserved in `source-assets/community/`; 480/960/1600px WebP derivatives provide responsive delivery. The complete photograph is shown without cropping on desktop and mobile. The red placeholder label is removed only from About Us. Local checks pass across 320/390/768/1024/1440px, with the existing About accessibility check, lint and static link/event/sponsor checks passing. Captures are in `artifacts/about-update/`.
@@ -72,7 +74,7 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 - Lake County artwork has a white display box on the homepage and no display box on the Sponsors page.
 - Sponsors-page boxes removed for Haven of Rest, Barons Bus and Hallow. CSS multiply compositing removes the white backgrounds within the Haven/Barons files against the page surface while preserving the supplied original assets.
 - Facebook and Instagram icons are visible in the persistent top navigation at mobile and desktop widths.
-- Large red “PLACEHOLDER” labels remain on four event hero photographs and the Akron venue interior photograph. About Us and both dinner images have been replaced with Caleb's supplied photographs. Homepage images remain as supplied.
+- Large red “PLACEHOLDER” labels remain on three event hero photographs and the Akron venue interior photograph. About Us, both dinner images and the Lakewood main image have been replaced with Caleb's supplied photographs. Lakewood also has a supplied exterior venue image. Homepage images remain as supplied.
 - Verification: static build and link/sponsor checks passed; 29 functional/accessibility tests passed; 45 additional route/width checks across 320, 390, 768, 1200 and 1440px passed. Reviewed captures are in `artifacts/preview-polish/`. Header and ribbon visual baselines are updated to the requested appearance.
 
 ## Verification
