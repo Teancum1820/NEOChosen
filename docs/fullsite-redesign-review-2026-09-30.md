@@ -2,11 +2,11 @@
 
 ## Local review status
 
-Implementation is on `codex/private-figma-redesign`, with no upstream. No pull request was merged and no branch was pushed. A separate password-protected review Worker is now hosted for Joe; the production Worker and its routes were not changed. The requested production pin `f752694d-4a7c-4b33-b851-2f286875820a` was verified at 100% before and after creating the review on September 30.
+Implementation is on `codex/private-figma-redesign`, with no upstream. No pull request was merged and no branch was pushed. A separate review Worker is hosted for Joe and is accessible without a password at Caleb's request; the production Worker and its routes were not changed. The requested production pin `f752694d-4a7c-4b33-b851-2f286875820a` was verified at 100% before and after creating the review on September 30.
 
 Preview: http://127.0.0.1:4173/ . The preview server binds to loopback.
 
-Shareable private review: https://neochosen-joe-review.calebday1820.workers.dev/ . The review password is provided separately and is not stored in repository documentation.
+Shareable review: https://neochosen-joe-review.calebday1820.workers.dev/ . No password is required. Anyone with the URL can view it; noindex headers remain enabled.
 
 The approved Concept A hero and sponsor ribbon are preserved. At Caleb's request, the “Five gatherings. One region.” visitor section is removed and the Explore Weekend navigation button targets `/#events` (“Find your moment.”). Dinner information now leads with the donor benefit: each $200 donated includes one dinner invitation, while space remains. Confirmed Silver, prayer, and program-advertiser recognition is included in the coordinated sponsor directory.
 
@@ -76,9 +76,10 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 ### Concert ticketing and shareable review
 
 - Joe's September 30 ticket email (`1a0f2edd2bbe227b`) supplies `https://www.ticketmaster.com/event/05006538EC473EB4` and Friday's 10 a.m. on-sale announcement. The website now shows Friday, October 2 at 10 a.m. and uses “Concert tickets” for the homepage event card, concert feature, closing action and dedicated concert-page actions. No ticket prices are inferred. Automated browsing could not independently read Ticketmaster; the destination is transcribed directly from Joe's email.
-- The review is hosted on the separate `neochosen-joe-review` Worker with all pages and assets behind password authentication. It has no production data bindings or custom-domain routes. The password is a Cloudflare secret; sessions use HMAC signatures, Secure/HttpOnly cookies and a seven-day lifetime. Review responses carry noindex and private/no-store headers.
-- The security test passes for anonymous page/image/PDF protection, missing-secret protection, wrong-password rejection, cross-origin rejection, session authentication, tampering, password rotation and external-redirect rejection.
-- Live review checks confirm login and 12 responsive page views at 390/1440px, all requested concert destinations, correct on-sale copy, protected direct image/PDF requests and no overflow. Captures are in `artifacts/joe-preview/`.
+- The review is hosted on the separate `neochosen-joe-review` Worker. Password authentication was removed at Caleb's request. It has no production data bindings or custom-domain routes. Review responses retain noindex and private/no-store headers; the review Worker only serves GET/HEAD requests.
+- Worker tests verify anonymous page/image/PDF access without sessions or a password secret, preserved errors/redirects and rejection of write requests.
+- Concert actions show an accessible dialog: “Concert tickets go on sale Friday, October 2 at 10 a.m.” Closing restores focus to the trigger; Escape and clicking outside dismiss it. Continue to Ticketmaster retains Joe's destination and opens a new tab. Original anchor destinations remain usable without JavaScript.
+- Current checks pass: 1,483 local references across 37 HTML files, static event/sponsor checks, lint, two review Worker tests and 32 functional/accessibility browser tests. Anonymous live review checks verify 12 page views, direct image/PDF/script requests and the dialog at 390/1440px. Popup captures are in `artifacts/concert-popup/`. The obsolete remote password secret and its ignored local copy were deleted. Production remains pinned at `f752694d-4a7c-4b33-b851-2f286875820a` at 100% after updating the review.
 - Static checks cover 1,455 local references across 37 HTML files. Functional/accessibility checks pass (29 tests). Two visual baselines have only fractional-position/one-pixel capture adjustments following the longer concert status and feature text; header, hero and sponsor-ribbon artwork remains unchanged.
 
 ### Regional footer and Lakewood recognition

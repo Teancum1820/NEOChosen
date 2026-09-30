@@ -23,6 +23,7 @@ export default [
       "scripts/{audit-images,capture-screenshots,optimize-images,run-screenshots,serve-static}.mjs",
       "scripts/{editorial-page,interior-pages,event-pages,sponsorship-pages,sponsor-system,capture-fullsite,optimize-media-previews}.mjs",
       "editorial.js",
+      "concert-tickets.js",
       "playwright.config.mjs",
     ],
     ...js.configs.recommended,

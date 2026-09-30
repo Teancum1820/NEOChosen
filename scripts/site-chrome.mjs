@@ -96,5 +96,8 @@ export function applySiteChrome(html, currentPath) {
     html = html.replace('</nav>', '</nav><main id="main-content" tabindex="-1">')
       .replace('<footer class="site-footer">', '</main><footer class="site-footer">');
   }
+  if (!html.includes('src="/concert-tickets.js"')) {
+    html = html.replace('</body>', '<script src="/concert-tickets.js" defer></script>\n</body>');
+  }
   return html;
 }
