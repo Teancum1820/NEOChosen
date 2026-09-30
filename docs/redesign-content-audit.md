@@ -98,8 +98,12 @@ Local image inventory includes `images/NeoHeader.webp` (the user-supplied compos
 
 1. Resolved September 30: Jessica explicitly confirmed Windows on the River. Remaining Music Box references in older collateral and Zeffy copy require cleanup.
 2. Official Piano Guys ticket URL and price are unconfirmed. Keep a ticket-update action.
-3. Approved Advanced Care logo, any missing cast photo originals, community partner descriptions and refreshed Great Lakes media-kit artwork are needed.
+3. Approved Advanced Care/full FNA variants and refreshed Great Lakes media-kit artwork remain needed. Original cast photographs were recovered and are used individually.
 4. Confirm final brand spelling (`NEOChosen` versus `NEO Chosen Weekend`) and contract-specific sponsor labels before publishing revised collateral.
 5. End-to-end form delivery has not been tested with real submissions.
 
 Related detailed audits: [site audit](site-audit-2026-09-29.md) and [homepage audit](neochosen-homepage-audit.md).
+
+## Implementation update — September 30
+
+The local full-site implementation addresses the layout and route gaps above. Dinner information now uses Windows on the River and individual reservations at $200/person. Jessica’s latest confirmed Silver/prayer/program-advertiser relationships are included with separate labels. See [full-site implementation review](fullsite-redesign-review-2026-09-30.md) for completed pages, source evidence, tests and remaining publication dependencies.

@@ -161,3 +161,24 @@ test("newsletter script waits for signup visibility and retains the direct desti
     "https://www.zeffy.com/en-US/embed/newsletter-form/get-neochosen-event-updates",
   );
 });
+
+test("sponsorship print previews load on demand with usable mobile download links", async ({
+  page,
+}) => {
+  await page.goto("/sponsorship-opportunities/all/");
+  const preview = page.locator("[data-pdf-src]");
+  await expect(preview).not.toHaveAttribute("data");
+  await preview.scrollIntoViewIfNeeded();
+  await expect(preview).toHaveAttribute(
+    "data",
+    "/sponsorships/neochosen-master-sponsorship-overview.pdf#page=1&view=FitH",
+  );
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.reload();
+  await page.locator(".pdf-mobile-fallback").scrollIntoViewIfNeeded();
+  await expect(preview).not.toHaveAttribute("data");
+  await expect(page.locator(".pdf-mobile-fallback a").first()).toHaveAttribute(
+    "href",
+    "/sponsorships/neochosen-master-sponsorship-overview.pdf",
+  );
+});

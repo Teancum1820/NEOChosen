@@ -1,62 +1,23 @@
-.sponsors-page { margin: 0; background: #f7f5ee; color: #191b1b; font: 400 16px/1.65 Montserrat,Arial,sans-serif; }
-.sponsors-page * { box-sizing: border-box; }
-.sponsors-page em { font-family: "Cormorant Garamond",Georgia,serif; font-size: 1.06em; font-weight: 600; }
-.sponsors-shell { width: min(100% - 64px, 1220px); margin-inline: auto; }
-.sponsors-hero { padding: clamp(76px,9vw,135px) 0; background: linear-gradient(90deg,rgba(11,16,17,.96),rgba(11,16,17,.65)),url('/images/NeoHeader.webp') center 42%/cover; color: #fffaf0; }
-.sponsors-kicker { margin: 0 0 15px; color: #e2bf78; font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-.sponsors-hero h1 { margin: 0 0 22px; font-size: clamp(58px,8vw,110px); line-height: 1; letter-spacing: -.06em; }
-.sponsors-hero h1 em { color: #e2bf78; }
-.sponsors-hero p:not(.sponsors-kicker) { max-width: 700px; margin: 0 0 18px; font-size: clamp(18px,2vw,24px); }
-.sponsors-hero .sponsors-organizer { max-width: 750px; margin-bottom: 0; color: #e7dfcf; font-size: 14px !important; }
-.sponsors-content { padding-block: 80px 100px; }
-.sponsors-page .neo-sponsor-section { margin-bottom: 70px; }
-.sponsors-page .neo-sponsor-heading { margin: 0 0 24px; padding-bottom: 16px; border-bottom: 1px solid #c6b78f; color: #88652b; font: 800 clamp(24px,3.2vw,40px)/1.2 Montserrat,Arial,sans-serif; letter-spacing: -.035em; text-align: left; }
-.sponsors-page .neo-sponsor-grid--weekend-presenting,.sponsors-page .neo-sponsor-grid--platinum { grid-template-columns: 1fr; }
-.sponsors-page .neo-sponsor-grid--presenting { grid-template-columns: repeat(2,minmax(0,1fr)); }
-.sponsors-page .neo-sponsor-grid--community { grid-template-columns: repeat(4,minmax(0,1fr)); }
-.sponsors-page .neo-sponsor-card { align-items: flex-start; padding: 25px; border: 1px solid #d5d2c8; border-radius: 0; background: #fffefa; box-shadow: 0 14px 38px rgba(17,23,24,.06); text-align: left; }
-.sponsors-page .neo-sponsor-card--weekend-presenting { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap: 0 42px; padding: clamp(30px,5vw,60px); border-color: #d1b476; border-top: 5px solid #d1b476; background: #202729; color: #fffaf0; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-tier { grid-column: 1/-1; color: #e2bf78; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-art { grid-row: span 2; align-self: center; min-height: 160px; border: 0; background: transparent; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-name { align-self: end; color: #fffaf0; font-size: clamp(27px,3vw,41px) !important; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-description { color: #e3dfd5; }
-.sponsors-page .neo-sponsor-card--platinum { border-top: 4px solid #d1b476; }
-.sponsors-page .neo-sponsor-card--presenting { border-top: 3px solid #b9924d; }
-.sponsors-page .neo-sponsor-card .neo-sponsor-art { align-self: stretch; width: 100%; height: 130px; padding: 12px; border: 1px solid #e6e3da; background: #f4f2ec; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-art { height: 165px; padding: 5px 10px 5px 0; border: 0; background: transparent; }
-.sponsors-page .neo-sponsor-card--presenting .neo-sponsor-art { width: min(100%,220px); height: 98px; padding: 10px; border-color: #e7e4dc; background: #f5f3ee; }
-.sponsors-page .neo-sponsor-card--platinum .neo-sponsor-art { width: min(100%,260px); height: 110px; }
-.sponsors-page .neo-sponsor-card .neo-sponsor-art--dark { border-color: #202729; background: #202729; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-art--dark { border: 0; background: transparent; }
-.sponsors-page .neo-sponsor-card--community .neo-sponsor-art { height: 85px; }
-.sponsors-page .neo-sponsor-card .neo-sponsor-name { color: #1c2324; font-size: 19px !important; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-name { color: #fffaf0; }
-.sponsors-page .neo-sponsor-tier { color: #88652b !important; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-tier { color: #e2bf78 !important; }
-.sponsors-page .neo-sponsor-description,.sponsors-page .neo-sponsor-scope { margin: 0 0 13px; color: #555d5d; font-size: 13px; }
-.sponsors-page .neo-sponsor-card--community .neo-sponsor-name { font-size: 15px !important; }
-.sponsors-page .neo-sponsor-card--community { padding: 18px; background: #fdfcf8; box-shadow: none; }
-.sponsors-page .neo-sponsor-card--community .neo-sponsor-tier { margin-bottom: 8px; font-size: 10px !important; }
-.sponsors-page .neo-sponsor-card--community .neo-sponsor-description { display: none; }
-.sponsors-page .neo-sponsor-card--community .neo-sponsor-contact { font-size: 11px; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-description { color: #e3dfd5; }
-.sponsors-page .neo-sponsor-roles { color: #514d45; }
-.sponsors-page .neo-sponsor-card .neo-sponsor-contact { min-height: 44px; align-self: flex-start; margin-top: auto; padding: 9px 0; border: 0; border-radius: 0; background: none; color: #6d501e; font-size: 12px; text-decoration: underline; text-transform: none; }
-.sponsors-page .neo-sponsor-card .neo-sponsor-contact:hover { background: none; color: #1c2324; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-contact { color: #e2bf78; }
-.sponsors-page .neo-sponsor-card--weekend-presenting .neo-sponsor-contact:hover { color: #fffaf0; }
-.sponsors-page .neo-sponsor-photo { width: min(100%,450px); }
-.sponsors-page .neo-sponsor-tagline { color: #785525; }
-.sponsors-inquiry { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: clamp(30px,5vw,60px); background: #202729; color: #fffaf0; }
-.sponsors-inquiry h2 { margin: 0 0 12px; font-size: clamp(29px,3vw,42px); }
-.sponsors-inquiry p:last-child { margin: 0; }
-.sponsors-inquiry a { display: inline-flex; align-items: center; gap: 20px; min-height: 52px; padding: 12px 19px; background: #e2bf78; color: #171b1c; font-size: 12px; font-weight: 800; text-align: center; text-decoration: none; text-transform: uppercase; }
-@media(max-width:900px) { .sponsors-page .neo-sponsor-grid--community { grid-template-columns: repeat(3,minmax(0,1fr)); } }
-@media(max-width:700px) { .sponsors-shell { width: min(100% - 32px,1220px); } .sponsors-content { padding-block: 58px 80px; } .sponsors-page .neo-sponsor-grid--presenting { grid-template-columns: 1fr; } .sponsors-page .neo-sponsor-grid--community { grid-template-columns: repeat(2,minmax(0,1fr)); } .sponsors-page .neo-sponsor-card--weekend-presenting { display: flex; gap: 0; } .sponsors-inquiry { flex-direction: column; align-items: stretch; } .sponsors-inquiry a { justify-content: center; } }
-@media(max-width:420px) { .sponsors-page .neo-sponsor-grid--community { grid-template-columns: 1fr; } }
-
-/* Coordinate the directory with the shared Concept A type and surfaces. */
-.sponsors-page { background: var(--color-surface-light); color: var(--color-text-inverse); }
-.sponsors-hero h1 { font-family: var(--font-display); font-size: clamp(42px,6vw,86px); line-height: 1.16; font-weight: 400; }
-.sponsors-page .neo-sponsor-heading { font-family: var(--font-display); font-weight: 400; color: var(--color-accent-teal); letter-spacing: -.02em; }
-.sponsors-page .neo-sponsor-card--weekend-presenting, .sponsors-inquiry { background: var(--color-brand-background); }
+.sponsor-weekend-feature { background:#cda76a; padding:85px 0; }
+.sponsor-weekend-feature .editorial-shell,.sponsor-platinum-feature .editorial-shell { display:grid; grid-template-columns:1.3fr 1fr; gap:75px; align-items:center; }
+.sponsor-weekend-feature h2 { font-size:clamp(34px,3.5vw,49px); }
+.sponsor-weekend-feature p:not(.editorial-kicker) { max-width:620px; font-size:18px; }
+.sponsor-weekend-feature .neo-sponsor-art { width:100%; height:300px; background:transparent; padding:0; border:0; }
+.sponsor-weekend-feature .neo-sponsor-art img { width:100%; height:100%; object-fit:contain; }
+.sponsor-editorial-section { padding:80px 0; }
+.sponsor-editorial-section:nth-of-type(even) { background:#fff; }
+.sponsor-presenter-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:40px; }
+.sponsor-presenter-grid article { background:white; padding:40px; }
+.sponsor-presenter-grid .neo-sponsor-art { max-width:160px; height:85px; margin-bottom:24px; }
+.sponsor-presenter-grid ul { padding:0; list-style:none; font-size:15px; }
+.sponsor-presenter-grid li { margin-bottom:8px; }
+.sponsor-platinum-feature { background:#ede2cf; padding:70px 0; }
+.sponsor-platinum-feature .neo-sponsor-art { height:200px; width:100%; padding:25px; }
+.sponsor-partner-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:32px; margin-top:40px; }
+.sponsor-partner-grid article { min-width:0; border-top:1px solid #c6c3b9; padding-top:25px; }
+.sponsor-partner-grid .neo-sponsor-art { width:100%; height:105px; margin-bottom:20px; padding:12px; }
+.sponsor-partner-grid h3 { font-family:Montserrat,Arial,sans-serif; font-size:16px; font-weight:600; line-height:1.5; margin-bottom:8px; }
+.sponsor-partner-grid p { font-size:14px; }
+.sponsor-partner-phone { display:block; font-size:14px; padding:5px 0; }
+@media(max-width:1000px) { .sponsor-partner-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .sponsor-weekend-feature .editorial-shell,.sponsor-platinum-feature .editorial-shell { gap:35px; } }
+@media(max-width:800px) { .sponsor-weekend-feature,.sponsor-editorial-section { padding:55px 0; } .sponsor-weekend-feature .editorial-shell,.sponsor-platinum-feature .editorial-shell,.sponsor-presenter-grid { grid-template-columns:1fr; gap:30px; } .sponsor-weekend-feature .neo-sponsor-art { height:190px; } .sponsor-presenter-grid article { padding:25px; } .sponsor-partner-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:25px 20px; } .sponsor-partner-grid h3 { font-size:14px; } .sponsor-partner-grid .neo-sponsor-art { height:90px; } }

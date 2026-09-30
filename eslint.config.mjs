@@ -19,6 +19,8 @@ export default [
       "design-system/**/*.mjs",
       "tests/browser/**/*.mjs",
       "scripts/{audit-images,capture-screenshots,optimize-images,run-screenshots,serve-static}.mjs",
+      "scripts/{editorial-page,interior-pages,event-pages,sponsorship-pages,sponsor-system,capture-fullsite,optimize-media-previews}.mjs",
+      "editorial.js",
       "playwright.config.mjs",
     ],
     ...js.configs.recommended,

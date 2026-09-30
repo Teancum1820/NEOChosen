@@ -44,7 +44,7 @@ test("approved mobile navigation and event sponsor credit", async ({
 
 test("coordinated sponsor directory major tier", async ({ page }) => {
   await page.goto("/sponsors/");
-  const tier = page.locator(".neo-sponsor-section").first();
+  const tier = page.locator(".sponsor-weekend-feature");
   await tier.scrollIntoViewIfNeeded();
   await expect(tier).toHaveScreenshot("sponsor-tier.png");
 });

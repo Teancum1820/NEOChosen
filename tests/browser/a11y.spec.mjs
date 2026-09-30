@@ -14,6 +14,17 @@ for (const [name, route] of [
   ["Piano Guys", "/piano-guys/"],
   ["Fairlawn", "/fairlawn/"],
   ["form page", "/raffle/"],
+  ["About", "/about-us/"],
+  ["Get Involved", "/get-involved/"],
+  ["Donations", "/donations/"],
+  ["Media Kit", "/media-kit/"],
+  ["Social", "/social-media-links/"],
+  ["Sponsorship overview", "/sponsorship-opportunities/"],
+  ["Sponsorship details", "/sponsorship-opportunities/all/"],
+  ["Sponsorship contact", "/sponsorship-opportunities/contact/"],
+  ["Confirmation", "/thank-you/fairlawn/"],
+  ["Dinner confirmation", "/thank-you/donor-dinner/"],
+  ["Giveaway rules", "/giveaway-rules/"],
 ]) {
   test(`${name} has no serious or critical axe violations`, async ({
     page,
@@ -48,6 +59,34 @@ test("mobile homepage and open navigation meet WCAG AA checks", async ({
     expect(
       result.violations.map((v) => ({
         id: v.id,
+        targets: v.nodes.map((n) => n.target),
+      })),
+    ).toEqual([]);
+  }
+});
+
+test("mobile interior templates and sponsorship tables meet WCAG AA checks", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const route of [
+    "/piano-guys/",
+    "/sponsors/",
+    "/get-involved/",
+    "/donations/",
+    "/media-kit/",
+    "/sponsorship-opportunities/all/",
+    "/thank-you/donor-dinner/",
+    "/raffle/",
+  ]) {
+    await page.goto(route);
+    const result = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze();
+    expect(
+      result.violations.map((v) => ({
+        id: v.id,
+        route,
         targets: v.nodes.map((n) => n.target),
       })),
     ).toEqual([]);

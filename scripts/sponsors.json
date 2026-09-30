@@ -10,8 +10,8 @@
     "events": [],
     "background": "light",
     "linkIdentity": true,
-    "description": "Presenting partner across NEO Chosen Weekend, November 13–15, 2026.",
-    "alt": "Great Lakes Auto Group — NEO Chosen Weekend Presenting Sponsor"
+    "description": "Presenting partner across NEO Chosen Weekend, November 13\u201315, 2026.",
+    "alt": "Great Lakes Auto Group \u2014 NEO Chosen Weekend Presenting Sponsor"
   },
   {
     "id": "barons-bus",
@@ -172,5 +172,38 @@
     "events": [],
     "background": "light",
     "phone": "216-390-1090"
+  },
+  {
+    "id": "catholic-cemeteries",
+    "name": "Catholic Cemeteries Association",
+    "logo": null,
+    "url": "https://www.clecem.org/",
+    "tier": "silver",
+    "events": [],
+    "background": "light",
+    "description": "Silver Sponsor of NEOChosen Weekend.",
+    "confirmation": "Jessica, September 30, 2026"
+  },
+  {
+    "id": "hallow",
+    "name": "Hallow",
+    "logo": null,
+    "url": "https://hallow.com/",
+    "tier": "prayer",
+    "events": [],
+    "background": "light",
+    "description": "Official Prayer Sponsor.",
+    "confirmation": "Jessica, September 30, 2026"
+  },
+  {
+    "id": "haven-of-rest",
+    "name": "Haven of Rest Ministries",
+    "logo": null,
+    "url": "https://www.havenofrest.org/",
+    "tier": "program-advertiser",
+    "events": [],
+    "background": "light",
+    "description": "Confirmed program advertiser.",
+    "confirmation": "Jessica, September 30, 2026"
   }
 ]

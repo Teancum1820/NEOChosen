@@ -8,16 +8,16 @@
   <link rel="canonical" href="https://neochosen.com/thank-you/donor-dinner/">
   <meta name="description" content="Registration confirmation and next steps for the NEOChosen weekend presented by Kirtland Heritage Group.">
   <link rel="stylesheet" href="/sponsor-system.css">
-  <link rel="stylesheet" href="/thank-you/styles.css">
+  <link rel="stylesheet" href="/site.css"><link rel="stylesheet" href="/editorial.css"><link rel="stylesheet" href="/thank-you/styles.css"><script src="/site.js" defer></script>
 </head>
-<body>
-  <div class="top"></div>
+<body class="editorial-page confirmation-page">
+  <nav class="site-nav" aria-label="Main navigation"></nav>
   <main>
     <section class="hero wrap">
       <div class="check" aria-hidden="true">✓</div>
       <div class="eyebrow">Kirtland Heritage Group presents</div>
       <h1>You’re registered!</h1>
-      <p class="lede" id="lede">Thank you for supporting the NEOChosen weekend. Your invitation to the VIP Donor Dinner is reserved, and we look forward to welcoming you.</p>
+      <p class="lede" id="lede">Thank you for supporting the NEOChosen weekend. Your individual reservation for the VIP Donor Dinner is confirmed, and we look forward to welcoming you.</p>
       <p class="event-recap">Friday, November 13, 2026 · 5:00–6:45 PM Eastern. Windows on the River, 2000 Sycamore Street, Cleveland, OH 44113.</p>
       <div class="ticket-note">Check your email for your tickets and keep them for event check-in.</div>
       <!-- WEEKEND_PRESENTING_CREDIT -->
@@ -35,7 +35,7 @@
       <article class="card" id="dinner-card">
         <div class="eyebrow">Friday, November 13</div>
         <h2>Join the VIP Donor Dinner</h2>
-        <p>Gather at Windows on the River in Cleveland with cast members from The Chosen and The Piano Guys. Every full $200 donated in a single transaction includes one invitation while space remains.</p>
+        <p>Gather at Windows on the River in Cleveland with cast members from The Chosen and The Piano Guys. Individual reservations are $200 per person while space remains.</p>
         <a class="btn gold" href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener">Reserve your place</a>
       </article>
       <article class="card wide">
@@ -46,7 +46,7 @@
         <p style="margin-top:18px">The Piano Guys concert at Akron Civic Theatre on Saturday, November 14 at 4:00 PM is a separate paid theater event. Watch our social channels and <a href="https://neochosen.com/" target="_blank" rel="noopener">NEOChosen.com</a> for the ticket link.</p>
       </article>
       <article class="card support wide">
-        <div class="eyebrow" style="color:#f4d98f">Help make the weekend possible</div>
+        <div class="eyebrow" >Help make the weekend possible</div>
         <h2 id="support-heading">Admission is free because people choose to give</h2>
         <p id="support-copy">If you are able, please consider a suggested gift of $25 per person. Your support helps cover venue, travel, production, hospitality, and community outreach costs. A donation is appreciated, but never required.</p>
         <div class="actions">
@@ -56,7 +56,7 @@
       </article>
     </section>
   </main>
-  <footer class="footer wrap">Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit organization · <a href="https://neochosen.com/" target="_blank" rel="noopener">NEOChosen.com</a></footer>
+  <footer class="site-footer"></footer>
   <script src="/thank-you/registration-links.js"></script>
   <script>
     const data = {
@@ -84,7 +84,7 @@
       document.getElementById("lede").textContent = `Your place is reserved for ${data[key].name}. We are looking forward to welcoming you.`;
     }
     if (key === "donor-dinner") {
-      document.getElementById("lede").textContent = "Thank you for supporting the NEOChosen weekend. Your invitation to the VIP Donor Dinner is reserved, and we look forward to welcoming you.";
+      document.getElementById("lede").textContent = "Thank you for supporting the NEOChosen weekend. Your individual reservation for the VIP Donor Dinner is confirmed, and we look forward to welcoming you.";
       document.getElementById("dinner-card").hidden = true;
       document.getElementById("support-heading").textContent = "Thank you for making this weekend possible";
       document.getElementById("support-copy").textContent = "Your support helps cover venue, travel, production, hospitality, and community outreach costs for the NEOChosen weekend.";

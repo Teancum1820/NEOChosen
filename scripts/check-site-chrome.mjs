@@ -35,7 +35,7 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   }
   pages.set(route, { html, ids, chrome });
 }
-assert.equal(pages.size, 24, 'Expected all 24 content pages to have shared navigation and footer');
+assert.equal(pages.size, 28, 'Expected all 28 content pages including confirmations to have shared navigation and footer');
 for (const route of ['/vip-dinner/', '/lakewood/', '/piano-guys/', '/fairlawn/', '/chesterland/']) {
   assert(pages.has(route), `Missing dedicated event route ${route}`);
 }

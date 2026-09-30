@@ -69,17 +69,18 @@ const page = ({ title, description, canonicalPath, body }) => `<!DOCTYPE html>
   <link rel="canonical" href="https://neochosen.com${escapeHtml(canonicalPath)}">
   <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#0a0806">
+  <meta name="theme-color" content="#101a2d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Montserrat:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${sponsorshipBasePath}/sponsorship.css">
-  <link rel="stylesheet" href="/responsive-pages.css">
+  <link rel="stylesheet" href="/editorial.css">
   <link rel="stylesheet" href="/site.css">
   <link rel="stylesheet" href="/sponsor-system.css">
   <script src="/site.js" defer></script>
+  <script src="/editorial.js" defer></script>
 </head>
-<body>
+<body class="editorial-page sponsorship-page">
 ${nav}
 ${body}
 ${footer}
@@ -87,21 +88,6 @@ ${footer}
 </body>
 </html>
 `.replace(/[ \t]+$/gm, "");
-
-const card = (deck) => {
-  const featureClass = deck.featured ? ` sponsorship-card--${deck.featured}` : "";
-  return `
-          <li class="sponsorship-card${featureClass}">
-            <p class="sponsorship-card__category">${escapeHtml(deck.category)}</p>
-            <h2>${escapeHtml(deck.title)}</h2>
-            <p class="sponsorship-card__description">${escapeHtml(deck.description)}</p>
-            <div class="sponsorship-card__details">
-              <p class="sponsorship-card__price">${escapeHtml(deck.price)}</p>
-              ${deck.availability ? `<p class="sponsorship-card__availability">${escapeHtml(deck.availability)}</p>` : ""}
-            </div>
-            <a class="gold-button sponsorship-card__cta" href="${sponsorshipBasePath}/${escapeHtml(deck.slug)}/">${escapeHtml(deck.cta)}</a>
-          </li>`;
-};
 
 const presentingRecognition = renderPresentingRecognition('akron') + renderPresentingRecognition('fairlawn');
 const eventRecognition = { all: presentingRecognition, 'piano-guys': renderPresentingRecognition('akron'), 'meet-and-greet': renderPresentingRecognition('fairlawn') };
@@ -122,23 +108,15 @@ const readableDetails = (deck) => {
 };
 
 const landingBody = `
-  <main class="page-shell sponsorship-shell">
-    <section class="glassmorphism sponsorship-panel">
-      <header class="page-header sponsorship-header">
-        <p class="eyebrow">NEOChosen 2026</p>
-        <h1>Become a Sponsor</h1>
-        <p class="hero-subtitle">Supporting NEOChosen connects your organization with thousands of families, faith communities, business leaders, nonprofit leaders, and community organizations throughout Northeast Ohio.</p>
-        <p class="sponsorship-header__prompt">Choose a sponsorship opportunity below to see pricing, benefits, and partnership opportunities.</p>
-        <div class="divider-line"></div>
-      </header>
-      ${renderWeekendTextRecognition()}
-      ${presentingRecognition}
-      <ul class="sponsorship-grid" aria-label="Sponsorship opportunities">
-${sponsorshipDecks.map(card).join("\n")}
-      </ul>
-    </section>
-    ${advertisingSpecsSection}
-  </main>`;
+ <main class="sponsorship-landing">
+  <header class="editorial-hero"><div class="editorial-hero-copy"><p class="editorial-kicker">Partner with the weekend</p><h1>Your support becomes part of the experience.</h1><p class="editorial-intro">Compare eight sponsorship paths: from a presenting partnership to community recognition, advertising, and activation. Talk with Joe about the package that fits your goals.</p></div></header>
+  <ul class="sponsorship-grid" aria-label="Sponsorship opportunities">${sponsorshipDecks.map((deck,index)=>{
+   const content=sponsorshipContent[deck.slug];
+   return `<li class="sponsorship-card"><div class="editorial-shell"><div><p class="editorial-kicker">${String(index+1).padStart(2,'0')} / ${escapeHtml(deck.category)}</p><h2>${escapeHtml(deck.title)}</h2><a class="editorial-link" href="${sponsorshipBasePath}/${deck.slug}/">${escapeHtml(deck.cta)} <span aria-hidden="true">↗</span></a></div><div><p class="sponsorship-card__price">${escapeHtml(deck.price)}</p><p>${escapeHtml(content.audience)}</p><p>${escapeHtml(content.benefits[0])}</p><p class="sponsorship-availability">${escapeHtml(deck.availability||'Ask about current availability and a written package.')}</p></div></div></li>`;
+  }).join('')}</ul>
+  <section class="editorial-callout"><div class="editorial-shell"><div><h2>Let’s build a meaningful partnership.</h2><p>Find the opportunity that connects your organization with the weekend.</p></div><a class="editorial-button" href="${sponsorshipContactPath}">Contact Us About Sponsorship</a></div></section>
+  <div class="editorial-shell sponsorship-advertising">${advertisingSpecsSection}</div>
+ </main>`;
 
 const detailBody = (deck) => {
   const pdfUrl = `${sponsorshipAssetPath}/${encodeURIComponent(deck.pdfFile)}`;
@@ -200,7 +178,7 @@ const detailBody = (deck) => {
           <a class="outline-button" href="${pdfUrl}" ${downloadAttribute}>Download PDF</a>
         </div>
         <div class="pdf-viewer">
-          <object data="${pdfUrl}#page=${embedStartPage}&amp;view=FitH" type="application/pdf" title="${escapeHtml(deck.shortTitle)} full sponsorship deck">
+          <object data-pdf-src="${pdfUrl}#page=${embedStartPage}&amp;view=FitH" type="application/pdf" title="${escapeHtml(deck.shortTitle)} full sponsorship deck">
             <p>Your browser cannot display the embedded PDF. <a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open the full sponsorship deck in a new tab.</a></p>
           </object>
         </div>

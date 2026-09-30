@@ -8,6 +8,7 @@ import { writeEventPages } from "./event-pages.mjs";
 import { applySiteChrome } from "./site-chrome.mjs";
 import { applySponsorSystem } from "./sponsor-system.mjs";
 import { applyHomepage } from "./homepage.mjs";
+import { writeInteriorPages } from "./interior-pages.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -69,6 +70,7 @@ for (const dir of siteDirs) {
 
 await writeSponsorshipPages(outDir);
 await writeEventPages(outDir);
+await writeInteriorPages(outDir);
 
 async function updateChrome(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
