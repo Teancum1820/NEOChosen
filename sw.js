@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v21-concert-popup';
+const CACHE_NAME = 'neochosen-v22-about-community';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',

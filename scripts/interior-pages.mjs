@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { page, hero, section, callout, action } from "./editorial-page.mjs";
+import { renderImage } from "../design-system/image.mjs";
 
 const organization = "Kirtland Heritage Group";
 const volunteer =
@@ -29,12 +30,7 @@ const titles = {
 const contact = `<aside class="editorial-aside"><p class="editorial-kicker">Our team</p><h2>Here to help.</h2><p>Joe Jackson<br>President, Kirtland Heritage Group</p><address><a href="mailto:info@kirtlandheritagegroup.com">info@kirtlandheritagegroup.com</a><br><a href="tel:+14407961642">440-796-1642</a></address>${action("/get-involved/", "Find your way to help")}</aside>`;
 
 const about =
-  hero(
-    organization,
-    "People and places connected.",
-    "Preserving heritage. Building community across Northeast Ohio.",
-    "piano-guys",
-  ) +
+  `<header class="editorial-hero editorial-hero--split about-hero"><div class="editorial-hero-copy"><a class="about-organization-logo" href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Kirtland Heritage Group (opens in a new tab)">${renderImage({src:"/images/partners/kirtland-heritage-group.webp",alt:organization,width:768,height:384,eager:true})}</a><p class="editorial-kicker">${organization}</p><h1>People and places connected.</h1><p class="editorial-intro">Preserving heritage. Building community across Northeast Ohio.</p></div><div class="editorial-hero-photo">${renderImage({src:"/images/community/khg-community-gathering-960.webp",alt:"A speaker addressing a full audience at a community gathering",width:1600,height:1067,srcSet:[480,960,1600].map(width=>({src:`/images/community/khg-community-gathering-${width}.webp`,width})),sizes:"(max-width:800px) calc(100vw - 48px), 49vw",priority:true})}</div></header>` +
   section(
     "Our mission",
     "A community with room for everyone.",

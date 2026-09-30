@@ -28,6 +28,11 @@
 .editorial-hero--split .editorial-hero-copy { width:auto; margin:0; padding:72px; min-height:650px; }
 .editorial-hero-photo { min-width:0; }
 .editorial-hero-photo picture,.editorial-hero-photo img { display:block; width:100%; height:100%; object-fit:cover; }
+.about-organization-logo { display:block; width:min(260px,100%); padding:14px; border-radius:4px; background:white; }
+.about-organization-logo img { display:block; width:100%; height:auto; }
+.about-hero .editorial-hero-photo { display:flex; align-items:center; height:auto; padding:32px; background:#ede2cf; }
+.about-hero .editorial-hero-photo img { height:auto; object-fit:contain; border-radius:4px; }
+@media(max-width:800px) { .about-hero .editorial-hero-photo { padding:24px; } .about-organization-logo { width:230px; } }
 .editorial-section { padding:90px 0; background:#f8f4ed; }
 .editorial-section--white { background:white; }
 .editorial-section--sand { background:#ede2cf; }

@@ -64,11 +64,13 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 
 ## Latest preview polish
 
+- About Us now displays the existing official Kirtland Heritage Group logo linked to its website, plus Caleb's supplied community gathering photo. The original PNG is preserved in `source-assets/community/`; 480/960/1600px WebP derivatives provide responsive delivery. The complete photograph is shown without cropping on desktop and mobile. The red placeholder label is removed only from About Us. Local checks pass across 320/390/768/1024/1440px, with the existing About accessibility check, lint and static link/event/sponsor checks passing. Captures are in `artifacts/about-update/`.
+
 - Larger Great Lakes artwork in the homepage ribbon and partner directory; larger Barons Bus artwork in the homepage directory.
 - Lake County artwork has a white display box on the homepage and no display box on the Sponsors page.
 - Sponsors-page boxes removed for Haven of Rest, Barons Bus and Hallow. CSS multiply compositing removes the white backgrounds within the Haven/Barons files against the page surface while preserving the supplied original assets.
 - Facebook and Instagram icons are visible in the persistent top navigation at mobile and desktop widths.
-- Large red “PLACEHOLDER” labels overlay the About Us photograph, all five event hero photographs, and both venue interior photographs. Homepage images remain as supplied.
+- Large red “PLACEHOLDER” labels overlay all five event hero photographs and both venue interior photographs. The About Us placeholder has been replaced with Caleb's approved community photo. Homepage images remain as supplied.
 - Verification: static build and link/sponsor checks passed; 29 functional/accessibility tests passed; 45 additional route/width checks across 320, 390, 768, 1200 and 1440px passed. Reviewed captures are in `artifacts/preview-polish/`. Header and ribbon visual baselines are updated to the requested appearance.
 
 ## Verification
