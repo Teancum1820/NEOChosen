@@ -161,7 +161,6 @@ async function media(outDir) {
       "Share the weekend accurately.",
       "Event artwork, sponsorship resources, and useful information for your community.",
     ) +
-    `<aside class="media-note"><div class="editorial-shell"><p><strong>Website facts updated September 30, 2026.</strong> Supplied print artwork is retained below. The donor dinner is now at Windows on the River and presenting-sponsor artwork is being updated. Check the event pages before sharing older files; contact our team for current artwork.</p></div></aside>` +
     section(
       "Weekend overview",
       "Start with the big picture.",
@@ -172,12 +171,6 @@ async function media(outDir) {
       "Find artwork for your event.",
       `<div class="media-grid">${assets.slice(2).join("")}</div>`,
       "editorial-section--white event-flyers",
-    ) +
-    section(
-      "Media inquiries",
-      "Need a current detail or custom asset?",
-      `<div class="editorial-actions">${action("/#events", "Check event details")}${action("mailto:info@kirtlandheritagegroup.com", "Contact Kirtland Heritage Group")}</div>`,
-      "editorial-section--sand",
     )
   );
 }

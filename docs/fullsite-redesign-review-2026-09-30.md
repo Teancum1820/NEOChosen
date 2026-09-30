@@ -11,12 +11,12 @@ The approved Concept A hero and sponsor ribbon are preserved. At Caleb's request
 ## Implemented pages
 
 - All five event detail pages: split photo and identity, date/time/venue/admission band, correct presenting relationships, experience, arrival guidance, venue links, related events, and direct registration/update actions.
-- Sponsors: Great Lakes gold feature with Julia's supplied full black artwork, event presenters, Barons Platinum, Silver, Official Prayer Sponsor, compact community partners, and separately labeled program advertisers. Hallmark's requested phone number remains visible.
+- Sponsors: Great Lakes gold feature with Julia's supplied full black artwork, event presenters, Barons Platinum, Silver, Official Prayer Sponsor, compact community partners, and separately labeled program advertisers. Hallmark's phone number was removed at Caleb's latest request.
 - Sponsorship landing: eight alternating editorial rows exposing investment, audience, benefits and availability. All eight detail routes retain readable tables and benefits, original approved PDF/PNG assets, and contact controls. Desktop PDF previews load when approached; mobile visitors have direct download links.
 - About: photo introduction, mission, community work and participation action.
 - Get Involved: separate Donate, Sponsor, Volunteer and individual Donor Dinner paths.
 - Donations: Venmo, Stripe and check destinations/address preserved; the donor dinner form supports individual giving/registration. Supporters giving another way are directed to the team to arrange their dinner invitation.
-- Media Kit: Figma asset-grid layout and optimized web previews; original download URLs retained. Repeated “Supplied artwork · check current event details” labels removed as requested; a single page-level note explains the retained print artwork.
+- Media Kit: Figma asset-grid layout and optimized web previews; original download URLs retained. Repeated artwork labels, the page-level artwork note and the Media Inquiries section are removed at Caleb's request.
 - Social, raffle, giveaway rules and four registration confirmations: matching typography, palette and responsive layouts. Confirmation logic, raffle analytics/form hooks, legal text, and noindex metadata remain intact.
 - Shared navigation and footer now cover all 28 content pages; legacy redirect documents remain available.
 
@@ -60,9 +60,18 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 - Great Lakes' generic weekend credit is removed from all eight sponsorship detail pages and the unrelated Media Inquiries footer. Event credits, the approved homepage ribbon and sponsor directory remain.
 - The two sign-based SVGs are requested website treatments; they are not represented as organization-supplied official brand files.
 
+## Latest preview polish
+
+- Larger Great Lakes artwork in the homepage ribbon and partner directory; larger Barons Bus artwork in the homepage directory.
+- Lake County artwork has a white display box on the homepage and no display box on the Sponsors page.
+- Sponsors-page boxes removed for Haven of Rest, Barons Bus and Hallow. CSS multiply compositing removes the white backgrounds within the Haven/Barons files against the page surface while preserving the supplied original assets.
+- Facebook and Instagram icons are visible in the persistent top navigation at mobile and desktop widths.
+- Large red “PLACEHOLDER” labels overlay the About Us photograph, all five event hero photographs, and both venue interior photographs. Homepage images remain as supplied.
+- Verification: static build and link/sponsor checks passed; 29 functional/accessibility tests passed; 45 additional route/width checks across 320, 390, 768, 1200 and 1440px passed. Reviewed captures are in `artifacts/preview-polish/`. Header and ribbon visual baselines are updated to the requested appearance.
+
 ## Verification
 
-- Static build, all sponsorship checks, shared chrome, 1,455 local links/anchors/assets across 37 HTML documents, event facts/sponsors, raffle coming-soon state and mocked raffle handlers pass.
+- Static build, all sponsorship checks, shared chrome, 1,454 local links/anchors/assets across 37 HTML documents, event facts/sponsors, raffle coming-soon state and mocked raffle handlers pass.
 - 196 rendered captures: all 28 content pages at 320, 375, 390, 430, 768, 1024 and 1440px. No horizontal overflow, missing local images, page exceptions or missing H1s. Captures explicitly wait for fonts and image decoding; earlier quick captures made before image decoding are not final evidence.
 - All 33 browser tests pass. The suite covers functional navigation and destinations, desktop accessibility, mobile interior templates/tables, and approved homepage/sponsor screenshots. Automated checks submit no real registrations, donations or email.
 - Following Caleb's corrections, all 33 tests passed again without changes to screenshot baselines. Additional rendered checks at 390px and 1440px verify all eight added/replaced logos load, no horizontal overflow, removal of the visitor section and media labels, the Explore Weekend anchor, and removal of irrelevant sponsorship credits. Captures are in `artifacts/partner-updates/`.
@@ -74,7 +83,7 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 
 1. Verified official Piano Guys ticket purchase link and confirmed prices.
 2. Supplied full FNA variant. Advanced Care, Catholic Cemeteries, Hallow, Lake County, The FEST and Haven of Rest artwork are now supplied by Caleb and integrated. Great Lakes' existing approved black/white artwork is usable; no blue version was found.
-3. Refreshed print flyers/schedule carrying the corrected dinner venue and current presenting credits. The current media kit explicitly flags its retained supplied artwork as older material. This pass did not rewrite approved PDF artwork.
+3. Refreshed print flyers/schedule carrying the corrected dinner venue and current presenting credits. Original files remain unchanged; the media-kit artwork note and repeated labels have been removed at Caleb's request. This pass did not rewrite approved PDF artwork.
 4. Permission for the Windows on the River room photo, or an organizer-supplied replacement.
 5. Real organizer-controlled delivery tests for external Zeffy/Google forms and final launch review. No real submission was made in this task.
 

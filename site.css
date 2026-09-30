@@ -384,7 +384,18 @@ nav.site-nav .site-nav-links .nav-ticket { border-radius: var(--neo-radius-sm) !
 nav.site-nav .site-donate { background: transparent !important; color: var(--color-brand-gold-bright) !important; border-radius: var(--neo-radius-sm) !important; font-size: 13px !important; }
 .site-footer { background: var(--color-brand-background) !important; }
 @media(min-width:1200px) {
-  nav.site-nav .nav-social-links { display: none; }
   nav.site-nav { gap: 16px !important; }
   nav.site-nav .site-nav-links > a, nav.site-nav .nav-dropdown-toggle { padding-inline: 10px !important; font-size: 13px !important; }
 }
+
+/* Keep both social icons visible in the top bar at every width. */
+nav.site-nav .site-nav-actions .nav-social-links { display:flex; padding:0; margin:0; border:0; gap:2px; }
+nav.site-nav .site-nav-actions .nav-social-links span { display:none; }
+nav.site-nav .site-nav-actions .nav-social-links a { flex:none; width:40px; min-width:40px; height:44px; padding:8px; }
+@media(max-width:430px) {
+  nav.site-nav { padding-inline:12px!important; gap:4px!important; }
+  nav.site-nav .site-wordmark { font-size:16px!important; }
+  nav.site-nav .site-nav-actions { gap:4px; }
+  nav.site-nav .site-nav-actions .nav-social-links a { width:32px; min-width:32px; padding:6px; }
+}
+@media(max-width:360px) { nav.site-nav .site-wordmark { font-size:15px!important; } }

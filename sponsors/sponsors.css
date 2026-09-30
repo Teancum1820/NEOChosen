@@ -21,5 +21,11 @@
 .sponsor-partner-phone { display:block; font-size:14px; padding:5px 0; }
 .sponsor-editorial-section:has(#silver-sponsors-heading) .sponsor-partner-grid { grid-template-columns:minmax(0,650px); }
 .sponsor-editorial-section:has(#silver-sponsors-heading) .neo-sponsor-art { height:120px; padding:12px 0; }
+.editorial-page [data-sponsor="tour-lake-county"] .neo-sponsor-art,
+.editorial-page [data-sponsor="haven-of-rest"] .neo-sponsor-art,
+.editorial-page [data-sponsor="barons-bus"] .neo-sponsor-art,
+.editorial-page [data-sponsor="hallow"] .neo-sponsor-art { background:transparent; }
+.editorial-page [data-sponsor="haven-of-rest"] .neo-sponsor-art img,
+.editorial-page [data-sponsor="barons-bus"] .neo-sponsor-art img { mix-blend-mode:multiply; }
 @media(max-width:1000px) { .sponsor-partner-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .sponsor-weekend-feature .editorial-shell,.sponsor-platinum-feature .editorial-shell { gap:35px; } }
 @media(max-width:800px) { .sponsor-weekend-feature,.sponsor-editorial-section { padding:55px 0; } .sponsor-weekend-feature .editorial-shell,.sponsor-platinum-feature .editorial-shell,.sponsor-presenter-grid { grid-template-columns:1fr; gap:30px; } .sponsor-weekend-feature .neo-sponsor-art { height:190px; } .sponsor-presenter-grid article { padding:25px; } .sponsor-partner-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:25px 20px; } .sponsor-partner-grid h3 { font-size:14px; } .sponsor-partner-grid .neo-sponsor-art { height:90px; } }

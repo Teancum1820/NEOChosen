@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v16-donor-partner-updates';
+const CACHE_NAME = 'neochosen-v17-preview-polish';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
