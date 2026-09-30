@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" width="720" height="230" role="img" aria-labelledby="title">
+  <title id="title">Historic Kirtland Visitors’ Center</title>
+  <rect x="4" y="4" width="712" height="222" rx="3" fill="#3c4138"/>
+  <path d="M28 26H692M28 204H692" stroke="#d9d6c7" stroke-width="3"/>
+  <text x="360" y="114" fill="#fffdf4" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="69">Historic Kirtland</text>
+  <text x="360" y="169" fill="#fffdf4" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="27" letter-spacing="5">VISITORS’ CENTER</text>
+</svg>

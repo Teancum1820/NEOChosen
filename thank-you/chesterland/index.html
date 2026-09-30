@@ -35,8 +35,8 @@
       <article class="card" id="dinner-card">
         <div class="eyebrow">Friday, November 13</div>
         <h2>Join the VIP Donor Dinner</h2>
-        <p>Gather at Windows on the River in Cleveland with cast members from The Chosen and The Piano Guys. Individual reservations are $200 per person while space remains.</p>
-        <a class="btn gold" href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener">Reserve your place</a>
+        <p>Gather at Windows on the River in Cleveland with cast members from The Chosen and The Piano Guys. A $200 donation includes one dinner invitation; $400 includes two, while space remains. Your gift supports the weekend’s free public events.</p>
+        <a class="btn gold" href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener">Become a donor</a>
       </article>
       <article class="card wide">
         <div class="eyebrow">Make a weekend of it</div>
@@ -84,7 +84,8 @@
       document.getElementById("lede").textContent = `Your place is reserved for ${data[key].name}. We are looking forward to welcoming you.`;
     }
     if (key === "donor-dinner") {
-      document.getElementById("lede").textContent = "Thank you for supporting the NEOChosen weekend. Your individual reservation for the VIP Donor Dinner is confirmed, and we look forward to welcoming you.";
+      document.getElementById("lede").textContent = "Thank you for supporting the NEOChosen weekend. Your donor dinner registration is confirmed, and we look forward to welcoming you.";
+      document.querySelector(".ticket-note").textContent = "Check your email for your dinner confirmation and keep it for event check-in.";
       document.getElementById("dinner-card").hidden = true;
       document.getElementById("support-heading").textContent = "Thank you for making this weekend possible";
       document.getElementById("support-copy").textContent = "Your support helps cover venue, travel, production, hospitality, and community outreach costs for the NEOChosen weekend.";

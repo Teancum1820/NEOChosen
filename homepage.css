@@ -99,6 +99,9 @@
 .home-sponsor-tier h3 { margin: 0 0 16px; font: 700 11px/1.5 var(--font-body); color: var(--color-accent-teal); text-transform: uppercase; letter-spacing: .07em; }
 .home-sponsor-tier--weekend-presenting { background: var(--color-brand-gold); }
 .home-sponsor-tier--weekend-presenting h3 { color: var(--color-text-inverse); }
+.home-sponsor-tier--silver { grid-column:1/-1; }
+.home-sponsor-tier--silver .home-sponsor-logo { flex-direction:row; align-items:center; gap:32px; }
+.home-sponsor-tier--silver .home-sponsor-art { width:min(100%,480px); height:90px; flex:0 1 55%; padding:8px 0; }
 .home-sponsor-logo { display: flex; flex-direction: column; gap: 12px; color: inherit; text-decoration: none; }
 .home-sponsor-logo:hover strong { text-decoration: underline; text-underline-offset: 4px; }
 .home-sponsor-art { width: min(100%,220px); height: 75px; margin: 0; padding: 8px; background: transparent; }
@@ -202,6 +205,8 @@
   .home-performer-card p { font-size: 12px; }
   .home-sponsor-directory { grid-template-columns: minmax(0,1fr); }
   .home-sponsor-tier { padding: 22px; }
+  .home-sponsor-tier--silver .home-sponsor-logo { flex-direction:column; align-items:flex-start; gap:12px; }
+  .home-sponsor-tier--silver .home-sponsor-art { flex:auto; width:100%; height:70px; }
   .home-sponsor-tier--weekend-presenting .home-sponsor-logo, .home-sponsor-tier--platinum .home-sponsor-logo { flex-direction: row; align-items: center; gap: 16px; }
   .home-sponsor-tier--weekend-presenting .home-sponsor-art, .home-sponsor-tier--platinum .home-sponsor-art { flex: 0 1 44%; min-width: 0; height: 65px; }
   .home-sponsor-meta { flex: 1; min-width: 0; }

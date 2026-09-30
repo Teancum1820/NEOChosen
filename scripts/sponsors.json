@@ -32,7 +32,7 @@
   {
     "id": "advanced-care",
     "name": "Advanced Care Endodontics",
-    "logo": null,
+    "logo": "/images/partners/advanced-care.webp",
     "url": "https://www.acendodontics.com",
     "linkLabel": "acendodontics.com",
     "tier": "presenting",
@@ -112,7 +112,7 @@
   {
     "id": "this-is-the-place",
     "name": "This Is The Place",
-    "logo": null,
+    "logo": "/images/partners/this-is-the-place.svg",
     "url": "https://thisistheplacebookstore.com",
     "linkLabel": "thisistheplacebookstore.com",
     "tier": "community",
@@ -144,7 +144,7 @@
   {
     "id": "historic-kirtland",
     "name": "Historic Kirtland Sites",
-    "logo": null,
+    "logo": "/images/partners/historic-kirtland.svg",
     "url": "https://www.churchofjesuschrist.org/learn/locations/historic-kirtland-visitors-center?y_source=1_MjU4ODAwMDgtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
     "linkLabel": "Historic Kirtland Visitors' Center",
     "tier": "community",
@@ -154,13 +154,13 @@
   {
     "id": "fest",
     "name": "The FEST",
-    "logo": "/images/partners/fest.webp",
+    "logo": "/images/partners/fest-black.svg",
     "url": "https://thefest.us/",
     "linkLabel": "thefest.us",
     "tier": "community",
     "events": [],
-    "background": "dark",
-    "logoSource": "https://thefest.us/wp-content/uploads/2026/01/The-FEST-2026-white.png"
+    "background": "light",
+    "logoSource": "https://thefest.us/wp-content/uploads/2026/07/The-FEST-2026-white.webp"
   },
   {
     "id": "hallmark",
@@ -176,7 +176,7 @@
   {
     "id": "catholic-cemeteries",
     "name": "Catholic Cemeteries Association",
-    "logo": null,
+    "logo": "/images/partners/catholic-cemeteries.webp",
     "url": "https://www.clecem.org/",
     "tier": "silver",
     "events": [],
@@ -187,7 +187,7 @@
   {
     "id": "hallow",
     "name": "Hallow",
-    "logo": null,
+    "logo": "/images/partners/hallow.png",
     "url": "https://hallow.com/",
     "tier": "prayer",
     "events": [],
@@ -198,12 +198,11 @@
   {
     "id": "haven-of-rest",
     "name": "Haven of Rest Ministries",
-    "logo": null,
+    "logo": "/images/partners/haven-of-rest.webp",
     "url": "https://www.havenofrest.org/",
     "tier": "program-advertiser",
     "events": [],
     "background": "light",
-    "description": "Confirmed program advertiser.",
     "confirmation": "Jessica, September 30, 2026"
   }
 ]

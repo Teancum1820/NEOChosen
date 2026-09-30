@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 240" width="880" height="240" role="img" aria-labelledby="title">
+  <title id="title">This Is The Place — Bookstore and Gift Shop</title>
+  <path d="M420 30H460" stroke="#151515" stroke-width="3"/>
+  <text x="440" y="120" fill="#151515" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-size="69">THIS IS THE PLACE</text>
+  <text x="440" y="191" fill="#292929" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-style="italic" font-size="45">Bookstore and Gift Shop</text>
+</svg>

@@ -1,7 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { page, hero, section, callout, action } from "./editorial-page.mjs";
-import { renderWeekendTextRecognition } from "./sponsor-system.mjs";
 
 const organization = "Kirtland Heritage Group";
 const volunteer =
@@ -12,7 +11,7 @@ const descriptions = {
   "about-us":
     "Kirtland Heritage Group is a Northeast Ohio 501(c)(3) nonprofit connecting neighbors through faith, service, education and community events.",
   "get-involved":
-    "Donate, sponsor, volunteer, or reserve an individual VIP donor dinner seat. Find your way to help NEOChosen Weekend.",
+    "Donate, sponsor, volunteer, or join the VIP donor dinner with a qualifying donation. Find your way to help NEOChosen Weekend.",
   donations:
     "Support free NEOChosen community events through Venmo, card or check. Donations are optional and separate from event registration.",
   "social-media-links":
@@ -79,7 +78,7 @@ const paths = [
   [
     "Friday, November 13",
     "Join the donor dinner.",
-    "The most intimate event of the weekend: dinner, conversation, and opportunities to mingle at Windows on the River. Individual reservations are $200 per person. Come on your own or bring someone you love.",
+    "The most intimate event of the weekend: dinner, conversation, and opportunities to mingle at Windows on the River. A $200 donation includes one dinner invitation; $400 includes two, while space remains. Your gift helps make the free public events possible. Come on your own or bring someone you love.",
     "/vip-dinner/",
     "Explore dinner details",
   ],
@@ -93,7 +92,7 @@ const involved =
   paths
     .map(
       ([k, t, p, u, l], i) =>
-        `<section class="editorial-path"${i === 2 ? ' id="volunteer"' : ""}><div class="editorial-shell"><div><p class="editorial-kicker">${k}</p><h2>${t}</h2></div><div><p>${p}</p><div class="editorial-actions">${action(u, l)}${i === 3 ? action(dinner, "Reserve your dinner seat") : ""}</div></div></div></section>`,
+        `<section class="editorial-path"${i === 2 ? ' id="volunteer"' : ""}><div class="editorial-shell"><div><p class="editorial-kicker">${k}</p><h2>${t}</h2></div><div><p>${p}</p><div class="editorial-actions">${action(u, l)}${i === 3 ? action(dinner, "Become an official donor") : ""}</div></div></div></section>`,
     )
     .join("") +
   callout(
@@ -114,7 +113,7 @@ const donations =
     "Make a meaningful contribution.",
     `<div class="editorial-article"><div class="editorial-copy"><p>Admission to the Lakewood, Fairlawn, and Chesterland events is free. No donation is required or expected. The Piano Guys concert at Akron Civic Theatre is a separate paid theater event.</p><p>Your support helps Kirtland Heritage Group bring people together across faith traditions through music, service, fellowship, and community.</p><div class="editorial-payments" id="ways-to-donate"><article><h3>Venmo</h3><p>@KirtlandHeritageGroup</p>${action("https://venmo.com/u/KirtlandHeritageGroup", "Donate with Venmo", "editorial-button")}<p>Sign in to Venmo or continue in the app if prompted. On a computer, scan the QR code on our Venmo profile with your phone.</p></article><article><h3>Credit or debit card</h3><p>Choose your amount on our secure Stripe checkout page.</p>${action("https://buy.stripe.com/5kQ3cv9i7eEUfhD5kF6g80b", "Donate by card", "editorial-button")}<p>Look for “Kirtland Heritage Group Donation” at checkout.</p></article></div><div class="editorial-check"><h3>Give by check</h3><p>Make checks payable to <strong>The Kirtland Heritage Group</strong>.</p><address>38323 Apollo Parkway Unit 7<br>Willoughby, Ohio 44094</address></div><p>Payment links open in a new tab. Return here to continue browsing NEOChosen.</p></div>${contact}</div>`,
   ) +
-  `<section id="vip-donor-dinner">${section("An invitation", "Join us for dinner.", `<div class="editorial-copy"><p>Reserve an individual seat at the VIP Donor Dinner on Friday, November 13, from 5:00–6:45 PM Eastern at Windows on the River, 2000 Sycamore Street, Cleveland. Reservations are $200 per person while space remains.</p><p>Meet cast members from <em>The Chosen</em>, The Piano Guys, and area leaders over dinner and conversation. Use the dinner reservation page to reserve your seat; general donation checkout does not reserve event admission.</p><div class="editorial-actions">${action(dinner, "Reserve your dinner seat", "editorial-button")}${action("/vip-dinner/", "Dinner details")}${action("/sponsorship-opportunities/", "Business sponsorships")}</div></div>`, "editorial-section--white")}</section>` +
+  `<section id="vip-donor-dinner">${section("An invitation", "Join us for dinner.", `<div class="editorial-copy"><p>Support NEOChosen Weekend and join the VIP Donor Dinner on Friday, November 13, from 5:00–6:45 PM Eastern at Windows on the River, 2000 Sycamore Street, Cleveland. A $200 donation includes one dinner invitation; $400 includes two, while space remains.</p><p>Meet cast members from <em>The Chosen</em>, The Piano Guys, and area leaders over dinner and conversation. Your donation helps make the weekend’s free public events possible. Use the donor dinner form to give and reserve your place. If you give by card, Venmo, or check, contact our team to arrange your dinner invitation.</p><div class="editorial-actions">${action(dinner, "Become an official donor", "editorial-button")}${action("/vip-dinner/", "Dinner details")}${action("/sponsorship-opportunities/", "Business sponsorships")}</div></div>`, "editorial-section--white")}</section>` +
   callout(
     "Give your time.",
     "Volunteers help welcome guests and support weekend activities.",
@@ -145,10 +144,7 @@ async function media(outDir) {
     ...original.matchAll(/<article class="asset-card">[\s\S]*?<\/article>/g),
   ].map((m) =>
     m[0]
-      .replace(
-        /Details checked Sep 29, 2026/g,
-        "Supplied artwork · check current event details",
-      )
+      .replace(/<p class="asset-reviewed">[\s\S]*?<\/p>/g, "")
       .replace(/class="gold-button"/g, 'class="editorial-link"')
       .replace(/class="asset-preview" src="([^"]+)"/, (_, source) => {
         const basename = path.basename(
@@ -180,7 +176,7 @@ async function media(outDir) {
     section(
       "Media inquiries",
       "Need a current detail or custom asset?",
-      `<div class="editorial-actions">${action("/#events", "Check event details")}${action("mailto:info@kirtlandheritagegroup.com", "Contact Kirtland Heritage Group")}</div>${renderWeekendTextRecognition()}`,
+      `<div class="editorial-actions">${action("/#events", "Check event details")}${action("mailto:info@kirtlandheritagegroup.com", "Contact Kirtland Heritage Group")}</div>`,
       "editorial-section--sand",
     )
   );

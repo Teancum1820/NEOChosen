@@ -17,7 +17,7 @@ for (const card of cards) {
   assert(card.includes('home-event-secondary'), 'Every event card needs a detail route');
 }
 for (const [slug,needed] of Object.entries({
-  'vip-dinner':['Individual reservations','$200','Windows on the River','Reserve your dinner seat'],
+  'vip-dinner':['$200 donation','one dinner invitation','$400 includes two','Windows on the River','Become a donor'],
   lakewood:['Free','Lakewood Civic Auditorium'],
   'piano-guys':['Paid theater concert','FNA Wealth Management','tickets coming soon'],
   fairlawn:['Free','Advanced Care Endodontics','FNA Wealth Management'],

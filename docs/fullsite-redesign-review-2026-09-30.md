@@ -6,7 +6,7 @@ Implementation is on `codex/private-figma-redesign`, with no upstream. No pull r
 
 Preview: http://127.0.0.1:4173/ . The preview server binds to loopback.
 
-The approved Concept A homepage composition is preserved. Its shared event data now describes the dinner as individual reservations at $200 per person. Confirmed Silver, prayer, and program-advertiser recognition was added to the coordinated sponsor directory.
+The approved Concept A hero and sponsor ribbon are preserved. At Caleb's request, the “Five gatherings. One region.” visitor section is removed and the Explore Weekend navigation button targets `/#events` (“Find your moment.”). Dinner information now leads with the donor benefit: each $200 donated includes one dinner invitation, while space remains. Confirmed Silver, prayer, and program-advertiser recognition is included in the coordinated sponsor directory.
 
 ## Implemented pages
 
@@ -15,8 +15,8 @@ The approved Concept A homepage composition is preserved. Its shared event data 
 - Sponsorship landing: eight alternating editorial rows exposing investment, audience, benefits and availability. All eight detail routes retain readable tables and benefits, original approved PDF/PNG assets, and contact controls. Desktop PDF previews load when approached; mobile visitors have direct download links.
 - About: photo introduction, mission, community work and participation action.
 - Get Involved: separate Donate, Sponsor, Volunteer and individual Donor Dinner paths.
-- Donations: Venmo, Stripe and check destinations/address preserved; individual dinner reservations separated from general donation checkout.
-- Media Kit: Figma asset-grid layout and optimized web previews; original download URLs retained. Older artwork is clearly labeled rather than represented as newly approved.
+- Donations: Venmo, Stripe and check destinations/address preserved; the donor dinner form supports individual giving/registration. Supporters giving another way are directed to the team to arrange their dinner invitation.
+- Media Kit: Figma asset-grid layout and optimized web previews; original download URLs retained. Repeated “Supplied artwork · check current event details” labels removed as requested; a single page-level note explains the retained print artwork.
 - Social, raffle, giveaway rules and four registration confirmations: matching typography, palette and responsive layouts. Confirmation logic, raffle analytics/form hooks, legal text, and noindex metadata remain intact.
 - Shared navigation and footer now cover all 28 content pages; legacy redirect documents remain available.
 
@@ -30,6 +30,7 @@ Only event/sponsor facts relevant to the website were transcribed. Private finan
 | Joe sponsor follow-up, Sep 29 (`1a0ef25f800aa272`) | Great Lakes weekend presenting; FNA concert and Fairlawn; Advanced Care Fairlawn; Barons Platinum. Preserve supplied marks and phone legibility. |
 | Julia artwork forwarded by Joe (`1a0d4bf9b2169c8b`) | Supplied black/white Great Lakes artwork; blue version was still being prepared. Existing local derivatives of her PDFs are reused. |
 | Jessica venue update, Sep 29 (`1a0edeb58d0988d3`) | Windows on the River, Cleveland, replaces Music Box in current website dinner information. |
+| Joe approved donor copy, Sep 28 (`1a0ea24173aba0cb`) | A $200 donation includes one dinner invitation; $400 includes two, while space remains. The donor framing supports the weekend's free public events. |
 | Joe individual dinner direction, Sep 29 (`1a0efe2edc2a026f`) | $200/person, individual reservations, dinner/conversation/mingling, direct dinner destination, no attendance count or guaranteed celebrity seating/private performance. |
 | Jessica program planning, Sep 30 (`1a0f27148945becf`) | Catholic Cemeteries Association confirmed Silver; Hallow Official Prayer Sponsor; Haven of Rest Ministries confirmed program advertiser. Planned ad placements are not inferred to be website sponsorship tiers. |
 | Caleb's sponsor update and Joe's quoted request, Sep 10 (`1a08d0bb1638af45`) | Hallmark Community recognition and 216-390-1090. |
@@ -44,13 +45,27 @@ Only event/sponsor facts relevant to the website were transcribed. Private finan
 - [St. Hilary visitor information](https://sthilarychurch.org/belong/im-new/): address, directions and hearing-loop context. Event-specific arrangements remain organizer questions.
 - [Mayfield United Methodist Church](https://www.mayfieldchurch.org/): host identity, street address and visitor destination.
 
-No generated venue scenes, modified performer likenesses, fabricated logos, or inferred celebrity access were added. Original performer images are served responsively as AVIF/WebP.
+No generated venue scenes, modified performer likenesses, or inferred celebrity access were added. Original performer images are served responsively as AVIF/WebP. Caleb explicitly requested the two stylized sign-based partner wordmarks below.
+
+## Caleb's supplied logos and corrections
+
+- Advanced Care: [supplied source](https://www.acendodontics.com/wp-content/uploads/sites/478/2013/03/Harris-Logo-e1363376953680.png). The original URL initially returned 403; the same source with `?download=1` returned the logo successfully. Stored as `images/partners/advanced-care.webp`.
+- Catholic Cemeteries: [supplied source](https://www.clecem.org/img/Logos/CCA_Main_Logo.png), stored as `images/partners/catholic-cemeteries.webp`. Silver recognition has a wider display to keep the full name readable.
+- Hallow: Caleb's attached `codex-clipboard-edc800f3-bde3-470b-9629-eda810c5bdbe.png`, copied unchanged to `images/partners/hallow.png`.
+- Tour Lake County: [supplied source](https://images.squarespace-cdn.com/content/v1/65049ab99a8f8f0a19e6b4ac/212b3ba0-98fa-4244-9110-f0d7eef88f7b/White+Outline+Main+Logo.png?format=1500w), replacing the previous local derivative.
+- The FEST: [supplied 2026 source](https://thefest.us/wp-content/uploads/2026/07/The-FEST-2026-white.webp). Original white artwork retained locally. `images/partners/fest-black.svg` embeds that exact source and uses an SVG color filter for black, preserving its silhouette, transparency and date text.
+- Haven of Rest: [supplied source](https://havenofrest.org/wp-content/uploads/2024/03/HRM-COLOR-logo-e1764394898440.png), stored as `images/partners/haven-of-rest.webp`. The “Confirmed program advertiser.” sentence is removed; its documented program-advertiser placement remains.
+- Historic Kirtland: native `images/partners/historic-kirtland.svg`, based on Caleb's attached Visitors' Center sign, retaining its serif lettering, green sign and slim rules.
+- This Is The Place: native `images/partners/this-is-the-place.svg`, based on Caleb's attached screenshot, retaining the uppercase serif name and italic Bookstore and Gift Shop line.
+- Great Lakes' generic weekend credit is removed from all eight sponsorship detail pages and the unrelated Media Inquiries footer. Event credits, the approved homepage ribbon and sponsor directory remain.
+- The two sign-based SVGs are requested website treatments; they are not represented as organization-supplied official brand files.
 
 ## Verification
 
-- Static build, all sponsorship checks, shared chrome, 1,436 local links/anchors/assets across 37 HTML documents, event facts/sponsors, raffle coming-soon state and mocked raffle handlers pass.
+- Static build, all sponsorship checks, shared chrome, 1,455 local links/anchors/assets across 37 HTML documents, event facts/sponsors, raffle coming-soon state and mocked raffle handlers pass.
 - 196 rendered captures: all 28 content pages at 320, 375, 390, 430, 768, 1024 and 1440px. No horizontal overflow, missing local images, page exceptions or missing H1s. Captures explicitly wait for fonts and image decoding; earlier quick captures made before image decoding are not final evidence.
 - All 33 browser tests pass. The suite covers functional navigation and destinations, desktop accessibility, mobile interior templates/tables, and approved homepage/sponsor screenshots. Automated checks submit no real registrations, donations or email.
+- Following Caleb's corrections, all 33 tests passed again without changes to screenshot baselines. Additional rendered checks at 390px and 1440px verify all eight added/replaced logos load, no horizontal overflow, removal of the visitor section and media labels, the Explore Weekend anchor, and removal of irrelevant sponsorship credits. Captures are in `artifacts/partner-updates/`.
 - Visual baselines were updated only for the reviewed new Great Lakes feature and a one-pixel homepage footer capture-height shift. Homepage hero, header and separate ribbon baselines remain unchanged.
 - Lighthouse mobile simulation: homepage 97 performance / 100 accessibility / 100 best practices / 100 SEO (LCP 2.3s); sponsors 95/100/100/100 (1.9s); Chesterland 99/100/100/100 (1.8s). These are local synthetic results, not real-user metrics.
 - Lint and tooling typecheck are part of the local verification. New page generators and capture/optimization helpers are included in lint coverage.
@@ -58,7 +73,7 @@ No generated venue scenes, modified performer likenesses, fabricated logos, or i
 ## Remaining content dependencies before publication
 
 1. Verified official Piano Guys ticket purchase link and confirmed prices.
-2. Supplied full FNA variant and approved Advanced Care/new partner logo files. Names remain live text where artwork is missing; no substitute identity has been manufactured. Great Lakes' existing approved black/white artwork is usable; no blue version was found.
+2. Supplied full FNA variant. Advanced Care, Catholic Cemeteries, Hallow, Lake County, The FEST and Haven of Rest artwork are now supplied by Caleb and integrated. Great Lakes' existing approved black/white artwork is usable; no blue version was found.
 3. Refreshed print flyers/schedule carrying the corrected dinner venue and current presenting credits. The current media kit explicitly flags its retained supplied artwork as older material. This pass did not rewrite approved PDF artwork.
 4. Permission for the Windows on the River room photo, or an organizer-supplied replacement.
 5. Real organizer-controlled delivery tests for external Zeffy/Google forms and final launch review. No real submission was made in this task.

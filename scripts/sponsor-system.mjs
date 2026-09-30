@@ -26,7 +26,8 @@ const weekend = byTier('weekend-presenting')[0];
 const external = s => `href="${escape(s.url)}" target="_blank" rel="noopener noreferrer"`;
 
 // Artwork keeps its natural aspect ratio. Live name text is the fallback when
-// approved logo artwork is unavailable; no imitation mark is manufactured.
+// approved logo artwork is unavailable. The two sign-based wordmarks were
+// requested by Caleb and are documented with the supplied references.
 export function renderSponsorLogo(s, { reversed = false, className = '', decorative = false } = {}) {
   const artwork = reversed ? (s.logoReversed || s.logo) : s.logo;
   return artwork ? `<span class="neo-sponsor-art neo-sponsor-art--${escape(reversed ? 'dark' : (s.background || 'light'))}${className ? ` ${escape(className)}` : ''}"><img src="${escape(artwork)}" alt="${decorative ? '' : escape(s.name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"></span>` : '';

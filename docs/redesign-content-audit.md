@@ -2,6 +2,10 @@
 
 This inventory describes the combined local branch from PRs #96 and #97. It is a content baseline for Figma, not approval to change event facts. The original PRs and live Cloudflare deployment are unchanged.
 
+## Latest implementation and user corrections
+
+The interior redesign is complete locally. Caleb's September 30 corrections are implemented: donation-led dinner invitations (one per $200, subject to space), removal of the homepage visitor section, Explore Weekend targeting “Find your moment.”, eight supplied/requested partner logos, removal of repeated media labels and unrelated sponsorship credits. Joe's September 28 approved copy establishes the donation benefit; his September 29 direction establishes individual reservations. Both are reflected in the current copy. See [current full-site review](fullsite-redesign-review-2026-09-30.md) for sources and verification. Sections below retain the earlier audit state and are not the current implementation checklist.
+
 ## Full-site review update — September 30, 2026
 
 The approved Concept A homepage and shared navigation, footer, colors, sponsor/event data and image delivery are implemented locally. This is not yet a complete visual redesign of every interior page. Current localhost captures were inspected alongside the earlier reference captures and Joe's September 29 master email and sponsor-treatment follow-up. The functional cleanup in PR #96 and tooling in PR #97 provide the foundation; interior page composition still needs the approved Figma treatment.

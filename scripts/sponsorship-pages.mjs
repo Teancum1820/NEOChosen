@@ -1,4 +1,4 @@
-import { renderPresentingRecognition, renderWeekendTextRecognition } from './sponsor-system.mjs';
+import { renderPresentingRecognition } from './sponsor-system.mjs';
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { sponsorshipAssetPath, sponsorshipBasePath, sponsorshipDecks } from "./sponsorship-decks.mjs";
@@ -152,7 +152,6 @@ const detailBody = (deck) => {
         </div>
       </header>
 
-      ${renderWeekendTextRecognition()}
       ${eventRecognition[deck.slug] || ""}
       ${readableDetails(deck)}
       <section class="sponsorship-section quick-summary" aria-labelledby="quick-summary-heading">
