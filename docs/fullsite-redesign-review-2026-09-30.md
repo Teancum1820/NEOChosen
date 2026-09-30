@@ -64,6 +64,8 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 
 ## Latest preview polish
 
+- Fairlawn now uses Caleb's first St. Hilary stained-glass photograph as its main image and the second “Come Follow Me” detail in the lower venue section. Its red placeholder is removed. Original PNGs are preserved in `source-assets/venues/`; responsive WebP derivatives are capped at the supplied resolutions. The main crop focuses on the figure at the left of the wide artwork. Static checks, lint and the existing Fairlawn accessibility check pass. Review captures are in `artifacts/fairlawn-update/`.
+
 - Piano Guys Live retains the supplied performer photograph with its red placeholder label removed. Caleb's new Akron Civic Theatre interior photo replaces the lower venue image and its placeholder. The original is preserved in `source-assets/venues/`; 480/800px WebP derivatives respect the original resolution. Static checks and lint pass, along with four existing ticket behavior and accessibility tests. Local and hosted checks at five widths verify both images, no placeholders, no overflow and the concert on-sale dialog. Captures are in `artifacts/piano-photo-update/`. Only the review Worker was updated; production is still pinned at `f752694d-4a7c-4b33-b851-2f286875820a` at 100%.
 
 - Lakewood now uses Caleb's supplied auditorium interior as its main image and the supplied exterior photograph in its lower venue section. The main placeholder label is removed. Original PNGs are preserved in `source-assets/venues/`; responsive WebP deliveries respect each photograph's original resolution (1280px interior, 512px exterior). Static checks, lint and the Lakewood/dinner/concert accessibility checks pass. Local and hosted reviews at 320/390/768/1024/1440px verify image order, successful loading and no overflow. Captures are in `artifacts/lakewood-update/`. Only the review Worker was updated; production remains pinned to `f752694d-4a7c-4b33-b851-2f286875820a` at 100%.
@@ -76,7 +78,7 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 - Lake County artwork has a white display box on the homepage and no display box on the Sponsors page.
 - Sponsors-page boxes removed for Haven of Rest, Barons Bus and Hallow. CSS multiply compositing removes the white backgrounds within the Haven/Barons files against the page surface while preserving the supplied original assets.
 - Facebook and Instagram icons are visible in the persistent top navigation at mobile and desktop widths.
-- Large red “PLACEHOLDER” labels remain only on the Fairlawn and Chesterland event hero photographs. About Us, both dinner images, Lakewood and Piano Guys Live use Caleb's supplied or approved photographs. Homepage images remain as supplied.
+- The large red “PLACEHOLDER” label remains only on the Chesterland event hero photograph. About Us, both dinner images, Lakewood, Piano Guys Live and Fairlawn use Caleb's supplied or approved photographs. Homepage images remain as supplied.
 - Verification: static build and link/sponsor checks passed; 29 functional/accessibility tests passed; 45 additional route/width checks across 320, 390, 768, 1200 and 1440px passed. Reviewed captures are in `artifacts/preview-polish/`. Header and ribbon visual baselines are updated to the requested appearance.
 
 ## Verification
