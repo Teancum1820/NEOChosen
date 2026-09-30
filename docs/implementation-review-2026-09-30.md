@@ -59,7 +59,7 @@ Review captures are local artifacts (not committed or published). Relative paths
 
 ## Content questions retained
 
-1. VIP dinner venue: current verified site data says **Windows on the River**. The sponsorship PDF/lower Zeffy copy references **Music Box Supper Club**. This implementation retains Windows on the River and documents the discrepancy rather than making a factual change.
+1. VIP dinner venue: **resolved in the subsequent email review**. Jessica's September 29 “Dinner Venue change” email explicitly confirms **Windows on the River**, and Joe marks that website update complete. Older **Music Box Supper Club** references in the sponsorship PDF/lower Zeffy copy require correction; the website already uses the confirmed venue. See the [full-site review update](redesign-content-audit.md).
 2. The official Piano Guys theater ticket destination and final price remain unconfirmed. The existing ticket-updates destination is preserved; no ticket link was fabricated.
 3. Advanced Care has no approved logo in the shared records, so its real name is used as the designed fallback. Great Lakes printable Media Kit artwork remains outdated and requires a separate approved collateral update.
 4. Real submissions and fulfillment are untested; the existing provider URLs and integration behavior were preserved, and newsletter rendering was checked without submitting.

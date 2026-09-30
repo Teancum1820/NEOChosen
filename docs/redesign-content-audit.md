@@ -2,6 +2,41 @@
 
 This inventory describes the combined local branch from PRs #96 and #97. It is a content baseline for Figma, not approval to change event facts. The original PRs and live Cloudflare deployment are unchanged.
 
+## Full-site review update — September 30, 2026
+
+The approved Concept A homepage and shared navigation, footer, colors, sponsor/event data and image delivery are implemented locally. This is not yet a complete visual redesign of every interior page. Current localhost captures were inspected alongside the earlier reference captures and Joe's September 29 master email and sponsor-treatment follow-up. The functional cleanup in PR #96 and tooling in PR #97 provide the foundation; interior page composition still needs the approved Figma treatment.
+
+| Area | Current state | Next implementation work |
+| --- | --- | --- |
+| Homepage | Concept A implemented; five experiences, original photographs, separate presenting ribbon and coordinated tiers | Preserve its direction; verify complete sponsor-mark legibility at actual phone size and reconcile new sponsor records |
+| Five event pages | Dedicated working routes, shared facts/actions, compatible typography and sponsor credits | Implement complete Figma event layouts: recognizable hero crops, essential facts and sponsor near the first action, guest context, venue guidance, related events and closing action |
+| Sponsor directory | Working four-level hierarchy and approved links | Apply the full directory design, approved business descriptions, complete current roster and sponsor-specific display assets |
+| Sponsorship landing + eight sections + contact | Readable investments, benefits, audiences, inquiry actions and supporting PDFs | Replace older black/gold layouts with the approved page template, improve comparisons/mobile tables and reconcile actual remaining inventory |
+| About / Get Involved | Content shortened; donation, sponsor, dinner and volunteer paths separated | Replace older bold-sans/composite-hero layouts with the approved editorial templates and real organization imagery |
+| Donations / dinner | Existing destinations preserved | Separate direct individual dinner reservation from business sponsorship; coordinate wording with Joe's latest invitation direction |
+| Media Kit | Grouped by event with downloads and website review dates | Apply press-resource design, publish approved current artwork/true asset revision dates, and synchronize PDF/PNG facts, sponsor marks and QR destinations |
+| Social / raffle / utility pages | Working links and fallback contact paths; raffle remains unpublished | Finish matching content/form/confirmation templates and check every visitor path |
+| Visitor guidance | Homepage summary and event addresses | Add approved parking, accessibility, arrival and venue-specific policies through a coherent visitor-information pattern |
+
+### Email evidence that changes the earlier open questions
+
+- **Dinner venue is confirmed:** Jessica's September 29 “Dinner Venue change” email explicitly replaces Music Box with Windows on the River, Cleveland. Joe's September 29 master email also marks that website update complete. Correct remaining old external copy and PDFs; do not ask Caleb to reconfirm the venue. [Jessica's email](https://mail.google.com/mail/u/?authuser=calebday1820%40gmail.com#all/1a0edeb58d0988d3).
+- **Dinner conversion needs refinement:** Joe's September 29 evening invitation email calls for $200 individual reservations, welcomes someone coming alone/with a spouse/friend, and distinguishes that from Austin's table outreach. The current “Become an Official Event Sponsor” primary label does not communicate that individual-seat action. Verify the existing Zeffy page is the correct individual reservation destination before changing live URLs. Do not promise celebrity seating or private performances. [Joe's invitation direction](https://mail.google.com/mail/u/?authuser=calebday1820%40gmail.com#all/1a0efe2edc2a026f).
+- **FNA alternate artwork is available by application:** Todd's September 29 reply says he will supply the appropriate full-logo variant after reviewing intended use. Prepare website mockups and exact dimensions; the existing approved red icon remains the current asset. [Todd's reply](https://mail.google.com/mail/u/?authuser=calebday1820%40gmail.com#all/1a0ef0fdeafc1f7e).
+- **Sponsor inventory has new evidence:** Jessica's September 30 booklet map identifies Catholic Cemeteries Association as confirmed paid Silver, Haven of Rest Ministries as a confirmed $250 program advertiser, and Hallow as Official Prayer Sponsor. It also reserves/plans placements for Giving Machine, Ascend Wealth Management, Trinity Commercial Realty and other partners with some sizes/names still pending. These records are not all represented in `scripts/sponsors.json`. Reconcile website recognition obligations, exact names, tiers, approved artwork and public-release status with the team; a program placement alone does not establish a website tier. [Booklet instructions](https://mail.google.com/mail/u/?authuser=calebday1820%40gmail.com#all/1a0f27148945becf).
+- **Logo legibility still requires human review:** Joe's September 29 follow-up requires the complete important sponsor identity to remain readable at phone size. The current Great Lakes ribbon is deliberately compact, but its small dealership text remains difficult to read at 390px. Passing automated accessibility/layout tests is not sponsor-brand approval. Request an approved compact lockup if the complete existing mark cannot fit clearly; do not redraw/retype/stretch it. [Sponsor-treatment requirements](https://mail.google.com/mail/u/?authuser=calebday1820%40gmail.com#all/1a0ef25f800aa272).
+
+### Information still needed from Caleb / the event team
+
+1. Official Piano Guys ticket destination, current on-sale state and approved final pricing. The latest reviewed Joe reply still says the ticket link is pending.
+2. Approved compact Great Lakes and application-appropriate full FNA variants, Advanced Care artwork, and missing partner assets/descriptions. Existing sources should be retrieved first; do not make Caleb resend available files.
+3. Current sponsorship inventory and website recognition obligations for the newly documented sponsors/advertisers; confirm the exact public business names and remaining positions.
+4. Approved per-event guest attendance/bios and genuine KHG, venue, community or past-event imagery for the interior pages. The five approved homepage photographs are already available.
+5. Venue-approved parking/accessibility/arrival/policy information, public contact details and raffle launch state/rules when ready.
+6. Who receives each inquiry, volunteer and newsletter notification, and a coordinated way to verify real delivery before launch. No real submission has been sent.
+
+Implementation can continue with the approved visual direction and verified existing facts while these details are gathered. The branch remains local-only; this review does not authorize any email, push, PR/main merge or Cloudflare deployment.
+
 ## Routes and navigation
 
 | Area | Current routes and behavior | Preserve in redesign |
@@ -61,7 +96,7 @@ Local image inventory includes `images/NeoHeader.webp` (the user-supplied compos
 
 ## Open editorial questions
 
-1. VIP dinner venue conflicts across source material: website/flyer/top Zeffy say Windows on the River; the sponsorship PDF and lower Zeffy copy say Music Box Supper Club. Joe needs to reconcile.
+1. Resolved September 30: Jessica explicitly confirmed Windows on the River. Remaining Music Box references in older collateral and Zeffy copy require cleanup.
 2. Official Piano Guys ticket URL and price are unconfirmed. Keep a ticket-update action.
 3. Approved Advanced Care logo, any missing cast photo originals, community partner descriptions and refreshed Great Lakes media-kit artwork are needed.
 4. Confirm final brand spelling (`NEOChosen` versus `NEO Chosen Weekend`) and contract-specific sponsor labels before publishing revised collateral.
