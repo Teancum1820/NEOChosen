@@ -2,9 +2,11 @@
 
 ## Local review status
 
-Implementation is on `codex/private-figma-redesign`, with no upstream. No pull request was merged, no branch was pushed, and no deployment or Cloudflare setting was changed. The requested production pin remains `f752694d-4a7c-4b33-b851-2f286875820a`; its live state was not rechecked during this implementation.
+Implementation is on `codex/private-figma-redesign`, with no upstream. No pull request was merged and no branch was pushed. A separate password-protected review Worker is now hosted for Joe; the production Worker and its routes were not changed. The requested production pin `f752694d-4a7c-4b33-b851-2f286875820a` was verified at 100% before and after creating the review on September 30.
 
 Preview: http://127.0.0.1:4173/ . The preview server binds to loopback.
+
+Shareable private review: https://neochosen-joe-review.calebday1820.workers.dev/ . The review password is provided separately and is not stored in repository documentation.
 
 The approved Concept A hero and sponsor ribbon are preserved. At Caleb's request, the “Five gatherings. One region.” visitor section is removed and the Explore Weekend navigation button targets `/#events` (“Find your moment.”). Dinner information now leads with the donor benefit: each $200 donated includes one dinner invitation, while space remains. Confirmed Silver, prayer, and program-advertiser recognition is included in the coordinated sponsor directory.
 
@@ -71,6 +73,14 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 
 ## Verification
 
+### Concert ticketing and shareable review
+
+- Joe's September 30 ticket email (`1a0f2edd2bbe227b`) supplies `https://www.ticketmaster.com/event/05006538EC473EB4` and Friday's 10 a.m. on-sale announcement. The website now shows Friday, October 2 at 10 a.m. and uses “Concert tickets” for the homepage event card, concert feature, closing action and dedicated concert-page actions. No ticket prices are inferred. Automated browsing could not independently read Ticketmaster; the destination is transcribed directly from Joe's email.
+- The review is hosted on the separate `neochosen-joe-review` Worker with all pages and assets behind password authentication. It has no production data bindings or custom-domain routes. The password is a Cloudflare secret; sessions use HMAC signatures, Secure/HttpOnly cookies and a seven-day lifetime. Review responses carry noindex and private/no-store headers.
+- The security test passes for anonymous page/image/PDF protection, missing-secret protection, wrong-password rejection, cross-origin rejection, session authentication, tampering, password rotation and external-redirect rejection.
+- Live review checks confirm login and 12 responsive page views at 390/1440px, all requested concert destinations, correct on-sale copy, protected direct image/PDF requests and no overflow. Captures are in `artifacts/joe-preview/`.
+- Static checks cover 1,455 local references across 37 HTML files. Functional/accessibility checks pass (29 tests). Two visual baselines have only fractional-position/one-pixel capture adjustments following the longer concert status and feature text; header, hero and sponsor-ribbon artwork remains unchanged.
+
 ### Regional footer and Lakewood recognition
 
 - Homepage Community Partners now use four desktop columns, taller 78px logo areas and slightly larger names. The two-column mobile arrangement is retained.
@@ -99,7 +109,7 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 
 ## Remaining content dependencies before publication
 
-1. Verified official Piano Guys ticket purchase link and confirmed prices.
+1. Resolved September 30: Joe supplied the Piano Guys Ticketmaster purchase link and Friday 10 a.m. on-sale information; the link and announcement are integrated. Ticket prices and seating are referred to Ticketmaster.
 2. Supplied full FNA variant. Advanced Care, Catholic Cemeteries, Hallow, Lake County, The FEST and Haven of Rest artwork are now supplied by Caleb and integrated. Great Lakes' existing approved black/white artwork is usable; no blue version was found.
 3. Refreshed print flyers/schedule carrying the corrected dinner venue and current presenting credits. Original files remain unchanged; the media-kit artwork note and repeated labels have been removed at Caleb's request. This pass did not rewrite approved PDF artwork.
 4. Permission for the Windows on the River room photo, or an organizer-supplied replacement.

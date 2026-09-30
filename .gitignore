@@ -8,5 +8,7 @@ storybook-static/
 .wrangler/
 .env
 .dev.vars
+preview/.dev.vars
+preview/worker-configuration.d.ts
 npm-debug.log*
 wrangler-pages.*.log

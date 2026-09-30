@@ -19,7 +19,7 @@ for (const card of cards) {
 for (const [slug,needed] of Object.entries({
   'vip-dinner':['$200 donation','one dinner invitation','$400 includes two','Windows on the River','Become a donor'],
   lakewood:['Free','Lakewood Civic Auditorium'],
-  'piano-guys':['Paid theater concert','FNA Wealth Management','tickets coming soon'],
+  'piano-guys':['Paid concert','FNA Wealth Management','October 2 at 10 a.m.','https://www.ticketmaster.com/event/05006538EC473EB4'],
   fairlawn:['Free','Advanced Care Endodontics','FNA Wealth Management'],
   chesterland:['Free','Mayfield United Methodist Church']
 })) {

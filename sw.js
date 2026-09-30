@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v19-regional-footer';
+const CACHE_NAME = 'neochosen-v20-concert-tickets';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
