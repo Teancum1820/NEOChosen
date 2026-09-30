@@ -81,6 +81,12 @@ export function renderEventSponsorCredit(event, { compact = false } = {}) {
   return `<div class="neo-event-sponsor-credit${compact ? ' neo-event-sponsor-credit--compact' : ''}" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(label)}"><p class="neo-event-sponsor-label">${escape(label)}</p><div class="neo-event-sponsor-list">${group.map(s => `<a ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s, { decorative: true })}<strong>${escape(s.name)}</strong></a>`).join('')}</div></div>`;
 }
 export const renderEventSponsors = event => renderEventSponsorCredit(event, { compact: true });
+export function renderEventPartnerLogos(event, { includeOrganizer = false } = {}) {
+  const partners = event ? presenters(event).map(s => ({ ...s, displayRole: event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsor' })) : [];
+  if (includeOrganizer) partners.push({ id:'kirtland-heritage-group', name:'Kirtland Heritage Group', logo:'/images/partners/kirtland-heritage-group.webp', url:'https://kirtlandheritagegroup.com/', background:'light', displayRole:'Presented by' });
+  if (weekend) partners.push({ ...weekend, displayRole:'NEO Chosen Weekend Presenting Sponsor' });
+  return `<div class="event-brand-grid"${event ? ` data-sponsor-event="${escape(event)}"` : ''} role="group" aria-label="Event partners">${partners.map(s => `<article class="event-brand" data-sponsor="${escape(s.id)}"><p class="neo-event-sponsor-label">${escape(s.displayRole)}</p><a ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s,{decorative:true})}<strong>${escape(s.name)}</strong></a></article>`).join('')}</div>`;
+}
 export function renderWeekendTextRecognition() {
   return weekend ? `<p class="neo-weekend-sponsor-credit"><strong>NEO Chosen Weekend Presenting Sponsor:</strong> <a ${external(weekend)}>${escape(weekend.name)}</a></p>` : '';
 }

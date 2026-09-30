@@ -23,6 +23,15 @@
 .event-recognition .neo-event-sponsor-list strong { font-size:clamp(17px,1.9vw,27px); font-weight:500; font-family:Cinzel,Georgia,serif; }
 .event-recognition .neo-sponsor-art { max-width:120px; height:70px; padding:8px; }
 .event-recognition .neo-weekend-sponsor-credit { max-width:320px; margin:0; font-size:14px; }
+.event-recognition--logos .editorial-shell { display:block; }
+.event-brand-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:32px; }
+.event-brand { min-width:0; display:flex; flex-direction:column; }
+.event-brand .neo-event-sponsor-label { min-height:36px; margin:0 0 20px; }
+.event-brand a { display:flex; flex-direction:column; align-items:center; color:#122035; text-decoration:none; }
+.event-brand .neo-sponsor-art { flex:none; width:100%; max-width:360px; height:180px; padding:0; margin:0 0 20px; background:transparent; }
+.event-brand strong { font:500 21px/1.5 Cinzel,Georgia,serif; text-align:center; }
+.event-brand a:hover strong { text-decoration:underline; text-underline-offset:4px; }
+@media(max-width:800px) { .event-brand-grid { grid-template-columns:minmax(0,1fr); gap:40px; } .event-brand .neo-event-sponsor-label { min-height:0; text-align:center; } .event-brand .neo-sponsor-art { height:160px; } }
 .event-venue-guide { padding:32px; background:white; }
 .event-venue-guide address { font-style:normal; }
 .event-venue-guide h3 { margin-top:25px; font-size:25px; }

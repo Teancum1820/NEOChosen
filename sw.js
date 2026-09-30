@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v17-preview-polish';
+const CACHE_NAME = 'neochosen-v18-event-partner-logos';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',

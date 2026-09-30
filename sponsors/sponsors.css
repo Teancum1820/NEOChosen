@@ -8,7 +8,7 @@
 .sponsor-editorial-section:nth-of-type(even) { background:#fff; }
 .sponsor-presenter-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:40px; }
 .sponsor-presenter-grid article { background:white; padding:40px; }
-.sponsor-presenter-grid .neo-sponsor-art { max-width:160px; height:85px; margin-bottom:24px; }
+.sponsor-presenter-grid .neo-sponsor-art { width:260px; max-width:100%; height:170px; padding:0; margin-bottom:24px; }
 .sponsor-presenter-grid ul { padding:0; list-style:none; font-size:15px; }
 .sponsor-presenter-grid li { margin-bottom:8px; }
 .sponsor-platinum-feature { background:#ede2cf; padding:70px 0; }

@@ -255,9 +255,17 @@
 .home-sponsor-tier--weekend-presenting .home-sponsor-art,
 .home-sponsor-tier--platinum .home-sponsor-art { width:100%; height:140px; padding:0; }
 .home-sponsor-tier--community [data-sponsor="tour-lake-county"] .home-sponsor-art { background:#fff; }
+.home-sponsor-tier [data-sponsor="haven-of-rest"] .home-sponsor-art { background:transparent; }
+.home-sponsor-tier [data-sponsor="haven-of-rest"] .home-sponsor-art img { mix-blend-mode:multiply; }
 @media(max-width:899px) {
   .home-sponsor-tier--weekend-presenting .home-sponsor-logo,
   .home-sponsor-tier--platinum .home-sponsor-logo { flex-direction:column; align-items:flex-start; }
   .home-sponsor-tier--weekend-presenting .home-sponsor-art,
   .home-sponsor-tier--platinum .home-sponsor-art { flex:none; width:100%; height:110px; }
+  .home-sponsor-ribbon-inner { grid-template-columns:minmax(0,1fr); gap:8px; padding-block:16px; }
+  .home-sponsor-ribbon p,.home-sponsor-weekend { text-align:center; }
+  .home-sponsor-ribbon a { justify-content:center; }
+  .home-sponsor-ribbon .neo-sponsor-art { width:min(100%,360px); height:110px; }
+  .home-sponsor-tier--weekend-presenting { padding:18px; }
+  .home-sponsor-tier--weekend-presenting .home-sponsor-art { height:150px; }
 }

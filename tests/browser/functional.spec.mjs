@@ -116,7 +116,7 @@ test("responsive hero, header, and sponsor band fit all review widths", async ({
       expect(image.height).toBeGreaterThan(40);
       expect(image.source).toContain("/images/performers/");
     }
-    if (width < 768) expect(geometry.ribbon).toBeLessThan(110);
+    if (width < 768) expect(geometry.ribbon).toBeLessThan(220);
     if (width >= 1200) {
       for (const selector of [
         ".site-wordmark",

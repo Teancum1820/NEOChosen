@@ -71,7 +71,16 @@ No generated venue scenes, modified performer likenesses, or inferred celebrity 
 
 ## Verification
 
-- Static build, all sponsorship checks, shared chrome, 1,454 local links/anchors/assets across 37 HTML documents, event facts/sponsors, raffle coming-soon state and mocked raffle handlers pass.
+### Latest event-logo refinements
+
+- Homepage: Haven of Rest's white raster background is composited into the light card surface; mobile Great Lakes recognition now uses a centered, full-width logo treatment. The mobile partner-directory logo is also larger.
+- Sponsors: FNA and Advanced Care logo display heights increased from 85px to 170px, preserving their original aspect ratios.
+- Piano Guys: large FNA and Great Lakes logo cards with their respective concert/weekend roles.
+- Fairlawn: large FNA, Advanced Care and Great Lakes logo cards with accurate event/weekend roles.
+- Chesterland: Kirtland Heritage Group organizer and Great Lakes weekend presenting logo cards. The KHG mark is the unmodified [official website header asset](https://kirtlandheritagegroup.com/_astro/logo-landscape-transparent.DqsBXB6H_Z2vuHJu.webp), saved as `images/partners/kirtland-heritage-group.webp`.
+- 25 rendered checks at 320, 390, 768, 1024 and 1440px verify logo delivery and no horizontal overflow. Captures are in `artifacts/event-logo-updates/`. The former 110px mobile sponsor-ribbon limit is updated to 220px for Caleb's requested larger treatment; the reviewed mobile ribbon baseline is refreshed.
+
+- Static build, all sponsorship checks, shared chrome, 1,458 local links/anchors/assets across 37 HTML documents, event facts/sponsors, raffle coming-soon state and mocked raffle handlers pass.
 - 196 rendered captures: all 28 content pages at 320, 375, 390, 430, 768, 1024 and 1440px. No horizontal overflow, missing local images, page exceptions or missing H1s. Captures explicitly wait for fonts and image decoding; earlier quick captures made before image decoding are not final evidence.
 - All 33 browser tests pass. The suite covers functional navigation and destinations, desktop accessibility, mobile interior templates/tables, and approved homepage/sponsor screenshots. Automated checks submit no real registrations, donations or email.
 - Following Caleb's corrections, all 33 tests passed again without changes to screenshot baselines. Additional rendered checks at 390px and 1440px verify all eight added/replaced logos load, no horizontal overflow, removal of the visitor section and media labels, the Explore Weekend anchor, and removal of irrelevant sponsorship credits. Captures are in `artifacts/partner-updates/`.
