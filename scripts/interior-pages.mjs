@@ -2,6 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { page, hero, section, callout, action } from "./editorial-page.mjs";
 import { renderImage } from "../design-system/image.mjs";
+import { pressRelease } from "./press-release.mjs";
 
 const organization = "Kirtland Heritage Group";
 const volunteer =
@@ -18,7 +19,7 @@ const descriptions = {
   "social-media-links":
     "Follow Kirtland Heritage Group on Facebook and Instagram for NEOChosen news, photos, community stories and ticket updates.",
   "media-kit":
-    "Find NEOChosen weekend artwork, sponsorship resources, event details and media contacts.",
+    "Download the approved October 1, 2026 NEOChosen press release and find weekend artwork, sponsorship resources and event details.",
 };
 const titles = {
   "about-us": "About Kirtland Heritage Group | NEOChosen",
@@ -154,9 +155,9 @@ async function media(outDir) {
   return (
     hero(
       "Media kit",
-      "Share the weekend accurately.",
-      "Event artwork, sponsorship resources, and useful information for your community.",
+      "Share the weekend.",
     ) +
+    pressRelease +
     section(
       "Weekend overview",
       "Start with the big picture.",

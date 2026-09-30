@@ -16,6 +16,18 @@ assert.equal(byId('great-lakes-auto-group').tier, 'weekend-presenting');
 assert.deepEqual(byId('fna').events, ['akron', 'fairlawn']);
 assert.deepEqual(byId('advanced-care').events, ['fairlawn']);
 assert.equal(byId('barons-bus').tier, 'platinum');
+assert.equal(byId('hallow').tier, 'community');
+assert.equal(byId('haven-of-rest').tier, 'program-advertiser');
+assert.doesNotMatch(home + directory, /Official Prayer Sponsor/);
+for (const document of [home, directory]) {
+  assert.ok(document.indexOf('Community Partners') < document.indexOf('data-sponsor="hallow"'));
+  assert.ok(document.indexOf('data-sponsor="hallow"') < document.indexOf('Program Advertiser'));
+  assert.ok(document.indexOf('Program Advertiser') < document.indexOf('data-sponsor="haven-of-rest"'));
+}
+assert.equal(byId('ascend-wealth-management').tier, 'community');
+assert.deepEqual(byId('ascend-wealth-management').events, []);
+assert.equal(byId('ascend-wealth-management').url, undefined);
+assert.match(home, /<div class="home-sponsor-logo home-sponsor-logo--light" data-sponsor="ascend-wealth-management">/);
 assert.ok(sponsors.filter(s => s.tier === 'community').length > 0);
 assert.ok(directory.indexOf('Weekend Presenting Sponsor') < directory.indexOf('Event Presenting Sponsors'));
 assert.ok(directory.indexOf('Event Presenting Sponsors') < directory.indexOf('Platinum Sponsor'));
@@ -35,6 +47,7 @@ assert.match(fairlawn, /data-sponsor-event="fairlawn"/);
 assert.doesNotMatch(fairlawn, /data-sponsor-event="akron"/);
 for (const s of sponsors) {
   assert.match(directory, new RegExp(`data-sponsor="${s.id}"`));
-  assert.ok(directory.includes(s.url.replaceAll('&', '&amp;')), `Missing website for ${s.name}`);
+  if (s.url) assert.ok(directory.includes(s.url.replaceAll('&', '&amp;')), `Missing website for ${s.name}`);
 }
+for (const document of [home, directory]) assert.doesNotMatch(document, /href="undefined"/);
 console.log('Validated sponsor hierarchy, approved event relationships, directory links, and shared credits.');

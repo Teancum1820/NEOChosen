@@ -173,6 +173,14 @@
     "background": "light"
   },
   {
+    "id": "ascend-wealth-management",
+    "name": "Ascend Wealth Management LLC",
+    "logo": "/images/ascend-wealth-management.png",
+    "tier": "community",
+    "events": [],
+    "background": "light"
+  },
+  {
     "id": "catholic-cemeteries",
     "name": "Catholic Cemeteries Association",
     "logo": "/images/partners/catholic-cemeteries.webp",
@@ -188,11 +196,10 @@
     "name": "Hallow",
     "logo": "/images/partners/hallow.png",
     "url": "https://hallow.com/",
-    "tier": "prayer",
+    "tier": "community",
     "events": [],
     "background": "light",
-    "description": "Official Prayer Sponsor.",
-    "confirmation": "Jessica, September 30, 2026"
+    "confirmation": "Caleb, September 30, 2026: Community Partner"
   },
   {
     "id": "haven-of-rest",

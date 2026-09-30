@@ -6,6 +6,59 @@ test.beforeEach(async ({ page }) => {
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
 });
 
+test("community partners include Hallow and Haven remains last and no larger", async ({
+  page,
+}) => {
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const route of ["/", "/sponsors/"]) {
+      await page.goto(route);
+      const community =
+        route === "/"
+          ? page.locator(".home-sponsor-tier--community")
+          : page.locator(
+              'section[aria-labelledby="community-sponsors-heading"]',
+            );
+      const advertiser =
+        route === "/"
+          ? page.locator(".home-sponsor-tier--program-advertiser")
+          : page.locator(
+              'section[aria-labelledby="program-advertiser-sponsors-heading"]',
+            );
+      await expect(community.locator('[data-sponsor="hallow"]')).toHaveCount(1);
+      await expect(
+        community.locator('[data-sponsor="haven-of-rest"]'),
+      ).toHaveCount(0);
+      await expect(
+        page.getByText("Official Prayer Sponsor", { exact: true }),
+      ).toHaveCount(0);
+      const haven = advertiser.locator('[data-sponsor="haven-of-rest"]');
+      await expect(haven).toHaveCount(1);
+      await haven.scrollIntoViewIfNeeded();
+      const havenArt = haven.locator(".neo-sponsor-art");
+      const communityArt = community.locator(".neo-sponsor-art").first();
+      const havenBounds = await havenArt.boundingBox();
+      const communityBounds = await communityArt.boundingBox();
+      expect(havenBounds.width).toBeLessThanOrEqual(communityBounds.width + 1);
+      expect(havenBounds.height).toBeLessThanOrEqual(communityBounds.height);
+      expect(
+        await haven.locator("img").evaluate(async (img) => {
+          await img.decode();
+          return img.naturalWidth;
+        }),
+      ).toBeGreaterThan(0);
+      expect(
+        await advertiser.evaluate(
+          (node) =>
+            node.nextElementSibling?.matches(
+              ".home-sponsor-tier, .sponsor-editorial-section, .sponsor-platinum-feature",
+            ) ?? false,
+        ),
+      ).toBe(false);
+    }
+  }
+});
+
 test("homepage and current canonical routes load without page-level exceptions", async ({
   page,
 }) => {
@@ -61,10 +114,35 @@ test("registration actions and forms render without submitting", async ({
   ).toBeGreaterThan(0);
   await expect(page.locator("[data-zeffy-embed]").first()).toBeAttached();
   await page.goto("/raffle/");
-  await expect(page.locator("[data-zeffy-embed]").first()).toBeAttached();
-  await expect(
-    page.locator("[data-zeffy-embed][data-form-url]").first(),
-  ).toBeAttached();
+  await expect(page.locator("main form")).toHaveCount(0);
+  await expect(page.locator("[data-zeffy-embed]")).toHaveCount(0);
+});
+
+test("cash raffle shows only holding copy and defers rules on desktop tablet and mobile", async ({
+  page,
+}) => {
+  for (const width of [1440, 768, 390, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/raffle/");
+    await expect(page.locator("main h1")).toHaveText("NEO Chosen Cash Raffle");
+    await expect(page.locator("main .cash-kicker")).toHaveText(
+      "NEO Chosen Cash Raffle — Coming Soon",
+    );
+    await expect(page.locator("main .cash-statement")).toContainText(
+      "Six cash prizes.",
+    );
+    await expect(
+      page.locator("main form, main a, main button, main aside, main section"),
+    ).toHaveCount(0);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.goto("/raffle/rules/");
+    await expect(page).toHaveURL(/\/raffle\/$/);
+    await expect(page.locator("main h1")).toHaveText("NEO Chosen Cash Raffle");
+  }
 });
 
 test("homepage rows preserve the verified event facts and destinations", async ({

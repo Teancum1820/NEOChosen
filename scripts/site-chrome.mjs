@@ -17,6 +17,7 @@ export function applySiteChrome(html, currentPath) {
     .replace('href="/images/favicon.png"', 'href="/images/neo-favicon.png"');
   if (!html.includes('href="/fonts.css"')) html = html.replace('</head>', '<link rel="stylesheet" href="/fonts.css">\n</head>');
   const item = (href, label, className) => link(href, label, currentPath, className);
+  const eventTicketLabel = currentPath.startsWith('/raffle/') ? 'Concert &amp; event details' : 'Get Tickets';
   const dropdown = (id, label, content) => `<div class="nav-dropdown">
     <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="${id}">${label}</button>
     <div class="nav-dropdown-menu" id="${id}">${content}</div>
@@ -68,7 +69,7 @@ export function applySiteChrome(html, currentPath) {
       </div>
       <nav class="site-footer-links" aria-label="Events and information">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/#tickets', 'Get Tickets')}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}${item('/raffle/', 'Raffle — Coming Soon')}
+        ${item('/#events', 'Weekend Events')}${item('/#tickets', eventTicketLabel)}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}${item('/raffle/', 'Raffle — Coming Soon')}
       </nav>
       <nav class="site-footer-links" aria-label="Support and resources">
         <h2>Get Involved</h2>

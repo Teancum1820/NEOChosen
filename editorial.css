@@ -75,6 +75,15 @@
 .preview-placeholder { position:relative; isolation:isolate; }
 .preview-placeholder-label { position:absolute; inset:0; z-index:1; display:grid; place-items:center; pointer-events:none; color:#ed0000; font:800 clamp(28px,7vw,84px)/1 Montserrat,Arial,sans-serif; letter-spacing:.015em; text-shadow:1px 1px 0 white,-1px -1px 0 white,1px -1px 0 white,-1px 1px 0 white; }
 .media-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.media-release-card { border-top:1px solid #c7c2b7; padding-top:28px; }
+.media-release-card > .editorial-copy h3,.media-release-copy h3 { font-size:clamp(23px,2.2vw,31px); line-height:1.4; }
+.media-release-status { font-size:13px; font-weight:600; color:#24625d; }
+.media-release-details { margin-top:30px; border-top:1px solid #c7c2b7; border-bottom:1px solid #c7c2b7; }
+.media-release-details summary { padding:20px 0; min-height:44px; font-weight:600; cursor:pointer; }
+.media-release-copy { padding:12px 0 28px; overflow-wrap:anywhere; }
+.media-release-copy address { font-size:16px; font-style:normal; margin:24px 0; }
+.media-release-copy h4 { font-family:Montserrat,Arial,sans-serif; font-size:15px; margin-top:32px; }
+.media-release-end { text-align:center; }
 .event-flyers .media-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 .asset-card { background:white; padding:20px; min-width:0; }
 .asset-preview-link { display:block; background:#f0ece5; }

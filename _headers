@@ -6,13 +6,20 @@
 /sw.js
   Cache-Control: no-cache
 
+/raffle/rules/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
 /manifest.webmanifest
   Cache-Control: public, max-age=3600
 
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 
-/media-kit/*
+/media-kit/*.pdf
+  Cache-Control: public, max-age=31536000, immutable
+
+/media-kit/*.png
   Cache-Control: public, max-age=31536000, immutable
 
 /sponsorships/*

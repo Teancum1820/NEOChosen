@@ -30,15 +30,18 @@ Then open the local URL printed by Wrangler.
 
 ## Deployment Notes
 
-- The site is configured for Cloudflare Pages in `wrangler.jsonc`.
-- Cloudflare Pages project name: `neochosen`.
+- Production uses the existing Cloudflare Worker `neochosen`, with static assets configured in `production/wrangler.jsonc`.
+- Public website: https://neochosen.com/.
 - Build command: `npm run build`.
 - Build output directory: `dist`.
-- Deploy command: `npx wrangler deploy`.
+- Verify before publishing: `npm test` and the functional/accessibility browser checks.
+- Deploy command: `npx wrangler deploy --config production/wrangler.jsonc`.
 - Root directory: repository root.
-- Production branch: `main`.
-- Custom domain: add `neochosen.com` in Cloudflare Pages > Custom domains after the project is created.
 - For CLI deployment, run `npm run deploy` after authenticating with Wrangler.
+- The separate review Worker uses `preview/wrangler.jsonc`. Publishing the review does not update production.
+- The legacy root `wrangler.jsonc` is retained for Pages development and the deferred raffle backend; it is not the production publishing configuration.
+- The pre-redesign production source is preserved in Git tag `archive/pre-redesign-2026-09-30` at commit `401a1df2f7af1cf0e7670983848c342e32219dcc`. Its Cloudflare rollback version is `f752694d-4a7c-4b33-b851-2f286875820a`.
+- Media PDF/PNG downloads keep long-lived caching; the Media HTML page uses the default revalidation behavior.
 - Keep route pages in directory form (`/page/index.html`) and maintain matching root redirect files (`/page.html`) for compatibility with legacy links.
 
 ## Cleanup Performed

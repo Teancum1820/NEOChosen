@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v27-event-collages';
+const CACHE_NAME = 'neochosen-v29-raffle-holding';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
@@ -28,6 +28,7 @@ const OFFLINE_URLS = [
   '/sponsors/sponsors.css',
   '/sponsorship-opportunities/sponsorship.css',
   '/raffle/raffle.css',
+  '/raffle/cash-raffle.css',
   '/thank-you/styles.css',
   '/images/fonts/cinzel.woff2',
   '/images/fonts/montserrat.woff2',

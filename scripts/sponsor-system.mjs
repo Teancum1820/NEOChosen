@@ -71,7 +71,11 @@ export function renderHomepageSponsorDirectory() {
   return tiers.map(([tier, title]) => {
     const group = byTier(tier);
     if (!group.length) return '';
-    return `<div class="home-sponsor-tier home-sponsor-tier--${tier}"><h3>${title}</h3><div class="home-sponsor-list">${group.map(s => `<a class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" data-sponsor="${escape(s.id)}" ${external(s)} title="Visit ${escape(s.name)} website">${renderSponsorLogo(s, { className: 'home-sponsor-art', decorative: true })}<span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${tier === 'presenting' ? `<small>${s.events.map(event => escape(events[event])).join(' · ')}</small>` : ''}${s.phone ? `<small>${escape(s.phone)}</small>`:''}</span></a>`).join('')}</div></div>`;
+    return `<div class="home-sponsor-tier home-sponsor-tier--${tier}"><h3>${title}</h3><div class="home-sponsor-list">${group.map(s => {
+      const tag = s.url ? 'a' : 'div';
+      const link = s.url ? ` ${external(s)} title="Visit ${escape(s.name)} website"` : '';
+      return `<${tag} class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" data-sponsor="${escape(s.id)}"${link}>${renderSponsorLogo(s, { className: 'home-sponsor-art', decorative: true })}<span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${tier === 'presenting' ? `<small>${s.events.map(event => escape(events[event])).join(' · ')}</small>` : ''}${s.phone ? `<small>${escape(s.phone)}</small>`:''}</span></${tag}>`;
+    }).join('')}</div></div>`;
   }).join('');
 }
 export function renderEventSponsorCredit(event, { compact = false } = {}) {
@@ -95,10 +99,15 @@ export function renderWeekendSponsorRecognition() {
   return `<aside class="neo-weekend-sponsor-credits" aria-label="Weekend sponsors">${renderWeekendTextRecognition()}${platinum ? `<p><strong>Platinum Sponsor:</strong> <a ${external(platinum)}>${escape(platinum.name)}</a></p>` : ''}<a href="/sponsors/">View all sponsors</a></aside>`;
 }
 export const renderPresentingRecognition = event => renderEventSponsorCredit(event);
+export function renderRaffleOrganizerRecognition() {
+  const organizer = { name: 'Kirtland Heritage Group', logo: '/images/partners/kirtland-heritage-group.webp', background: 'light' };
+  return `<div class="cash-organizer-grid"><article><p class="cash-kicker">Raffle organizer</p>${renderSponsorLogo(organizer, { decorative: true })}<h3>${organizer.name}</h3></article>${weekend ? `<article data-sponsor="${escape(weekend.id)}"><p class="cash-kicker">NEO Chosen Weekend Presenting Sponsor</p>${renderSponsorLogo(weekend, { decorative: true })}<h3>${escape(weekend.name)}</h3></article>` : ''}</div>`;
+}
 export function applySponsorSystem(html) {
   return html.replace('<!-- SPONSOR_DIRECTORY -->', renderSponsorDirectory())
     .replace('<!-- HOMEPAGE_SPONSOR_DIRECTORY -->', renderHomepageSponsorDirectory())
     .replace('<!-- PRESENTING_SPONSOR_RIBBON -->', renderPresentingSponsorRibbon())
+    .replace('<!-- RAFFLE_ORGANIZER_RECOGNITION -->', renderRaffleOrganizerRecognition())
     .replace(/<!-- WEEKEND_PLATINUM_SPONSOR -->/g, renderWeekendSponsorRecognition())
     .replace(/<!-- WEEKEND_PRESENTING_CREDIT -->/g, renderWeekendTextRecognition())
     .replace(/<!-- EVENT_SPONSORS:(\w+) -->/g, (_, event) => {
