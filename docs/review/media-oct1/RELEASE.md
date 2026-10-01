@@ -67,3 +67,30 @@ visual regression checks fail: the footer is 394px versus its 393px snapshot,
 and the mobile header differs by 614 pixels. The same failures were reproduced
 against the unchanged published baseline. Existing snapshots and unrelated
 source were preserved. Two other visual checks pass.
+
+## Published and verified
+
+Production version `84d37750-1c0b-4574-a5ed-e02bf8ec2cb2` serves 100% of
+traffic, published at 2026-10-01 22:16:55 UTC from commit `503212b`. The isolated
+source branch and recovery tag were pushed; unrelated branches were not merged.
+
+Live Media Kit: https://neochosen.com/media-kit/
+
+All nine current PDF/PNG downloads returned HTTP 200 with correct content types
+and exact approved hashes. All five PDFs also downloaded successfully through
+the actual browser controls and matched the same hashes. Their live served
+files were rendered and QR-decoded again; both weekend dimensions are correct.
+Nine stable aliases serve the matching replacements with max-age=0/revalidation.
+The live gallery has exactly four cards and the five intended PDF links.
+
+Live desktop and mobile inspection confirmed loaded, uncropped artwork and no
+horizontal overflow on the Media Kit and all three related event pages. Final
+screenshots are saved here with `live` in their names. Existing homepage,
+Lakewood, raffle, shared CSS/JS and service worker content matched the
+before-release live copies. Updated event copy matches the previous published
+page after removing only the added flyer section/style. The private interfaith
+breakfast route still returns HTTP 404.
+
+All requested approved media are published. Private VIP/breakfast draft pages,
+Google Sheets integration, Akron pre-sale variant and Fairlawn combined-photo
+alternative remain unpublished because they are outside this authorization.
