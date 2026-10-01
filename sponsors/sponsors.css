@@ -1,0 +1,31 @@
+.sponsor-weekend-feature { background:#cda76a; padding:85px 0; }
+.sponsor-weekend-feature .editorial-shell,.sponsor-platinum-feature .editorial-shell { display:grid; grid-template-columns:1.3fr 1fr; gap:75px; align-items:center; }
+.sponsor-weekend-feature h2 { font-size:clamp(34px,3.5vw,49px); }
+.sponsor-weekend-feature p:not(.editorial-kicker) { max-width:620px; font-size:18px; }
+.sponsor-weekend-feature .neo-sponsor-art { width:100%; height:300px; background:transparent; padding:0; border:0; }
+.sponsor-weekend-feature .neo-sponsor-art img { width:100%; height:100%; object-fit:contain; }
+.sponsor-editorial-section { padding:80px 0; }
+.sponsor-editorial-section:nth-of-type(even) { background:#fff; }
+.sponsor-presenter-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:40px; }
+.sponsor-presenter-grid article { background:white; padding:40px; }
+.sponsor-presenter-grid .neo-sponsor-art { width:260px; max-width:100%; height:170px; padding:0; margin-bottom:24px; }
+.sponsor-presenter-grid ul { padding:0; list-style:none; font-size:15px; }
+.sponsor-presenter-grid li { margin-bottom:8px; }
+.sponsor-platinum-feature { background:#ede2cf; padding:70px 0; }
+.sponsor-platinum-feature .neo-sponsor-art { height:200px; width:100%; padding:25px; }
+.sponsor-partner-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:32px; margin-top:40px; }
+.sponsor-partner-grid article { min-width:0; border-top:1px solid #c6c3b9; padding-top:25px; }
+.sponsor-partner-grid .neo-sponsor-art { width:100%; height:105px; margin-bottom:20px; padding:12px; }
+.sponsor-partner-grid h3 { font-family:Montserrat,Arial,sans-serif; font-size:16px; font-weight:600; line-height:1.5; margin-bottom:8px; }
+.sponsor-partner-grid p { font-size:14px; }
+.sponsor-partner-phone { display:block; font-size:14px; padding:5px 0; }
+.sponsor-editorial-section:has(#silver-sponsors-heading) .sponsor-partner-grid { grid-template-columns:minmax(0,650px); }
+.sponsor-editorial-section:has(#silver-sponsors-heading) .neo-sponsor-art { height:120px; padding:12px 0; }
+.editorial-page [data-sponsor="tour-lake-county"] .neo-sponsor-art,
+.editorial-page [data-sponsor="haven-of-rest"] .neo-sponsor-art,
+.editorial-page [data-sponsor="barons-bus"] .neo-sponsor-art,
+.editorial-page [data-sponsor="hallow"] .neo-sponsor-art { background:transparent; }
+.editorial-page [data-sponsor="haven-of-rest"] .neo-sponsor-art img,
+.editorial-page [data-sponsor="barons-bus"] .neo-sponsor-art img { mix-blend-mode:multiply; }
+@media(max-width:1000px) { .sponsor-partner-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .sponsor-weekend-feature .editorial-shell,.sponsor-platinum-feature .editorial-shell { gap:35px; } }
+@media(max-width:800px) { .sponsor-weekend-feature,.sponsor-editorial-section { padding:55px 0; } .sponsor-weekend-feature .editorial-shell,.sponsor-platinum-feature .editorial-shell,.sponsor-presenter-grid { grid-template-columns:1fr; gap:30px; } .sponsor-weekend-feature .neo-sponsor-art { height:190px; } .sponsor-presenter-grid article { padding:25px; } .sponsor-partner-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:25px 20px; } .sponsor-partner-grid h3 { font-size:14px; } .sponsor-partner-grid .neo-sponsor-art { height:90px; } }

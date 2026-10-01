@@ -5,16 +5,16 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0806",
-  "theme_color": "#0a0806",
+  "background_color": "#101a2d",
+  "theme_color": "#101a2d",
   "icons": [
     {
-      "src": "images/favicon.png",
+      "src": "images/neo-icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/favicon.png",
+      "src": "images/neo-icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

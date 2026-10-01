@@ -1,13 +1,67 @@
 :root {
-  --site-black: #070604;
-  --site-ink: #100d08;
-  --site-cream: #f5efe0;
-  --site-gold: #d7b956;
-  --site-gold-bright: #f0d77e;
-  --site-muted: #c8bea8;
-  --site-line: rgba(215, 185, 86, .25);
+  /* Semantic theme tokens for new work; legacy aliases below preserve the site. */
+  --color-brand-background: #101a2d;
+  --color-surface-dark: #101a2d;
+  --color-surface-light: #f8f4ed;
+  --color-surface-elevated: #1c2a40;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cbd3df;
+  --color-text-inverse: #122035;
+  --color-border-subtle: rgba(215, 185, 86, .25);
+  --color-brand-gold: #cda76a;
+  --color-brand-gold-bright: #f0d77e;
+  --color-accent-teal: #2e756f;
+  --color-error: #a82c3a;
+  --color-success: #316c4e;
+  --color-focus: #f0d77e;
+  --font-display: Cinzel, Georgia, serif;
+  --font-body: Montserrat, Arial, sans-serif;
+  --font-accent: "Cormorant Garamond", Georgia, serif;
+  --type-display: clamp(3.5rem, 8vw, 7rem);
+  --type-h1: clamp(2.75rem, 6vw, 5rem);
+  --type-h2: clamp(2rem, 4vw, 3.5rem);
+  --type-h3: clamp(1.5rem, 3vw, 2.25rem);
+  --type-h4: 1.25rem;
+  --type-body-lg: 1.125rem;
+  --type-body: 1rem;
+  --type-small: .875rem;
+  --type-eyebrow: .75rem;
+  --leading-tight: 1.12;
+  --leading-body: 1.6;
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-section-sm: 4rem;
+  --space-section-md: 6rem;
+  --space-section-lg: 8rem;
+  --content-narrow: 48rem;
+  --content-standard: 1180px;
+  --content-wide: 90rem;
+  --content-full: 100%;
+  --neo-radius-sm: .25rem;
+  --neo-radius-md: .75rem;
+  --neo-radius-lg: 1.5rem;
+  --shadow-subtle: 0 6px 20px rgba(0, 0, 0, .12);
+  --shadow-card: 0 14px 36px rgba(0, 0, 0, .2);
+  --shadow-overlay: 0 28px 70px rgba(0, 0, 0, .35);
+  --motion-fast: 150ms;
+  --motion-standard: 250ms;
+  --motion-slow: 450ms;
+  --easing-standard: cubic-bezier(.2, .8, .2, 1);
+  --site-black: var(--color-brand-background);
+  --site-ink: var(--color-text-inverse);
+  --site-cream: var(--color-surface-light);
+  --site-gold: var(--color-brand-gold);
+  --site-gold-bright: var(--color-brand-gold-bright);
+  --site-muted: var(--color-text-secondary);
+  --site-line: var(--color-border-subtle);
   --site-header-height: 68px;
-  --site-content: 1180px;
+  --site-content: var(--content-standard);
 }
 
 html { scroll-padding-top: calc(var(--site-header-height) + 1rem); }
@@ -147,6 +201,9 @@ nav.site-nav .nav-dropdown-menu {
 nav.site-nav .nav-dropdown-menu.is-open { display: block !important; }
 nav.site-nav .nav-dropdown-menu a { min-height: 44px !important; padding: .65rem .75rem !important; display: flex !important; align-items: center; color: var(--site-muted) !important; text-decoration: none !important; }
 nav.site-nav .site-nav-links .nav-ticket { margin-top: .6rem; justify-content: center !important; }
+@media (max-width: 1199px) {
+  nav.site-nav .site-nav-actions .site-donate { display: none !important; }
+}
 
 main, section, .page-shell, .hero-content { box-sizing: border-box; }
 .site-footer { border-top: 1px solid var(--site-line) !important; }
@@ -161,6 +218,7 @@ input:not([type="checkbox"]):not([type="radio"]), select, textarea { min-height:
   .site-wordmark { flex: 0 0 auto; }
   .site-nav-actions { order: 3; margin-left: 0; }
   nav.site-nav .nav-toggle, .nav-backdrop { display: none !important; }
+  nav.site-nav .site-nav-links .nav-donate { display: none !important; }
   nav.site-nav .site-nav-links {
     position: static !important; inset: auto !important; z-index: auto !important;
     width: auto !important; height: auto !important; padding: 0 !important; margin: 0 !important;
@@ -188,8 +246,6 @@ input:not([type="checkbox"]):not([type="radio"]), select, textarea { min-height:
 @media (max-width: 430px) {
   nav.site-nav { gap: .35rem !important; padding-inline: .65rem !important; }
   .site-wordmark { font-size: .92rem !important; letter-spacing: .055em; }
-  .site-donate { width: 44px !important; padding: 0 !important; }
-  .site-donate span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -319,3 +375,46 @@ a.support-cta:hover { background:#f5dfa0; }
 .presenting-recognition a { color: inherit; text-decoration: underline; text-underline-offset: .2em; }
 .neo-weekend-sponsor-credit { margin:1rem 0; color:#f5efe0; font:400 .86rem/1.55 Montserrat,Arial,sans-serif; overflow-wrap:anywhere; }
 .neo-weekend-sponsor-credit a { color:#f1dc88; text-underline-offset:3px; }
+
+/* Approved Concept A shared chrome, composed with the existing menu behavior. */
+nav.site-nav { background: var(--color-brand-background) !important; box-shadow: none !important; border-bottom-color: rgba(255,255,255,.12) !important; }
+nav.site-nav .site-wordmark, .site-footer .site-wordmark { text-transform: uppercase; }
+.site-wordmark span { color: inherit; }
+nav.site-nav .site-nav-links { background: var(--color-brand-background) !important; }
+nav.site-nav .nav-dropdown-menu { background: var(--color-surface-elevated) !important; }
+nav.site-nav .site-nav-links .nav-ticket { border-radius: var(--neo-radius-sm) !important; background: var(--color-brand-gold) !important; color: var(--color-text-inverse) !important; }
+nav.site-nav .site-donate { background: transparent !important; color: var(--color-brand-gold-bright) !important; border-radius: var(--neo-radius-sm) !important; font-size: 13px !important; }
+.site-footer { background: var(--color-brand-background) !important; }
+.site-footer { isolation:isolate; }
+.site-footer::before { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:linear-gradient(180deg,rgba(16,26,45,.9),rgba(16,26,45,.4) 55%,rgba(16,26,45,.15)),url('/images/northeast-ohio-skyline.svg') center bottom / cover no-repeat; }
+.site-footer-grid,.site-footer-bottom { position:relative; z-index:1; }
+@media(max-width:599px) { .site-footer::before { background-size:100% 100%,auto 380px; background-position:center,center bottom; } }
+@media(min-width:1200px) {
+  nav.site-nav { gap: 16px !important; }
+  nav.site-nav .site-nav-links > a, nav.site-nav .nav-dropdown-toggle { padding-inline: 10px !important; font-size: 13px !important; }
+}
+
+/* Keep both social icons visible in the top bar at every width. */
+nav.site-nav .site-nav-actions .nav-social-links { display:flex; padding:0; margin:0; border:0; gap:2px; }
+nav.site-nav .site-nav-actions .nav-social-links span { display:none; }
+nav.site-nav .site-nav-actions .nav-social-links a { flex:none; width:40px; min-width:40px; height:44px; padding:8px; }
+@media(max-width:430px) {
+  nav.site-nav { padding-inline:12px!important; gap:4px!important; }
+  nav.site-nav .site-wordmark { font-size:16px!important; }
+  nav.site-nav .site-nav-actions { gap:4px; }
+  nav.site-nav .site-nav-actions .nav-social-links a { width:32px; min-width:32px; padding:6px; }
+}
+@media(max-width:360px) { nav.site-nav .site-wordmark { font-size:15px!important; } }
+
+/* Concert on-sale notice, shared by all Ticketmaster actions. */
+.concert-ticket-dialog { box-sizing:border-box; width:min(520px,calc(100% - 32px)); max-height:calc(100dvh - 32px); margin:auto; padding:36px; border:1px solid #b89449; border-top:5px solid #b89449; border-radius:8px; background:#faf7ef; color:#101a2d; box-shadow:0 24px 80px rgba(0,0,0,.3); font:400 16px/1.65 Montserrat,Arial,sans-serif; }
+.concert-ticket-dialog::backdrop { background:rgba(10,18,32,.75); }
+.concert-ticket-dialog .concert-ticket-kicker { margin:0 0 12px; color:#735419; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.concert-ticket-dialog h2 { margin:0 0 16px; color:#101a2d; font:600 clamp(26px,5vw,34px)/1.25 Cinzel,Georgia,serif; }
+.concert-ticket-dialog #concert-ticket-message { margin:0 0 28px; color:#101a2d; font-size:17px; line-height:1.7; }
+.concert-ticket-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.concert-ticket-actions button,.concert-ticket-actions a { box-sizing:border-box; display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:12px 16px; border:1px solid #101a2d; border-radius:4px; font:700 14px/1.5 Montserrat,Arial,sans-serif; cursor:pointer; text-decoration:none; }
+.concert-ticket-actions .concert-ticket-close { background:transparent; color:#101a2d; }
+.concert-ticket-actions .concert-ticket-continue { background:#101a2d; color:#fff; }
+.concert-ticket-actions :focus-visible { outline:3px solid #8a6218; outline-offset:4px; }
+@media(max-width:480px) { .concert-ticket-dialog { padding:28px 24px; } .concert-ticket-actions > * { width:100%; } }

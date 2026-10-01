@@ -1,0 +1,51 @@
+[
+  {
+    "brokenImages": [],
+    "clientWidth": 305,
+    "documentWidth": 305,
+    "overflow": false,
+    "width": 320
+  },
+  {
+    "brokenImages": [],
+    "clientWidth": 360,
+    "documentWidth": 360,
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "brokenImages": [],
+    "clientWidth": 375,
+    "documentWidth": 375,
+    "overflow": false,
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "clientWidth": 415,
+    "documentWidth": 415,
+    "overflow": false,
+    "width": 430
+  },
+  {
+    "brokenImages": [],
+    "clientWidth": 753,
+    "documentWidth": 753,
+    "overflow": false,
+    "width": 768
+  },
+  {
+    "brokenImages": [],
+    "clientWidth": 1009,
+    "documentWidth": 1009,
+    "overflow": false,
+    "width": 1024
+  },
+  {
+    "brokenImages": [],
+    "clientWidth": 1425,
+    "documentWidth": 1425,
+    "overflow": false,
+    "width": 1440
+  }
+]

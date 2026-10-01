@@ -1,0 +1,281 @@
+DESIGN APPROVAL GRANTED.
+
+Proceed with implementation of the NEOChosen redesign on the existing LOCAL-ONLY combined branch:
+
+codex/private-figma-redesign
+
+Approved direction:
+- Figma Concept A — Cinematic Festival
+- Use the SLIM, SEPARATE Great Lakes Auto Group presenting-sponsor ribbon directly below the hero.
+- Do NOT use the large/integrated Great Lakes sponsor treatment inside the hero.
+
+IMPORTANT: This approval is for implementation on the local review branch only.
+
+DO NOT:
+- merge PR #96 or PR #97
+- merge anything to main
+- push the private combined branch to the public GitHub repository
+- deploy to Cloudflare
+- alter the existing production deployment
+- change live ticket/registration URLs unless required to preserve existing behavior
+
+IMPLEMENTATION GOAL
+
+Translate Concept A into the actual static HTML/CSS/JS site using the frontend/design-system/QA work already combined from PR #96 and PR #97.
+
+The Figma design is the visual direction, not a literal absolute-position specification. Build a responsive production implementation using the existing design tokens, shared components, sponsor system, site chrome, event data, and QA tooling.
+
+HERO
+
+Implement the Concept A cinematic split hero:
+
+LEFT:
+- Kirtland Heritage Group presents
+- NEO CHOSEN WEEKEND
+- November 13–15, 2026
+- Northeast Ohio
+- short event description
+- Explore Events CTA
+- Meet the Performers CTA
+
+RIGHT:
+- The supplied ORIGINAL Piano Guys photograph
+- the supplied ORIGINAL portraits of:
+  - Shaan Sharma
+  - Noah James
+  - Vanessa Benavente
+  - Yasmine Al-Bustami
+
+CRITICAL IMAGE REQUIREMENT:
+Do not generate, redraw, retouch, replace, merge, or AI-modify any performer photography.
+
+The actual supplied images must remain visually authentic.
+
+Allowed:
+- responsive cropping
+- object-fit
+- object-position
+- masks/borders/radius
+- normal responsive resizing
+
+Not allowed:
+- changing faces
+- changing clothing/backgrounds
+- generative fill
+- recreating a person
+- combining people into a newly generated image
+- stylistic filters that materially alter the photography
+
+GREAT LAKES SPONSOR TREATMENT
+
+Use the separate slim ribbon shown beneath the Concept A hero.
+
+Hierarchy:
+NEO CHOSEN WEEKEND PRESENTING SPONSOR
+[approved Great Lakes Auto Group logo]
+NOV 13–15 · FIVE EXPERIENCES
+
+Great Lakes should receive prominent presenting-sponsor recognition without visually becoming part of the NEOChosen event logo/identity.
+
+On mobile, create a compact responsive sponsor band immediately after the hero. Do not let sponsor recognition consume a large percentage of the initial mobile viewport.
+
+NAVIGATION
+
+Do not reproduce the raw Figma absolute coordinates.
+
+The Figma metadata appears to place the desktop “Explore Weekend” CTA outside the 1440px navigation frame.
+
+Build the header properly with responsive flex/grid behavior so:
+- logo/identity remains visible
+- Events
+- Performers
+- Sponsors
+- Explore Weekend
+all fit at desktop widths.
+
+Use the existing mobile menu behavior and preserve keyboard accessibility.
+
+EVENT SECTION
+
+Follow Concept A’s event-first structure.
+
+Use compact, highly scannable rows/cards for the five experiences:
+
+1. VIP Donor Dinner
+2. An Evening with Cast Members
+3. The Piano Guys Live
+4. Fairlawn Meet & Greet
+5. Chesterland Meet & Greet
+
+Each needs:
+- date
+- time
+- venue
+- city where appropriate
+- registration/ticket state
+- applicable sponsor credit
+- obvious action
+
+Do NOT hard-code uncertain event information just because it appears in the Figma mockup.
+
+Use the currently verified production/event data source.
+
+The Figma review board indicates the VIP dinner venue may still require confirmation. If repository data and Figma disagree, preserve the currently verified site data and document the discrepancy rather than silently changing it.
+
+PIANO GUYS FEATURE
+
+Keep the dedicated Piano Guys feature section from Concept A using the original supplied photo.
+
+Include:
+- Saturday · November 14
+- The Piano Guys Live
+- 4 PM
+- Akron Civic Theatre
+- concert presenting sponsor: FNA Wealth Management
+- existing correct ticket/update CTA
+
+PERFORMERS
+
+Use a prominent four-person photography rail:
+- Shaan Sharma — Shmuel
+- Noah James — Andrew
+- Vanessa Benavente — Mother Mary
+- Yasmine Al-Bustami — Ramah
+
+Again, original images only.
+
+SPONSOR SYSTEM
+
+Preserve the shared sponsor-data architecture from PR #96.
+
+Hierarchy should continue to be:
+
+Weekend Presenting:
+- Great Lakes Auto Group
+
+Event Presenting:
+- FNA Wealth Management
+- Advanced Care Endodontics where applicable
+
+Platinum:
+- Barons Bus
+
+Community Partners:
+- existing approved partners
+
+Do not duplicate sponsor data manually in individual HTML pages if the shared sponsor renderer/data source can provide it.
+
+SITE STRUCTURE
+
+Implement the Concept A visual language across the homepage and compatible shared components, while preserving working page-specific content.
+
+Homepage order should broadly be:
+
+1. navigation
+2. cinematic hero
+3. Great Lakes presenting-sponsor ribbon
+4. weekend overview
+5. five-event overview
+6. Piano Guys feature
+7. performers
+8. sponsor hierarchy
+9. visitor information
+10. closing CTA
+11. newsletter
+12. footer
+
+MOBILE
+
+The mobile version must be intentionally designed, not merely desktop stacked vertically.
+
+Priorities:
+1. event photography
+2. NEOChosen identity/date
+3. Explore Events CTA
+4. compact Great Lakes presenting credit
+5. event discovery
+
+Ensure:
+- no horizontal overflow at 320px+
+- original performer images remain recognizable
+- headings do not overflow
+- sponsor logos do not dominate
+- CTA targets meet accessibility sizing
+- event information remains quickly scannable
+
+ACCESSIBILITY
+
+Resolve the serious contrast problems already identified in the existing homepage/event kicker styling.
+
+Target WCAG AA for normal UI/text.
+
+Preserve:
+- semantic headings
+- keyboard navigation
+- visible focus
+- useful alt text
+- reduced-motion handling
+- labels
+- accessible mobile navigation
+
+PERFORMANCE
+
+Use the tooling from PR #97.
+
+Do not introduce huge hero assets without responsive delivery.
+
+Use the existing image helper/pipeline where appropriate:
+- dimensions
+- srcset
+- WebP/AVIF when safe
+- hero fetch priority
+- lazy loading below the fold
+
+The current 15+ second LCP baseline is unacceptable for the finished redesign. Improve it materially without replacing or visually modifying approved source photography.
+
+QA BEFORE REPORTING BACK
+
+Run:
+- production build
+- existing sponsor checks
+- existing event checks
+- local-link checks
+- site-chrome checks
+- Storybook build
+- functional Playwright tests
+- accessibility tests
+- visual regression tests
+- responsive screenshots
+- Lighthouse
+
+Test at minimum:
+320
+375
+390
+430
+768
+1024
+1440
+
+Do not update visual baselines merely to make a failure disappear. Inspect differences first.
+
+REVIEW OUTPUT
+
+When implementation is complete, DO NOT deploy.
+
+Instead provide:
+
+1. exact local branch + commit SHA
+2. summary of files changed
+3. homepage desktop screenshot at 1440
+4. homepage mobile screenshot at 390
+5. hero desktop screenshot
+6. hero mobile screenshot
+7. event section screenshots
+8. sponsor ribbon desktop/mobile screenshots
+9. Lighthouse before/after comparison
+10. accessibility results
+11. any unresolved content/asset questions
+12. exact localhost preview command/URL
+
+Stop there and wait for my approval before any merge, push, or Cloudflare deployment.

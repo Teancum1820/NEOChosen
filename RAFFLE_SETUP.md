@@ -1,4 +1,10 @@
-# Raffle coming-soon production setup
+# Legacy raffle infrastructure — reference only
+
+Current display is a minimal cash-raffle Coming Soon page. Notification signup and the public draft rules have been deferred; neither is exposed by the holding page. See the current-display notice in `RAFFLE-REVIEW-NOTES.md` before using any older setup instructions below.
+
+The current cash-raffle preparation supersedes the donated-prize/basket plan below. See `RAFFLE-REVIEW-NOTES.md` for current proposals, unresolved approvals, and record-preservation requirements. Sales remain closed. The new notification UI is a non-transactional preview; no email is sent or saved. Do not enable any legacy submission form or raffle checkout as part of this preparation task.
+
+The original checklist below is retained for historical/infrastructure reference. Its prize-donation workflow and signup list are not approved cash-raffle launch instructions. No account-side action, export, deletion, or platform change was performed in this task.
 
 The raffle page remains a draft until these account-side steps are complete.
 

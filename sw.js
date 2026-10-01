@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v13-sponsor-flyers';
+const CACHE_NAME = 'neochosen-v29-raffle-holding';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
@@ -10,12 +10,29 @@ const OFFLINE_URLS = [
   '/sponsors/',
   '/sponsorship-opportunities/',
   '/media-kit/',
-  '/thank-you/',
+  '/thank-you/lakewood/',
+  '/vip-dinner/',
+  '/lakewood/',
+  '/piano-guys/',
+  '/fairlawn/',
   '/manifest.webmanifest',
   '/site.css',
   '/site.js',
-  '/images/favicon.png',
-  '/images/hero.png',
+  '/fonts.css',
+  '/homepage.css',
+  '/homepage.js',
+  '/sponsor-system.css',
+  '/editorial.css',
+  '/editorial.js',
+  '/events/event.css',
+  '/sponsors/sponsors.css',
+  '/sponsorship-opportunities/sponsorship.css',
+  '/raffle/raffle.css',
+  '/raffle/cash-raffle.css',
+  '/thank-you/styles.css',
+  '/images/fonts/cinzel.woff2',
+  '/images/fonts/montserrat.woff2',
+  '/images/neo-favicon.png',
   '/images/mayfield-united-methodist-church-logo.jpg'
 ];
 

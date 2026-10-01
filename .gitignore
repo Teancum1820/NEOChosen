@@ -1,7 +1,17 @@
 node_modules/
 dist/
+artifacts/
+.lighthouseci/
+playwright-report/
+test-results/
+storybook-static/
 .wrangler/
 .env
 .dev.vars
+preview/.dev.vars
+preview/worker-configuration.d.ts
+production/.dev.vars
+production/.dev.vars.*
+production/worker-configuration.d.ts
 npm-debug.log*
 wrangler-pages.*.log

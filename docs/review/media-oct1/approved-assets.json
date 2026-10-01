@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-01",
+  "baseCommit": "5a838fed68db675582b84fc9f83ca27d44540457",
+  "rollbackVersion": "dbf90c4d-309f-429e-9732-b36a00b19434",
+  "sources": [
+    {
+      "title": "The Piano Guys — Akron",
+      "pdf": "/media-kit/2026-akron-piano-guys-concert-e04b4a8b4eb9.pdf",
+      "letter": null,
+      "sha256": "e04b4a8b4eb98969f2685def656592a14163f8d86b85e014f3319a4813c8992a",
+      "QR": "https://neochosen.com/",
+      "event": "/piano-guys/"
+    },
+    {
+      "title": "Fairlawn Meet & Greet",
+      "pdf": "/media-kit/2026-fairlawn-meet-and-greet-d339325a1ed2.pdf",
+      "letter": null,
+      "sha256": "d339325a1ed21db5eba6dcfdce23072740195b5a2b57727db05eca58e7274fcc",
+      "QR": "https://neochosen.com/",
+      "event": "/fairlawn/"
+    },
+    {
+      "title": "VIP Sponsor Dinner",
+      "pdf": "/media-kit/2026-vip-sponsor-dinner-802e6e20eb7b.pdf",
+      "letter": null,
+      "sha256": "802e6e20eb7bda7e2faa63602035deed7ac66ff417273ad1eaa6417025357dc1",
+      "QR": "https://neochosen.com",
+      "event": "/vip-dinner/"
+    },
+    {
+      "title": "Master Weekend Schedule",
+      "pdf": "/media-kit/2026-weekend-schedule-3db5433b6102.pdf",
+      "letter": "/media-kit/2026-weekend-schedule-letter-ab3462d6f2df.pdf",
+      "sha256": "3db5433b6102e89cd29dd77e309fa49868c06106908613cc835e7bf1a7e63a22",
+      "QR": "https://neochosen.com/",
+      "event": "/#events"
+    }
+  ]
+}

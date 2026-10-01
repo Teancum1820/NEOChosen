@@ -4,8 +4,14 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { ChevronDown, Heart, Menu, Minus, Plus, Ticket, X } from "lucide-react";
 import { writeSponsorshipPages } from "./sponsorship-pages.mjs";
+import { writeEventPages } from "./event-pages.mjs";
 import { applySiteChrome } from "./site-chrome.mjs";
 import { applySponsorSystem } from "./sponsor-system.mjs";
+import { applyHomepage } from "./homepage.mjs";
+import { writeInteriorPages } from "./interior-pages.mjs";
+import { writeApprovedMedia } from "./approved-media.mjs";
+import { writeBreakfastPage } from "./breakfast-page.mjs";
+import { writeReviewHub } from "./review-hub.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -15,8 +21,9 @@ const rootFiles = new Set(["_headers", "_redirects"]);
 const siteDirs = [
   "thank-you",
   "about-us",
-  "chesterland",
   "donations",
+  "events",
+  "breakfast",
   "get-involved",
   "giveaway-rules",
   "images",
@@ -66,6 +73,11 @@ for (const dir of siteDirs) {
 }
 
 await writeSponsorshipPages(outDir);
+await writeEventPages(outDir);
+await writeInteriorPages(outDir);
+await writeApprovedMedia(outDir);
+await writeBreakfastPage(outDir);
+if (process.env.NEOCHOSEN_REVIEW === "true") await writeReviewHub(outDir);
 
 async function updateChrome(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -73,7 +85,8 @@ async function updateChrome(dir) {
     if (entry.isDirectory()) await updateChrome(file);
     else if (entry.name.endsWith('.html')) {
       const route = '/' + path.relative(outDir, file).split(path.sep).join('/').replace(/index\.html$/, '');
-      await writeFile(file, applySiteChrome(applySponsorSystem(await readFile(file, 'utf8')), route), 'utf8');
+      const source = await readFile(file, 'utf8');
+      await writeFile(file, applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : source), route), 'utf8');
     }
   }
 }

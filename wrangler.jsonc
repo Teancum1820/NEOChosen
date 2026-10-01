@@ -1,22 +1,36 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "neochosen",
-  "pages_build_output_dir": "./dist",
+  "main": "production/worker.ts",
   "compatibility_date": "2026-08-17",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/breakfast-requests"
+    ]
   },
-  "d1_databases": [
+  "vars": {
+    "BREAKFAST_REQUESTS_ENABLED": "true",
+    "BREAKFAST_ALLOWED_ORIGIN": "https://neochosen.com"
+  },
+  "secrets": {
+    "required": [
+      "BREAKFAST_SHEET_ID",
+      "GOOGLE_SERVICE_ACCOUNT_JSON"
+    ]
+  },
+  "ratelimits": [
     {
-      "binding": "RAFFLE_DB",
-      "database_name": "neochosen-raffle",
-      "database_id": "bd1712c6-7ec2-4b3a-be0b-ef525d4c99c2"
+      "name": "BREAKFAST_RATE_LIMITER",
+      "namespace_id": "2026111401",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
     }
   ],
-  "r2_buckets": [
-    {
-      "binding": "RAFFLE_UPLOADS",
-      "bucket_name": "neochosen-raffle-uploads"
-    }
-  ]
+  "observability": {
+    "enabled": true
+  }
 }

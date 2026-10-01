@@ -2,41 +2,28 @@ import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 
-const root = process.cwd();
-const out = path.join(root, 'dist');
-const walk = async (dir) => (await Promise.all((await readdir(dir, { withFileTypes: true })).map(async (entry) => {
+const out = path.resolve('dist');
+const walk = async dir => (await Promise.all((await readdir(dir, { withFileTypes: true })).map(entry => {
   const full = path.join(dir, entry.name);
   return entry.isDirectory() ? walk(full) : full;
 }))).flat();
-const files = (await walk(out)).filter((file) => /\.(html|css|js|webmanifest)$/.test(file) || path.basename(file).startsWith('_'));
-const corpus = (await Promise.all(files.map((file) => readFile(file, 'utf8')))).join('\n');
-const raffle = await readFile(path.join(out, 'raffle', 'index.html'), 'utf8');
-const raffleLower = raffle.toLowerCase();
+const files = (await walk(out)).filter(file => /\.(html|css|js|webmanifest)$/.test(file) || path.basename(file).startsWith('_'));
+const corpus = (await Promise.all(files.map(file => readFile(file, 'utf8')))).join('\n');
+const landing = (await readFile(path.join(out, 'raffle/index.html'), 'utf8')).replace(/\s+/g, ' ');
+const rules = (await readFile(path.join(out, 'raffle/rules/index.html'), 'utf8')).replace(/\s+/g, ' ');
+const main = html => html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
 
-for (const prohibited of [
-  'kirtland-heritage-groups-raffle--2026', 'Buy Raffle Tickets', 'Purchase Raffle Tickets',
-  '$15,000', '$44,000', '3,000 tickets', '1,200 tickets', '20 cash prizes', 'Win Up To'
-]) assert(!corpus.toLowerCase().includes(prohibited.toLowerCase()), `Old raffle marker remains: ${prohibited}`);
-
-for (const prohibited of ['November 1', 'November 13', 'November 15, 2026', 'Chesterland, Ohio']) {
-  assert(!raffleLower.includes(prohibited.toLowerCase()), `Old raffle detail remains on raffle page: ${prohibited}`);
+for (const old of ['kirtland-heritage-groups-raffle--2026', 'Buy Raffle Tickets', 'Purchase Raffle Tickets', '$15,000', '$44,000', '3,000 tickets', '1,200 tickets', '20 cash prizes', 'Win Up To']) {
+  assert(!corpus.toLowerCase().includes(old.toLowerCase()), 'Old raffle marker remains: ' + old);
 }
 
-for (const required of [
-  'NEOChosen Raffle Coming Soon | Kirtland Heritage Group',
-  'Win Extraordinary Experiences.', 'Tickets are not on sale yet.',
-  'Approximately 50 prizes are coming', 'neochosen-raffle-interest',
-  'Donate or pledge a prize — coming soon',
-  'A general donation does not purchase a raffle ticket',
-  'Raffle and Legal Notice', 'class="site-footer"'
-]) assert(raffleLower.includes(required.toLowerCase()), `Required coming-soon content missing: ${required}`);
-
-for (const href of [
-  '/', '/about-us/', '/get-involved/', '/media-kit/', '/sponsors/',
-  '/sponsorship-opportunities/', '/donations/', '/raffle/',
-  '/social-media-links/', '/#tickets'
-]) assert(raffle.includes(`href="${href}"`), `Raffle navigation/footer is missing ${href}`);
-
-assert(corpus.includes('Raffle — Coming Soon'), 'Coming-soon navigation label is missing.');
-assert(!raffle.includes('id="prize-donation-form"'), 'Prize form must remain disabled while marked coming soon.');
-console.log(`Validated raffle coming-soon content and chrome across ${files.length} built text assets.`);
+const content = main(landing);
+assert.match(landing, /<title>NEO Chosen Cash Raffle \| Kirtland Heritage Group<\/title>/);
+for (const required of ['NEO Chosen Cash Raffle — Coming Soon', 'NEO Chosen Cash Raffle', 'Six cash prizes.', 'One great cause.', 'We’re preparing a cash raffle supporting Kirtland Heritage Group’s community, historical, charitable, and interfaith programs throughout Greater Northeast Ohio.']) assert(content.includes(required));
+assert.doesNotMatch(content, /<section|<aside|<form|<input|<button|<a\b|<table|notification|rules|Pending final approvals|potential for thousands|prize amounts|Ticket sales are not authorized/i);
+assert.doesNotMatch(landing, /data-zeffy-embed|src="\/raffle\/cash-raffle\.js"|href="\/raffle\/rules\/"/);
+assert.match(rules, /http-equiv="refresh" content="0; url=\/raffle\/"/);
+assert.doesNotMatch(rules, /DRAFT Official Raffle Rules|cash-rule-section|cash-notification-preview/);
+assert(corpus.includes('Raffle — Coming Soon'));
+assert(!files.some(file => file.includes('raffle-archive')));
+console.log('Validated minimal cash raffle holding copy, no notifications/rules/purchase UI, deferred-rules redirect, and excluded archives.');

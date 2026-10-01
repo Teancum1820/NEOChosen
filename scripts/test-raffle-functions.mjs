@@ -24,6 +24,11 @@ const validForm = () => {
   return form;
 };
 const originalFetch = globalThis.fetch;
+const beforeClosedRequest = statementLog.length;
+response = await prize.onRequestPost({ request: new Request('https://example.com/api/prize-donations', { method: 'POST', body: validForm() }), env: { RAFFLE_DB: db, RAFFLE_UPLOADS: bucket } });
+assert.equal(response.status, 503);
+assert.equal(statementLog.length, beforeClosedRequest);
+assert.equal(objects.size, 0);
 globalThis.fetch = async (url) => String(url).startsWith('https://api.resend.com/') ? new Response('{}', { status: 200 }) : originalFetch(url);
 response = await prize.onRequestPost({ request: new Request('https://example.com/api/prize-donations', { method: 'POST', body: validForm() }), env: { PRIZE_FORM_ENABLED: 'true', RAFFLE_DB: db, RAFFLE_UPLOADS: bucket, RESEND_API_KEY: 'test', RAFFLE_ALERT_FROM: 'test@example.com' } });
 assert.equal(response.status, 201);

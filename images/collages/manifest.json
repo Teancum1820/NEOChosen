@@ -1,0 +1,46 @@
+{
+  "chosen-cast": {
+    "width": 1254,
+    "height": 1254,
+    "variants": [
+      {
+        "src": "/images/collages/chosen-cast-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/collages/chosen-cast-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/collages/chosen-cast-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/images/collages/chosen-cast-1254.webp",
+        "width": 1254
+      }
+    ]
+  },
+  "chosen-and-piano-guys": {
+    "width": 1254,
+    "height": 1254,
+    "variants": [
+      {
+        "src": "/images/collages/chosen-and-piano-guys-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/collages/chosen-and-piano-guys-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/collages/chosen-and-piano-guys-1200.webp",
+        "width": 1200
+      },
+      {
+        "src": "/images/collages/chosen-and-piano-guys-1254.webp",
+        "width": 1254
+      }
+    ]
+  }
+}

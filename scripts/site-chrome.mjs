@@ -12,42 +12,65 @@ const link = (href, label, currentPath, className = '') =>
 
 export function applySiteChrome(html, currentPath) {
   if (!html.includes('class="site-nav"')) return html; // Preserve redirect documents.
-  if (!html.includes('family=Montserrat')) {
-    html = html.replace('</head>', '<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">\n</head>');
-  }
+  // Same approved fonts, served locally for reliable critical rendering.
+  html = html.replace(/\s*<link[^>]+href="https:\/\/(?:fonts.googleapis.com|fonts.gstatic.com)[^>]+>/g, '')
+    .replace('href="/images/favicon.png"', 'href="/images/neo-favicon.png"');
+  if (!html.includes('href="/fonts.css"')) html = html.replace('</head>', '<link rel="stylesheet" href="/fonts.css">\n</head>');
   const item = (href, label, className) => link(href, label, currentPath, className);
+  const eventTicketLabel = currentPath.startsWith('/raffle/') ? 'Concert &amp; event details' : 'Get Tickets';
   const dropdown = (id, label, content) => `<div class="nav-dropdown">
     <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="${id}">${label}</button>
     <div class="nav-dropdown-menu" id="${id}">${content}</div>
   </div>`;
   const nav = `<a class="site-skip-link" href="#main-content">Skip to content</a>
   <nav class="site-nav" aria-label="Main navigation">
-    <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span>Chosen</span></a>
+    <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
     <div class="site-nav-links" id="primary-nav">
-      ${item('/', 'Home')}
       ${item('/#events', 'Events')}
+      ${item('/#performers', 'Performers')}
       ${item('/about-us/', 'About Us')}
       ${item('/get-involved/', 'Get Involved')}
       ${dropdown('sponsor-navigation', 'Sponsors', item('/sponsors/', 'Our Sponsors') + item('/sponsorship-opportunities/', 'Become a Sponsor'))}
-      ${dropdown('resource-navigation', 'Explore', item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/raffle/', 'Raffle — Coming Soon') + item('/social-media-links/', 'Social Media'))}
-      <div class="nav-social-links" role="group" aria-label="Follow NEOChosen">${headerSocialLinks}</div>
-      ${item('/#tickets', 'Get Tickets', 'nav-ticket')}
+      ${dropdown('resource-navigation', 'More', item('/vip-dinner/', 'VIP Sponsor Dinner') + item('/lakewood/', 'Lakewood Event') + item('/piano-guys/', 'The Piano Guys Concert') + item('/fairlawn/', 'Fairlawn Meet &amp; Greet') + item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/raffle/', 'Raffle — Coming Soon') + item('/social-media-links/', 'Social Media'))}
+      ${item('/donations/', 'Donate', 'nav-donate')}
+      ${item('/#events', 'Explore Weekend', 'nav-ticket')}
     </div>
     <div class="site-nav-actions">
+      <div class="nav-social-links" role="group" aria-label="Follow NEOChosen">${headerSocialLinks}</div>
       <a class="site-donate" href="/donations/">Donate</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">Menu</button>
     </div>
   </nav>`;
-  const footer = `<footer class="site-footer">
+  const footer = currentPath === '/' ? `<footer class="site-footer">
     <div class="site-footer-grid">
       <div class="site-footer-brand">
-        <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span>Chosen</span></a>
+        <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
+        <p>Uniting neighbors in faith &amp; fellowship across Northeast Ohio.</p>
+        <p>Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Explore NEOChosen">
+        <h2>Explore</h2>
+        ${item('/#events', 'Weekend Events')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}
+      </nav>
+      <div class="site-footer-contact">
+        <h2>Contact</h2>
+        <a href="mailto:info@kirtlandheritagegroup.com">info@kirtlandheritagegroup.com</a>
+        <a href="tel:+14407961642">440-796-1642</a>
+        <div class="site-follow-links">${socialLinks}</div>
+        <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group <span aria-label="(opens in a new tab)">↗</span></a>
+      </div>
+    </div>
+    <div class="site-footer-bottom"><p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p><a href="#main-content">Back to top ↑</a></div>
+  </footer>` : `<footer class="site-footer">
+    <div class="site-footer-grid">
+      <div class="site-footer-brand">
+        <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
         <p>Uniting neighbors in faith &amp; fellowship across Northeast Ohio.</p>
         <p>Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit.</p>
       </div>
       <nav class="site-footer-links" aria-label="Events and information">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/#tickets', 'Get Tickets')}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}${item('/raffle/', 'Raffle — Coming Soon')}
+        ${item('/#events', 'Weekend Events')}${item('/#tickets', eventTicketLabel)}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}${item('/raffle/', 'Raffle — Coming Soon')}
       </nav>
       <nav class="site-footer-links" aria-label="Support and resources">
         <h2>Get Involved</h2>
@@ -74,6 +97,9 @@ export function applySiteChrome(html, currentPath) {
   } else {
     html = html.replace('</nav>', '</nav><main id="main-content" tabindex="-1">')
       .replace('<footer class="site-footer">', '</main><footer class="site-footer">');
+  }
+  if (!html.includes('src="/concert-tickets.js"')) {
+    html = html.replace('</body>', '<script src="/concert-tickets.js" defer></script>\n</body>');
   }
   return html;
 }
