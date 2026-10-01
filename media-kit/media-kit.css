@@ -1,0 +1,23 @@
+/* Styles shared only by the approved media gallery and related flyer sections. */
+.approved-media-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; }
+.approved-media-card { padding:24px; display:flex; flex-direction:column; }
+.approved-media-card .asset-preview-link { display:flex; align-items:center; justify-content:center; min-height:0; }
+.approved-media-card .asset-preview { height:460px; width:100%; object-fit:contain; }
+.approved-media-card .asset-info { padding-top:24px; }
+.approved-media-card h3 { font-family:var(--font-display); font-size:clamp(24px,2.5vw,30px); line-height:1.25; margin:8px 0 16px; }
+.approved-media-card .editorial-kicker { margin-bottom:8px; }
+.approved-media-card .asset-actions,.approved-media-card .asset-secondary { display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-top:20px; }
+.approved-media-card .asset-actions a { min-height:48px; }
+.approved-media-card .asset-secondary a { padding:12px 0; }
+.approved-media-card .media-print-note { max-width:42ch; }
+.event-flyer-layout { display:grid; grid-template-columns:minmax(180px,280px) minmax(0,1fr); gap:48px; align-items:center; }
+.event-flyer .asset-preview { width:100%; height:auto; max-height:440px; object-fit:contain; }
+.event-flyer h2 { max-width:24ch; }
+@media(max-width:800px) {
+  .approved-media-grid,.event-flyer-layout { grid-template-columns:1fr; gap:24px; }
+  .approved-media-card { padding:20px; }
+  .approved-media-card .asset-preview { height:auto; max-height:480px; }
+  .approved-media-card .asset-actions { flex-direction:column; align-items:stretch; }
+  .approved-media-card .asset-actions a { justify-content:center; }
+  .event-flyer .asset-preview-link { max-width:340px; }
+}

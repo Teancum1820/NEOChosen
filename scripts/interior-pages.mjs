@@ -1,8 +1,9 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { page, hero, section, callout, action } from "./editorial-page.mjs";
 import { renderImage } from "../design-system/image.mjs";
 import { pressRelease } from "./press-release.mjs";
+import { approvedMedia, mediaCard, mediaStyles } from "./approved-media.mjs";
 
 const organization = "Kirtland Heritage Group";
 const volunteer =
@@ -130,45 +131,10 @@ const social =
     `<div class="editorial-article"><div class="editorial-copy"><h3>Facebook</h3><p>Follow Kirtland Heritage Group for NEOChosen announcements and community updates.</p>${action("https://www.facebook.com/people/Kirtland-Heritage-Group/61572253884775/", "Open Facebook")}<hr><h3>Instagram</h3><p>See moments from events, behind-the-scenes news, and stories from the weekend.</p>${action("https://www.instagram.com/kirtland.heritage.group", "Open Instagram")}<hr><h3>Share with your community</h3><p>Find event artwork and check current event details before sharing with your congregation, school, or neighbors.</p>${action("/media-kit/", "Explore the media kit")}</div><aside class="editorial-aside"><p class="editorial-kicker">Email updates</p><h2>Get news directly.</h2><p>Sign up for event announcements and official theater-ticket updates.</p>${action("/#event-updates", "Sign up for updates")}</aside></div>`,
   );
 
-// Keep the original downloadable artwork and URLs. Labels describe the artwork
-// accurately instead of implying that older print files have been reapproved.
-async function media(outDir) {
-  const original = await readFile(
-    path.join(outDir, "media-kit/index.html"),
-    "utf8",
-  );
-  const assets = [
-    ...original.matchAll(/<article class="asset-card">[\s\S]*?<\/article>/g),
-  ].map((m) =>
-    m[0]
-      .replace(/<p class="asset-reviewed">[\s\S]*?<\/p>/g, "")
-      .replace(/class="gold-button"/g, 'class="editorial-link"')
-      .replace(/class="asset-preview" src="([^"]+)"/, (_, source) => {
-        const basename = path.basename(
-          new URL(source, "https://local.test").pathname,
-          ".png",
-        );
-        return `class="asset-preview" src="/images/media-previews/${basename}-480.webp" srcset="/images/media-previews/${basename}-480.webp 480w, /images/media-previews/${basename}-900.webp 900w" sizes="(max-width:800px) calc(100vw - 88px), (max-width:1100px) 43vw, 36vw"`;
-      }),
-  );
-  if (assets.length !== 8) throw Error("Expected eight supplied media assets");
-  return (
-    hero(
-      "Media kit",
-      "Share the weekend.",
-    ) +
-    pressRelease +
-    section(
-      "Weekend overview",
-      "Start with the big picture.",
-      `<div class="media-grid">${assets.slice(0, 2).join("")}</div>`,
-    ) +
-    section(
-      "Event flyers",
-      "Find artwork for your event.",
-      `<div class="media-grid">${assets.slice(2).join("")}</div>`,
-      "editorial-section--white event-flyers",
-    )
+function media() {
+  return hero("Media kit", "Share the weekend.") + pressRelease + section(
+    "Official event artwork", "Download and share.",
+    '<div class="approved-media-grid">' + approvedMedia.map(mediaCard).join("") + "</div>",
   );
 }
 
@@ -178,11 +144,12 @@ export async function writeInteriorPages(outDir) {
     "get-involved": involved,
     donations,
     "social-media-links": social,
-    "media-kit": await media(outDir),
+    "media-kit": media(),
   })) {
     await writeFile(
       path.join(outDir, slug, "index.html"),
       page({
+        extraHead: slug === "media-kit" ? `<link rel="stylesheet" href="${mediaStyles}">` : "",
         title: titles[slug],
         description: descriptions[slug],
         route: `/${slug}/`,

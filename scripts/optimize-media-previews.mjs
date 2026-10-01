@@ -1,19 +1,14 @@
 import sharp from "sharp";
-import { readFile, mkdir } from "node:fs/promises";
-import path from "node:path";
+import { mkdir } from "node:fs/promises";
+import { approvedMedia } from "./approved-media.mjs";
 
-const original = await readFile("media-kit/index.html", "utf8");
 await mkdir("images/media-previews", { recursive: true });
-for (const [, source] of original.matchAll(
-  /class="asset-preview" src="([^"]+)"/g,
-)) {
-  const pathname = new URL(source, "https://local.test").pathname;
-  const filename = path.basename(pathname, ".png");
+for (const asset of approvedMedia) {
   for (const width of [480, 900])
-    await sharp("." + pathname)
+    await sharp(`media-kit/${asset.base}.png`)
       .resize({ width, withoutEnlargement: true })
       .webp({ quality: 80 })
-      .toFile(`images/media-previews/${filename}-${width}.webp`);
+      .toFile(`.${asset.preview}-${width}.webp`);
 }
 console.log(
   "Created responsive web previews; original PNG/PDF downloads are unchanged.",

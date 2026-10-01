@@ -1,758 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Kit | Kirtland Heritage Group</title>
-  <meta name="description" content="View NEOChosen 2026 event flyers, the weekend schedule, and current sponsorship opportunities with links to the latest event details.">
-  <link rel="canonical" href="https://neochosen.com/media-kit/">
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#0a0806">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/sponsor-system.css">
-  <style>
-    :root {
-      --black: #050505;
-      --gold: #d7b956;
-      --soft-gold: #f1dc88;
-      --cream: #f5efd8;
-      --warm-gray: #b7ad97;
-      --line: rgba(215, 185, 86, 0.32);
-      --panel: rgba(12, 11, 9, 0.86);
-      --radius-sm: 10px;
-      --radius-md: 16px;
-      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.28);
-      --shadow-strong: 0 24px 70px rgba(0, 0, 0, 0.55);
-    }
-
-    * { box-sizing: border-box; }
-
-    html { font-size: 112.5%; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Montserrat', sans-serif;
-      color: var(--cream);
-      background:
-        radial-gradient(circle at 78% 8%, rgba(215, 185, 86, 0.15), transparent 26%),
-        radial-gradient(circle at 20% 22%, rgba(111, 82, 25, 0.22), transparent 30%),
-        linear-gradient(135deg, #060606 0%, #0d0b08 45%, #191207 100%);
-      line-height: 1.75;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px);
-      background-size: 64px 64px;
-      opacity: 0.16;
-      mix-blend-mode: screen;
-      z-index: 0;
-    }
-
-    body::after {
-      content: 'KIRTLAND';
-      position: fixed;
-      left: -4vw;
-      top: 2vh;
-      font-family: 'Cinzel', serif;
-      font-size: clamp(88px, 18vw, 240px);
-      letter-spacing: 0.04em;
-      color: rgba(215, 185, 86, 0.055);
-      line-height: 0.85;
-      white-space: nowrap;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    a { color: var(--soft-gold); }
-    img { max-width: 100%; height: auto; }
-    button, a { font: inherit; }
-
-    .site-nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 0.6rem 0.65rem;
-      background: rgba(10, 8, 6, 0.92);
-      border-bottom: 1px solid rgba(201, 168, 76, 0.35);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 10px 24px rgba(0,0,0,.35);
-    }
-
-    .nav-toggle {
-      width: 100%;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(201, 168, 76, 0.14);
-      color: #f5efe0;
-      border: 1px solid rgba(201, 168, 76, 0.45);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 0.68rem;
-      padding: 0.65rem 0.75rem;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-    }
-
-    .site-nav-links {
-      display: none;
-      grid-template-columns: 1fr;
-      gap: 0.45rem;
-      margin-top: 0.55rem;
-    }
-
-    .site-nav.is-open .site-nav-links { display: grid; }
-
-    .site-nav a,
-    .nav-dropdown-toggle {
-      white-space: nowrap;
-      color: #f5efe0;
-      text-decoration: none;
-      font-size: 0.86rem;
-      letter-spacing: 0.04em;
-      padding: 0.5rem 0.55rem;
-      border: 1px solid rgba(201, 168, 76, 0.2);
-      border-radius: var(--radius-sm);
-      text-align: center;
-      background: rgba(0,0,0,0.25);
-      transition: border-color .2s ease, background-color .2s ease, color .2s ease;
-    }
-
-    .nav-dropdown { position: relative; }
-
-    .nav-dropdown-toggle {
-      width: 100%;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .site-nav a[aria-current="page"],
-    .site-nav a:hover,
-    .site-nav a:focus-visible,
-    .nav-dropdown-toggle:hover,
-    .nav-dropdown-toggle:focus-visible {
-      border-color: rgba(201, 168, 76, 0.55);
-      color: var(--soft-gold);
-      outline: none;
-    }
-
-    .nav-dropdown-menu {
-      display: none;
-      position: static;
-      margin-top: 0.35rem;
-      min-width: 200px;
-      background: rgba(10, 8, 6, 0.96);
-      border: 1px solid rgba(201, 168, 76, 0.35);
-      z-index: 1001;
-    }
-
-    .nav-dropdown.is-open .nav-dropdown-menu,
-    .nav-dropdown:hover .nav-dropdown-menu,
-    .nav-dropdown:focus-within .nav-dropdown-menu {
-      display: grid;
-    }
-
-    .nav-dropdown-menu a {
-      display: block;
-      padding: 0.5rem 0.6rem;
-    }
-
-    .site-nav a.nav-ticket {
-      background: linear-gradient(135deg, var(--gold), #a87c28);
-      color: #0a0806;
-      border-color: rgba(0,0,0,0.15);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
-
-    .site-nav a.nav-ticket:hover,
-    .site-nav a.nav-ticket:focus-visible {
-      color: #0a0806 !important;
-      border-color: rgba(0,0,0,0.25);
-      box-shadow: none;
-    }
-
-    @media (min-width: 768px) {
-      .nav-toggle { display: none; }
-
-      .site-nav-links {
-        display: flex !important;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-top: 0;
-      }
-
-      .site-nav a,
-      .nav-dropdown-toggle {
-        border: 1px solid transparent;
-        padding: 0.3rem 0.5rem;
-        background: transparent;
-      }
-
-      .nav-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        margin-top: 0;
-        padding: 0.35rem;
-        min-width: 220px;
-        box-shadow: var(--shadow-soft);
-      }
-
-      .nav-dropdown-menu a { text-align: left; }
-    }
-
-    .page-shell {
-      position: relative;
-      z-index: 1;
-      width: min(1400px, 100% - 2rem);
-      margin-inline: auto;
-      padding: 2.6rem 0 2rem;
-    }
-
-    .glassmorphism {
-      position: relative;
-      background: var(--panel);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-strong);
-      padding: clamp(1.25rem, 3vw, 3rem);
-    }
-
-    .glassmorphism::before,
-    .asset-card::before {
-      content: '';
-      position: absolute;
-      inset: 10px;
-      border: 1px solid rgba(215, 185, 86, 0.14);
-      pointer-events: none;
-      border-radius: calc(var(--radius-md) - 4px);
-    }
-
-    .page-header {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 2.2rem;
-    }
-
-    .eyebrow {
-      margin: 0 0 0.85rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.44em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    h1 {
-      margin: 0;
-      font-family: 'Cinzel', serif;
-      color: var(--soft-gold);
-      font-size: clamp(2.2rem, 5.2vw, 3.4rem);
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-shadow: 0 0 32px rgba(215, 185, 86, 0.22);
-    }
-
-    .hero-subtitle {
-      margin: 1rem auto 0;
-      color: var(--warm-gray);
-      max-width: 760px;
-    }
-
-    .divider-line {
-      width: 1px;
-      height: 54px;
-      background: linear-gradient(transparent, var(--gold), transparent);
-      margin: 28px auto 0;
-      opacity: 0.75;
-    }
-
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.1rem;
-    }
-
-    .weekend-presenting-credit {
-      max-width: 860px;
-      margin: 0 auto 2rem;
-      padding: 1rem 1.25rem;
-      border: 1px solid rgba(215, 185, 86, 0.3);
-      border-radius: var(--radius-sm);
-      background: rgba(0, 0, 0, 0.25);
-      text-align: center;
-    }
-
-    .neo-weekend-sponsor-credit {
-      margin: 0;
-      color: var(--warm-gray);
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-
-    .neo-weekend-sponsor-credit strong { color: var(--cream); }
-
-    .weekend-presenting-credit .neo-weekend-sponsor-credit {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.3rem 0.45rem;
-    }
-
-    .neo-weekend-sponsor-credit a {
-      color: var(--soft-gold);
-      font-weight: 600;
-      text-decoration: underline;
-      text-underline-offset: 0.2em;
-    }
-
-    .neo-weekend-sponsor-credit a:hover { color: var(--cream); }
-
-    .neo-weekend-sponsor-credit a:focus-visible {
-      outline: 2px solid var(--soft-gold);
-      outline-offset: 4px;
-      border-radius: 2px;
-    }
-
-    .media-section + .media-section {
-      margin-top: 2.75rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(215, 185, 86, 0.2);
-    }
-
-    .media-section-heading {
-      margin: 0 0 1.25rem;
-      font-family: 'Cinzel', serif;
-      color: var(--soft-gold);
-      font-size: clamp(1.45rem, 3vw, 2rem);
-      font-weight: 400;
-      letter-spacing: 0.07em;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .asset-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-      overflow: hidden;
-      background: rgba(0, 0, 0, 0.34);
-      border: 1px solid rgba(215, 185, 86, 0.24);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-soft);
-      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-    }
-
-    .asset-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(241, 220, 136, 0.5);
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
-    }
-
-    .asset-preview-link {
-      display: block;
-      background: rgba(0, 0, 0, 0.32);
-    }
-
-    .asset-preview-link:focus-visible {
-      outline: 2px solid var(--soft-gold);
-      outline-offset: -4px;
-    }
-
-    .asset-preview {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-bottom: 1px solid rgba(215, 185, 86, 0.2);
-    }
-
-    .asset-body {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      gap: 0.85rem;
-      padding: 1.1rem;
-    }
-
-    .asset-body h2 {
-      margin: 0;
-      font-family: 'Cinzel', serif;
-      color: var(--soft-gold);
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      font-weight: 400;
-      letter-spacing: 0.04em;
-    }
-
-    .asset-body p {
-      margin: 0;
-      color: var(--warm-gray);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    .asset-body .asset-reviewed { color: var(--soft-gold); font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
-
-    .gold-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: auto;
-      min-height: 2.65rem;
-      padding: 0.65rem 1rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(241, 220, 136, 0.5);
-      background: linear-gradient(135deg, var(--gold), #a87c28);
-      color: #090806;
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-    }
-
-    .gold-button:hover,
-    .gold-button:focus-visible {
-      transform: translateY(-2px);
-      filter: brightness(1.06);
-      box-shadow: var(--shadow-soft);
-      outline: 2px solid rgba(241, 220, 136, 0.7);
-      outline-offset: 2px;
-    }
-
-    .asset-actions {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.65rem;
-      margin-top: auto;
-    }
-
-    .asset-actions .gold-button {
-      margin-top: 0;
-    }
-
-    .event-flyers .asset-actions {
-      grid-template-columns: 1fr;
-    }
-
-    .site-footer {
-      position: relative;
-      z-index: 1;
-      margin-top: 2rem;
-      padding: 2.5rem 1rem 2.75rem;
-      text-align: center;
-      background: #000;
-    }
-
-    .site-footer .footer-logo {
-      font-family: "Cinzel", serif;
-      letter-spacing: 0.35em;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.9rem;
-    }
-
-    .site-footer p {
-      margin: 0;
-      color: rgba(245, 239, 224, 0.65);
-    }
-
-    .site-footer p + p { margin-top: 0.45rem; }
-    .site-footer p:last-child { color: rgba(245, 239, 224, 0.6); }
-    .site-footer a { color: rgba(245,239,224,0.75); }
-
-    @media (max-width: 767px) {
-      body { line-height: 1.65; }
-      .site-nav { padding: .7rem; }
-      .page-shell { width: min(100% - 1rem, 1400px); padding-top: 1rem; }
-      .glassmorphism { padding: 1rem; }
-      .asset-body { padding: 1rem; }
-      .asset-actions { gap: 0.45rem; }
-      .asset-actions .gold-button {
-        min-height: 2.55rem;
-        padding: 0.55rem 0.35rem;
-        font-size: 0.72rem;
-        letter-spacing: 0.045em;
-        white-space: nowrap;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        transition: none !important;
-        animation: none !important;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="/responsive-pages.css">
-  <link rel="stylesheet" href="/site.css">
-  <script src="/site.js" defer></script>
-</head>
-<body>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Media Kit | NEOChosen 2026</title><meta name="description" content="Download the approved October 1, 2026 NEOChosen press release and find weekend artwork, sponsorship resources and event details."><link rel="canonical" href="https://neochosen.com/media-kit/"><meta property="og:type" content="website"><meta property="og:site_name" content="NEOChosen"><meta property="og:title" content="Media Kit | NEOChosen 2026"><meta property="og:description" content="Download the approved October 1, 2026 NEOChosen press release and find weekend artwork, sponsorship resources and event details."><meta property="og:url" content="https://neochosen.com/media-kit/"><meta property="og:image" content="https://neochosen.com/images/NeoHeader.webp"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/png" href="/images/neo-favicon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#101a2d"><link rel="stylesheet" href="/site.css"><link rel="stylesheet" href="/sponsor-system.css"><link rel="stylesheet" href="/editorial.css"><script src="/site.js" defer></script><link rel="stylesheet" href="/media-kit/media-kit.css?v=84e3ec1277c2"><link rel="stylesheet" href="/fonts.css">
+</head><body class="editorial-page "><a class="site-skip-link" href="#main-content">Skip to content</a>
   <nav class="site-nav" aria-label="Main navigation">
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
     <div class="site-nav-links" id="primary-nav">
-      <a href="/">Home</a>
+      <a href="/#events">Events</a>
+      <a href="/#performers">Performers</a>
       <a href="/about-us/">About Us</a>
       <a href="/get-involved/">Get Involved</a>
-      <a href="/media-kit/" aria-current="page">Media Kit</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Our Sponsors</button>
-        <div class="nav-dropdown-menu">
-          <a href="/sponsors/">Our Sponsors</a>
-          <a href="/sponsorship-opportunities/">Become a sponsor</a>
+    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="sponsor-navigation">Sponsors</button>
+    <div class="nav-dropdown-menu" id="sponsor-navigation"><a href="/sponsors/">Our Sponsors</a><a href="/sponsorship-opportunities/">Become a Sponsor</a></div>
+  </div>
+      <div class="nav-dropdown">
+    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="resource-navigation">More</button>
+    <div class="nav-dropdown-menu" id="resource-navigation"><a href="/vip-dinner/">VIP Donor Dinner</a><a href="/lakewood/">Lakewood Event</a><a href="/piano-guys/">The Piano Guys Concert</a><a href="/fairlawn/">Fairlawn Meet &amp; Greet</a><a href="/chesterland/">Chesterland Meet &amp; Greet</a><a href="/media-kit/" aria-current="page">Media Kit</a><a href="/raffle/">Raffle — Coming Soon</a><a href="/social-media-links/">Social Media</a></div>
+  </div>
+      <a href="/donations/" class="nav-donate">Donate</a>
+      <a href="/#events" class="nav-ticket">Explore Weekend</a>
+    </div>
+    <div class="site-nav-actions">
+      <div class="nav-social-links" role="group" aria-label="Follow NEOChosen"><a href="https://www.facebook.com/people/Kirtland-Heritage-Group/61572253884775/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"><svg class="follow-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V21.88A9.962 9.962 0 0022 12z" clip-rule="evenodd" />
+            </svg><span>Facebook</span></a><a href="https://www.instagram.com/kirtland.heritage.group" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"><svg class="follow-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7.177a4.823 4.823 0 100 9.646 4.823 4.823 0 000-9.646zm0 7.78a2.953 2.953 0 110-5.906 2.953 2.953 0 010 5.906zM20.15 5.562a1.28 1.28 0 10-2.56 0 1.28 1.28 0 002.56 0z" clip-rule="evenodd" />
+            </svg><span>Instagram</span></a></div>
+      <a class="site-donate" href="/donations/">Donate</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">Menu</button>
+    </div>
+  </nav><main id="main-content" tabindex="-1"><header class="editorial-hero"><div class="editorial-hero-copy"><p class="editorial-kicker">Media kit</p><h1>Share the weekend.</h1></div></header>
+<section class="editorial-section editorial-section--white media-press-release" id="press-release" aria-labelledby="press-release-heading">
+  <div class="editorial-shell">
+    <p class="editorial-kicker">October 1, 2026</p>
+    <h2 id="press-release-heading">Official press release.</h2>
+    <article class="media-release-card">
+      <div class="editorial-copy">
+        <h3>The Chosen Cast and The Piano Guys Come to Northeast Ohio Nov. 13–15</h3>
+        <p>Three-day NEOChosen Weekend includes free events in Lakewood, Fairlawn and Chesterland, a VIP donor dinner and a separately ticketed concert at Akron Civic Theatre</p>
+        <div class="editorial-actions">
+          <a class="editorial-button" href="/media-kit/neochosen-press-release-2026-10-01.pdf" download="neochosen-press-release-2026-10-01.pdf">Download press release PDF <span aria-hidden="true">↓</span></a>
+          <a class="editorial-link" href="/media-kit/neochosen-press-release-2026-10-01.pdf" target="_blank" rel="noopener noreferrer">View PDF <span class="sr-only">(opens in a new tab)</span><span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <a href="/donations/">Donations</a>
-      <a href="/raffle/">Raffle — Coming Soon</a>
-      <a href="/social-media-links/">Social Media</a>
-      <a href="/#tickets" class="nav-ticket">Get Tickets</a>
+      <details class="media-release-details">
+        <summary>Read the full press release</summary>
+        <div class="editorial-copy media-release-copy">
+          <p class="media-release-status">FOR IMMEDIATE RELEASE</p>
+          <h3>The Chosen Cast and The Piano Guys Come to Northeast Ohio Nov. 13–15</h3>
+          <p><em>Three-day NEOChosen Weekend includes free events in Lakewood, Fairlawn and Chesterland, a VIP donor dinner and a separately ticketed concert at Akron Civic Theatre</em></p>
+          <address>Media contact: Jessica Barber | Kirtland Heritage Group<br><a href="tel:+18013908574">(801) 390-8574</a> | <a href="mailto:jessica@kirtlandheritagegroup.com">jessica@kirtlandheritagegroup.com</a> | <a href="/">NEOChosen.com</a></address>
+          <p>CLEVELAND, Ohio — Oct. 1, 2026 — Four cast members from The Chosen and musical group The Piano Guys will visit Northeast Ohio Nov. 13–15 for NEOChosen Weekend, a regional gathering of live music, cast conversations, meet-and-greets and community events organized by Kirtland Heritage Group and presented by Great Lakes Auto Group. Participating cast members include Shaan Sharma (Shmuel), Noah James (Andrew), Vanessa Benavente (Mother Mary) and Yasmine Al-Bustami (Ramah).</p>
+          <p>The Piano Guys will perform Saturday, Nov. 14, at 4 p.m. at Akron Civic Theatre. Tickets go on sale Friday, Oct. 2, 2026. Visit <a href="/">NEOChosen.com</a> for ticket information. The weekend also includes three free public events requiring advance registration, plus a VIP donor and sponsor gathering.</p>
+          <p>Kirtland Heritage Group projects approximately 5,000 event attendances across the weekend, building on its 2025 programs featuring cast members from The Chosen, which welcomed nearly 1,800 attendees and representatives from 158 congregations across Northern Ohio.</p>
+          <p>“We want to bring families, congregations, community organizations and neighbors together for a weekend centered on faith, music, service and connection,” said Joe Jackson, president of Kirtland Heritage Group. “Our goal is to create an atmosphere where people from different communities and faith traditions feel welcome.”</p>
+          <h4>NEOCHOSEN WEEKEND SCHEDULE</h4>
+          <p>Friday, Nov. 13 — VIP Donor Dinner | 5 p.m. | Windows on the River, 2000 Sycamore Street, Cleveland. A donor and sponsor gathering with The Piano Guys, participating cast members from The Chosen and community guests.</p>
+          <p>Friday, Nov. 13 — Evening with Cast Members from The Chosen | 7:30 p.m.; doors at 6 p.m. | Lakewood Civic Auditorium, 14100 Franklin Blvd., Lakewood. Free admission; advance registration required at <a href="/">NEOChosen.com</a>.</p>
+          <p>Saturday, Nov. 14 — The Piano Guys Live | 4 p.m.; doors at 3 p.m. | Akron Civic Theatre, 182 S. Main St., Akron. Separately ticketed concert; tickets go on sale Friday, Oct. 2. Ticket information at <a href="/">NEOChosen.com</a>.</p>
+          <p>Saturday, Nov. 14 — Fairlawn Meet &amp; Greet | 7 p.m. | St. Hilary Church, 2750 W. Market St., Fairlawn. Free admission; advance registration required at <a href="/">NEOChosen.com</a>.</p>
+          <p>Sunday, Nov. 15 — Chesterland Meet &amp; Greet | 2 p.m. | Mayfield United Methodist Church, 7747 Mayfield Road, Chesterland. Free admission; advance registration required at <a href="/">NEOChosen.com</a>.</p>
+          <p>NEOChosen Weekend is presented by Great Lakes Auto Group. FNA Wealth Management presents The Piano Guys concert at Akron Civic Theatre, while Advanced Care Endodontics and FNA Wealth Management present the Fairlawn Meet &amp; Greet. Kirtland Heritage Group is also connecting congregations, nonprofits, schools, businesses, civic leaders and volunteers throughout Northeast Ohio to support the weekend.</p>
+          <p>Registration, schedules, ticket information and announcements are available at <a href="/">NEOChosen.com</a>. Event schedules and talent participation are subject to change. Media interview and event-coverage requests may be directed to Jessica Barber using the contact information above.</p>
+          <h4>ABOUT KIRTLAND HERITAGE GROUP</h4>
+          <p>Kirtland Heritage Group is a Northeast Ohio-based 501(c)(3) nonprofit that brings people together through faith-centered, family-friendly events, interfaith relationships, service initiatives, music and community programs. The organization works with congregations, schools, businesses, civic leaders, volunteers and nonprofit partners throughout Greater Northeast Ohio. Learn more at <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">KirtlandHeritageGroup.com</a>.</p>
+          <p class="media-release-end">###</p>
+        </div>
+      </details>
+    </article>
+  </div>
+</section><section class="editorial-section "><div class="editorial-shell"><p class="editorial-kicker">Official event artwork</p><h2>Download and share.</h2><div class="approved-media-grid"><article class="asset-card approved-media-card" id="akron-flyer">
+    <a class="asset-preview-link" href="/media-kit/2026-akron-piano-guys-concert-e04b4a8b4eb9.pdf" target="_blank" rel="noopener noreferrer" aria-label="View The Piano Guys — Akron PDF"><img class="asset-preview" src="/images/media-previews/2026-akron-piano-guys-concert-d9f12a587264-480.webp" alt="The Piano Guys — Akron official flyer" width="1700" height="2200" srcset="/images/media-previews/2026-akron-piano-guys-concert-d9f12a587264-480.webp 480w, /images/media-previews/2026-akron-piano-guys-concert-d9f12a587264-900.webp 900w" sizes="(max-width:800px) calc(100vw - 96px), 38vw" loading="lazy" decoding="async" style="object-position:center"></a>
+    <div class="asset-info"><p class="editorial-kicker">Event flyer</p><h3>The Piano Guys — Akron</h3><p>Saturday, November 14 · 4:00 PM · Akron Civic Theatre</p>
+
+    <div class="asset-actions"><a class="editorial-button" href="/media-kit/2026-akron-piano-guys-concert-e04b4a8b4eb9.pdf" download aria-label="Download The Piano Guys — Akron PDF">Download PDF</a></div>
+    <div class="asset-secondary"><a class="editorial-link" href="/media-kit/2026-akron-piano-guys-concert-d9f12a587264.png" download aria-label="Download The Piano Guys — Akron PNG">Download PNG</a><a class="editorial-link" href="/piano-guys/">Event details <span aria-hidden="true">→</span></a></div></div></article><article class="asset-card approved-media-card" id="fairlawn-flyer">
+    <a class="asset-preview-link" href="/media-kit/2026-fairlawn-meet-and-greet-d339325a1ed2.pdf" target="_blank" rel="noopener noreferrer" aria-label="View Fairlawn Meet &amp; Greet PDF"><img class="asset-preview" src="/images/media-previews/2026-fairlawn-meet-and-greet-46de12b3ca24-480.webp" alt="Fairlawn Meet &amp; Greet official flyer" width="1700" height="2200" srcset="/images/media-previews/2026-fairlawn-meet-and-greet-46de12b3ca24-480.webp 480w, /images/media-previews/2026-fairlawn-meet-and-greet-46de12b3ca24-900.webp 900w" sizes="(max-width:800px) calc(100vw - 96px), 38vw" loading="lazy" decoding="async" style="object-position:center"></a>
+    <div class="asset-info"><p class="editorial-kicker">Event flyer</p><h3>Fairlawn Meet &amp; Greet</h3><p>Saturday, November 14 · 7:00 PM · St. Hilary Church</p>
+
+    <div class="asset-actions"><a class="editorial-button" href="/media-kit/2026-fairlawn-meet-and-greet-d339325a1ed2.pdf" download aria-label="Download Fairlawn Meet &amp; Greet PDF">Download PDF</a></div>
+    <div class="asset-secondary"><a class="editorial-link" href="/media-kit/2026-fairlawn-meet-and-greet-46de12b3ca24.png" download aria-label="Download Fairlawn Meet &amp; Greet PNG">Download PNG</a><a class="editorial-link" href="/fairlawn/">Event details <span aria-hidden="true">→</span></a></div></div></article><article class="asset-card approved-media-card" id="vip-flyer">
+    <a class="asset-preview-link" href="/media-kit/2026-vip-sponsor-dinner-802e6e20eb7b.pdf" target="_blank" rel="noopener noreferrer" aria-label="View VIP Sponsor Dinner PDF"><img class="asset-preview" src="/images/media-previews/2026-vip-sponsor-dinner-01389c9bf7f0-480.webp" alt="VIP Sponsor Dinner official flyer" width="1750" height="2250" srcset="/images/media-previews/2026-vip-sponsor-dinner-01389c9bf7f0-480.webp 480w, /images/media-previews/2026-vip-sponsor-dinner-01389c9bf7f0-900.webp 900w" sizes="(max-width:800px) calc(100vw - 96px), 38vw" loading="lazy" decoding="async" style="object-position:center"></a>
+    <div class="asset-info"><p class="editorial-kicker">Event flyer</p><h3>VIP Sponsor Dinner</h3><p>Friday, November 13 · Dinner 5:00 PM · Windows on the River</p>
+
+    <div class="asset-actions"><a class="editorial-button" href="/media-kit/2026-vip-sponsor-dinner-802e6e20eb7b.pdf" download aria-label="Download VIP Sponsor Dinner PDF">Download PDF</a></div>
+    <div class="asset-secondary"><a class="editorial-link" href="/media-kit/2026-vip-sponsor-dinner-01389c9bf7f0.png" download aria-label="Download VIP Sponsor Dinner PNG">Download PNG</a><a class="editorial-link" href="/vip-dinner/">Event details <span aria-hidden="true">→</span></a></div></div></article><article class="asset-card approved-media-card" id="weekend-flyer">
+    <a class="asset-preview-link" href="/media-kit/2026-weekend-schedule-3db5433b6102.pdf" target="_blank" rel="noopener noreferrer" aria-label="View Master Weekend Schedule PDF"><img class="asset-preview" src="/images/media-previews/2026-weekend-schedule-1bf56b2c42f7-480.webp" alt="Master Weekend Schedule official flyer" width="2200" height="3400" srcset="/images/media-previews/2026-weekend-schedule-1bf56b2c42f7-480.webp 480w, /images/media-previews/2026-weekend-schedule-1bf56b2c42f7-900.webp 900w" sizes="(max-width:800px) calc(100vw - 96px), 38vw" loading="lazy" decoding="async" style="object-position:center"></a>
+    <div class="asset-info"><p class="editorial-kicker">Print-ready PDFs</p><h3>Master Weekend Schedule</h3><p>November 13–15 · Five events across Northeast Ohio</p>
+    <p class="media-print-note">11×17 is the primary poster format. Choose 8.5×11 for home or office printing.</p>
+    <div class="asset-actions"><a class="editorial-button" href="/media-kit/2026-weekend-schedule-3db5433b6102.pdf" download>PRINT 11&quot; × 17&quot;</a><a class="editorial-link" href="/media-kit/2026-weekend-schedule-letter-ab3462d6f2df.pdf" download>PRINT 8.5&quot; × 11&quot;</a></div>
+    <div class="asset-secondary"><a class="editorial-link" href="/media-kit/2026-weekend-schedule-1bf56b2c42f7.png" download aria-label="Download Master Weekend Schedule PNG">Download PNG</a><a class="editorial-link" href="/#events">Weekend event details <span aria-hidden="true">→</span></a></div></div></article></div></div></section></main><footer class="site-footer">
+    <div class="site-footer-grid">
+      <div class="site-footer-brand">
+        <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
+        <p>Uniting neighbors in faith &amp; fellowship across Northeast Ohio.</p>
+        <p>Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit.</p>
+      </div>
+      <nav class="site-footer-links" aria-label="Events and information">
+        <h2>Explore</h2>
+        <a href="/#events">Weekend Events</a><a href="/#tickets">Get Tickets</a><a href="/chesterland/">Chesterland Meet &amp; Greet</a><a href="/about-us/">About Us</a><a href="/raffle/">Raffle — Coming Soon</a>
+      </nav>
+      <nav class="site-footer-links" aria-label="Support and resources">
+        <h2>Get Involved</h2>
+        <a href="/sponsorship-opportunities/">Become a Sponsor</a><a href="/sponsors/">Our Sponsors</a><a href="/donations/">Make a Donation</a><a href="/get-involved/#volunteer">Volunteer</a><a href="/sponsorship-opportunities/#program-advertising-specs">Program Advertising Specs</a><a href="/media-kit/" aria-current="page">Media Kit</a>
+      </nav>
+      <div class="site-footer-contact">
+        <h2>Stay Connected</h2>
+        <a href="mailto:info@kirtlandheritagegroup.com">info@kirtlandheritagegroup.com</a>
+        <a href="tel:+14407961642">440-796-1642</a>
+        <div class="site-follow-links"><a href="https://www.facebook.com/people/Kirtland-Heritage-Group/61572253884775/" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)"><svg class="follow-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V21.88A9.962 9.962 0 0022 12z" clip-rule="evenodd" />
+            </svg><span>Facebook</span></a><a href="https://www.instagram.com/kirtland.heritage.group" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)"><svg class="follow-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7.177a4.823 4.823 0 100 9.646 4.823 4.823 0 000-9.646zm0 7.78a2.953 2.953 0 110-5.906 2.953 2.953 0 010 5.906zM20.15 5.562a1.28 1.28 0 10-2.56 0 1.28 1.28 0 002.56 0z" clip-rule="evenodd" />
+            </svg><span>Instagram</span></a></div>
+        <a href="/social-media-links/">All social links</a>
+        <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group <span aria-label="(opens in a new tab)">↗</span></a>
+      </div>
     </div>
-  </nav>
-
-  <main class="page-shell">
-    <section class="glassmorphism">
-      <header class="page-header">
-        <p class="eyebrow">Kirtland Heritage Group</p>
-        <h1>Media Kit</h1>
-        <p class="hero-subtitle">Browse event-by-event artwork and the current sponsorship overview. Website event details were reviewed September 29, 2026; check each event page before sharing.</p>
-        <div class="divider-line"></div>
-      </header>
-
-      <aside class="weekend-presenting-credit" aria-label="Weekend presenting sponsor">
-        <!-- WEEKEND_PRESENTING_CREDIT -->
-      </aside>
-
-      <section class="media-section" aria-labelledby="weekend-overview-heading">
-        <h2 class="media-section-heading" id="weekend-overview-heading">Weekend Overview</h2>
-        <div class="media-grid">
-          <article class="asset-card">
-            <a class="asset-preview-link" href="/media-kit/2026-weekend-schedule.png?v=fcbe1f239dea" target="_blank" rel="noopener noreferrer" aria-label="View the full-size 2026 NEOChosen weekend schedule">
-              <img class="asset-preview" src="/media-kit/2026-weekend-schedule.png?v=fcbe1f239dea" width="1545" height="1999" alt="2026 NEOChosen weekend schedule for November 13 through 15" loading="lazy" decoding="async">
-            </a>
-            <div class="asset-body"><p class="asset-reviewed">Details checked Sep 29, 2026</p>
-              <h2>2026 Weekend Schedule</h2>
-              <p>A complete overview of the November 13–15 event weekend across Northeast Ohio.</p>
-              <div class="asset-actions">
-                <a class="gold-button" href="/media-kit/2026-weekend-schedule.png?v=fcbe1f239dea" download>Download PNG</a>
-                <a class="gold-button" href="/media-kit/2026-weekend-schedule.pdf?v=fe40ef35b2c6" download>Download PDF</a>
-              </div>
-            </div>
-          </article>
-          <article class="asset-card">
-            <a class="asset-preview-link" href="/sponsorships/neochosen-master-sponsorship-overview.pdf" target="_blank" rel="noopener noreferrer" aria-label="View the current 2026 NEOChosen sponsorship overview">
-              <img class="asset-preview" src="/sponsorships/summaries/neochosen-master-sponsorship-overview-quick-summary.png" width="1920" height="1080" alt="Quick summary of the current 2026 NEOChosen sponsorship opportunities" loading="lazy" decoding="async">
-            </a>
-            <div class="asset-body"><p class="asset-reviewed">Details checked Sep 29, 2026</p>
-              <h2>2026 Sponsorship Overview</h2>
-              <p>Compare the current sponsorship investments and terms. Each of the eight opportunity pages also has readable details.</p>
-              <div class="asset-actions">
-                <a class="gold-button" href="/sponsorships/neochosen-master-sponsorship-overview.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
-                <a class="gold-button" href="/sponsorships/neochosen-master-sponsorship-overview.pdf" download>Download PDF</a>
-                <a class="gold-button" href="/sponsorship-opportunities/">Read sponsorship details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="media-section event-flyers" aria-labelledby="event-flyers-heading">
-        <h2 class="media-section-heading" id="event-flyers-heading">Event Flyers</h2>
-        <div class="media-grid">
-          <article class="asset-card">
-            <a class="asset-preview-link" href="/media-kit/2026-vip-sponsor-dinner.png?v=9c10c691167c" target="_blank" rel="noopener noreferrer" aria-label="View the full-size VIP sponsor dinner flyer">
-              <img class="asset-preview" src="/media-kit/2026-vip-sponsor-dinner.png?v=9c10c691167c" width="1545" height="1999" alt="Exclusive sponsor dinner flyer for Friday, November 13, 2026" loading="lazy" decoding="async">
-            </a>
-            <div class="asset-body"><p class="asset-reviewed">Details checked Sep 29, 2026</p>
-              <h2>VIP Sponsor Dinner</h2>
-              <!-- WEEKEND_PRESENTING_CREDIT -->
-              <p>Details for the exclusive Friday dinner with The Piano Guys and cast members from The Chosen.</p>
-              <div class="asset-actions">
-                <a class="gold-button" href="/media-kit/2026-vip-sponsor-dinner.png?v=9c10c691167c" download>Download PNG</a>
-                <a class="gold-button" href="/media-kit/2026-vip-sponsor-dinner.pdf?v=304f5a4f08dc" download>Download PDF</a><a class="gold-button" href="/vip-dinner/">Current event details</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="asset-card">
-            <a class="asset-preview-link" href="/media-kit/2026-lakewood-evening-with-the-chosen.png?v=98014637e930" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Lakewood event flyer">
-              <img class="asset-preview" src="/media-kit/2026-lakewood-evening-with-the-chosen.png?v=98014637e930" width="1545" height="2000" alt="An Evening with cast members from The Chosen in Lakewood on November 13, 2026" loading="lazy" decoding="async">
-            </a>
-            <div class="asset-body"><p class="asset-reviewed">Details checked Sep 29, 2026</p>
-              <h2>Lakewood Evening with The Chosen</h2>
-              <!-- WEEKEND_PRESENTING_CREDIT -->
-              <p>Flyer for the free Friday evening of stories, testimony, and audience questions with cast members.</p>
-              <div class="asset-actions">
-                <a class="gold-button" href="/media-kit/2026-lakewood-evening-with-the-chosen.png?v=98014637e930" download>Download PNG</a>
-                <a class="gold-button" href="/media-kit/2026-lakewood-evening-with-the-chosen.pdf?v=4062132203dd" download>Download PDF</a><a class="gold-button" href="/lakewood/">Current event details</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="asset-card">
-            <a class="asset-preview-link" href="/media-kit/2026-akron-piano-guys-concert.png?v=e6c4a9a901dc" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Akron Piano Guys concert flyer">
-              <img class="asset-preview" src="/media-kit/2026-akron-piano-guys-concert.png?v=e6c4a9a901dc" width="1545" height="2000" alt="The Piano Guys concert in Akron on November 14, 2026" loading="lazy" decoding="async">
-            </a>
-            <div class="asset-body"><p class="asset-reviewed">Details checked Sep 29, 2026</p>
-              <h2>Akron Piano Guys Concert</h2>
-              <p class="presenting-recognition"><strong>Presented by:</strong> Kirtland Heritage Group.</p>
-              <!-- EVENT_SPONSORS:akron -->
-              <!-- WEEKEND_PRESENTING_CREDIT -->
-              <p>Flyer for The Piano Guys’ separately ticketed Saturday performance at the Akron Civic Theatre.</p>
-              <div class="asset-actions">
-                <a class="gold-button" href="/media-kit/2026-akron-piano-guys-concert.png?v=e6c4a9a901dc" download>Download PNG</a>
-                <a class="gold-button" href="/media-kit/2026-akron-piano-guys-concert.pdf?v=4f7de3a9cd51" download>Download PDF</a><a class="gold-button" href="/piano-guys/">Current event details</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="asset-card">
-            <a class="asset-preview-link" href="/media-kit/2026-meet-and-greet-overview.png?v=2346328eb414" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Meet and Greet overview flyer">
-              <img class="asset-preview" src="/media-kit/2026-meet-and-greet-overview.png?v=2346328eb414" width="1545" height="2000" alt="Overview of the free Fairlawn and Chesterland Meet and Greet events" loading="lazy" decoding="async">
-            </a>
-            <div class="asset-body"><p class="asset-reviewed">Details checked Sep 29, 2026</p>
-              <h2>Meet &amp; Greet Overview</h2><!-- EVENT_SPONSORS:fairlawn -->
-              <!-- WEEKEND_PRESENTING_CREDIT -->
-              <p>A combined overview of both free Meet &amp; Greet opportunities in Fairlawn and Chesterland.</p>
-              <div class="asset-actions">
-                <a class="gold-button" href="/media-kit/2026-meet-and-greet-overview.png?v=2346328eb414" download>Download PNG</a>
-                <a class="gold-button" href="/media-kit/2026-meet-and-greet-overview.pdf?v=62157d27b7fd" download>Download PDF</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="asset-card">
-            <a class="asset-preview-link" href="/media-kit/2026-fairlawn-meet-and-greet.png?v=49e51b8bb5d6" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Fairlawn Meet and Greet flyer">
-              <img class="asset-preview" src="/media-kit/2026-fairlawn-meet-and-greet.png?v=49e51b8bb5d6" width="1545" height="2000" alt="Free Meet and Greet in Fairlawn on November 14, 2026, presented by Advanced Care Endodontics and FNA Wealth Management" loading="lazy" decoding="async">
-            </a>
-            <div class="asset-body"><p class="asset-reviewed">Details checked Sep 29, 2026</p>
-              <h2>Fairlawn Meet &amp; Greet</h2><!-- EVENT_SPONSORS:fairlawn -->
-              <!-- WEEKEND_PRESENTING_CREDIT -->
-              <p>Location, time, and guest details for Saturday evening at St. Hilary Church.</p>
-              <div class="asset-actions">
-                <a class="gold-button" href="/media-kit/2026-fairlawn-meet-and-greet.png?v=49e51b8bb5d6" download>Download PNG</a>
-                <a class="gold-button" href="/media-kit/2026-fairlawn-meet-and-greet.pdf?v=a9cb821cd805" download>Download PDF</a><a class="gold-button" href="/fairlawn/">Current event details</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="asset-card">
-            <a class="asset-preview-link" href="/media-kit/2026-chesterland-meet-and-greet.png?v=3270d0274cca" target="_blank" rel="noopener noreferrer" aria-label="View the full-size Chesterland Meet and Greet flyer for the event hosted by Mayfield United Methodist Church">
-              <img class="asset-preview" src="/media-kit/2026-chesterland-meet-and-greet.png?v=3270d0274cca" width="1545" height="2000" alt="Chesterland Meet and Greet flyer for November 15, 2026, hosted by Mayfield United Methodist Church" loading="lazy" decoding="async">
-            </a>
-            <div class="asset-body"><p class="asset-reviewed">Details checked Sep 29, 2026</p>
-              <h2>Chesterland Meet &amp; Greet</h2>
-              <!-- WEEKEND_PRESENTING_CREDIT -->
-              <p>Location, time, and guest details for Sunday afternoon at Mayfield United Methodist Church, 7747 Mayfield Road, Chesterland, OH 44026.</p>
-              <div class="asset-actions">
-                <a class="gold-button" href="/chesterland/">Event Details</a>
-                <a class="gold-button" href="/media-kit/2026-chesterland-meet-and-greet.png?v=3270d0274cca" download>Download PNG</a>
-                <a class="gold-button" href="/media-kit/2026-chesterland-meet-and-greet.pdf?v=8e2a269d70d8" download>Download PDF</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p class="footer-logo">Kirtland Heritage Group</p>
-    <p>A 501(c)(3) nonprofit dedicated to uniting neighbors in faith &amp; fellowship.</p>
-    <p><a href="/about-us/">About</a> &middot; <a href="/sponsors/">Sponsors</a> &middot; <a href="/social-media-links/">Social Media</a> &middot; <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group</a></p>
-    <p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.site-nav').forEach((nav) => {
-      const btn = nav.querySelector('.nav-toggle');
-      if (btn) {
-        btn.addEventListener('click', () => {
-          const open = nav.classList.toggle('is-open');
-          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      }
-
-      nav.querySelectorAll('.nav-dropdown-toggle').forEach((toggle) => {
-        toggle.addEventListener('click', () => {
-          const dropdown = toggle.closest('.nav-dropdown');
-          if (!dropdown) return;
-          const open = dropdown.classList.toggle('is-open');
-          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      });
-    });
-  </script>
-  <script src="/pwa-register.js" defer></script>
-<style>
-  .site-nav { padding: 0.6rem 0.65rem !important; }
-  .site-nav-links { align-items: center; gap: 0.5rem !important; }
-  .site-nav a,
-  .nav-dropdown-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 2rem;
-    line-height: 1.2 !important;
-    font-size: 0.86rem !important;
-    padding: 0.5rem 0.55rem !important;
-    border-radius: 10px;
-  }
-  .nav-dropdown-menu a { justify-content: flex-start; min-height: 2rem; }
-  .site-nav a.nav-ticket {
-    background: linear-gradient(135deg, var(--gold), #a87c28) !important;
-    color: #0a0806 !important;
-    border-color: rgba(0,0,0,0.15) !important;
-    pointer-events: auto !important;
-    cursor: pointer !important;
-  }
-  .site-nav a.nav-ticket:hover,
-  .site-nav a.nav-ticket:focus-visible { color: #fff !important; }
-  .site-footer a {
-    text-decoration: underline !important;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-  }
-  @media (min-width: 768px) {
-    .site-nav a,
-    .nav-dropdown-toggle { padding: 0.3rem 0.5rem !important; }
-  }
-</style>
-<style>
-  @media (min-width: 768px) {
-    .site-nav {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      height: 59px !important;
-      min-height: 59px !important;
-    }
-
-    .site-nav-links {
-      margin-top: 0 !important;
-    }
-  }
-</style>
-</body>
-</html>
+    <div class="site-footer-bottom"><p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p><a href="#main-content">Back to top ↑</a></div>
+  </footer><script src="/pwa-register.js" defer></script><script src="/concert-tickets.js" defer></script>
+</body></html>
