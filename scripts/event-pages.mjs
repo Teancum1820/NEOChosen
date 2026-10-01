@@ -88,6 +88,7 @@ const dinnerPage = event => {
   </div>
   <figure class="vip-hero-photo">${venueImage}<figcaption>Windows on the River · Venue photography<br>Example room setup; the dinner layout may differ.</figcaption></figure>
  </header>
+ <section class="event-recognition event-recognition--logos vip-brand-band" aria-label="Event organizer and weekend sponsor"><div class="editorial-shell">${renderEventPartnerLogos(null,{includeOrganizer:true})}</div></section>
  <section class="editorial-section editorial-section--white vip-experience" aria-labelledby="vip-experience-title"><div class="editorial-shell vip-experience-grid">
   <div class="editorial-copy"><p class="editorial-kicker">The experience</p><h2 id="vip-experience-title">The most <em>intimate</em> event of NEOChosen Weekend</h2><p class="vip-lede">${escape(event.description)}</p><p>${escape(event.detail)}</p><a class="event-text-link" href="#vip-includes">Your evening includes <span aria-hidden="true">↓</span></a></div>
   <figure class="vip-guests">${guestImage}<figcaption>The Piano Guys &amp; cast members from The Chosen</figcaption></figure>
@@ -99,7 +100,7 @@ const dinnerPage = event => {
  </div></div></section>
  <section class="editorial-section vip-venue" aria-labelledby="vip-venue-title"><div class="editorial-shell vip-venue-grid"><div><p class="editorial-kicker">Friday, November 13 · Cleveland</p><h2 id="vip-venue-title">Windows on the River</h2><p>Doors Open 4:30 PM | Dinner 5:00 PM<br>All times are Eastern.</p></div><div><address>${escape(event.address)}</address><div class="event-actions">${action('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(event.address),'Get directions','event-text-link')}${action(v.url,'Visit the venue website','event-text-link')}</div><p class="vip-questions">For arrival or accessibility questions, <a href="mailto:info@kirtlandheritagegroup.com">contact our team</a>.</p></div></div></section>
  <section class="editorial-section editorial-section--navy vip-final-reservation" aria-labelledby="vip-reserve-title"><div class="editorial-shell"><p class="editorial-kicker">The most intimate event of NEOChosen Weekend</p><h2 id="vip-reserve-title">Seating is limited — reserve your seat or table</h2><p>$200 per person · $1,400 table of eight</p><p>Save $200 when reserving a full table.</p>${action(event.url,'Reserve now')}<a class="event-text-link" href="/#events">Explore NEOChosen Weekend <span aria-hidden="true">→</span></a></div></section>
- <section class="event-recognition" aria-label="Event organizer and weekend sponsor"><div class="editorial-shell"><p class="editorial-kicker">Presented by Kirtland Heritage Group</p>${renderWeekendTextRecognition()}</div></section>`});
+ `});
 };
 const page = event => {
  if (event.slug === 'vip-dinner') return dinnerPage(event);

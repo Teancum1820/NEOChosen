@@ -1,0 +1,100 @@
+[
+  {
+    "logos": [
+      {
+        "loaded": true,
+        "src": "/images/partners/kirtland-heritage-group.webp"
+      },
+      {
+        "loaded": true,
+        "src": "/images/great-lakes-auto-group-black.webp"
+      }
+    ],
+    "overflow": false,
+    "width": 320
+  },
+  {
+    "logos": [
+      {
+        "loaded": true,
+        "src": "/images/partners/kirtland-heritage-group.webp"
+      },
+      {
+        "loaded": true,
+        "src": "/images/great-lakes-auto-group-black.webp"
+      }
+    ],
+    "overflow": false,
+    "width": 375
+  },
+  {
+    "logos": [
+      {
+        "loaded": true,
+        "src": "/images/partners/kirtland-heritage-group.webp"
+      },
+      {
+        "loaded": true,
+        "src": "/images/great-lakes-auto-group-black.webp"
+      }
+    ],
+    "overflow": false,
+    "width": 390
+  },
+  {
+    "logos": [
+      {
+        "loaded": true,
+        "src": "/images/partners/kirtland-heritage-group.webp"
+      },
+      {
+        "loaded": true,
+        "src": "/images/great-lakes-auto-group-black.webp"
+      }
+    ],
+    "overflow": false,
+    "width": 430
+  },
+  {
+    "logos": [
+      {
+        "loaded": true,
+        "src": "/images/partners/kirtland-heritage-group.webp"
+      },
+      {
+        "loaded": true,
+        "src": "/images/great-lakes-auto-group-black.webp"
+      }
+    ],
+    "overflow": false,
+    "width": 768
+  },
+  {
+    "logos": [
+      {
+        "loaded": true,
+        "src": "/images/partners/kirtland-heritage-group.webp"
+      },
+      {
+        "loaded": true,
+        "src": "/images/great-lakes-auto-group-black.webp"
+      }
+    ],
+    "overflow": false,
+    "width": 1024
+  },
+  {
+    "logos": [
+      {
+        "loaded": true,
+        "src": "/images/partners/kirtland-heritage-group.webp"
+      },
+      {
+        "loaded": true,
+        "src": "/images/great-lakes-auto-group-black.webp"
+      }
+    ],
+    "overflow": false,
+    "width": 1440
+  }
+]

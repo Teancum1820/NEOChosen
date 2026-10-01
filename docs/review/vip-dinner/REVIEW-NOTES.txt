@@ -25,6 +25,10 @@ performances, prizes, giveaways, gift bags or tax-deductibility claims.
 Requested entree, side and dessert menu and meal-selection sentence.
 Reuses site navigation/footer, Cinzel/Montserrat typography, brand colors,
 responsive image helper, venue photo and existing guest collage.
+Follow-up: added the existing KHG and Great Lakes Auto Group logos directly
+below the hero using the site's shared event-partner component. KHG is labeled
+Presented by; Great Lakes remains the Weekend Presenting Sponsor. Both logos
+keep their proportions and link to the existing organization websites.
 Dinner-related homepage data, navigation label, Get Involved blurb, Donations
 dinner section and dinner confirmation now use seat/table reservation wording.
 Other event layouts and payment configuration are unchanged.
@@ -55,7 +59,8 @@ approved page before launch. No live ticket, menu or payment settings were
 changed. No personal/payment information was entered and no order submitted.
 
 VALIDATION
-Production build and all npm test checks passed; 1,519 local references checked.
+Production build and all npm test checks passed; 1,521 local references checked
+after the logo addition.
 Lint, TypeScript tooling and git diff --check passed.
 34 functional/accessibility browser checks passed on the initial page update.
 After updating the dinner confirmation and extending the existing mobile
@@ -70,6 +75,9 @@ styles were changed for those reference updates.
 Both Reserve Now links retain the verified event URL, open in a new tab and
 use noopener/noreferrer. Buttons have 52 px height. Venue/map/mail links checked.
 Full-page and hero screenshots are included; production remains untouched.
+Logo follow-up: build, event checks, sponsor checks, local-link checks and both
+relevant accessibility checks passed. Both logos loaded without horizontal
+overflow at all seven review widths; see logo-checks.json and logo screenshots.
 
 APPROVAL
 Joe should review the content, presentation, pricing and menu. Checkout
