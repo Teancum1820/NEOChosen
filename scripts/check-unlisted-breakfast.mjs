@@ -4,6 +4,37 @@ import path from "node:path";
 
 const root = path.resolve("dist");
 const route = "/interfaith-community-breakfast/";
+const config = async (file) =>
+  JSON.parse((await readFile(file, "utf8")).replace(/,\s*([}\]])/g, "$1"));
+const automatic = await config("wrangler.jsonc");
+const production = await config("production/wrangler.jsonc");
+for (const key of [
+  "name",
+  "compatibility_date",
+  "vars",
+  "secrets",
+  "ratelimits",
+  "observability",
+]) {
+  assert.deepEqual(
+    automatic[key],
+    production[key],
+    `Automatic and production Worker ${key} must agree`,
+  );
+}
+assert.equal(
+  path.resolve(automatic.main),
+  path.resolve("production", production.main),
+);
+assert.equal(
+  path.resolve(automatic.assets.directory),
+  path.resolve("production", production.assets.directory),
+);
+assert.deepEqual(
+  automatic.assets.run_worker_first,
+  production.assets.run_worker_first,
+);
+assert.equal(automatic.assets.binding, production.assets.binding);
 async function files(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
   return (

@@ -39,7 +39,7 @@ Then open the local URL printed by Wrangler.
 - Root directory: repository root.
 - For CLI deployment, run `npm run deploy` after authenticating with Wrangler.
 - The separate review Worker uses `preview/wrangler.jsonc`. Publishing the review does not update production.
-- The legacy root `wrangler.jsonc` is retained for Pages development and the deferred raffle backend; it is not the production publishing configuration.
+- Root `wrangler.jsonc` mirrors the production Worker configuration so Cloudflare's automatic builds preserve the breakfast backend. The legacy Pages/raffle configuration is retained in `legacy-pages.wrangler.jsonc`.
 - The pre-redesign production source is preserved in Git tag `archive/pre-redesign-2026-09-30` at commit `401a1df2f7af1cf0e7670983848c342e32219dcc`. Its Cloudflare rollback version is `f752694d-4a7c-4b33-b851-2f286875820a`.
 - Current Media PDF/PNG links use content-hash filenames. Stable public aliases and media downloads revalidate; the Media HTML page also uses the default revalidation behavior.
 - Keep route pages in directory form (`/page/index.html`) and maintain matching root redirect files (`/page.html`) for compatibility with legacy links.

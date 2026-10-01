@@ -10,4 +10,6 @@ The verified existing Zeffy dinner destination now displays Individual Seat ($20
 
 Recovery: the production version immediately before this release is `84d37750-1c0b-4574-a5ed-e02bf8ec2cb2`, from the approved media release (`503212b`, documentation at `24513db`). A recovery tag preserves that source. Rolling back the Worker restores the previous static site; it does not delete the private Sheet or its submitted rows.
 
+The root Wrangler configuration mirrors the production configuration so automatic Cloudflare builds retain the submission backend. The earlier Pages/raffle configuration is preserved separately in `legacy-pages.wrangler.jsonc`.
+
 Validation and production deployment results are recorded after verification.
