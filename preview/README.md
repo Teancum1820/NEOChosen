@@ -1,15 +1,19 @@
-# Website review
+# Joe’s combined website review
 
-Review URL: https://neochosen-joe-review.calebday1820.workers.dev/
+Review hub: https://neochosen-joe-review.calebday1820.workers.dev/review/
 
-This is a separate static review Worker. At Caleb's request, pages and assets are accessible without a password. It has no production routes, D1 databases, R2 buckets or production API bindings. Responses prohibit indexing and shared caching. The link works independently of the local preview server.
+Contains the current published site and Media Kit plus the proposed VIP Sponsor
+Dinner page, partner logos, related reservation wording, and breakfast page.
+Breakfast submissions are intentionally disabled. No Google Sheet identifiers,
+credentials, private venue/RSVP details, attendee data or receiver bindings are
+served. Joe can reply to Caleb with approvals or requested changes.
 
-Build from the repository root, then update only the review Worker:
+This existing review-only Worker is accessible without a password at Caleb’s
+previous request. Responses prohibit indexing and caching. It has no production
+routes or data bindings. Never deploy production/wrangler.jsonc for this review.
 
-```powershell
-npm test
-node --test tests/review-worker.test.mjs
-npx wrangler deploy --config preview/wrangler.jsonc
-```
+Run npm test, npm run lint, npm run typecheck, node --test
+tests/review-worker.test.mjs, and the relevant browser tests. Deploy only with
+wrangler deploy --config preview/wrangler.jsonc, or this branch’s npm run deploy.
 
-Production is controlled by the original root `wrangler.jsonc`. Do not deploy that configuration when updating this review. The production version was verified unchanged at `f752694d-4a7c-4b33-b851-2f286875820a` after creating this review on September 30, 2026.
+No production release or main merge is authorized by creating this review.

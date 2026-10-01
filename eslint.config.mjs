@@ -27,6 +27,7 @@ export default [
       "concert-tickets.js",
       "breakfast/*.js",
       "scripts/breakfast-page.mjs",
+      "scripts/review-hub.mjs",
       "playwright.config.mjs",
     ],
     ...js.configs.recommended,

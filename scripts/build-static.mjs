@@ -11,6 +11,7 @@ import { applyHomepage } from "./homepage.mjs";
 import { writeInteriorPages } from "./interior-pages.mjs";
 import { writeApprovedMedia } from "./approved-media.mjs";
 import { writeBreakfastPage } from "./breakfast-page.mjs";
+import { writeReviewHub } from "./review-hub.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -76,6 +77,7 @@ await writeEventPages(outDir);
 await writeInteriorPages(outDir);
 await writeApprovedMedia(outDir);
 await writeBreakfastPage(outDir);
+await writeReviewHub(outDir);
 
 async function updateChrome(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
