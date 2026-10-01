@@ -1,0 +1,76 @@
+NEOChosen VIP Sponsor Dinner — Joe's review
+Prepared October 1, 2026. REVIEW ONLY. No merge, push, publication or deployment.
+
+PREVIEW
+Local interactive page: http://127.0.0.1:4178/vip-dinner/
+The local link works on Caleb's computer while the preview server is running.
+To restart: run npm run build in this checkout, then set PORT=4178 and run
+node scripts/serve-static.mjs. Open /vip-dinner/ at the printed address.
+For review on another device, use the included full-page JPG proofs.
+
+SOURCE
+The supplied NEOChosen-latest checkout is the September 29 homepage branch.
+The previous website chat and Git history identify the newer published design
+in neochosen-private-redesign. This isolated checkout starts from 5a838fe,
+matching origin/codex/private-figma-redesign when fetched October 1.
+Review branch: codex/vip-sponsor-dinner-review.
+Checkout: C:/Users/caleb/OneDrive/Documents/New project/neochosen-vip-dinner-review
+
+CHANGES
+Experience-first hero: intimate evening, limited seating, event date, doors and
+dinner times, $200 per person, $1,400 table of eight, $200 table savings, and
+Reserve Now before the imagery on mobile.
+Requested experience and five included benefits; no added guest names,
+performances, prizes, giveaways, gift bags or tax-deductibility claims.
+Requested entree, side and dessert menu and meal-selection sentence.
+Reuses site navigation/footer, Cinzel/Montserrat typography, brand colors,
+responsive image helper, venue photo and existing guest collage.
+Dinner-related homepage data, navigation label, Get Involved blurb, Donations
+dinner section and dinner confirmation now use seat/table reservation wording.
+Other event layouts and payment configuration are unchanged.
+
+RESERVATION VERIFICATION — BLOCKERS BEFORE LAUNCH
+Retained URL:
+https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys
+The public form is hosted by Kirtland Heritage Group and identifies the correct
+Friday, November 13, 2026 VIP dinner at Windows on the River, Cleveland,
+2000 Sycamore Street. Its dinner time is 5:00-6:45 PM Eastern.
+
+Observed in the public form and pre-payment summary October 1:
+1. It is still titled "Become an Official Event Sponsor" and describes a
+   donation-based invitation formula rather than seat/table reservations.
+2. The sole visible ticket option is $200. No $1,400 table-of-eight option is
+   present. Eight of the current $200 units would be $1,600 before any optional
+   Zeffy contribution. The requested $200 table savings is not implemented.
+3. No entree or dessert selection fields were visible before payment, and
+   the requested menu was not shown. Meal selection after a completed purchase
+   was not tested; no purchase was made.
+4. The existing form does not state the requested 4:30 PM doors time.
+5. Zeffy offered an optional platform contribution in its pre-payment summary;
+   it is separate from the $200 ticket price.
+
+The site shows the requested pricing/menu for design approval. Align the
+checkout's wording, table option, meal choices and doors information with the
+approved page before launch. No live ticket, menu or payment settings were
+changed. No personal/payment information was entered and no order submitted.
+
+VALIDATION
+Production build and all npm test checks passed; 1,519 local references checked.
+Lint, TypeScript tooling and git diff --check passed.
+34 functional/accessibility browser checks passed on the initial page update.
+After updating the dinner confirmation and extending the existing mobile
+accessibility coverage to the dinner, 3 relevant accessibility checks passed,
+including zero WCAG A/AA violations in the mobile interior check.
+Final responsive review: 320, 375, 390, 430, 768, 1024 and 1440 px, no document
+overflow or broken main-content images. See responsive-checks.json.
+All 4 visual-regression checks passed after inspecting and refreshing the VIP
+event-card reference, the stale reference for the previously updated mobile
+header, and a one-pixel footer-capture rounding shift. No header/footer product
+styles were changed for those reference updates.
+Both Reserve Now links retain the verified event URL, open in a new tab and
+use noopener/noreferrer. Buttons have 52 px height. Venue/map/mail links checked.
+Full-page and hero screenshots are included; production remains untouched.
+
+APPROVAL
+Joe should review the content, presentation, pricing and menu. Checkout
+dependencies must be resolved and verified before a separate approved launch.

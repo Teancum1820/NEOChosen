@@ -89,6 +89,7 @@ test("mobile interior templates and sponsorship tables meet WCAG AA checks", asy
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   for (const route of [
+    "/vip-dinner/",
     "/piano-guys/",
     "/sponsors/",
     "/get-involved/",

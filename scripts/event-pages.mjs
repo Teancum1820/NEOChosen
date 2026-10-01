@@ -10,11 +10,10 @@ import { eventFlyer, mediaStyles } from './approved-media.mjs';
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const events = [
   {
-    slug: 'vip-dinner', title: 'VIP Donor Dinner', eyebrow: 'Friday · November 13', date: 'Friday, November 13, 2026', time: '5:00–6:45 PM Eastern', startDate: '2026-11-13T17:00:00-05:00', admission: '$200 donation · one dinner invitation', venue: 'Windows on the River', city: 'Cleveland', street: '2000 Sycamore Street', zip: '44113', address: '2000 Sycamore Street, Cleveland, OH 44113', image: '/images/hero.webp', imageAlt: '',
-    description: 'A private thank-you dinner for donors supporting NEOChosen Weekend, with The Piano Guys, cast members from The Chosen, and Northeast Ohio community and faith leaders.',
-    detail: 'Join cast members from The Chosen, The Piano Guys, and area leaders for dinner, conversation, and opportunities to mingle. Come on your own, bring a friend, or make it an evening with someone you love. A $200 donation includes one dinner invitation; $400 includes two, while space remains. Your support helps make the weekend’s free public events possible.',
-    cta: 'Become a donor', url: 'https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys',
-    secondary: '/sponsorship-opportunities/vip-dinner/', secondaryLabel: 'Explore business sponsorship'
+    slug: 'vip-dinner', title: 'VIP Sponsor Dinner', eyebrow: 'Friday · November 13', date: 'Friday, November 13, 2026', time: 'Doors Open 4:30 PM | Dinner 5:00 PM', startDate: '2026-11-13T17:00:00-05:00', admission: '$200 per person · $1,400 table of eight', venue: 'Windows on the River', city: 'Cleveland', street: '2000 Sycamore Street', zip: '44113', address: '2000 Sycamore Street, Cleveland, OH 44113', image: '/images/venues/windows-dinner-hero-1110.webp', imageAlt: 'Gold chairs and a floral centerpiece beside arched windows at Windows on the River',
+    description: 'Join us for a limited-capacity evening with The Piano Guys and visiting cast members from The Chosen.',
+    detail: 'This smaller setting gives guests the opportunity to enjoy dinner, conversation, photos, and personal interaction with our special guests while supporting Kirtland Heritage Group and helping make the larger NEOChosen Weekend events available to the community.',
+    cta: 'Reserve now', url: 'https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys'
   },
   {
     slug: 'lakewood', title: 'An Evening with Cast Members from The Chosen', eyebrow: 'Friday · November 13', date: 'Friday, November 13, 2026', time: '7:30 PM Eastern · Doors 6:00 PM', startDate: '2026-11-13T19:30:00-05:00', admission: 'Free · registration required', venue: 'Lakewood Civic Auditorium', city: 'Lakewood', street: '14100 Franklin Blvd', zip: '44107', address: '14100 Franklin Blvd, Lakewood, OH 44107', image: 'https://m.media-amazon.com/images/M/MV5BZTI4OTAxMTAtMzU0NC00OWE2LWE1MWQtODFmZmNhYWRkZTMwXkEyXkFqcGc@._V1_.jpg', imageAlt: '',
@@ -69,7 +68,41 @@ const venuePhoto = v => {
  const image = renderImage({src:`/images/venues/${v.photo}-${width}.webp`,alt:v.alt,width,height:v.photoHeight || (v.photo === 'akron' ? 720 : 602),srcSet:widths.map(size=>({src:`/images/venues/${v.photo}-${size}.webp`,width:size})),sizes:'(max-width:800px) calc(100vw - 48px), 55vw'});
  return `<figure class="venue-photo"><div class="venue-photo-media${v.approved ? '' : ' preview-placeholder'}">${v.approved ? '' : '<span class="preview-placeholder-label" aria-hidden="true">PLACEHOLDER</span>'}${image}</div><figcaption>${v.creditUrl ? `<a href="${v.creditUrl}" target="_blank" rel="noopener noreferrer">${escape(v.credit)}</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">License</a>` : `<a href="${v.url}" target="_blank" rel="noopener noreferrer">${escape(v.credit)}</a>`}</figcaption></figure>`;
 };
+// The dinner has its own experience-first layout; other event templates stay shared.
+const dinnerPage = event => {
+ const v = venues[event.slug];
+ const reservation = () => `<p class="vip-reserve-label">Seating is limited — reserve your seat or table</p>${action(event.url, 'Reserve now')}`;
+ const venueImage = renderImage({src:'/images/venues/windows-dinner-hero-960.webp',alt:event.imageAlt,width:1110,height:556,srcSet:[480,960,1110].map(width=>({src:`/images/venues/windows-dinner-hero-${width}.webp`,width})),sizes:'(max-width:800px) 100vw, 47vw',priority:true});
+ const guestImage = renderImage({src:'/images/collages/chosen-and-piano-guys-800.webp',alt:'The Piano Guys and cast members from The Chosen',width:1254,height:1254,srcSet:[480,800,1200,1254].map(width=>({src:`/images/collages/chosen-and-piano-guys-${width}.webp`,width})),sizes:'(max-width:800px) calc(100vw - 48px), 34vw'});
+ const includes = ['Dinner at Windows on the River','An intimate setting with The Piano Guys and cast members from The Chosen','Opportunities for conversation and photos','Special experiences and surprises throughout the evening','The opportunity to support the free community events throughout NEOChosen Weekend'];
+ return editorialPage({title:`${event.title} | NEOChosen 2026`,description:`${event.description} ${event.date} at ${event.venue} in ${event.city}. Limited seating. $200 per person or $1,400 for a table of eight.`,route:'/vip-dinner/',className:'event-page vip-dinner-page',extraHead:`<link rel="stylesheet" href="/events/event.css"><link rel="stylesheet" href="/events/vip-dinner.css"><script type="application/ld+json">${JSON.stringify(schema(event))}</script>`,body:`
+ <header class="event-hero vip-hero">
+  <div class="event-hero-content vip-hero-content">
+   <p class="editorial-kicker vip-intimate">The most intimate event of NEOChosen Weekend</p>
+   <p class="vip-guest-line"><span>An intimate evening with</span>The Piano Guys &amp; cast members from The Chosen</p>
+   <h1>VIP Sponsor Dinner</h1>
+   <div class="vip-date"><p><strong>${escape(event.date)}</strong></p><p>${escape(event.time)}</p><p>${escape(event.venue)} • ${escape(event.city)}</p></div>
+   <div class="vip-prices" aria-label="Dinner pricing"><p><strong>$200</strong><span>Per person</span></p><p><strong>$1,400</strong><span>Table of eight</span></p></div>
+   <p class="vip-saving">Save $200 when reserving a full table.</p>
+   <div class="vip-reservation">${reservation()}</div>
+  </div>
+  <figure class="vip-hero-photo">${venueImage}<figcaption>Windows on the River · Venue photography<br>Example room setup; the dinner layout may differ.</figcaption></figure>
+ </header>
+ <section class="editorial-section editorial-section--white vip-experience" aria-labelledby="vip-experience-title"><div class="editorial-shell vip-experience-grid">
+  <div class="editorial-copy"><p class="editorial-kicker">The experience</p><h2 id="vip-experience-title">The most <em>intimate</em> event of NEOChosen Weekend</h2><p class="vip-lede">${escape(event.description)}</p><p>${escape(event.detail)}</p><a class="event-text-link" href="#vip-includes">Your evening includes <span aria-hidden="true">↓</span></a></div>
+  <figure class="vip-guests">${guestImage}<figcaption>The Piano Guys &amp; cast members from The Chosen</figcaption></figure>
+ </div></section>
+ <section class="editorial-section vip-includes" id="vip-includes" aria-labelledby="vip-includes-title"><div class="editorial-shell vip-includes-grid"><div><p class="editorial-kicker">Dinner. Conversation. Connection.</p><h2 id="vip-includes-title">Your evening includes</h2></div><ul>${includes.map(item=>`<li>${escape(item)}</li>`).join('')}</ul></div></section>
+ <section class="editorial-section editorial-section--white vip-menu" aria-labelledby="vip-menu-title"><div class="editorial-shell"><div class="vip-menu-intro"><p class="editorial-kicker">At the table</p><h2 id="vip-menu-title">The dinner menu</h2><p>Guests will select their entrée and dessert when purchasing their tickets.</p></div><div class="vip-menu-grid">
+  <div><h3>Entrée options</h3><ul><li><strong>Grilled Chicken Vinaigrette</strong><p>Grilled chicken breast marinated in balsamic vinaigrette, topped with fresh tomato relish</p></li><li><strong>Pan Seared Atlantic Salmon</strong></li><li><strong>Vegetable Lasagna Roll</strong><p>Layers of pasta with fresh vegetables and ricotta cheese, topped with salsa rosa sauce</p></li></ul></div>
+  <div><h3>Sides</h3><ul><li>New Potatoes with Lemon &amp; Dill</li><li>Green Beans with Red Pepper &amp; Dill</li></ul><h3>Dessert options</h3><ul><li>Chocolate Tuxedo Mousse</li><li>Cheesecake with Raspberry Sauce</li></ul></div>
+ </div></div></section>
+ <section class="editorial-section vip-venue" aria-labelledby="vip-venue-title"><div class="editorial-shell vip-venue-grid"><div><p class="editorial-kicker">Friday, November 13 · Cleveland</p><h2 id="vip-venue-title">Windows on the River</h2><p>Doors Open 4:30 PM | Dinner 5:00 PM<br>All times are Eastern.</p></div><div><address>${escape(event.address)}</address><div class="event-actions">${action('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(event.address),'Get directions','event-text-link')}${action(v.url,'Visit the venue website','event-text-link')}</div><p class="vip-questions">For arrival or accessibility questions, <a href="mailto:info@kirtlandheritagegroup.com">contact our team</a>.</p></div></div></section>
+ <section class="editorial-section editorial-section--navy vip-final-reservation" aria-labelledby="vip-reserve-title"><div class="editorial-shell"><p class="editorial-kicker">The most intimate event of NEOChosen Weekend</p><h2 id="vip-reserve-title">Seating is limited — reserve your seat or table</h2><p>$200 per person · $1,400 table of eight</p><p>Save $200 when reserving a full table.</p>${action(event.url,'Reserve now')}<a class="event-text-link" href="/#events">Explore NEOChosen Weekend <span aria-hidden="true">→</span></a></div></section>
+ <section class="event-recognition" aria-label="Event organizer and weekend sponsor"><div class="editorial-shell"><p class="editorial-kicker">Presented by Kirtland Heritage Group</p>${renderWeekendTextRecognition()}</div></section>`});
+};
 const page = event => {
+ if (event.slug === 'vip-dinner') return dinnerPage(event);
  const v = venues[event.slug];
  const collage = eventCollage(event.slug);
  const heroPhoto = collage ? renderEventCollage(collage) : event.slug === 'vip-dinner' ? renderImage({src:'/images/venues/windows-dinner-hero-960.webp',alt:'Gold chairs and a floral centerpiece beside arched windows at Windows on the River',width:1110,height:556,srcSet:[480,960,1110].map(width=>({src:`/images/venues/windows-dinner-hero-${width}.webp`,width})),sizes:'(max-width:800px) 100vw, 53vw',priority:true}) : renderPhoto('piano-guys',{alt:'The Piano Guys standing together with a cello',sizes:'(max-width:800px) 100vw, 53vw',priority:true});

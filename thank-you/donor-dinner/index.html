@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VIP Donor Dinner — Registration Confirmed | NEOChosen</title>
+  <title>VIP Sponsor Dinner — Registration Confirmed | NEOChosen</title>
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://neochosen.com/thank-you/donor-dinner/">
   <meta name="description" content="Registration confirmation and next steps for the NEOChosen weekend presented by Kirtland Heritage Group.">
@@ -17,8 +17,8 @@
       <div class="check" aria-hidden="true">✓</div>
       <div class="eyebrow">Kirtland Heritage Group presents</div>
       <h1>You’re registered!</h1>
-      <p class="lede" id="lede">Thank you for supporting the NEOChosen weekend. Your donor dinner registration is confirmed, and we look forward to welcoming you.</p>
-      <p class="event-recap">Friday, November 13, 2026 · 5:00–6:45 PM Eastern. Windows on the River, 2000 Sycamore Street, Cleveland, OH 44113.</p>
+      <p class="lede" id="lede">Thank you for supporting the NEOChosen weekend. Your VIP Sponsor Dinner reservation is confirmed, and we look forward to welcoming you.</p>
+      <p class="event-recap">Friday, November 13, 2026 · Doors Open 4:30 PM | Dinner 5:00 PM Eastern. Windows on the River, 2000 Sycamore Street, Cleveland, OH 44113.</p>
       <div class="ticket-note">Check your email for your dinner confirmation and keep it for event check-in.</div>
       <!-- WEEKEND_PRESENTING_CREDIT -->
     </section>
@@ -34,9 +34,9 @@
       </article>
       <article class="card" id="dinner-card">
         <div class="eyebrow">Friday, November 13</div>
-        <h2>Join the VIP Donor Dinner</h2>
-        <p>Gather at Windows on the River in Cleveland with cast members from The Chosen and The Piano Guys. A $200 donation includes one dinner invitation; $400 includes two, while space remains. Your gift supports the weekend’s free public events.</p>
-        <a class="btn gold" href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener">Become a donor</a>
+        <h2>Join the VIP Sponsor Dinner</h2>
+        <p>Gather at Windows on the River in Cleveland with cast members from The Chosen and The Piano Guys. $200 per person or $1,400 for a table of eight. Save $200 when reserving a full table. Seating is limited.</p>
+        <a class="btn gold" href="https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys" target="_blank" rel="noopener">Reserve now</a>
       </article>
       <article class="card wide">
         <div class="eyebrow">Make a weekend of it</div>
@@ -76,7 +76,7 @@
       lakewood: 'Friday, November 13, 2026 · 7:30–9:30 PM Eastern. Doors open at 6:00 PM. Lakewood Civic Auditorium, 14100 Franklin Blvd, Lakewood, OH 44107.',
       fairlawn: 'Saturday, November 14, 2026 · 7:00–9:00 PM Eastern. St. Hilary Church, 2750 W Market St, Fairlawn, OH 44333.',
       chesterland: 'Sunday, November 15, 2026 · 2:00–4:00 PM Eastern. Mayfield United Methodist Church, 7747 Mayfield Road, Chesterland, OH 44026.',
-      'donor-dinner': 'Friday, November 13, 2026 · 5:00–6:45 PM Eastern. Windows on the River, 2000 Sycamore Street, Cleveland, OH 44113.'
+      'donor-dinner': 'Friday, November 13, 2026 · Doors Open 4:30 PM | Dinner 5:00 PM Eastern. Windows on the River, 2000 Sycamore Street, Cleveland, OH 44113.'
     };
     const key = "donor-dinner";
 
@@ -84,7 +84,7 @@
       document.getElementById("lede").textContent = `Your place is reserved for ${data[key].name}. We are looking forward to welcoming you.`;
     }
     if (key === "donor-dinner") {
-      document.getElementById("lede").textContent = "Thank you for supporting the NEOChosen weekend. Your donor dinner registration is confirmed, and we look forward to welcoming you.";
+      document.getElementById("lede").textContent = "Thank you for supporting the NEOChosen weekend. Your VIP Sponsor Dinner reservation is confirmed, and we look forward to welcoming you.";
       document.querySelector(".ticket-note").textContent = "Check your email for your dinner confirmation and keep it for event check-in.";
       document.getElementById("dinner-card").hidden = true;
       document.getElementById("support-heading").textContent = "Thank you for making this weekend possible";

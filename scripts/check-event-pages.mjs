@@ -17,7 +17,7 @@ for (const card of cards) {
   assert(card.includes('home-event-secondary'), 'Every event card needs a detail route');
 }
 for (const [slug,needed] of Object.entries({
-  'vip-dinner':['$200 donation','one dinner invitation','$400 includes two','Windows on the River','Become a donor'],
+  'vip-dinner':['VIP Sponsor Dinner','$200','$1,400','Table of eight','Save $200','Doors Open 4:30 PM | Dinner 5:00 PM','Windows on the River','Reserve now','Grilled Chicken Vinaigrette','Pan Seared Atlantic Salmon','Vegetable Lasagna Roll','New Potatoes with Lemon &amp; Dill','Green Beans with Red Pepper &amp; Dill','Chocolate Tuxedo Mousse','Cheesecake with Raspberry Sauce','Guests will select their entrée and dessert when purchasing their tickets.'],
   lakewood:['Free','Lakewood Civic Auditorium'],
   'piano-guys':['Paid concert','FNA Wealth Management','October 2 at 10 a.m.','https://www.ticketmaster.com/event/05006538EC473EB4'],
   fairlawn:['Free','Advanced Care Endodontics','FNA Wealth Management'],
