@@ -25,6 +25,8 @@ export default [
       "editorial.js",
       "scripts/event-collages.mjs",
       "concert-tickets.js",
+      "breakfast/*.js",
+      "scripts/breakfast-page.mjs",
       "playwright.config.mjs",
     ],
     ...js.configs.recommended,

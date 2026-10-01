@@ -1,0 +1,481 @@
+/* Breakfast-only layout: shared Cinzel/Montserrat, navy, cream and gold. */
+.breakfast-page {
+  --breakfast-line: #d4c9b9;
+}
+.breakfast-hero {
+  background: var(--color-surface-dark);
+  color: white;
+}
+.breakfast-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.6fr) minmax(240px, 1fr);
+  gap: 70px;
+  align-items: center;
+  padding-block: 80px;
+}
+.breakfast-hero .editorial-kicker {
+  color: var(--color-brand-gold);
+  font-size: 11px;
+}
+.breakfast-hero h1 {
+  font-size: clamp(32px, 3.6vw, 52px);
+  line-height: 1.24;
+}
+.breakfast-hero h1 span {
+  color: var(--color-brand-gold);
+}
+.breakfast-hero .breakfast-hero-lede {
+  font-size: 18px;
+  max-width: 560px;
+  margin: 28px 0;
+}
+.breakfast-hero .editorial-button,
+.breakfast-submit {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.breakfast-page main a.breakfast-hero-link {
+  color: var(--color-brand-gold) !important;
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.breakfast-hero-link:hover {
+  text-decoration: underline !important;
+}
+.breakfast-hero-facts {
+  border-top: 2px solid var(--color-brand-gold);
+  padding-top: 25px;
+}
+.breakfast-fact-label {
+  color: var(--color-brand-gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px !important;
+}
+.breakfast-date {
+  font: 400 30px/1.3 var(--font-display);
+}
+.breakfast-date span {
+  display: block;
+  font-size: 22px;
+  margin-top: 5px;
+}
+.breakfast-time {
+  font-weight: 600;
+  font-size: 19px;
+}
+.breakfast-time span {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 3px;
+  color: var(--color-text-secondary);
+}
+.breakfast-admission {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.breakfast-deadline {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 20px;
+  margin-bottom: 0 !important;
+}
+.breakfast-deadline strong {
+  color: white;
+}
+.breakfast-hero-foot {
+  padding: 20px 0;
+  border-top: 1px solid var(--color-border-subtle);
+  color: var(--color-brand-gold);
+  font-size: 13px;
+}
+.breakfast-purpose-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 65px;
+}
+.breakfast-community-photo {
+  margin: 0;
+}
+.breakfast-community-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.breakfast-community-photo figcaption {
+  font-size: 11px;
+  margin-top: 12px;
+}
+.breakfast-section-intro {
+  max-width: 770px;
+  margin-bottom: 40px;
+}
+.breakfast-section-intro > p:last-child {
+  font-size: 17px;
+}
+.breakfast-region-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+.breakfast-region {
+  background: white;
+  padding: 36px;
+  border-top: 3px solid var(--color-brand-gold);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.breakfast-region h3 {
+  font-size: 27px;
+}
+.breakfast-region p:not(.breakfast-region-number) {
+  max-width: 430px;
+}
+.breakfast-region-number {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #24625d;
+  font-weight: 700;
+}
+.breakfast-region .editorial-link {
+  margin-top: auto;
+}
+.breakfast-venue-note {
+  margin: 30px 0 0 !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+.breakfast-conversation h2 {
+  margin-bottom: 45px;
+}
+.breakfast-conversation-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 75px;
+}
+.breakfast-conversation h3 {
+  font-size: 24px;
+}
+.breakfast-conversation p,
+.breakfast-topics {
+  font-size: 16px;
+}
+.breakfast-emphasis {
+  color: var(--color-brand-gold);
+  font-weight: 600;
+  margin-bottom: 0 !important;
+}
+.breakfast-topics {
+  list-style: none;
+  counter-reset: topics;
+  padding: 0;
+  margin: 0;
+}
+.breakfast-topics li {
+  counter-increment: topics;
+  position: relative;
+  padding: 18px 0 18px 37px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.breakfast-topics li:first-child {
+  padding-top: 0;
+}
+.breakfast-topics li::before {
+  content: "0" counter(topics);
+  position: absolute;
+  left: 0;
+  color: var(--color-brand-gold);
+  font-size: 11px;
+  font-weight: 700;
+}
+.breakfast-expectations {
+  background: #ede2cf;
+}
+.breakfast-expectations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 70px;
+}
+.breakfast-expectations h3 {
+  margin-top: 32px;
+  font-size: 24px;
+}
+.breakfast-request-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  gap: 70px;
+  margin-top: 35px;
+}
+.breakfast-request-intro {
+  font-size: 17px;
+}
+.breakfast-next {
+  border-top: 1px solid var(--breakfast-line);
+  padding-top: 28px;
+  margin-top: 30px;
+}
+.breakfast-next h3 {
+  font-size: 23px;
+}
+.breakfast-next ol {
+  padding-left: 20px;
+  font-size: 14px;
+}
+.breakfast-next li {
+  padding-left: 5px;
+  margin-bottom: 12px;
+}
+.breakfast-form-notice {
+  padding: 22px;
+  border-left: 3px solid #876638;
+  background: var(--color-surface-light);
+  font-size: 14px;
+  margin-bottom: 26px;
+}
+.breakfast-form-notice p {
+  margin: 8px 0 0;
+}
+.breakfast-required-note {
+  font-size: 12px;
+}
+.breakfast-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+.breakfast-field {
+  min-width: 0;
+}
+.breakfast-field--full {
+  grid-column: 1 / -1;
+}
+.breakfast-field label {
+  display: block;
+  font-size: 13px;
+  line-height: 1.65;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+.breakfast-optional {
+  font-weight: 400;
+}
+.breakfast-field input,
+.breakfast-field select,
+.breakfast-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #9caaac;
+  border-radius: 0;
+  padding: 12px;
+  background: white;
+  color: var(--color-text-inverse);
+  font: 400 16px/1.5 var(--font-body);
+}
+.breakfast-field textarea {
+  resize: vertical;
+}
+.breakfast-field [aria-invalid="true"] {
+  border-color: var(--color-error);
+  border-width: 2px;
+}
+.breakfast-field .breakfast-field-error {
+  color: var(--color-error);
+  font-size: 12px;
+  margin: 7px 0 0;
+  min-height: 20px;
+}
+.breakfast-field .breakfast-field-help {
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+.breakfast-page main :focus-visible {
+  outline-color: #24625d !important;
+}
+.breakfast-page main .breakfast-hero :focus-visible,
+.breakfast-page main .breakfast-conversation :focus-visible {
+  outline-color: var(--color-focus) !important;
+}
+.breakfast-submit {
+  margin-top: 28px;
+  min-height: 54px;
+  cursor: pointer;
+}
+.breakfast-submit:disabled {
+  cursor: not-allowed;
+  background: #e6e1d8;
+  color: #53605f;
+  border: 1px solid #b9c1bd;
+}
+.breakfast-form-status {
+  padding: 20px;
+  margin: 22px 0 0 !important;
+  font-size: 14px;
+  background: var(--color-surface-light);
+  border-left: 3px solid #24625d;
+}
+.breakfast-form-status[data-state="error"] {
+  border-color: var(--color-error);
+}
+.breakfast-form-status[data-state="success"] {
+  border-color: var(--color-success);
+}
+.breakfast-page [hidden] {
+  display: none !important;
+}
+/* Reserve feedback space so blur validation cannot move a pressed button. */
+.breakfast-page .breakfast-field-error[hidden] {
+  display: block !important;
+  visibility: hidden;
+}
+.breakfast-weekend {
+  padding: 60px 0;
+  background: var(--color-brand-gold);
+}
+.breakfast-weekend .editorial-shell {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  justify-content: space-between;
+}
+.breakfast-weekend h2 {
+  max-width: 580px;
+  font-size: 30px;
+  margin: 0;
+}
+.breakfast-weekend .editorial-kicker {
+  color: var(--color-text-inverse);
+}
+.breakfast-weekend .editorial-button {
+  background: var(--color-surface-dark);
+  color: white;
+  max-width: 360px;
+  text-align: center;
+  flex-shrink: 0;
+}
+@media (max-width: 1100px) {
+  .breakfast-hero-grid {
+    gap: 40px;
+  }
+  .breakfast-purpose-grid,
+  .breakfast-conversation-grid,
+  .breakfast-request-grid,
+  .breakfast-expectations-grid {
+    gap: 36px;
+  }
+  .breakfast-region {
+    padding: 28px;
+  }
+}
+@media (max-width: 800px) {
+  .breakfast-hero-grid {
+    grid-template-columns: 1fr;
+    padding-block: 50px 40px;
+    gap: 35px;
+  }
+  .breakfast-hero h1 {
+    font-size: clamp(29px, 6.8vw, 44px);
+  }
+  .breakfast-hero .editorial-kicker {
+    font-size: 10px;
+  }
+  .breakfast-hero .breakfast-hero-lede {
+    font-size: 17px;
+    margin-block: 22px;
+  }
+  .breakfast-hero .editorial-actions {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .breakfast-hero .editorial-button {
+    width: 100%;
+  }
+  .breakfast-hero-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+    padding-top: 22px;
+  }
+  .breakfast-hero-facts .breakfast-fact-label {
+    grid-column: 1 / -1;
+  }
+  .breakfast-date {
+    font-size: 22px;
+    margin-bottom: 12px !important;
+  }
+  .breakfast-date span {
+    font-size: 18px;
+  }
+  .breakfast-time {
+    font-size: 17px;
+  }
+  .breakfast-admission {
+    grid-column: 1 / -1;
+    margin-bottom: 8px !important;
+  }
+  .breakfast-deadline {
+    grid-column: 1 / -1;
+    padding-top: 16px;
+  }
+  .breakfast-hero-foot {
+    font-size: 12px;
+  }
+  .breakfast-purpose-grid,
+  .breakfast-region-grid,
+  .breakfast-conversation-grid,
+  .breakfast-expectations-grid,
+  .breakfast-request-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .breakfast-community-photo {
+    max-width: 500px;
+  }
+  .breakfast-region {
+    padding: 28px 24px;
+  }
+  .breakfast-region h3 {
+    font-size: 25px;
+  }
+  .breakfast-conversation h2 {
+    margin-bottom: 30px;
+  }
+  .breakfast-expectations h2 {
+    margin-bottom: 0;
+  }
+  .breakfast-next {
+    margin-top: 24px;
+  }
+  .breakfast-fields {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .breakfast-submit {
+    width: 100%;
+  }
+  .breakfast-weekend .editorial-shell {
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+  }
+  .breakfast-weekend h2 {
+    font-size: 27px;
+  }
+  .breakfast-weekend .editorial-button {
+    width: 100%;
+    max-width: none;
+    font-size: 12px;
+  }
+}

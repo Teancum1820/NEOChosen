@@ -1,0 +1,70 @@
+NEOChosen Interfaith & Community Leaders Breakfast — local review
+Prepared October 1, 2026. For Joe and Jessica's review; not published.
+
+Preview: http://127.0.0.1:4180/interfaith-community-breakfast/
+Branch: codex/interfaith-breakfast-review
+Base: f3b3d4b (includes the separately reviewed VIP dinner and partner logos).
+The original VIP dinner review worktree and preview on port 4178 are preserved.
+
+CONTENT AND DESIGN
+Shared Cinzel/Montserrat typography, navy/cream/gold palette, header/footer,
+existing KHG community photo and image helper. Clear purpose, date/time,
+complimentary invitation-only admission, two region choices, October 25 deadline,
+community discussion themes, restrained guest wording and request form.
+Regional actions select the corresponding gathering and focus its field.
+The weekend schedule link returns to /#events.
+No breakfast venue names, addresses, maps, coordinates, private Luma/RSVP URLs,
+calendar listing, QR codes or attendee information were added to public assets.
+No existing event navigation or public event cards were changed.
+
+EMAIL REVIEW AND REMAINING DEPENDENCY
+Read Joe's October 1 email titled "NEOChosen leader breakfast page", copied to
+Jessica, and searched related breakfast/form and website-update emails. Joe's
+email requests an on-page invitation request form but does not provide an
+existing public form, receiving endpoint, storage location or review workflow.
+It explicitly separates invitation requests from private Luma registrations.
+The relevant emails reviewed did not supply an approved receiving system.
+No messages, drafts, QR codes or external submissions were created or sent.
+
+The production configuration serves static assets and has no breakfast handler.
+The repository's legacy prize-donation handler is disabled and raffle-specific;
+it has not been reused, enabled, or modified.
+
+The displayed form is INACTIVE, with a visible explanation and disabled submit
+button. No personal data is transmitted and no receipt is falsely claimed.
+Before release, identify/configure the approved invitation-request receiver,
+its persistence and Joe/Jessica's review access, then verify a safe stored test
+request end to end. Actual receipt/review cannot yet be verified.
+
+INTEGRATION NOTES (FOR THE NEXT IMPLEMENTATION STEP)
+BREAKFAST_REQUEST_ENDPOINT is empty by default. An approved receiver can be
+configured at build time as a same-origin /api/ path. This is an integration
+hook, not an implemented or verified backend. The current client sends multipart
+fields: name, organization, role, email, phone, community, gathering, involvement.
+gathering values are east-side or south-summit. Client validation and 20-second
+timeout are implemented. The proposed receipt contract requires HTTP 201 with
+JSON {"ok":true,"id":"saved-record-id"}; align the adapter with the approved
+receiver rather than assuming an existing service supports this contract.
+No email recipients, new database, API secrets or live infrastructure invented.
+
+VERIFICATION
+npm test, npm run lint and npm run typecheck passed.
+The existing 34 functional/accessibility checks passed. After correcting a
+blur-validation layout shift, all seven new breakfast checks passed, plus the
+existing seven-width responsive check (8 passing targeted tests).
+All four existing visual regression checks passed with unchanged baselines.
+WCAG AA axe checks passed at 320 and 1440px, including form validation errors.
+Tested empty fields, invalid email, regional selection/focus, server failure,
+network failure, ambiguous acknowledgements, loading/duplicate prevention and
+explicit saved-record acknowledgement. Receiver responses were isolated local
+mocks using synthetic data; these do not verify production delivery.
+Browser review/captures: 320,375,390,430,768,1024,1440px, no horizontal overflow.
+VIP HTML is byte-identical to its existing preview; VIP CSS matches after
+normalizing Git checkout line endings. Its source files were not edited.
+
+REVIEW PACKAGE
+Extract the ZIP, then from its root run: node serve-static.mjs
+With Node installed, open:
+http://127.0.0.1:4173/interfaith-community-breakfast/
+The package includes the static site, responsive screenshots and these notes.
+No merge, push, publication or deployment has occurred.
