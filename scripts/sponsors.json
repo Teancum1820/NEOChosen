@@ -181,6 +181,16 @@
     "background": "light"
   },
   {
+    "id": "trinity-commercial-realty",
+    "name": "Trinity Commercial Realty, LLC",
+    "logo": "/images/partners/trinity-commercial-realty.png",
+    "url": "https://www.trinitycregroup.com/",
+    "tier": "community",
+    "events": [],
+    "background": "light",
+    "confirmation": "Joe authorized website inclusion September 30, 2026; Caleb approved placement at our discretion. Original logo extracted from supplied Trinity Small Ad Gary 2026.pdf."
+  },
+  {
     "id": "catholic-cemeteries",
     "name": "Catholic Cemeteries Association",
     "logo": "/images/partners/catholic-cemeteries.webp",
