@@ -3,7 +3,7 @@ import sharp from "sharp";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-const base = "http://127.0.0.1:4173";
+const base = `http://127.0.0.1:${process.env.PORT || "4173"}`;
 const out = path.resolve("artifacts/screenshots");
 await mkdir(out, { recursive: true });
 const browser = await chromium.launch();
@@ -21,6 +21,7 @@ const routes = [
   ["sponsors", "/sponsors/"],
   ["chesterland", "/chesterland/"],
   ["vip-dinner", "/vip-dinner/"],
+  ["breakfast", "/interfaith-community-breakfast/"],
   ["lakewood", "/lakewood/"],
   ["piano-guys", "/piano-guys/"],
   ["fairlawn", "/fairlawn/"],

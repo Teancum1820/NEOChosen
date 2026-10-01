@@ -41,13 +41,19 @@ async function fillRequest(page) {
     .fill("Synthetic local test; no real submission.");
 }
 
-test("breakfast content, privacy and unavailable receiver are explicit", async ({
+test("breakfast content, privacy and unconfigured receiver are explicit", async ({
   page,
 }) => {
   const posts = [];
   page.on("request", (request) => {
     if (request.method() === "POST") posts.push(request.url());
   });
+  await page.route(`**${breakfastRoute}`, (route) =>
+    route.fulfill({
+      contentType: "text/html",
+      body: applySiteChrome(breakfastPage(), breakfastRoute),
+    }),
+  );
   await page.goto(breakfastRoute);
   await expect(page.locator("h1")).toHaveText(
     "Northeast OhioInterfaith & CommunityLeaders Breakfast",

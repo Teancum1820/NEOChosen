@@ -8,7 +8,7 @@ try {
   let ready = false;
   for (let attempt = 0; attempt < 50; attempt++) {
     try {
-      const response = await fetch("http://127.0.0.1:4173/");
+      const response = await fetch(`http://127.0.0.1:${process.env.PORT || "4173"}/`);
       if (response.ok) {
         ready = true;
         break;

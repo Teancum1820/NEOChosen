@@ -1,8 +1,26 @@
 {
   "$schema": "../node_modules/wrangler/config-schema.json",
   "name": "neochosen",
+  "main": "worker.ts",
   "compatibility_date": "2026-08-17",
   "assets": {
-    "directory": "../dist"
-  }
+    "directory": "../dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/breakfast-requests"],
+  },
+  "vars": {
+    "BREAKFAST_REQUESTS_ENABLED": "true",
+    "BREAKFAST_ALLOWED_ORIGIN": "https://neochosen.com",
+  },
+  "secrets": {
+    "required": ["BREAKFAST_SHEET_ID", "GOOGLE_SERVICE_ACCOUNT_JSON"],
+  },
+  "ratelimits": [
+    {
+      "name": "BREAKFAST_RATE_LIMITER",
+      "namespace_id": "2026111401",
+      "simple": { "limit": 5, "period": 60 },
+    },
+  ],
+  "observability": { "enabled": true },
 }

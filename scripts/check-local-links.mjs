@@ -21,6 +21,12 @@ for (const file of htmlFiles) {
     catch { failures.push(`${route}: invalid ${attribute} ${value}`); continue; }
     if (url.origin !== 'https://local.test') continue;
     links++;
+    // This form action is served by the production Worker, not a static file.
+    if (attribute === 'action' && route === '/interfaith-community-breakfast/' && url.pathname === '/api/breakfast-requests') {
+      const worker = await readFile('production/worker.ts', 'utf8');
+      assert(worker.includes('const route = "/api/breakfast-requests";'), 'Breakfast form must match the configured Worker route');
+      continue;
+    }
     const target = path.join(root,decodeURIComponent(url.pathname));
     try {
       const info = await stat(target);

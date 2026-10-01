@@ -4,7 +4,9 @@
   const endpoint = form.dataset.endpoint;
   const submit = form.querySelector('button[type="submit"]');
   const status = document.getElementById("request-status");
-  const controls = [...form.querySelectorAll("input, select, textarea")];
+  const controls = [
+    ...form.querySelectorAll('input:not([name="website"]), select, textarea'),
+  ];
   const gathering = form.elements.namedItem("gathering");
   let busy = false;
   form.noValidate = true;

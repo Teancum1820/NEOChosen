@@ -10,5 +10,8 @@ storybook-static/
 .dev.vars
 preview/.dev.vars
 preview/worker-configuration.d.ts
+production/.dev.vars
+production/.dev.vars.*
+production/worker-configuration.d.ts
 npm-debug.log*
 wrangler-pages.*.log

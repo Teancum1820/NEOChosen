@@ -19,6 +19,8 @@ export default [
       "design-system/**/*.mjs",
       "tests/browser/**/*.mjs",
       "tests/review-worker.test.mjs",
+      "tests/breakfast-sheets.test.mjs",
+      "scripts/check-unlisted-breakfast.mjs",
       "preview/*.mjs",
       "scripts/{audit-images,capture-screenshots,optimize-images,run-screenshots,serve-static}.mjs",
       "scripts/{editorial-page,interior-pages,event-pages,sponsorship-pages,sponsor-system,capture-fullsite,optimize-media-previews,approved-media}.mjs",

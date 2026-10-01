@@ -10,6 +10,14 @@
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
 
+/interfaith-community-breakfast
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store
+
+/interfaith-community-breakfast/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store
+
 /manifest.webmanifest
   Cache-Control: public, max-age=3600
 

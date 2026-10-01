@@ -77,7 +77,7 @@ await writeEventPages(outDir);
 await writeInteriorPages(outDir);
 await writeApprovedMedia(outDir);
 await writeBreakfastPage(outDir);
-await writeReviewHub(outDir);
+if (process.env.NEOCHOSEN_REVIEW === "true") await writeReviewHub(outDir);
 
 async function updateChrome(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
