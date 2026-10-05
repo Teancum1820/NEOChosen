@@ -36,14 +36,13 @@
 .event-brand a:hover strong { text-decoration:underline; text-underline-offset:4px; }
 .event-community-sponsors { margin-top:32px; padding-top:24px; border-top:1px solid #d6cbb9; }
 .event-page .event-community-sponsors h2 { margin:0 0 20px; font:700 13px/1.5 Montserrat,Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#24625d; }
-.event-community-sponsor-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); max-width:608px; gap:24px; }
+.event-community-sponsor-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); max-width:504px; gap:24px; }
 .event-community-sponsor-list article { min-width:0; display:flex; flex-direction:column; align-items:center; text-align:center; }
 .event-community-identity { display:flex; flex-direction:column; align-items:center; width:100%; color:#122035; text-decoration:none; }
 .event-community-identity:hover h3 { text-decoration:underline; text-underline-offset:4px; }
-.event-community-sponsors .neo-sponsor-art { width:100%; max-width:480px; height:180px; padding:0; margin:0 0 20px; background:transparent; }
-.event-community-sponsors h3 { margin:0 0 8px; font:500 21px/1.5 Cinzel,Georgia,serif; }
+.event-community-sponsors .neo-sponsor-art { width:100%; max-width:240px; height:90px; padding:0; margin:0 0 12px; background:transparent; }
+.event-community-sponsors h3 { margin:0 0 8px; font:600 16px/1.5 Montserrat,Arial,sans-serif; }
 .event-community-sponsors p { margin:0; font-size:14px; line-height:1.6; }
-@media(max-width:800px) { .event-community-sponsors .neo-sponsor-art { height:160px; } }
 @media(max-width:800px) { .event-brand-grid { grid-template-columns:minmax(0,1fr); gap:40px; } .event-brand .neo-event-sponsor-label { min-height:0; text-align:center; } .event-brand .neo-sponsor-art { height:160px; } }
 .event-venue-guide { padding:32px; background:white; }
 .event-venue-guide address { font-style:normal; }

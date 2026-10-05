@@ -176,10 +176,12 @@
     "id": "ascend-wealth-management",
     "name": "Ascend Wealth Management LLC",
     "logo": "/images/ascend-wealth-management.png",
+    "url": "https://www.conniecostanzo.com/",
+    "linkIdentity": true,
     "tier": "community",
     "events": ["lakewood"],
     "background": "light",
-    "confirmation": "Joe, October 5, 2026: recognize Ascend as a November 13 Lakewood sponsor using the supplied logo; retain the lower-level placement requested September 30."
+    "confirmation": "Joe, October 5, 2026: link the Ascend logo to Connie Costanzo's website and recognize her as a small sponsor of the November 13 Lakewood event, with lower-level placement and sizing."
   },
   {
     "id": "trinity-commercial-realty",
