@@ -405,16 +405,3 @@ nav.site-nav .site-nav-actions .nav-social-links a { flex:none; width:40px; min-
   nav.site-nav .site-nav-actions .nav-social-links a { width:32px; min-width:32px; padding:6px; }
 }
 @media(max-width:360px) { nav.site-nav .site-wordmark { font-size:15px!important; } }
-
-/* Concert on-sale notice, shared by all Ticketmaster actions. */
-.concert-ticket-dialog { box-sizing:border-box; width:min(520px,calc(100% - 32px)); max-height:calc(100dvh - 32px); margin:auto; padding:36px; border:1px solid #b89449; border-top:5px solid #b89449; border-radius:8px; background:#faf7ef; color:#101a2d; box-shadow:0 24px 80px rgba(0,0,0,.3); font:400 16px/1.65 Montserrat,Arial,sans-serif; }
-.concert-ticket-dialog::backdrop { background:rgba(10,18,32,.75); }
-.concert-ticket-dialog .concert-ticket-kicker { margin:0 0 12px; color:#735419; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
-.concert-ticket-dialog h2 { margin:0 0 16px; color:#101a2d; font:600 clamp(26px,5vw,34px)/1.25 Cinzel,Georgia,serif; }
-.concert-ticket-dialog #concert-ticket-message { margin:0 0 28px; color:#101a2d; font-size:17px; line-height:1.7; }
-.concert-ticket-actions { display:flex; flex-wrap:wrap; gap:12px; }
-.concert-ticket-actions button,.concert-ticket-actions a { box-sizing:border-box; display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:12px 16px; border:1px solid #101a2d; border-radius:4px; font:700 14px/1.5 Montserrat,Arial,sans-serif; cursor:pointer; text-decoration:none; }
-.concert-ticket-actions .concert-ticket-close { background:transparent; color:#101a2d; }
-.concert-ticket-actions .concert-ticket-continue { background:#101a2d; color:#fff; }
-.concert-ticket-actions :focus-visible { outline:3px solid #8a6218; outline-offset:4px; }
-@media(max-width:480px) { .concert-ticket-dialog { padding:28px 24px; } .concert-ticket-actions > * { width:100%; } }

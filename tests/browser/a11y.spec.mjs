@@ -1,13 +1,12 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-test("concert ticket notice meets WCAG AA checks on desktop and mobile", async ({
+test("concert ticket page meets WCAG AA checks on desktop and mobile", async ({
   page,
 }) => {
   for (const width of [1440, 320]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/piano-guys/");
-    await page.locator('.event-hero a[href*="ticketmaster.com"]').click();
     const result = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze();

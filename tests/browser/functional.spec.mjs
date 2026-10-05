@@ -261,10 +261,14 @@ test("sponsorship print previews load on demand with usable mobile download link
   );
 });
 
-test("every concert action opens the on-sale notice and restores focus", async ({
+test("every concert action goes directly to Ticketmaster without a notice", async ({
   page,
+  context,
 }) => {
   const ticketUrl = "https://www.ticketmaster.com/event/05006538EC473EB4";
+  await context.route("https://www.ticketmaster.com/**", (route) =>
+    route.fulfill({ body: "Ticket destination" }),
+  );
   for (const [route, expectedCount] of [
     ["/", 3],
     ["/piano-guys/", 2],
@@ -274,24 +278,17 @@ test("every concert action opens the on-sale notice and restores focus", async (
     await expect(buttons).toHaveCount(expectedCount);
     for (let index = 0; index < expectedCount; index++) {
       const trigger = buttons.nth(index);
+      const popupPromise = page.waitForEvent("popup");
       await trigger.click();
-      const dialog = page.getByRole("dialog", { name: "Concert tickets" });
-      await expect(dialog).toBeVisible();
-      await expect(dialog).toContainText(
-        "Concert tickets go on sale Friday, October 2 at 10 a.m.",
-      );
-      await expect(
-        dialog.getByRole("link", { name: /Continue to Ticketmaster/ }),
-      ).toHaveAttribute("href", ticketUrl);
-      await expect(dialog.getByRole("button", { name: "Close" })).toBeFocused();
-      await page.keyboard.press("Escape");
-      await expect(dialog).not.toBeVisible();
-      await expect(trigger).toBeFocused();
+      const popup = await popupPromise;
+      await expect(popup).toHaveURL(ticketUrl);
+      await expect(page.getByRole("dialog")).toHaveCount(0);
+      await popup.close();
     }
   }
 });
 
-test("mobile concert notice fits the screen and continues to Ticketmaster", async ({
+test("mobile concert action goes directly to Ticketmaster with the keyboard", async ({
   page,
   context,
 }) => {
@@ -302,22 +299,12 @@ test("mobile concert notice fits the screen and continues to Ticketmaster", asyn
   await page.goto("/piano-guys/");
   const trigger = page.locator('.event-hero a[href*="ticketmaster.com"]');
   await trigger.focus();
-  await page.keyboard.press("Enter");
-  const dialog = page.getByRole("dialog", { name: "Concert tickets" });
-  await expect(dialog).toBeVisible();
-  const bounds = await dialog.boundingBox();
-  expect(bounds.x).toBeGreaterThanOrEqual(0);
-  expect(bounds.x + bounds.width).toBeLessThanOrEqual(320);
-  expect(bounds.y + bounds.height).toBeLessThanOrEqual(568);
-  await dialog.getByRole("button", { name: "Close" }).click();
-  await expect(trigger).toBeFocused();
-  await trigger.click();
   const popupPromise = page.waitForEvent("popup");
-  await dialog.getByRole("link", { name: /Continue to Ticketmaster/ }).click();
+  await page.keyboard.press("Enter");
   const popup = await popupPromise;
   await expect(popup).toHaveURL(
     "https://www.ticketmaster.com/event/05006538EC473EB4",
   );
-  await expect(dialog).not.toBeVisible();
+  await expect(page.getByRole("dialog")).toHaveCount(0);
   await popup.close();
 });
