@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 
 // Approved sponsor identities and relationships live in sponsors.json.
 export const sponsors = JSON.parse(await readFile(new URL('./sponsors.json', import.meta.url), 'utf8'));
-export const events = { akron: 'The Piano Guys Concert', fairlawn: 'Fairlawn Meet & Greet' };
+export const events = { akron: 'The Piano Guys Concert', fairlawn: 'Fairlawn Meet & Greet', lakewood: 'Lakewood event' };
 const tiers = [
   ['weekend-presenting', 'Weekend Presenting Sponsor'],
   ['presenting', 'Event Presenting Sponsors'],
@@ -74,7 +74,7 @@ export function renderHomepageSponsorDirectory() {
     return `<div class="home-sponsor-tier home-sponsor-tier--${tier}"><h3>${title}</h3><div class="home-sponsor-list">${group.map(s => {
       const tag = s.url ? 'a' : 'div';
       const link = s.url ? ` ${external(s)} title="Visit ${escape(s.name)} website"` : '';
-      return `<${tag} class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" data-sponsor="${escape(s.id)}"${link}>${renderSponsorLogo(s, { className: 'home-sponsor-art', decorative: true })}<span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${tier === 'presenting' ? `<small>${s.events.map(event => escape(events[event])).join(' · ')}</small>` : ''}${s.phone ? `<small>${escape(s.phone)}</small>`:''}</span></${tag}>`;
+      return `<${tag} class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" data-sponsor="${escape(s.id)}"${link}>${renderSponsorLogo(s, { className: 'home-sponsor-art', decorative: true })}<span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${tier === 'presenting' ? `<small>${s.events.map(event => escape(events[event])).join(' · ')}</small>` : tier === 'community' && s.events.length && s.description ? `<small>${escape(s.description)}</small>` : ''}${s.phone ? `<small>${escape(s.phone)}</small>`:''}</span></${tag}>`;
     }).join('')}</div></div>`;
   }).join('');
 }
@@ -85,6 +85,11 @@ export function renderEventSponsorCredit(event, { compact = false } = {}) {
   return `<div class="neo-event-sponsor-credit${compact ? ' neo-event-sponsor-credit--compact' : ''}" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(label)}"><p class="neo-event-sponsor-label">${escape(label)}</p><div class="neo-event-sponsor-list">${group.map(s => `<a ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s, { decorative: true })}<strong>${escape(s.name)}</strong></a>`).join('')}</div></div>`;
 }
 export const renderEventSponsors = event => renderEventSponsorCredit(event, { compact: true });
+export function renderEventCommunitySponsors(event) {
+  const group = byTier('community').filter(s => s.events.includes(event));
+  if (!group.length) return '';
+  return `<section class="event-community-sponsors" aria-labelledby="event-community-sponsors-heading"><h2 id="event-community-sponsors-heading">Community Sponsors</h2><div class="event-community-sponsor-list">${group.map(s => `<article data-sponsor="${escape(s.id)}">${renderSponsorLogo(s, { decorative: true })}<h3>${escape(s.name)}</h3>${renderSponsorDescription(s)}${s.url ? `<a class="editorial-link" ${external(s)}>Visit website <span class="sr-only">for ${escape(s.name)}</span></a>` : ''}</article>`).join('')}</div></section>`;
+}
 export function renderEventPartnerLogos(event, { includeOrganizer = false } = {}) {
   const partners = event ? presenters(event).map(s => ({ ...s, displayRole: event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsor' })) : [];
   if (includeOrganizer) partners.push({ id:'kirtland-heritage-group', name:'Kirtland Heritage Group', logo:'/images/partners/kirtland-heritage-group.webp', url:'https://kirtlandheritagegroup.com/', background:'light', displayRole:'Presented by' });

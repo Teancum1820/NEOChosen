@@ -177,8 +177,10 @@
     "name": "Ascend Wealth Management LLC",
     "logo": "/images/ascend-wealth-management.png",
     "tier": "community",
-    "events": [],
-    "background": "light"
+    "events": ["lakewood"],
+    "background": "light",
+    "description": "Community sponsor of the November 13, 2026 Lakewood event.",
+    "confirmation": "Joe, October 5, 2026: recognize Ascend as a November 13 Lakewood sponsor using the supplied logo; retain the lower-level placement requested September 30."
   },
   {
     "id": "trinity-commercial-realty",

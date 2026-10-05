@@ -9,6 +9,9 @@ const directory = await page('sponsors/index.html');
 const media = await page('media-kit/index.html');
 const akron = await page('piano-guys/index.html');
 const fairlawn = await page('fairlawn/index.html');
+const lakewood = await page('lakewood/index.html');
+const vip = await page('vip-dinner/index.html');
+const chesterland = await page('chesterland/index.html');
 const thanks = await page('thank-you/fairlawn/index.html');
 const byId = id => sponsors.find(s => s.id === id);
 
@@ -25,9 +28,21 @@ for (const document of [home, directory]) {
   assert.ok(document.indexOf('Program Advertiser') < document.indexOf('data-sponsor="haven-of-rest"'));
 }
 assert.equal(byId('ascend-wealth-management').tier, 'community');
-assert.deepEqual(byId('ascend-wealth-management').events, []);
+assert.deepEqual(byId('ascend-wealth-management').events, ['lakewood']);
 assert.equal(byId('ascend-wealth-management').url, undefined);
 assert.match(home, /<div class="home-sponsor-logo home-sponsor-logo--light" data-sponsor="ascend-wealth-management">/);
+for (const document of [home, directory, lakewood]) {
+  assert.match(document, /Community sponsor of the November 13, 2026 Lakewood event\./);
+  assert.match(document, /src="\/images\/ascend-wealth-management\.png"/);
+  assert.doesNotMatch(document, /href="undefined"/);
+  assert.equal([...document.matchAll(/data-sponsor="ascend-wealth-management"/g)].length, 1);
+}
+assert.match(lakewood, /class="event-community-sponsors"/);
+assert.ok(lakewood.indexOf('data-sponsor="great-lakes-auto-group"') < lakewood.indexOf('Community Sponsors'));
+assert.ok(lakewood.indexOf('Community Sponsors') < lakewood.indexOf('data-sponsor="ascend-wealth-management"'));
+for (const document of [akron, fairlawn, vip, chesterland, thanks]) {
+  assert.doesNotMatch(document, /data-sponsor="ascend-wealth-management"|event-community-sponsors-heading/);
+}
 assert.ok(sponsors.filter(s => s.tier === 'community').length > 0);
 assert.ok(directory.indexOf('Weekend Presenting Sponsor') < directory.indexOf('Event Presenting Sponsors'));
 assert.ok(directory.indexOf('Event Presenting Sponsors') < directory.indexOf('Platinum Sponsor'));

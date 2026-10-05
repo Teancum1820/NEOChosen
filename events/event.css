@@ -34,6 +34,13 @@
 .event-brand .neo-sponsor-art { flex:none; width:100%; max-width:360px; height:180px; padding:0; margin:0 0 20px; background:transparent; }
 .event-brand strong { font:500 21px/1.5 Cinzel,Georgia,serif; text-align:center; }
 .event-brand a:hover strong { text-decoration:underline; text-underline-offset:4px; }
+.event-community-sponsors { margin-top:32px; padding-top:24px; border-top:1px solid #d6cbb9; }
+.event-page .event-community-sponsors h2 { margin:0 0 20px; font:700 13px/1.5 Montserrat,Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#24625d; }
+.event-community-sponsor-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),300px)); gap:24px; }
+.event-community-sponsor-list article { min-width:0; }
+.event-community-sponsors .neo-sponsor-art { width:100%; max-width:280px; height:90px; padding:10px; margin:0 0 12px; }
+.event-community-sponsors h3 { margin:0 0 8px; font:600 16px/1.5 Montserrat,Arial,sans-serif; }
+.event-community-sponsors p { margin:0; font-size:14px; line-height:1.6; }
 @media(max-width:800px) { .event-brand-grid { grid-template-columns:minmax(0,1fr); gap:40px; } .event-brand .neo-event-sponsor-label { min-height:0; text-align:center; } .event-brand .neo-sponsor-art { height:160px; } }
 .event-venue-guide { padding:32px; background:white; }
 .event-venue-guide address { font-style:normal; }
