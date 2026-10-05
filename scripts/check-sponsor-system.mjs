@@ -29,13 +29,15 @@ for (const document of [home, directory]) {
 }
 assert.equal(byId('ascend-wealth-management').tier, 'community');
 assert.deepEqual(byId('ascend-wealth-management').events, ['lakewood']);
-assert.equal(byId('ascend-wealth-management').url, undefined);
-assert.match(home, /<div class="home-sponsor-logo home-sponsor-logo--light" data-sponsor="ascend-wealth-management">/);
+assert.equal(byId('ascend-wealth-management').url, 'https://www.conniecostanzo.com/');
+assert.match(home, /<a class="home-sponsor-logo home-sponsor-logo--light" data-sponsor="ascend-wealth-management" href="https:\/\/www\.conniecostanzo\.com\/"/);
 for (const document of [home, directory, lakewood]) {
   assert.match(document, /Community sponsor of the November 13, 2026 Lakewood event\./);
   assert.match(document, /src="\/images\/ascend-wealth-management\.png"/);
   assert.doesNotMatch(document, /href="undefined"/);
   assert.equal([...document.matchAll(/data-sponsor="ascend-wealth-management"/g)].length, 1);
+  const listing = document.match(/data-sponsor="ascend-wealth-management"[\s\S]*?(?:<\/article>|<\/a>)/)?.[0];
+  assert.ok(listing?.includes('href="https://www.conniecostanzo.com/"'), 'Ascend listing must link to its verified website');
 }
 assert.match(lakewood, /class="event-community-sponsors"/);
 assert.ok(lakewood.indexOf('data-sponsor="great-lakes-auto-group"') < lakewood.indexOf('Community Sponsors'));

@@ -88,7 +88,10 @@ export const renderEventSponsors = event => renderEventSponsorCredit(event, { co
 export function renderEventCommunitySponsors(event) {
   const group = byTier('community').filter(s => s.events.includes(event));
   if (!group.length) return '';
-  return `<section class="event-community-sponsors" aria-labelledby="event-community-sponsors-heading"><h2 id="event-community-sponsors-heading">Community Sponsors</h2><div class="event-community-sponsor-list">${group.map(s => `<article data-sponsor="${escape(s.id)}">${renderSponsorLogo(s, { decorative: true })}<h3>${escape(s.name)}</h3>${renderSponsorDescription(s)}${s.url ? `<a class="editorial-link" ${external(s)}>Visit website <span class="sr-only">for ${escape(s.name)}</span></a>` : ''}</article>`).join('')}</div></section>`;
+  return `<section class="event-community-sponsors" aria-labelledby="event-community-sponsors-heading"><h2 id="event-community-sponsors-heading">Community Sponsors</h2><div class="event-community-sponsor-list">${group.map(s => {
+    const identity = `${renderSponsorLogo(s, { decorative: true })}<h3>${escape(s.name)}</h3>`;
+    return `<article data-sponsor="${escape(s.id)}">${s.url ? `<a class="event-community-identity" ${external(s)}>${identity}</a>` : identity}${renderSponsorDescription(s)}${s.url ? `<a class="editorial-link" ${external(s)}>Visit website <span class="sr-only">for ${escape(s.name)}</span><span aria-hidden="true">↗</span></a>` : ''}</article>`;
+  }).join('')}</div></section>`;
 }
 export function renderEventPartnerLogos(event, { includeOrganizer = false } = {}) {
   const partners = event ? presenters(event).map(s => ({ ...s, displayRole: event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsor' })) : [];
