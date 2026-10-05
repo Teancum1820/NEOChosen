@@ -22,6 +22,7 @@
 .sponsor-editorial-section:has(#silver-sponsors-heading) .sponsor-partner-grid { grid-template-columns:minmax(0,650px); }
 .sponsor-editorial-section:has(#silver-sponsors-heading) .neo-sponsor-art { height:120px; padding:12px 0; }
 .editorial-page [data-sponsor="tour-lake-county"] .neo-sponsor-art,
+.editorial-page [data-sponsor="ascend-wealth-management"] .neo-sponsor-art,
 .editorial-page [data-sponsor="haven-of-rest"] .neo-sponsor-art,
 .editorial-page [data-sponsor="barons-bus"] .neo-sponsor-art,
 .editorial-page [data-sponsor="hallow"] .neo-sponsor-art { background:transparent; }
