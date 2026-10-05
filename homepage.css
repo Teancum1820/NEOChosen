@@ -118,9 +118,6 @@
 .home-sponsor-tier--community .home-sponsor-meta small { color:#dbe2ef; }
 .home-sponsor-tier--community .home-sponsor-art { width:100%; background: #fff; height: 78px; }
 .home-sponsor-tier--community .neo-sponsor-art--dark { background: var(--color-brand-background); }
-.home-sponsor-tier--community [data-sponsor="ascend-wealth-management"] { background:var(--color-surface-light); color:var(--color-text-inverse); }
-.home-sponsor-tier--community [data-sponsor="ascend-wealth-management"] .home-sponsor-art { background:transparent; padding:0; }
-.home-sponsor-tier--community [data-sponsor="ascend-wealth-management"] .home-sponsor-meta small { color:#45505f; }
 .home-sponsor-tier--program-advertiser { grid-column:1/-1; background:transparent; padding:12px 0 0; color:var(--color-text-primary); }
 .home-sponsor-tier--program-advertiser h3 { color:var(--color-brand-gold); }
 .home-sponsor-tier--program-advertiser .home-sponsor-list { grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
