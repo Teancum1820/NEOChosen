@@ -45,7 +45,24 @@ assert.match(lakewood, /<a class="event-community-identity" href="https:\/\/www\
 assert.ok(lakewood.indexOf('data-sponsor="great-lakes-auto-group"') < lakewood.indexOf('Community Sponsors'));
 assert.ok(lakewood.indexOf('Community Sponsors') < lakewood.indexOf('data-sponsor="ascend-wealth-management"'));
 for (const document of [akron, fairlawn, vip, chesterland, thanks]) {
-  assert.doesNotMatch(document, /data-sponsor="ascend-wealth-management"|event-community-sponsors-heading/);
+  assert.doesNotMatch(document, /data-sponsor="ascend-wealth-management"/);
+}
+for (const document of [akron, vip, chesterland, thanks]) {
+  assert.doesNotMatch(document, /event-community-sponsors-heading/);
+}
+const snowAngels = byId('akron-snow-angels');
+assert.equal(snowAngels.tier, 'community');
+assert.deepEqual(snowAngels.events, ['fairlawn']);
+assert.equal(snowAngels.url, 'https://akronsnowangels.com/');
+for (const document of [home, directory, fairlawn]) {
+  assert.equal([...document.matchAll(/data-sponsor="akron-snow-angels"/g)].length, 1);
+  assert.match(document, /href="https:\/\/akronsnowangels\.com\/"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
+  assert.match(document, /src="\/images\/partners\/akron-snow-angels\.png"/);
+  assert.ok(document.indexOf('Community Partners') < document.indexOf('data-sponsor="akron-snow-angels"'));
+}
+assert.ok(fairlawn.indexOf('data-sponsor="advanced-care"') < fairlawn.indexOf('data-sponsor="akron-snow-angels"'));
+for (const document of [akron, lakewood, vip, chesterland, thanks]) {
+  assert.doesNotMatch(document, /data-sponsor="akron-snow-angels"/);
 }
 assert.ok(sponsors.filter(s => s.tier === 'community').length > 0);
 assert.ok(directory.indexOf('Weekend Presenting Sponsor') < directory.indexOf('Event Presenting Sponsors'));
@@ -69,4 +86,43 @@ for (const s of sponsors) {
   if (s.url) assert.ok(directory.includes(s.url.replaceAll('&', '&amp;')), `Missing website for ${s.name}`);
 }
 for (const document of [home, directory]) assert.doesNotMatch(document, /href="undefined"/);
+
+// Confirm new nonprofits appear only in community recognition, once per page.
+for (const [id, event, url, logo, eventPage] of [
+  ['camp-quality-usa', 'akron', 'https://campqualityusa.org/', '/images/partners/camp-quality-usa.png', akron],
+  ['love-inc-cuyahoga', 'lakewood', 'https://www.loveinccuyahoga.org/', '/images/partners/love-inc-cuyahoga.png', lakewood],
+]) {
+  assert.equal(byId(id).tier, 'community');
+  assert.equal(byId(id).recognition, 'Community Partner');
+  assert.deepEqual(byId(id).events, [event]);
+  assert.equal(byId(id).url, url);
+  for (const document of [home, directory, eventPage]) {
+    assert.equal(document.split(`data-sponsor="${id}"`).length - 1, 1);
+    assert.ok(document.includes(`src="${logo}"`));
+    assert.ok(document.includes(`href="${url}" target="_blank" rel="noopener noreferrer"`));
+    assert.ok(document.indexOf('Community Partners') < document.indexOf(`data-sponsor="${id}"`));
+  }
+  for (const document of [fairlawn, vip, chesterland, thanks, event === 'akron' ? lakewood : akron]) {
+    assert.ok(!document.includes(`data-sponsor="${id}"`));
+  }
+}
+assert.ok(akron.indexOf('data-sponsor="fna"') < akron.indexOf('data-sponsor="camp-quality-usa"'));
+assert.ok(lakewood.indexOf('data-sponsor="ascend-wealth-management"') < lakewood.indexOf('event-community-partners-heading'));
+
+// Gathering Place is a Chesterland community partner, not an event presenter.
+const gathering = byId('the-gathering-place');
+assert.equal(gathering.tier, 'community');
+assert.equal(gathering.recognition, 'Community Partner');
+assert.deepEqual(gathering.events, ['chesterland']);
+for (const document of [home, directory, chesterland]) {
+  assert.equal(document.split('data-sponsor="the-gathering-place"').length - 1, 1);
+  assert.ok(document.includes('src="/images/partners/the-gathering-place.png"'));
+  assert.ok(document.includes('href="https://www.touchedbycancer.org" target="_blank" rel="noopener noreferrer"'));
+  assert.ok(document.indexOf('Community Partners') < document.indexOf('data-sponsor="the-gathering-place"'));
+}
+for (const document of [akron, fairlawn, lakewood, vip, thanks]) {
+  assert.doesNotMatch(document, /data-sponsor="the-gathering-place"/);
+}
+assert.ok(chesterland.indexOf('data-sponsor="great-lakes-auto-group"') < chesterland.indexOf('data-sponsor="the-gathering-place"'));
+
 console.log('Validated sponsor hierarchy, approved event relationships, directory links, and shared credits.');

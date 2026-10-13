@@ -37,7 +37,7 @@ export const events = [
     slug: 'chesterland', title: 'Chesterland Meet & Greet', eyebrow: 'Sunday · November 15', date: 'Sunday, November 15, 2026', time: '2:00 PM Eastern', startDate: '2026-11-15T14:00:00-05:00', admission: 'Free · registration required', venue: 'Mayfield United Methodist Church', city: 'Chesterland', street: '7747 Mayfield Road', zip: '44026', address: '7747 Mayfield Road, Chesterland, OH 44026', image: 'https://m.media-amazon.com/images/M/MV5BZGM2Nzc3N2ItOGI5Mi00MDIzLWJkNzctYmVlMGY4MTRiNmJlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg', imageAlt: '',
     description: 'A free Sunday Meet & Greet hosted by Mayfield United Methodist Church to close the weekend.',
     detail: 'Admission is free, but a reservation is required. Donations are optional. The host church is at 7747 Mayfield Road.',
-    cta: 'Reserve free ticket', url: 'https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland',
+    cta: 'Reserve free ticket', url: 'https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland', sponsor: 'chesterland',
     secondary: 'https://www.mayfieldchurch.org/', secondaryLabel: 'Visit the host church'
   }
 ];

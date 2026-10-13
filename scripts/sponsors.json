@@ -10,8 +10,8 @@
     "events": [],
     "background": "light",
     "linkIdentity": true,
-    "description": "Presenting partner across NEO Chosen Weekend, November 13\u201315, 2026.",
-    "alt": "Great Lakes Auto Group \u2014 NEO Chosen Weekend Presenting Sponsor"
+    "description": "Presenting partner across NEO Chosen Weekend, November 13–15, 2026.",
+    "alt": "Great Lakes Auto Group — NEO Chosen Weekend Presenting Sponsor"
   },
   {
     "id": "barons-bus",
@@ -179,7 +179,9 @@
     "url": "https://www.conniecostanzo.com/",
     "linkIdentity": true,
     "tier": "community",
-    "events": ["lakewood"],
+    "events": [
+      "lakewood"
+    ],
     "background": "light",
     "confirmation": "Joe, October 5, 2026: link the Ascend logo to Connie Costanzo's website and recognize her as a small sponsor of the November 13 Lakewood event, with lower-level placement and sizing."
   },
@@ -223,5 +225,102 @@
     "events": [],
     "background": "light",
     "confirmation": "Jessica, September 30, 2026"
+  },
+  {
+    "id": "akron-snow-angels",
+    "name": "Akron Snow Angels",
+    "logo": "/images/partners/akron-snow-angels.png",
+    "url": "https://akronsnowangels.com/",
+    "linkIdentity": true,
+    "tier": "community",
+    "events": [
+      "fairlawn"
+    ],
+    "background": "light",
+    "confirmation": "User campaign brief, October 7, 2026: Community Partner participating at the Fairlawn Meet & Greet. Jessica confirmed participation in her October 6 email; no paid sponsorship tier was assigned."
+  },
+  {
+    "id": "camp-quality-usa",
+    "name": "Camp Quality USA",
+    "logo": "/images/partners/camp-quality-usa.png",
+    "url": "https://campqualityusa.org/",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "events": [
+      "akron"
+    ],
+    "background": "light",
+    "confirmation": "User campaign brief, October 7, 2026, and Jessica's October 6 email: Camp Quality Ohio participating at The Piano Guys concert as a Community Partner; no paid sponsorship designation."
+  },
+  {
+    "id": "love-inc-cuyahoga",
+    "name": "Love INC of Cuyahoga County",
+    "logo": "/images/partners/love-inc-cuyahoga.png",
+    "url": "https://www.loveinccuyahoga.org/",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "events": [
+      "lakewood"
+    ],
+    "background": "light",
+    "confirmation": "User campaign brief, October 7, 2026, and Jessica's October 5 email: participating at Lakewood as a Community Partner; no paid sponsorship designation."
+  },
+  {
+    "id": "the-gathering-place",
+    "name": "The Gathering Place",
+    "logo": "/images/partners/the-gathering-place.png",
+    "url": "https://www.touchedbycancer.org",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "events": [
+      "chesterland"
+    ],
+    "background": "light",
+    "confirmation": "Jessica Barber's October 2 and October 9, 2026 emails; Beth Elsass supplied official logos and description. Community Partner with a resource table at the Sunday November 15 Chesterland Meet & Greet, 2-4 PM Eastern. Caleb authorized website update and homepage QR destination in this chat."
+  },
+  {
+    "id": "from-me-2-u",
+    "name": "From Me 2 U, Inc.",
+    "logo": "/images/partners/from-me-2-u.png",
+    "url": "https://www.fromme2uinc.org",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "events": [
+      "lakewood"
+    ],
+    "background": "light",
+    "confirmation": "User campaign brief and website update authorization, October 9, 2026. Lydia selected Lakewood in her October 6 email, confirmed by Jessica. Official logo supplied for the media kit; Community Partner, with no paid sponsorship designation."
+  },
+  {
+    "id": "safe-families-northeast-ohio",
+    "name": "Safe Families for Children — Northeast Ohio",
+    "logo": "/images/partners/safe-families-northeast-ohio.png",
+    "url": "https://northeast-ohio.safe-families.org/",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "events": [
+      "lakewood"
+    ],
+    "background": "light",
+    "confirmation": "Jessica Barber's October 12, 2026 forwarded email from Jessie Manning, Gmail message 1a13164916fc13bd; Lakewood participation confirmed in the thread. Caleb authorized website logo additions October 13. No paid sponsorship tier assigned."
+  },
+  {
+    "id": "envision-cleveland",
+    "name": "Envision Cleveland",
+    "logo": "/images/partners/envision-cleveland.png",
+    "url": "https://www.envisioncleveland.org/",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "events": [
+      "lakewood"
+    ],
+    "background": "light",
+    "confirmation": "Jessica Barber's October 9, 2026 forwarded email from Chris Gambill, Gmail message 1a12291623e0c0f8; Lakewood participation confirmed in the thread. Caleb authorized website logo additions October 13. No paid sponsorship tier assigned."
   }
 ]
