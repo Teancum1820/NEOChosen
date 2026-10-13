@@ -126,3 +126,19 @@ for (const document of [akron, fairlawn, lakewood, vip, thanks]) {
 assert.ok(chesterland.indexOf('data-sponsor="great-lakes-auto-group"') < chesterland.indexOf('data-sponsor="the-gathering-place"'));
 
 console.log('Validated sponsor hierarchy, approved event relationships, directory links, and shared credits.');
+
+// Approved hotel and production roles must not become presenting sponsorships.
+assert.equal(byId('hyatt-regency-cleveland').tier, 'hotel');
+assert.equal(byId('hyatt-regency-cleveland').url, 'https://cleveland.hyatt.com/');
+assert.equal(byId('brand-pros-media').tier, 'production-partner');
+assert.equal(byId('brand-pros-media').url, undefined);
+for (const document of [home, directory]) {
+  for (const id of ['hyatt-regency-cleveland', 'brand-pros-media']) {
+    assert.equal(document.split(`data-sponsor="${id}"`).length - 1, 1);
+    assert.ok(document.indexOf('data-sponsor="great-lakes-auto-group"') < document.indexOf(`data-sponsor="${id}"`));
+  }
+  assert.match(document, /Official Hotel Sponsor/);
+  assert.match(document, /Official Photography and Videography Partner for NEO Chosen Weekend/);
+  assert.match(document, /capturing all five events/);
+  assert.doesNotMatch(document, /<a\b[^>]+data-sponsor="brand-pros-media"/);
+}

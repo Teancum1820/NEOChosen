@@ -277,3 +277,13 @@
   .home-sponsor-tier--weekend-presenting { padding:18px; }
   .home-sponsor-tier--weekend-presenting .home-sponsor-art { height:150px; }
 }
+
+/* Service recognitions remain separate from financial sponsorship levels. */
+.home-sponsor-tier--hotel, .home-sponsor-tier--production-partner { grid-column:1/-1; }
+.home-sponsor-tier--hotel .home-sponsor-logo, .home-sponsor-tier--production-partner .home-sponsor-logo { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); align-items:center; gap:32px; }
+.home-sponsor-tier--hotel .home-sponsor-art, .home-sponsor-tier--production-partner .home-sponsor-art { width:100%; max-width:440px; height:100px; background:#fff; padding:18px; }
+.home-sponsor-tier--hotel .home-sponsor-meta small, .home-sponsor-tier--production-partner .home-sponsor-meta small { font-size:13px; line-height:1.6; }
+@media(max-width:600px) {
+  .home-sponsor-tier--hotel .home-sponsor-logo, .home-sponsor-tier--production-partner .home-sponsor-logo { grid-template-columns:minmax(0,1fr); gap:18px; }
+  .home-sponsor-tier--hotel .home-sponsor-art, .home-sponsor-tier--production-partner .home-sponsor-art { height:95px; }
+}
