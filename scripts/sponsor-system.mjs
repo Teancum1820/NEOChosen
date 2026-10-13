@@ -9,6 +9,8 @@ const tiers = [
   ['platinum', 'Platinum Sponsor'],
   ['silver', 'Silver Sponsor'],
   ['prayer', 'Official Prayer Sponsor'],
+  ['hotel', 'Official Hotel Sponsor'],
+  ['production-partner', 'Production Partner'],
   ['community', 'Community Partners'],
   ['program-advertiser', 'Program Advertiser']
 ];
@@ -36,7 +38,7 @@ export const renderSponsorDescription = s => s.description ? `<p class="neo-spon
 const roleLines = s => s.roles?.length ? s.roles : s.events.map(event => `${events[event]} Presenting Sponsor`);
 
 export function renderSponsorCard(s) {
-  const role = s.tier === 'weekend-presenting' ? 'NEO Chosen Weekend Presenting Sponsor' : s.tier === 'platinum' ? 'Platinum Sponsor' : s.tier === 'community' ? 'Community Partner' : 'Event Presenting Sponsor';
+  const role = s.recognition || (s.tier === 'weekend-presenting' ? 'NEO Chosen Weekend Presenting Sponsor' : s.tier === 'platinum' ? 'Platinum Sponsor' : s.tier === 'community' ? 'Community Partner' : 'Event Presenting Sponsor');
   return `<article class="neo-sponsor-card neo-sponsor-card--${s.tier}" data-sponsor="${escape(s.id)}">
     <p class="neo-sponsor-tier">${role}</p>
     ${renderSponsorLogo(s, { reversed: s.tier === 'weekend-presenting', decorative: true })}
@@ -61,7 +63,7 @@ export function renderSponsorDirectory() {
   return `<section class="sponsor-weekend-feature" aria-labelledby="weekend-presenting-sponsors-heading"><div class="editorial-shell"><div data-sponsor="${weekend.id}"><p class="editorial-kicker">NEO Chosen Weekend Presenting Sponsor</p><h2 id="weekend-presenting-sponsors-heading">${escape(weekend.name)}</h2><p>Presenting partner across November 13–15, 2026. Thank you for helping bring five experiences of music, conversation, faith, and community to Northeast Ohio.</p><a class="editorial-link" ${external(weekend)}>Visit Great Lakes Auto Group <span aria-hidden="true">↗</span></a></div><a ${external(weekend)} aria-label="Visit Great Lakes Auto Group">${renderSponsorLogo(weekend,{decorative:true})}</a></div></section>
   <section class="sponsor-editorial-section" aria-labelledby="presenting-sponsors-heading"><div class="editorial-shell"><p class="editorial-kicker">Event Presenting Sponsors</p><h2 id="presenting-sponsors-heading">Partners at the heart of each event.</h2><div class="sponsor-presenter-grid">${byTier('presenting').map(s=>`<article data-sponsor="${escape(s.id)}">${renderSponsorLogo(s,{decorative:true})}<h3>${escape(s.name)}</h3><ul>${roleLines(s).map(role=>`<li>${escape(role)}</li>`).join('')}</ul><a class="editorial-link" ${external(s)}>Visit ${escape(s.name)} <span aria-hidden="true">↗</span></a></article>`).join('')}</div></div></section>
   ${major ? `<section class="sponsor-platinum-feature" aria-labelledby="platinum-sponsors-heading"><div class="editorial-shell" data-sponsor="${escape(major.id)}"><div><p class="editorial-kicker">Platinum Sponsor</p><h2 id="platinum-sponsors-heading">${escape(major.name)}</h2><p>${escape(major.description)}</p><p>${escape(major.tagline)}</p><a class="editorial-link" ${external(major)}>Visit ${escape(major.name)} <span aria-hidden="true">↗</span></a></div>${renderSponsorLogo(major,{decorative:true})}</div></section>`:''}
-  ${compact('silver','Silver Sponsor')}${compact('prayer','Official Prayer Sponsor')}${compact('community','Community Partners')}${compact('program-advertiser','Program Advertiser')}`;
+  ${compact('silver','Silver Sponsor')}${compact('prayer','Official Prayer Sponsor')}${compact('hotel','Official Hotel Sponsor')}${compact('production-partner','Production Partner')}${compact('community','Community Partners')}${compact('program-advertiser','Program Advertiser')}`;
 }
 
 export function renderPresentingSponsorRibbon() {
@@ -74,7 +76,7 @@ export function renderHomepageSponsorDirectory() {
     return `<div class="home-sponsor-tier home-sponsor-tier--${tier}"><h3>${title}</h3><div class="home-sponsor-list">${group.map(s => {
       const tag = s.url ? 'a' : 'div';
       const link = s.url ? ` ${external(s)} title="Visit ${escape(s.name)} website"` : '';
-      return `<${tag} class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" data-sponsor="${escape(s.id)}"${link}>${renderSponsorLogo(s, { className: 'home-sponsor-art', decorative: true })}<span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${tier === 'presenting' ? `<small>${s.events.map(event => escape(events[event])).join(' · ')}</small>` : tier === 'community' && s.events.length && s.description ? `<small>${escape(s.description)}</small>` : ''}${s.phone ? `<small>${escape(s.phone)}</small>`:''}</span></${tag}>`;
+      return `<${tag} class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" data-sponsor="${escape(s.id)}"${link}>${renderSponsorLogo(s, { className: 'home-sponsor-art', decorative: true })}<span class="home-sponsor-meta"><strong>${escape(s.name)}</strong>${['hotel','production-partner'].includes(tier) && s.description ? `<small>${escape(s.description)}</small>` : ''}${tier === 'presenting' ? `<small>${s.events.map(event => escape(events[event])).join(' · ')}</small>` : tier === 'community' && s.events.length && s.description ? `<small>${escape(s.description)}</small>` : ''}${s.phone ? `<small>${escape(s.phone)}</small>`:''}</span></${tag}>`;
     }).join('')}</div></div>`;
   }).join('');
 }

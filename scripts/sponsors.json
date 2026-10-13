@@ -322,5 +322,29 @@
     ],
     "background": "light",
     "confirmation": "Jessica Barber's October 9, 2026 forwarded email from Chris Gambill, Gmail message 1a12291623e0c0f8; Lakewood participation confirmed in the thread. Caleb authorized website logo additions October 13. No paid sponsorship tier assigned."
+  },
+  {
+    "id": "hyatt-regency-cleveland",
+    "name": "Hyatt Regency Cleveland at The Arcade",
+    "logo": "/images/partners/hyatt-regency-cleveland.png",
+    "url": "https://cleveland.hyatt.com/",
+    "linkIdentity": true,
+    "tier": "hotel",
+    "recognition": "Official Hotel Sponsor",
+    "description": "Official Hotel Sponsor of NEO Chosen Weekend, November 13–15, 2026.",
+    "events": [],
+    "background": "light",
+    "confirmation": "Joe Jackson, October 10, 2026, Gmail 1a125e4c0c59ac84. Original Illustrator logos forwarded by Jessica October 9, Gmail 1a12255c473fec0d."
+  },
+  {
+    "id": "brand-pros-media",
+    "name": "Brand Pros Media",
+    "logo": "/images/partners/brand-pros-media.png",
+    "tier": "production-partner",
+    "recognition": "Official Photography and Videography Partner",
+    "description": "Official Photography and Videography Partner for NEO Chosen Weekend, capturing all five events, November 13–15, 2026.",
+    "events": [],
+    "background": "light",
+    "confirmation": "Joe Jackson, October 13, 2026, Gmail 1a135f7aea45fcf1. Approved embedded image in Jessica forward 1a135d58f893ebbc; original URL https://680418.17hats.com/perl/client/account/0/logo/1. No confirmed website link."
   }
 ]
