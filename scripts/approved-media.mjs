@@ -7,6 +7,7 @@ import { renderImage } from "../design-system/image.mjs";
 const items = [
   { id: "akron", base: "2026-akron-piano-guys-concert", title: "The Piano Guys — Akron", description: "Saturday, November 14 · 4:00 PM · Akron Civic Theatre", route: "/piano-guys/" },
   { id: "fairlawn", base: "2026-fairlawn-meet-and-greet", title: "Fairlawn Meet & Greet", description: "Saturday, November 14 · 7:00 PM · St. Hilary Church", route: "/fairlawn/" },
+  { id: "chesterland", base: "2026-chesterland-meet-and-greet-20261013", title: "Chesterland Meet & Greet", description: "Sunday, November 15 · 2:00 PM Eastern · Mayfield United Methodist Church · Print 8.5 × 11 inches", route: "/chesterland/" },
   { id: "vip", base: "2026-vip-sponsor-dinner", title: "VIP Sponsor Dinner", description: "Friday, November 13 · Dinner 5:00 PM · Windows on the River", route: "/vip-dinner/" },
   { id: "weekend", base: "2026-weekend-schedule", title: "Master Weekend Schedule", description: "November 13–15 · Five events across Northeast Ohio", route: "/#events" },
 ];
@@ -62,5 +63,8 @@ export function mediaCard(asset) {
 export function eventFlyer(slug) {
   const asset = approvedMedia.find(item => item.route === `/${slug}/`);
   if (!asset) return "";
+  if (slug === "chesterland") {
+    return `<section class="editorial-section editorial-section--white event-flyer" id="event-flyer"><div class="editorial-shell event-flyer-layout"><a class="asset-preview-link" href="${asset.pdf}" target="_blank" rel="noopener noreferrer" aria-label="View Chesterland Meet &amp; Greet PDF">${mediaImage(asset, "(max-width:800px) calc(100vw - 48px), 280px")}</a><div><p class="editorial-kicker">Official event artwork</p><h2>Chesterland Meet &amp; Greet flyer</h2><p>Print the 8.5 × 11-inch flyer or share it with your community.</p>${download(asset.pdf, "Download Chesterland Meet & Greet Flyer", "editorial-button", "Download Chesterland Meet & Greet Flyer PDF")}<p>${download(asset.png, "Download high-resolution PNG", "editorial-link")} · <a class="editorial-link" href="/media-kit/#chesterland-flyer">Explore the media kit <span aria-hidden="true">→</span></a></p></div></div></section>`;
+  }
   return `<section class="editorial-section editorial-section--white event-flyer" id="event-flyer"><div class="editorial-shell event-flyer-layout"><a class="asset-preview-link" href="${asset.pdf}" target="_blank" rel="noopener noreferrer" aria-label="View ${escape(asset.title)} PDF">${mediaImage(asset, "(max-width:800px) calc(100vw - 48px), 280px")}</a><div><p class="editorial-kicker">Official event artwork</p><h2>${escape(asset.title)} flyer</h2><p>Download the flyer to print or share with your community.</p>${download(asset.pdf, "Download PDF", "editorial-button", `Download ${asset.title} PDF`)}<p><a class="editorial-link" href="/media-kit/#${asset.id}-flyer">Explore the media kit <span aria-hidden="true">→</span></a></p></div></div></section>`;
 }
