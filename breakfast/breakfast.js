@@ -87,6 +87,7 @@
         !result.id.trim()
       )
         throw Error("Receipt was not confirmed.");
+      document.dispatchEvent(new CustomEvent("khg:form-success", {detail:{form_type:"breakfast_invitation",submission_key:result.id}}));
       showStatus(
         "Your invitation request has been received. Attendance is not yet confirmed. We will follow up directly with invitation and RSVP information.",
         "success",

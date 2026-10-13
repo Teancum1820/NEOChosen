@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v29-raffle-holding';
+const CACHE_NAME = 'neochosen-v30-analytics-review';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
@@ -53,6 +53,8 @@ self.addEventListener('fetch', (event) => {
 
   const requestUrl = new URL(event.request.url);
   const pathname = requestUrl.pathname;
+  // Never replay stale consent/configuration or turn failed tracking into cached HTML.
+  if (pathname.startsWith('/tracking/') || /(^|\.)(google-analytics\.com|googletagmanager\.com|metricool\.com|facebook\.com|facebook\.net)$/.test(requestUrl.hostname)) return;
 
   if (requestUrl.origin === self.location.origin && pathname.endsWith('.html') && pathname !== '/index.html') {
     const cleanPath = pathname.replace(/\.html$/, '');

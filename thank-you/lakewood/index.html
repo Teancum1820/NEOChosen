@@ -93,7 +93,7 @@
     }
     document.getElementById("events").innerHTML = Object.keys(data)
       .filter(k => k !== key)
-      .map(k => `<a class="event" href="${links[k]}" target="_blank" rel="noopener"><strong>${data[k].name}</strong><span>${data[k].detail}</span></a>`)
+      .map(k => `<a class="event" href="${links[k]}" data-analytics-event="registration_button_click" data-analytics-key="${k}" data-analytics-button="thank_you_${key}_${k}" target="_blank" rel="noopener"><strong>${data[k].name}</strong><span>${data[k].detail}</span></a>`)
       .join("");
   </script>
 </body>

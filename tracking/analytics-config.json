@@ -1,0 +1,18 @@
+{
+  "enabled": false,
+  "allowedHosts": [
+    "neochosen.com",
+    "www.neochosen.com"
+  ],
+  "allowLocalTesting": false,
+  "allowedFragments": ["events", "tickets", "main-content"],
+  "privacyNoticeUrl": "",
+  "ga4MeasurementId": "",
+  "metaPixelId": "",
+  "metricoolHash": "",
+  "formTypes": [
+    "breakfast_invitation"
+  ],
+  "contentRoutes": {},
+  "linkEvents": {}
+}
