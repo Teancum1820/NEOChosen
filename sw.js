@@ -1,77 +1,103 @@
-const CACHE_NAME = 'neochosen-v30-analytics-review';
+const CACHE_NAME = "neochosen-v30-analytics-review";
 const OFFLINE_URLS = [
-  '/',
-  '/about-us/',
-  '/chesterland/',
-  '/donations/',
-  '/get-involved/',
-  '/raffle/',
-  '/social-media-links/',
-  '/sponsors/',
-  '/sponsorship-opportunities/',
-  '/media-kit/',
-  '/thank-you/lakewood/',
-  '/vip-dinner/',
-  '/lakewood/',
-  '/piano-guys/',
-  '/fairlawn/',
-  '/manifest.webmanifest',
-  '/site.css',
-  '/site.js',
-  '/fonts.css',
-  '/homepage.css',
-  '/homepage.js',
-  '/sponsor-system.css',
-  '/editorial.css',
-  '/editorial.js',
-  '/events/event.css',
-  '/sponsors/sponsors.css',
-  '/sponsorship-opportunities/sponsorship.css',
-  '/raffle/raffle.css',
-  '/raffle/cash-raffle.css',
-  '/thank-you/styles.css',
-  '/images/fonts/cinzel.woff2',
-  '/images/fonts/montserrat.woff2',
-  '/images/neo-favicon.png',
-  '/images/mayfield-united-methodist-church-logo.jpg'
+  "/",
+  "/about-us/",
+  "/chesterland/",
+  "/donations/",
+  "/get-involved/",
+  "/raffle/",
+  "/social-media-links/",
+  "/sponsors/",
+  "/sponsorship-opportunities/",
+  "/media-kit/",
+  "/thank-you/lakewood/",
+  "/vip-dinner/",
+  "/lakewood/",
+  "/piano-guys/",
+  "/fairlawn/",
+  "/manifest.webmanifest",
+  "/site.css",
+  "/site.js",
+  "/fonts.css",
+  "/homepage.css",
+  "/homepage.js",
+  "/sponsor-system.css",
+  "/editorial.css",
+  "/editorial.js",
+  "/events/event.css",
+  "/sponsors/sponsors.css",
+  "/sponsorship-opportunities/sponsorship.css",
+  "/raffle/raffle.css",
+  "/raffle/cash-raffle.css",
+  "/thank-you/styles.css",
+  "/images/fonts/cinzel.woff2",
+  "/images/fonts/montserrat.woff2",
+  "/images/neo-favicon.png",
+  "/images/mayfield-united-methodist-church-logo.jpg",
 ];
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(OFFLINE_URLS)));
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(OFFLINE_URLS)),
+  );
   self.skipWaiting();
 });
 
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((key) => key !== CACHE_NAME)
+            .map((key) => caches.delete(key)),
+        ),
+      ),
   );
   self.clients.claim();
 });
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
 
   const requestUrl = new URL(event.request.url);
   const pathname = requestUrl.pathname;
   // Never replay stale consent/configuration or turn failed tracking into cached HTML.
-  if (pathname.startsWith('/tracking/') || /(^|\.)(google-analytics\.com|googletagmanager\.com|metricool\.com|facebook\.com|facebook\.net)$/.test(requestUrl.hostname)) return;
+  if (
+    pathname.startsWith("/tracking/") ||
+    /(^|\.)(google-analytics\.com|googletagmanager\.com|metricool\.com|facebook\.com|facebook\.net)$/.test(
+      requestUrl.hostname,
+    )
+  )
+    return;
 
-  if (requestUrl.origin === self.location.origin && pathname.endsWith('.html') && pathname !== '/index.html') {
-    const cleanPath = pathname.replace(/\.html$/, '');
+  if (
+    requestUrl.origin === self.location.origin &&
+    pathname.endsWith(".html") &&
+    pathname !== "/index.html"
+  ) {
+    const cleanPath = pathname.replace(/\.html$/, "");
     const cleanUrl = `${requestUrl.origin}${cleanPath}/${requestUrl.search}${requestUrl.hash}`;
     event.respondWith(Response.redirect(cleanUrl, 301));
     return;
   }
 
   event.respondWith(
-    fetch(event.request, { cache: 'no-store' })
+    fetch(event.request, { cache: "no-store" })
       .then((response) => {
         const cloned = response.clone();
         if (event.request.url.startsWith(self.location.origin)) {
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cloned));
+          caches
+            .open(CACHE_NAME)
+            .then((cache) => cache.put(event.request, cloned));
         }
         return response;
       })
-      .catch(() => caches.match(event.request).then((cached) => cached || caches.match('/')))
+      .catch(() =>
+        caches
+          .match(event.request)
+          .then((cached) => cached || caches.match("/")),
+      ),
   );
 });

@@ -1,18 +1,14 @@
 {
   "enabled": false,
-  "allowedHosts": [
-    "neochosen.com",
-    "www.neochosen.com"
-  ],
+  "allowedHosts": ["neochosen.com", "www.neochosen.com"],
   "allowLocalTesting": false,
   "allowedFragments": ["events", "tickets", "main-content"],
   "privacyNoticeUrl": "",
   "ga4MeasurementId": "",
   "metaPixelId": "",
-  "metricoolHash": "",
-  "formTypes": [
-    "breakfast_invitation"
-  ],
+  "metricoolHash": "1a629a9567d67d551e83d8c4e0081e3d",
+  "formTypes": ["breakfast_invitation"],
   "contentRoutes": {},
-  "linkEvents": {}
+  "linkEvents": {},
+  "metricoolBrandId": 7369579
 }

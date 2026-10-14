@@ -111,16 +111,27 @@
     const safeVendorUrl = (value, marketing) => {
       if (!value) return true;
       const url = new URL(value);
-      const safeQuery = [...url.searchParams].every(([key, value]) =>
-        (/^utm_(source|medium|campaign|content|term)$/.test(key) &&
-          /^[a-z][a-z0-9_-]{0,79}$/.test(value) && !/\d{7}/.test(value)) ||
-        (marketing && key === "fbclid" && /^[A-Za-z0-9_-]{1,512}$/.test(value))
+      const safeQuery = [...url.searchParams].every(
+        ([key, value]) =>
+          (/^utm_(source|medium|campaign|content|term)$/.test(key) &&
+            /^[a-z][a-z0-9_-]{0,79}$/.test(value) &&
+            !/\d{7}/.test(value)) ||
+          (marketing &&
+            key === "fbclid" &&
+            /^[A-Za-z0-9_-]{1,512}$/.test(value)),
       );
-      return /^https?:$/.test(url.protocol) && safeQuery &&
-        (!url.hash || config.allowedFragments?.includes(url.hash.slice(1)));
+      return (
+        /^https?:$/.test(url.protocol) &&
+        safeQuery &&
+        (!url.hash || config.allowedFragments?.includes(url.hash.slice(1)))
+      );
     };
-    const safeDocumentUrl = safeVendorUrl(location.href, true) && safeVendorUrl(document.referrer, true);
-    const safeMetricoolUrl = safeVendorUrl(location.href, false) && safeVendorUrl(document.referrer, false);
+    const safeDocumentUrl =
+      safeVendorUrl(location.href, true) &&
+      safeVendorUrl(document.referrer, true);
+    const safeMetricoolUrl =
+      safeVendorUrl(location.href, false) &&
+      safeVendorUrl(document.referrer, false);
     if (
       allowed("marketing") &&
       safeDocumentUrl &&
@@ -198,7 +209,7 @@
   }
   function emit(name, params = {}, unique = "") {
     if (
-      !/^(ticket_button_click|registration_button_click|vip_dinner_click|schedule_button_click|event_details_click|generate_lead|begin_checkout)$/.test(
+      !/^(ticket_button_click|payment_link_click|registration_button_click|vip_dinner_click|schedule_button_click|event_details_click|generate_lead|begin_checkout)$/.test(
         name,
       )
     )
@@ -221,6 +232,7 @@
         }[name];
         const custom = {
           ticket_button_click: "TicketButtonClick",
+          payment_link_click: "PaymentLinkClick",
           registration_button_click: "RegistrationButtonClick",
           vip_dinner_click: "VipDinnerClick",
           schedule_button_click: "ScheduleButtonClick",
@@ -418,6 +430,7 @@
       const validSaved =
         saved &&
         Number.isFinite(saved.time) &&
+        saved.time <= Date.now() &&
         Date.now() - saved.time < 180 * 86400000;
       if (validSaved)
         consent = {
