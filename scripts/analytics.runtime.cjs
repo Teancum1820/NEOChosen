@@ -110,7 +110,10 @@ async function setup(overrides = {}, options = {}) {
     fetch: () =>
       options.failFetch
         ? Promise.reject(Error())
-        : Promise.resolve({ ok: true, json: () => Promise.resolve(options.missingConfig ? null : config) }),
+        : Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(options.missingConfig ? null : config),
+          }),
     Date,
     Set,
     Object,
@@ -613,4 +616,9 @@ test("storage quota failure removes the previous grant before withdrawal reload"
   assert.equal(a.reloads(), 1);
 });
 
-test("missing configuration document remains inert after user actions", async()=> {const a=await setup({}, {missingConfig:true}); a.window.KHGAnalytics.setConsent({analytics:true,marketing:true}); a.click(); assert.equal(a.nodes.filter(n=>n.tag==="script").length,0);});
+test("missing configuration document remains inert after user actions", async () => {
+  const a = await setup({}, { missingConfig: true });
+  a.window.KHGAnalytics.setConsent({ analytics: true, marketing: true });
+  a.click();
+  assert.equal(a.nodes.filter((n) => n.tag === "script").length, 0);
+});

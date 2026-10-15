@@ -15,3 +15,5 @@ production/.dev.vars.*
 production/worker-configuration.d.ts
 npm-debug.log*
 wrangler-pages.*.log
+
+.qa/analytics-review/

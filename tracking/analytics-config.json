@@ -1,15 +1,26 @@
 {
   "enabled": false,
-  "allowedHosts": ["neochosen.com", "www.neochosen.com"],
+  "allowedHosts": [
+    "neochosen.com",
+    "www.neochosen.com"
+  ],
   "allowLocalTesting": false,
-  "allowedFragments": ["events", "tickets", "main-content"],
+  "allowedFragments": [
+    "events",
+    "tickets",
+    "main-content"
+  ],
   "privacyNoticeUrl": "/privacy/",
   "ga4MeasurementId": "",
   "metaPixelId": "",
   "metricoolHash": "1a629a9567d67d551e83d8c4e0081e3d",
-  "formTypes": ["breakfast_invitation"],
+  "formTypes": [
+    "breakfast_invitation"
+  ],
   "contentRoutes": {},
   "linkEvents": {},
   "metricoolBrandId": 7369579,
-  "metricoolVerificationStatus": "UNVERIFIED"
+  "metricoolVerificationStatus": "UNVERIFIED",
+  "ga4VerificationStatus": "UNAVAILABLE",
+  "metaPixelVerificationStatus": "UNAVAILABLE"
 }
