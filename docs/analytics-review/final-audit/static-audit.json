@@ -1,0 +1,45 @@
+{
+  "site": "neo",
+  "historyRange": "273ff5c77beba41c1180063de6fb9a129eac169e..HEAD",
+  "historyBlobsScanned": 57,
+  "credentialPatternFindings": [],
+  "releaseConfig": {
+    "enabled": false,
+    "allowedHosts": [
+      "neochosen.com",
+      "www.neochosen.com"
+    ],
+    "allowLocalTesting": false,
+    "allowedFragments": [
+      "events",
+      "tickets",
+      "main-content"
+    ],
+    "privacyNoticeUrl": "/privacy/",
+    "ga4MeasurementId": "",
+    "metaPixelId": "",
+    "metricoolHash": "1a629a9567d67d551e83d8c4e0081e3d",
+    "formTypes": [
+      "breakfast_invitation"
+    ],
+    "contentRoutes": {},
+    "linkEvents": {},
+    "metricoolBrandId": 7369579,
+    "metricoolVerificationStatus": "UNVERIFIED",
+    "ga4VerificationStatus": "UNAVAILABLE",
+    "metaPixelVerificationStatus": "UNAVAILABLE"
+  },
+  "buildHoldStopsBeforeUpload": true,
+  "productionHttpOnlyNoScriptsExecuted": {
+    "/": {
+      "status": 200,
+      "url": "https://neochosen.com/",
+      "sha256": "a77d44c1f3d1c15418da52c4d2dfb99c9c942275e0cd8447b15425791733bc7d",
+      "sharedTrackingReference": false,
+      "providerScriptReferences": []
+    },
+    "/tracking/analytics-config.json": {
+      "error": "HTTP Error 404: Not Found"
+    }
+  }
+}

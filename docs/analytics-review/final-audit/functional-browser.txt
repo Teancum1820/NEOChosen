@@ -1,0 +1,36 @@
+
+> neochosen-site@1.0.0 test:e2e
+> npm run build && playwright test --project=functional
+
+
+> neochosen-site@1.0.0 build
+> node scripts/review-no-deploy.cjs && node scripts/build-static.mjs
+
+
+[WebServer] (node:22580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 17 tests using 1 worker
+
+(node:21752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/17] [functional] › tests\browser\breakfast-functional.spec.mjs:44:1 › breakfast content, privacy and unconfigured receiver are explicit
+[2/17] [functional] › tests\browser\breakfast-functional.spec.mjs:103:1 › configured form validates before sending and preserves data on server error
+[3/17] [functional] › tests\browser\breakfast-functional.spec.mjs:139:1 › loading prevents duplicates and only saved-record acknowledgement shows success
+[4/17] [functional] › tests\browser\breakfast-functional.spec.mjs:177:1 › ambiguous acknowledgement and network loss never report success
+[5/17] [functional] › tests\browser\breakfast-functional.spec.mjs:200:1 › all review widths have no overflow, loaded photo and usable fields
+[6/17] [functional] › tests\browser\functional.spec.mjs:9:1 › community partners include Hallow and Haven remains last and no larger
+[7/17] [functional] › tests\browser\functional.spec.mjs:62:1 › homepage and current canonical routes load without page-level exceptions
+[8/17] [functional] › tests\browser\functional.spec.mjs:90:1 › navigation and local links stay usable
+[9/17] [functional] › tests\browser\functional.spec.mjs:108:1 › registration actions and forms render without submitting
+[10/17] [functional] › tests\browser\functional.spec.mjs:121:1 › cash raffle shows only holding copy and defers rules on desktop tablet and mobile
+[11/17] [functional] › tests\browser\functional.spec.mjs:148:1 › homepage rows preserve the verified event facts and destinations
+[12/17] [functional] › tests\browser\functional.spec.mjs:171:1 › responsive hero, header, and sponsor band fit all review widths
+[13/17] [functional] › tests\browser\functional.spec.mjs:214:1 › mobile menu preserves focus and closes with Escape
+[14/17] [functional] › tests\browser\functional.spec.mjs:226:1 › newsletter script waits for signup visibility and retains the direct destination
+[15/17] [functional] › tests\browser\functional.spec.mjs:243:1 › sponsorship print previews load on demand with usable mobile download links
+[16/17] [functional] › tests\browser\functional.spec.mjs:264:1 › every concert action goes directly to Ticketmaster without a notice
+[17/17] [functional] › tests\browser\functional.spec.mjs:291:1 › mobile concert action goes directly to Ticketmaster with the keyboard
+  17 passed (23.8s)

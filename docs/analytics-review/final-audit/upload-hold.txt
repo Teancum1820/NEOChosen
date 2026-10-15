@@ -1,0 +1,5 @@
+
+> neochosen-site@1.0.0 build
+> node scripts/review-no-deploy.cjs && node scripts/build-static.mjs
+
+ANALYTICS_REVIEW_HOLD: upload and deployment are blocked pending approval. Run review QA in GitHub Actions or locally.
