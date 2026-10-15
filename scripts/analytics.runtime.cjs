@@ -86,7 +86,10 @@ async function setup(overrides = {}, options = {}) {
       "https://neochosen.com/piano-guys/?utm_source=facebook&utm_medium=paid_social",
   );
   let reloads = 0;
-  const window = { addEventListener() {} };
+  const windowListeners = {};
+  const window = {
+    addEventListener: (name, fn) => (windowListeners[name] ??= []).push(fn),
+  };
   if (options.existingPixel) window.fbq = () => {};
   const ctx = {
     window,
@@ -155,6 +158,10 @@ async function setup(overrides = {}, options = {}) {
       for (const f of listeners.click || [])
         f({ target: { closest: () => anchor } });
     },
+    fireWindow: (name, event) => {
+      for (const fn of windowListeners[name] || []) fn(event);
+    },
+    sessionStorage,
     commands,
     reloads: () => reloads,
     runAgain: () => vm.runInContext(source, ctx),
@@ -621,4 +628,45 @@ test("missing configuration document remains inert after user actions", async ()
   a.window.KHGAnalytics.setConsent({ analytics: true, marketing: true });
   a.click();
   assert.equal(a.nodes.filter((n) => n.tag === "script").length, 0);
+});
+
+test("clearing local storage in another tab revokes collection before reloading", async () => {
+  const a = await setup();
+  a.window.KHGAnalytics.setConsent({ analytics: true, marketing: true });
+  a.localStorage.removeItem("khg-tracking-consent-v1");
+  a.fireWindow("storage", { key: null, storageArea: a.localStorage });
+  assert.equal(a.reloads(), 1);
+  assert.equal(a.commands().at(-1)[2].analytics_storage, "denied");
+  assert.equal(a.window.fbq.queue.at(-1)[1], "revoke");
+  const count = a.commands().length;
+  a.click();
+  assert.equal(a.commands().length, count);
+  assert.equal(a.localStorage.getItem("khg-tracking-consent-v1"), null);
+});
+
+test("consent removal in another tab revokes without rewriting its preference", async () => {
+  const a = await setup();
+  a.window.KHGAnalytics.setConsent({ analytics: true, marketing: true });
+  a.localStorage.removeItem("khg-tracking-consent-v1");
+  a.fireWindow("storage", {
+    key: "khg-tracking-consent-v1",
+    storageArea: a.localStorage,
+  });
+  assert.equal(a.reloads(), 1);
+  assert.equal(a.commands().at(-1)[2].analytics_storage, "denied");
+  assert.equal(a.localStorage.getItem("khg-tracking-consent-v1"), null);
+});
+
+test("unrelated local or session storage changes do not reload consent", async () => {
+  const a = await setup();
+  a.window.KHGAnalytics.setConsent({ analytics: true, marketing: true });
+  a.fireWindow("storage", { key: "unrelated", storageArea: a.localStorage });
+  a.fireWindow("storage", { key: null, storageArea: a.sessionStorage });
+  a.fireWindow("storage", {
+    key: "khg-tracking-consent-v1",
+    storageArea: a.sessionStorage,
+  });
+  assert.equal(a.reloads(), 0);
+  a.click();
+  assert.equal(a.commands().at(-1)[0], "event");
 });

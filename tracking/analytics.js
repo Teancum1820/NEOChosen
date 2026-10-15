@@ -422,7 +422,24 @@
     safe(() => applyConsent(e.detail)),
   );
   window.addEventListener("storage", (e) => {
-    if (e.key === consentKey) location.reload();
+    if (
+      e.storageArea !== safe(() => localStorage) ||
+      (e.key !== consentKey && e.key !== null)
+    )
+      return;
+    // clear() uses a null key. Revoke this tab immediately, then read the
+    // other tab's choice on reload without overwriting it or recreating a grant.
+    consent = { analytics: false, marketing: false };
+    safe(() =>
+      window.gtag?.("consent", "update", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      }),
+    );
+    safe(() => window.fbq?.("consent", "revoke"));
+    location.reload();
   });
   fetch(new URL("analytics-config.json", base), {
     credentials: "same-origin",
