@@ -3,12 +3,13 @@
   "allowedHosts": ["neochosen.com", "www.neochosen.com"],
   "allowLocalTesting": false,
   "allowedFragments": ["events", "tickets", "main-content"],
-  "privacyNoticeUrl": "",
+  "privacyNoticeUrl": "/privacy/",
   "ga4MeasurementId": "",
   "metaPixelId": "",
   "metricoolHash": "1a629a9567d67d551e83d8c4e0081e3d",
   "formTypes": ["breakfast_invitation"],
   "contentRoutes": {},
   "linkEvents": {},
-  "metricoolBrandId": 7369579
+  "metricoolBrandId": 7369579,
+  "metricoolVerificationStatus": "UNVERIFIED"
 }

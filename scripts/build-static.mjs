@@ -21,6 +21,7 @@ const rootFilePattern = /(\.html|\.css|\.js|\.svg|\.webmanifest)$/;
 const rootFiles = new Set(["_headers", "_redirects"]);
 const siteDirs = [
   "tracking",
+  "privacy",
   "thank-you",
   "about-us",
   "donations",

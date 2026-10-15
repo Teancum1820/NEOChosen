@@ -4,7 +4,7 @@
   "private": true,
   "description": "Static NEO Chosen event website for Cloudflare Pages.",
   "scripts": {
-    "build": "node scripts/build-static.mjs",
+    "build": "node scripts/review-no-deploy.cjs && node scripts/build-static.mjs",
     "check:sponsorships": "node scripts/check-sponsorship-pages.mjs",
     "check:site-chrome": "node scripts/check-site-chrome.mjs",
     "check:local-links": "node scripts/check-local-links.mjs",

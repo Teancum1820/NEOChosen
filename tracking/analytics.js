@@ -28,6 +28,22 @@
       return "";
     }
   };
+  // Notice links must stay on this site; never accept script or external URLs.
+  const noticeUrl = () => {
+    const value = config?.privacyNoticeUrl;
+    if (
+      typeof value !== "string" ||
+      !/^\/(?!\/)/.test(value) ||
+      /[\\\s]/.test(value)
+    )
+      return "";
+    return (
+      safe(() => {
+        const u = new URL(value, location.href);
+        return u.origin === new URL(location.href).origin ? u.href : "";
+      }) || ""
+    );
+  };
   const utms = () => {
     const result = {};
     for (const [key, value] of new URL(location.href).searchParams) {
@@ -70,8 +86,10 @@
     return true;
   };
   function initialize() {
+    if (!config) return;
     if (
       allowed("analytics") &&
+      typeof config.ga4MeasurementId === "string" &&
       /^G-[A-Z0-9]+$/.test(config.ga4MeasurementId) &&
       !loaded.has("ga4")
     ) {
@@ -135,6 +153,7 @@
     if (
       allowed("marketing") &&
       safeDocumentUrl &&
+      typeof config.metaPixelId === "string" &&
       /^\d{5,25}$/.test(config.metaPixelId) &&
       !loaded.has("meta") &&
       !window.fbq
@@ -167,6 +186,7 @@
     if (
       allowed("analytics") &&
       safeMetricoolUrl &&
+      typeof config.metricoolHash === "string" &&
       /^[a-f0-9]{32}$/i.test(config.metricoolHash) &&
       !loaded.has("metricool") &&
       !window.beTracker &&
@@ -245,6 +265,17 @@
         );
       });
   }
+  function persistConsent() {
+    try {
+      localStorage.setItem(
+        consentKey,
+        JSON.stringify({ ...consent, time: Date.now() }),
+      );
+    } catch {
+      // A quota failure must not leave an older grant to restart after withdrawal.
+      safe(() => localStorage.removeItem(consentKey));
+    }
+  }
   function applyConsent(value) {
     const old = consent;
     consent = {
@@ -266,29 +297,19 @@
         }),
       );
       if (!consent.marketing) safe(() => window.fbq?.("consent", "revoke"));
-      safe(() =>
-        localStorage.setItem(
-          consentKey,
-          JSON.stringify({ ...consent, time: Date.now() }),
-        ),
-      );
+      persistConsent();
       location.reload();
       return;
     }
-    safe(() =>
-      localStorage.setItem(
-        consentKey,
-        JSON.stringify({ ...consent, time: Date.now() }),
-      ),
-    );
+    persistConsent();
     document.getElementById("khg-consent")?.remove();
     initialize();
   }
   function preferences() {
     if (
-      !config?.enabled ||
+      !config ||
       restricted() ||
-      privacySignal() ||
+      !noticeUrl() ||
       document.getElementById("khg-consent")
     )
       return;
@@ -297,14 +318,17 @@
     box.setAttribute("role", "region");
     box.setAttribute("aria-label", "Tracking preferences");
     box.style.cssText =
-      "position:fixed;bottom:16px;left:16px;right:16px;max-width:700px;margin:auto;z-index:9999;background:white;color:#172b3a;border:1px solid #657482;padding:20px;box-shadow:0 4px 24px #0003;font:16px/1.5 system-ui;border-radius:10px";
+      "position:fixed;bottom:16px;left:16px;right:16px;max-width:700px;margin:auto;z-index:9999;background:white;color:#172b3a;border:1px solid #657482;padding:20px;box-shadow:0 4px 24px #0003;font:16px/1.5 system-ui;border-radius:10px;box-sizing:border-box";
     const p = document.createElement("p");
-    p.textContent =
-      "May we use analytics to measure website visits and marketing cookies to measure campaign interest? You can change your choice at any time.";
+    p.textContent = privacySignal()
+      ? "Your browser privacy signal keeps optional tracking off. You can review the privacy notice below."
+      : config.enabled === true
+        ? "May we use analytics to measure website visits and marketing cookies to measure campaign interest? You can change your choice at any time."
+        : "Optional tracking is currently disabled. You can save your preferences here; a choice cannot turn on tracking while it is disabled.";
     box.appendChild(p);
-    if (config.privacyNoticeUrl) {
+    if (noticeUrl()) {
       const a = document.createElement("a");
-      a.href = config.privacyNoticeUrl;
+      a.href = noticeUrl();
       a.textContent = "Privacy notice";
       box.appendChild(a);
     }
@@ -407,7 +431,7 @@
     .then((r) => (r.ok ? r.json() : null))
     .then((value) => {
       config = value;
-      if (!config?.enabled) return;
+      if (!config || typeof config !== "object") return;
       if (
         restricted() ||
         (!config.allowedHosts?.includes(location.hostname) &&
@@ -420,7 +444,7 @@
         return;
       }
       // Activation requires a reviewed privacy notice and verified provider IDs.
-      if (!config.privacyNoticeUrl) {
+      if (!noticeUrl()) {
         config.enabled = false;
         return;
       }
@@ -429,6 +453,8 @@
       );
       const validSaved =
         saved &&
+        typeof saved.analytics === "boolean" &&
+        typeof saved.marketing === "boolean" &&
         Number.isFinite(saved.time) &&
         saved.time <= Date.now() &&
         Date.now() - saved.time < 180 * 86400000;
@@ -439,7 +465,13 @@
         };
       if (privacySignal()) consent = { analytics: false, marketing: false };
       initialize();
-      if (!validSaved) preferences();
+      if (!validSaved && config.enabled === true && !privacySignal())
+        preferences();
+      const notice = document.createElement("a");
+      notice.href = noticeUrl();
+      notice.textContent = "Privacy notice";
+      notice.style.cssText = "display:block;text-align:center;margin:12px";
+      document.body.appendChild(notice);
       const settings = document.createElement("button");
       settings.type = "button";
       settings.textContent = "Tracking preferences";
