@@ -1,0 +1,49 @@
+Commit: 7a92bc94c543bc7bef416c9639117ff8aedd0010
+Command: npm run typecheck
+UTC start: 2026-10-15T22:27:45.778137+00:00
+
+> neochosen-site@1.0.0 typecheck
+> tsc --project tsconfig.tooling.json && npm run types:worker && tsc --project production/tsconfig.json
+
+
+> neochosen-site@1.0.0 types:worker
+> wrangler types production/worker-configuration.d.ts --config production/wrangler.jsonc --strict-vars=false
+
+
+ ⛅️ wrangler 4.123.0 (update available 4.151.0)
+───────────────────────────────────────────────
+Generating project types...
+
+interface __BaseEnv_Env {
+	BREAKFAST_RATE_LIMITER: RateLimit;
+	ASSETS: Fetcher;
+	BREAKFAST_REQUESTS_ENABLED: string;
+	BREAKFAST_ALLOWED_ORIGIN: string;
+	BREAKFAST_SHEET_ID: string;
+	GOOGLE_SERVICE_ACCOUNT_JSON: string;
+}
+declare namespace Cloudflare {
+	interface GlobalProps {
+		mainModule: typeof import("./worker");
+	}
+	interface Env extends __BaseEnv_Env {}
+}
+interface Env extends __BaseEnv_Env {}
+type StringifyValues<EnvType extends Record<string, unknown>> = {
+	[Binding in keyof EnvType]: EnvType[Binding] extends string ? EnvType[Binding] : string;
+};
+declare namespace NodeJS {
+	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "BREAKFAST_REQUESTS_ENABLED" | "BREAKFAST_ALLOWED_ORIGIN" | "BREAKFAST_SHEET_ID" | "GOOGLE_SERVICE_ACCOUNT_JSON">> {}
+}
+
+Generating runtime types...
+
+Runtime types generated.
+
+
+✨ Types written to production/worker-configuration.d.ts
+
+📖 Read about runtime types
+https://developers.cloudflare.com/workers/languages/typescript/#generate-types
+📣 Remember to rerun 'wrangler types' after you change your wrangler.jsonc file.
+

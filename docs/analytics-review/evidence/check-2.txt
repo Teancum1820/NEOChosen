@@ -1,0 +1,7 @@
+Command: npm.cmd run lint
+Commit: fa5a6a9d0978128ef20973c39e547431c7bb7539
+Exit: 0
+
+
+> neochosen-site@1.0.0 lint
+> eslint .

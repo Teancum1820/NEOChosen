@@ -1,0 +1,10 @@
+Command: npm.cmd run format:check
+Commit: fa5a6a9d0978128ef20973c39e547431c7bb7539
+Exit: 0
+
+
+> neochosen-site@1.0.0 format:check
+> prettier --check .storybook stories design-system tests/browser playwright.config.mjs lighthouserc.json eslint.config.mjs tsconfig.tooling.json
+
+Checking formatting...
+All matched files use Prettier code style!

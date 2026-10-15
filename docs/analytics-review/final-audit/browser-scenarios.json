@@ -1,0 +1,1307 @@
+[
+  {
+    "site": "neo",
+    "mode": "cross-tab-local-storage-clear",
+    "result": "PASS",
+    "real_storage_event": true
+  },
+  {
+    "site": "neo",
+    "mode": "exact-disabled",
+    "viewport": "desktop",
+    "pages": [
+      {
+        "route": "/",
+        "title": "NEO Chosen Weekend | November 13–15, 2026",
+        "overflow": false,
+        "annotatedLinks": 23
+      },
+      {
+        "route": "/piano-guys/",
+        "title": "The Piano Guys Live | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/vip-dinner/",
+        "title": "VIP Sponsor Dinner | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 13
+      },
+      {
+        "route": "/lakewood/",
+        "title": "An Evening with Cast Members from The Chosen | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/fairlawn/",
+        "title": "Fairlawn Meet & Greet | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/chesterland/",
+        "title": "Chesterland Meet & Greet | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/thank-you/lakewood/",
+        "title": "An Evening with Cast Members from The Chosen in Lakewood — Registration Confirmed | NEOChosen",
+        "overflow": false,
+        "annotatedLinks": 13
+      },
+      {
+        "route": "/privacy/",
+        "title": "NEOChosen — draft privacy notice",
+        "overflow": false,
+        "annotatedLinks": 10
+      }
+    ],
+    "vendor_requests": 0,
+    "errors": []
+  },
+  {
+    "site": "neo",
+    "mode": "exact-disabled",
+    "viewport": "mobile",
+    "pages": [
+      {
+        "route": "/",
+        "title": "NEO Chosen Weekend | November 13–15, 2026",
+        "overflow": false,
+        "annotatedLinks": 23
+      },
+      {
+        "route": "/piano-guys/",
+        "title": "The Piano Guys Live | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/vip-dinner/",
+        "title": "VIP Sponsor Dinner | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 13
+      },
+      {
+        "route": "/lakewood/",
+        "title": "An Evening with Cast Members from The Chosen | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/fairlawn/",
+        "title": "Fairlawn Meet & Greet | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/chesterland/",
+        "title": "Chesterland Meet & Greet | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/thank-you/lakewood/",
+        "title": "An Evening with Cast Members from The Chosen in Lakewood — Registration Confirmed | NEOChosen",
+        "overflow": false,
+        "annotatedLinks": 13
+      },
+      {
+        "route": "/privacy/",
+        "title": "NEOChosen — draft privacy notice",
+        "overflow": false,
+        "annotatedLinks": 10
+      }
+    ],
+    "vendor_requests": 0,
+    "errors": []
+  },
+  {
+    "site": "neo",
+    "mode": "synthetic-consent",
+    "before_consent": 0,
+    "denied": 0,
+    "persistence": "passed",
+    "analytics_only": "passed",
+    "marketing_opt_in": "passed",
+    "withdrawal": "passed",
+    "metricool_hash": "1a629a9567d67d551e83d8c4e0081e3d",
+    "metricool_dispatch": "correct hash",
+    "events": [
+      {
+        "provider": "ga4",
+        "args": [
+          "consent",
+          "default",
+          {
+            "analytics_storage": "denied",
+            "ad_storage": "denied",
+            "ad_user_data": "denied",
+            "ad_personalization": "denied"
+          }
+        ]
+      },
+      {
+        "provider": "ga4",
+        "args": [
+          "consent",
+          "update",
+          {
+            "analytics_storage": "granted"
+          }
+        ]
+      },
+      {
+        "provider": "ga4",
+        "args": [
+          "js",
+          "2026-10-15T22:27:17.400Z"
+        ]
+      },
+      {
+        "provider": "ga4",
+        "args": [
+          "config",
+          "G-TEST12345",
+          {
+            "send_page_view": true,
+            "page_location": "http://127.0.0.1:51833/",
+            "page_referrer": "http://127.0.0.1:51833/",
+            "allow_google_signals": false,
+            "allow_ad_personalization_signals": false
+          }
+        ]
+      },
+      {
+        "provider": "metricool",
+        "args": [
+          {
+            "hash": "1a629a9567d67d551e83d8c4e0081e3d"
+          }
+        ]
+      },
+      {
+        "provider": "meta",
+        "args": [
+          "set",
+          "autoConfig",
+          false,
+          "123456789012345"
+        ]
+      },
+      {
+        "provider": "meta",
+        "args": [
+          "consent",
+          "grant"
+        ]
+      },
+      {
+        "provider": "meta",
+        "args": [
+          "init",
+          "123456789012345"
+        ]
+      },
+      {
+        "provider": "meta",
+        "args": [
+          "track",
+          "PageView"
+        ]
+      },
+      {
+        "provider": "ga4",
+        "args": [
+          "consent",
+          "update",
+          {
+            "analytics_storage": "denied",
+            "ad_storage": "denied",
+            "ad_user_data": "denied",
+            "ad_personalization": "denied"
+          }
+        ]
+      },
+      {
+        "provider": "meta",
+        "args": [
+          "consent",
+          "revoke"
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "site": "neo",
+    "mode": "synthetic-cta",
+    "viewport": 1440,
+    "visible_buttons_tested": 83,
+    "buttons": [
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "__weekend_1",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "__weekend_7",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "__weekend_8",
+        "route": "/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys",
+        "key": "vip-dinner",
+        "event": "vip_dinner_click",
+        "button": "__vip-dinner_9",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "__vip-dinner_10",
+        "route": "/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen",
+        "key": "lakewood",
+        "event": "registration_button_click",
+        "button": "__lakewood_11",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/lakewood/",
+        "key": "lakewood",
+        "event": "event_details_click",
+        "button": "__lakewood_12",
+        "route": "/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "__piano-guys_13",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "__piano-guys_14",
+        "route": "/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
+        "key": "fairlawn",
+        "event": "registration_button_click",
+        "button": "__fairlawn_15",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/fairlawn/",
+        "key": "fairlawn",
+        "event": "event_details_click",
+        "button": "__fairlawn_16",
+        "route": "/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland",
+        "key": "chesterland",
+        "event": "registration_button_click",
+        "button": "__chesterland_17",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "__chesterland_18",
+        "route": "/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "__piano-guys_19",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "__piano-guys_20",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "__weekend_21",
+        "route": "/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "__piano-guys_22",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "__weekend_23",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_piano_guys__weekend_1",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_piano_guys__weekend_7",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "_piano_guys__piano-guys_8",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "_piano_guys__piano-guys_9",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "_piano_guys__vip-dinner_10",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/lakewood/",
+        "key": "lakewood",
+        "event": "event_details_click",
+        "button": "_piano_guys__lakewood_11",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/fairlawn/",
+        "key": "fairlawn",
+        "event": "event_details_click",
+        "button": "_piano_guys__fairlawn_12",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_piano_guys__weekend_13",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_piano_guys__weekend_14",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_piano_guys__weekend_15",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_piano_guys__chesterland_16",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_vip_dinner__weekend_1",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_vip_dinner__weekend_7",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys",
+        "key": "vip-dinner",
+        "event": "vip_dinner_click",
+        "button": "_vip_dinner__vip-dinner_8",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys",
+        "key": "vip-dinner",
+        "event": "vip_dinner_click",
+        "button": "_vip_dinner__vip-dinner_9",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_vip_dinner__weekend_10",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_vip_dinner__weekend_11",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_vip_dinner__weekend_12",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_vip_dinner__chesterland_13",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_lakewood__weekend_1",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_lakewood__weekend_7",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen",
+        "key": "lakewood",
+        "event": "registration_button_click",
+        "button": "_lakewood__lakewood_8",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen",
+        "key": "lakewood",
+        "event": "registration_button_click",
+        "button": "_lakewood__lakewood_9",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "_lakewood__vip-dinner_10",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "_lakewood__piano-guys_11",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/fairlawn/",
+        "key": "fairlawn",
+        "event": "event_details_click",
+        "button": "_lakewood__fairlawn_12",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_lakewood__weekend_13",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_lakewood__weekend_14",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_lakewood__weekend_15",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_lakewood__chesterland_16",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_fairlawn__weekend_1",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_fairlawn__weekend_7",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
+        "key": "fairlawn",
+        "event": "registration_button_click",
+        "button": "_fairlawn__fairlawn_8",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
+        "key": "fairlawn",
+        "event": "registration_button_click",
+        "button": "_fairlawn__fairlawn_9",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "_fairlawn__vip-dinner_10",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/lakewood/",
+        "key": "lakewood",
+        "event": "event_details_click",
+        "button": "_fairlawn__lakewood_11",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "_fairlawn__piano-guys_12",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_fairlawn__weekend_13",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_fairlawn__weekend_14",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_fairlawn__weekend_15",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_fairlawn__chesterland_16",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_chesterland__weekend_1",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_chesterland__weekend_7",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland",
+        "key": "chesterland",
+        "event": "registration_button_click",
+        "button": "_chesterland__chesterland_8",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland",
+        "key": "chesterland",
+        "event": "registration_button_click",
+        "button": "_chesterland__chesterland_9",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "_chesterland__vip-dinner_10",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/lakewood/",
+        "key": "lakewood",
+        "event": "event_details_click",
+        "button": "_chesterland__lakewood_11",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "_chesterland__piano-guys_12",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_chesterland__weekend_13",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_chesterland__weekend_14",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_chesterland__weekend_15",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_chesterland__chesterland_16",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_thank_you_lakewood__weekend_1",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_thank_you_lakewood__weekend_7",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys",
+        "key": "vip-dinner",
+        "event": "vip_dinner_click",
+        "button": "_thank_you_lakewood__vip-dinner_8",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
+        "key": "fairlawn",
+        "event": "registration_button_click",
+        "button": "thank_you_lakewood_fairlawn",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland",
+        "key": "chesterland",
+        "event": "registration_button_click",
+        "button": "thank_you_lakewood_chesterland",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_thank_you_lakewood__weekend_9",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_thank_you_lakewood__weekend_10",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_thank_you_lakewood__chesterland_11",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_privacy__weekend_1",
+        "route": "/privacy/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_privacy__weekend_7",
+        "route": "/privacy/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_privacy__weekend_8",
+        "route": "/privacy/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_privacy__weekend_9",
+        "route": "/privacy/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_privacy__chesterland_10",
+        "route": "/privacy/"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "site": "neo",
+    "mode": "synthetic-cta",
+    "viewport": 390,
+    "visible_buttons_tested": 67,
+    "buttons": [
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "__weekend_8",
+        "route": "/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys",
+        "key": "vip-dinner",
+        "event": "vip_dinner_click",
+        "button": "__vip-dinner_9",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "__vip-dinner_10",
+        "route": "/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen",
+        "key": "lakewood",
+        "event": "registration_button_click",
+        "button": "__lakewood_11",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/lakewood/",
+        "key": "lakewood",
+        "event": "event_details_click",
+        "button": "__lakewood_12",
+        "route": "/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "__piano-guys_13",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "__piano-guys_14",
+        "route": "/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
+        "key": "fairlawn",
+        "event": "registration_button_click",
+        "button": "__fairlawn_15",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/fairlawn/",
+        "key": "fairlawn",
+        "event": "event_details_click",
+        "button": "__fairlawn_16",
+        "route": "/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland",
+        "key": "chesterland",
+        "event": "registration_button_click",
+        "button": "__chesterland_17",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "__chesterland_18",
+        "route": "/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "__piano-guys_19",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "__piano-guys_20",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "__weekend_21",
+        "route": "/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "__piano-guys_22",
+        "route": "/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "__weekend_23",
+        "route": "/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "_piano_guys__piano-guys_8",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "https://www.ticketmaster.com/event/05006538EC473EB4",
+        "key": "piano-guys",
+        "event": "ticket_button_click",
+        "button": "_piano_guys__piano-guys_9",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "_piano_guys__vip-dinner_10",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/lakewood/",
+        "key": "lakewood",
+        "event": "event_details_click",
+        "button": "_piano_guys__lakewood_11",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/fairlawn/",
+        "key": "fairlawn",
+        "event": "event_details_click",
+        "button": "_piano_guys__fairlawn_12",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_piano_guys__weekend_13",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_piano_guys__weekend_14",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_piano_guys__weekend_15",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_piano_guys__chesterland_16",
+        "route": "/piano-guys/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys",
+        "key": "vip-dinner",
+        "event": "vip_dinner_click",
+        "button": "_vip_dinner__vip-dinner_8",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys",
+        "key": "vip-dinner",
+        "event": "vip_dinner_click",
+        "button": "_vip_dinner__vip-dinner_9",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_vip_dinner__weekend_10",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_vip_dinner__weekend_11",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_vip_dinner__weekend_12",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_vip_dinner__chesterland_13",
+        "route": "/vip-dinner/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen",
+        "key": "lakewood",
+        "event": "registration_button_click",
+        "button": "_lakewood__lakewood_8",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen",
+        "key": "lakewood",
+        "event": "registration_button_click",
+        "button": "_lakewood__lakewood_9",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "_lakewood__vip-dinner_10",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "_lakewood__piano-guys_11",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/fairlawn/",
+        "key": "fairlawn",
+        "event": "event_details_click",
+        "button": "_lakewood__fairlawn_12",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_lakewood__weekend_13",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_lakewood__weekend_14",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_lakewood__weekend_15",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_lakewood__chesterland_16",
+        "route": "/lakewood/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
+        "key": "fairlawn",
+        "event": "registration_button_click",
+        "button": "_fairlawn__fairlawn_8",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
+        "key": "fairlawn",
+        "event": "registration_button_click",
+        "button": "_fairlawn__fairlawn_9",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "_fairlawn__vip-dinner_10",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/lakewood/",
+        "key": "lakewood",
+        "event": "event_details_click",
+        "button": "_fairlawn__lakewood_11",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "_fairlawn__piano-guys_12",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_fairlawn__weekend_13",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_fairlawn__weekend_14",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_fairlawn__weekend_15",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_fairlawn__chesterland_16",
+        "route": "/fairlawn/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland",
+        "key": "chesterland",
+        "event": "registration_button_click",
+        "button": "_chesterland__chesterland_8",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland",
+        "key": "chesterland",
+        "event": "registration_button_click",
+        "button": "_chesterland__chesterland_9",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/vip-dinner/",
+        "key": "vip-dinner",
+        "event": "event_details_click",
+        "button": "_chesterland__vip-dinner_10",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/lakewood/",
+        "key": "lakewood",
+        "event": "event_details_click",
+        "button": "_chesterland__lakewood_11",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/piano-guys/",
+        "key": "piano-guys",
+        "event": "event_details_click",
+        "button": "_chesterland__piano-guys_12",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_chesterland__weekend_13",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_chesterland__weekend_14",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_chesterland__weekend_15",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_chesterland__chesterland_16",
+        "route": "/chesterland/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/vip-donor-dinner-with-the-chosen-and-piano-guys",
+        "key": "vip-dinner",
+        "event": "vip_dinner_click",
+        "button": "_thank_you_lakewood__vip-dinner_8",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
+        "key": "fairlawn",
+        "event": "registration_button_click",
+        "button": "thank_you_lakewood_fairlawn",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland",
+        "key": "chesterland",
+        "event": "registration_button_click",
+        "button": "thank_you_lakewood_chesterland",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_thank_you_lakewood__weekend_9",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_thank_you_lakewood__weekend_10",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_thank_you_lakewood__chesterland_11",
+        "route": "/thank-you/lakewood/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#events",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_privacy__weekend_8",
+        "route": "/privacy/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/#tickets",
+        "key": "weekend",
+        "event": "schedule_button_click",
+        "button": "_privacy__weekend_9",
+        "route": "/privacy/"
+      },
+      {
+        "href": "http://127.0.0.1:51833/chesterland/",
+        "key": "chesterland",
+        "event": "event_details_click",
+        "button": "_privacy__chesterland_10",
+        "route": "/privacy/"
+      }
+    ],
+    "errors": []
+  }
+]

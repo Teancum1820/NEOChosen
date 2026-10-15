@@ -1,0 +1,26 @@
+[
+  {
+    "log": "../Analytics_Review_2026-10-15/neo/final-check-1.log",
+    "command": "npm.cmd test",
+    "sha": "fa5a6a9d0978128ef20973c39e547431c7bb7539",
+    "exit": 0
+  },
+  {
+    "log": "../Analytics_Review_2026-10-15/neo/final-check-2.log",
+    "command": "npm.cmd run lint",
+    "sha": "fa5a6a9d0978128ef20973c39e547431c7bb7539",
+    "exit": 0
+  },
+  {
+    "log": "../Analytics_Review_2026-10-15/neo/final-check-3.log",
+    "command": "npm.cmd run typecheck",
+    "sha": "fa5a6a9d0978128ef20973c39e547431c7bb7539",
+    "exit": 0
+  },
+  {
+    "log": "../Analytics_Review_2026-10-15/neo/final-check-4.log",
+    "command": "npm.cmd run format:check",
+    "sha": "fa5a6a9d0978128ef20973c39e547431c7bb7539",
+    "exit": 0
+  }
+]

@@ -1,0 +1,152 @@
+Commit: 7a92bc94c543bc7bef416c9639117ff8aedd0010
+Command: node scripts/analytics.browser.mjs
+UTC start: 2026-10-15T22:26:59.999743+00:00
+[
+  {
+    "site": "neo",
+    "mode": "cross-tab-local-storage-clear",
+    "result": "PASS",
+    "real_storage_event": true
+  },
+  {
+    "site": "neo",
+    "mode": "exact-disabled",
+    "viewport": "desktop",
+    "pages": [
+      {
+        "route": "/",
+        "title": "NEO Chosen Weekend | November 13–15, 2026",
+        "overflow": false,
+        "annotatedLinks": 23
+      },
+      {
+        "route": "/piano-guys/",
+        "title": "The Piano Guys Live | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/vip-dinner/",
+        "title": "VIP Sponsor Dinner | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 13
+      },
+      {
+        "route": "/lakewood/",
+        "title": "An Evening with Cast Members from The Chosen | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/fairlawn/",
+        "title": "Fairlawn Meet & Greet | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/chesterland/",
+        "title": "Chesterland Meet & Greet | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/thank-you/lakewood/",
+        "title": "An Evening with Cast Members from The Chosen in Lakewood — Registration Confirmed | NEOChosen",
+        "overflow": false,
+        "annotatedLinks": 13
+      },
+      {
+        "route": "/privacy/",
+        "title": "NEOChosen — draft privacy notice",
+        "overflow": false,
+        "annotatedLinks": 10
+      }
+    ],
+    "vendor_requests": 0,
+    "errors": []
+  },
+  {
+    "site": "neo",
+    "mode": "exact-disabled",
+    "viewport": "mobile",
+    "pages": [
+      {
+        "route": "/",
+        "title": "NEO Chosen Weekend | November 13–15, 2026",
+        "overflow": false,
+        "annotatedLinks": 23
+      },
+      {
+        "route": "/piano-guys/",
+        "title": "The Piano Guys Live | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/vip-dinner/",
+        "title": "VIP Sponsor Dinner | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 13
+      },
+      {
+        "route": "/lakewood/",
+        "title": "An Evening with Cast Members from The Chosen | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/fairlawn/",
+        "title": "Fairlawn Meet & Greet | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/chesterland/",
+        "title": "Chesterland Meet & Greet | NEOChosen 2026",
+        "overflow": false,
+        "annotatedLinks": 16
+      },
+      {
+        "route": "/thank-you/lakewood/",
+        "title": "An Evening with Cast Members from The Chosen in Lakewood — Registration Confirmed | NEOChosen",
+        "overflow": false,
+        "annotatedLinks": 13
+      },
+      {
+        "route": "/privacy/",
+        "title": "NEOChosen — draft privacy notice",
+        "overflow": false,
+        "annotatedLinks": 10
+      }
+    ],
+    "vendor_requests": 0,
+    "errors": []
+  },
+  {
+    "site": "neo",
+    "mode": "synthetic-consent",
+    "before_consent": 0,
+    "denied": 0,
+    "persistence": "passed",
+    "analytics_only": "passed",
+    "marketing_opt_in": "passed",
+    "withdrawal": "passed",
+    "metricool_hash": "1a629a9567d67d551e83d8c4e0081e3d",
+    "metricool_dispatch": "correct hash",
+    "errors": []
+  },
+  {
+    "site": "neo",
+    "mode": "synthetic-cta",
+    "viewport": 1440,
+    "visible_buttons_tested": 83,
+    "errors": []
+  },
+  {
+    "site": "neo",
+    "mode": "synthetic-cta",
+    "viewport": 390,
+    "visible_buttons_tested": 67,
+    "errors": []
+  }
+]

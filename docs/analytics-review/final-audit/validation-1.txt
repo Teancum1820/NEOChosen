@@ -1,0 +1,123 @@
+Commit: 7a92bc94c543bc7bef416c9639117ff8aedd0010
+Command: npm test
+UTC start: 2026-10-15T22:26:20.544800+00:00
+
+> neochosen-site@1.0.0 test
+> npm run build && npm run check:sponsorships && npm run check:site-chrome && npm run check:local-links && npm run check:events && npm run check:sponsors && npm run check:raffle && npm run test:raffle-functions && npm run test:breakfast-functions && npm run check:unlisted-breakfast && npm run test:analytics
+
+
+> neochosen-site@1.0.0 build
+> node scripts/review-no-deploy.cjs && node scripts/build-static.mjs
+
+
+> neochosen-site@1.0.0 check:sponsorships
+> node scripts/check-sponsorship-pages.mjs
+
+Validated the sponsorship landing page, contact page, 8 detail routes, PDFs, summaries, metadata, and contact controls.
+
+> neochosen-site@1.0.0 check:site-chrome
+> node scripts/check-site-chrome.mjs
+
+Validated shared navigation, footer, controls, links, anchors, and signup removal on 30 pages.
+
+> neochosen-site@1.0.0 check:local-links
+> node scripts/check-local-links.mjs
+
+Validated 1650 local page, asset, and anchor references across 40 HTML files.
+
+> neochosen-site@1.0.0 check:events
+> node scripts/check-event-pages.mjs
+
+Validated five event cards, detail routes, admission types, sponsor roles, CTAs, and event metadata.
+
+> neochosen-site@1.0.0 check:sponsors
+> node scripts/check-sponsor-system.mjs
+
+Validated sponsor hierarchy, approved event relationships, directory links, and shared credits.
+
+> neochosen-site@1.0.0 check:raffle
+> node scripts/check-raffle-coming-soon.mjs
+
+Validated minimal cash raffle holding copy, no notifications/rules/purchase UI, deferred-rules redirect, and excluded archives.
+
+> neochosen-site@1.0.0 test:raffle-functions
+> node scripts/test-raffle-functions.mjs
+
+Validated raffle analytics and prize-submission handlers with mocked D1, R2, and Resend.
+
+> neochosen-site@1.0.0 test:breakfast-functions
+> node --test tests/breakfast-sheets.test.mjs
+
+{"event":"breakfast_save_failed","requestId":"8ef09448-b366-4212-a6f4-f367b98fea87"}
+✔ refuses Google redirects without following them or confirming receipt (96.2424ms)
+✔ confirms receipt only after signed authentication, schema check and a literal saved row (11.419ms)
+✔ both release switches and all server bindings are required (2.5411ms)
+✔ rejects foreign, missing and cross-site origins and mismatched host (1.8768ms)
+✔ rejects invalid, duplicate, uploaded, unknown and honeypot fields (62.018ms)
+✔ bounds request bodies with and without Content-Length; refuses other content types (19.1364ms)
+✔ rate limit rejection never contacts Google (2.0345ms)
+✔ Google failures and mismatched columns or save acknowledgements never claim success or log private data (88.3048ms)
+✔ API has no public read endpoint and ordinary static routes still work (5.7579ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 827.6039
+
+> neochosen-site@1.0.0 check:unlisted-breakfast
+> node scripts/check-unlisted-breakfast.mjs
+
+Breakfast is unlinked, excluded from sitemaps and the production review hub, and marked noindex in HTML and HTTP headers.
+
+> neochosen-site@1.0.0 test:analytics
+> node --test scripts/analytics.runtime.cjs tests/breakfast-analytics.test.cjs
+
+✔ no provider scripts or events before consent, no retroactive clicks (57.9712ms)
+✔ one GA initialization, one Meta PageView, no duplicate listeners (9.3043ms)
+✔ only analytics consent loads GA/Metricool, no Meta (7.6071ms)
+✔ one custom click and correct parameters without purchase semantics (10.8724ms)
+✔ only configured acknowledged form success, local per-record deduplication (8.6093ms)
+✔ clicks and forged purchase name cannot create a purchase (3.0763ms)
+✔ manual outbound fallback is explicit, sanitized, and does not add a Meta conversion (2.1856ms)
+✔ disabled config, missing privacy, blocked fetch fail closed (13.2122ms)
+✔ unapproved host, private routes, GPC, DNT prevent all new providers (8.0934ms)
+✔ sensitive document query suppresses URL-reading vendors and sanitizes GA (4.3612ms)
+✔ existing GTM/pixel is not double initialized (1.4716ms)
+✔ known public schedule anchors initialize vendors while unknown fragments remain suppressed (2.5438ms)
+✔ URL-reading vendors do not receive sensitive referrer queries (1.6025ms)
+✔ campaign referrers and consented Meta click attribution survive while Metricool does not receive fbclid (1.4905ms)
+✔ withdrawal applies denial and reloads to stop automatic vendor events (3.0331ms)
+✔ expired consent requests new choice, no provider initializes (1.8989ms)
+✔ broken analytics dispatch never throws or cancels navigation (2.9019ms)
+✔ future-dated consent fails closed (3.522ms)
+✔ invalid Metricool hash cannot load a tag or use a brand ID as a hash (7.6016ms)
+✔ Metricool receives the configured hash once after analytics consent (3.893ms)
+✔ payment link intent stays separate from checkout and purchase (1.7881ms)
+✔ release config has exact authorized mapping and stays dormant (1.3265ms)
+✔ missing provider IDs remain safe after consent (1.6816ms)
+✔ Metricool rejects whitespace, encoding tricks, wrong types and script injection (25.1381ms)
+✔ all three syntactically valid reported brand hashes work only in a synthetic fixture (17.8783ms)
+✔ disabled feature stays inert even after acceptance and acknowledged success (4.9132ms)
+✔ declined consent survives another page load without a new prompt (4.0801ms)
+✔ corrupted consent shapes fail closed (8.5335ms)
+✔ unsafe notice paths cannot activate providers or create unsafe links (13.7525ms)
+✔ provider IDs reject coercible arrays and malformed identifiers (9.5171ms)
+✔ withdrawal blocks future custom events and delayed Metricool initialization (29.2683ms)
+✔ storage quota failure removes the previous grant before withdrawal reload (3.8931ms)
+✔ missing configuration document remains inert after user actions (1.8589ms)
+✔ clearing local storage in another tab revokes collection before reloading (3.3219ms)
+✔ consent removal in another tab revokes without rewriting its preference (5.6829ms)
+✔ unrelated local or session storage changes do not reload consent (3.2044ms)
+✔ actual breakfast script emits no saved-lead event for invalid, disabled, failed or ambiguous submissions (18.0161ms)
+✔ actual breakfast success callback emits one non-personal saved-lead acknowledgement after HTTP 201 (2.0055ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 492.8435

@@ -12,6 +12,7 @@ import { writeInteriorPages } from "./interior-pages.mjs";
 import { writeApprovedMedia } from "./approved-media.mjs";
 import { writeBreakfastPage } from "./breakfast-page.mjs";
 import { writeReviewHub } from "./review-hub.mjs";
+import { applyAnalytics, writeAnalyticsConfig } from "./analytics-build.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -19,6 +20,8 @@ const outDir = path.join(root, "dist");
 const rootFilePattern = /(\.html|\.css|\.js|\.svg|\.webmanifest)$/;
 const rootFiles = new Set(["_headers", "_redirects"]);
 const siteDirs = [
+  "tracking",
+  "privacy",
   "thank-you",
   "about-us",
   "donations",
@@ -86,8 +89,9 @@ async function updateChrome(dir) {
     else if (entry.name.endsWith('.html')) {
       const route = '/' + path.relative(outDir, file).split(path.sep).join('/').replace(/index\.html$/, '');
       const source = await readFile(file, 'utf8');
-      await writeFile(file, applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : source), route), 'utf8');
+      await writeFile(file, applyAnalytics(applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : source), route), route), 'utf8');
     }
   }
 }
 await updateChrome(outDir);
+await writeAnalyticsConfig(root, outDir);

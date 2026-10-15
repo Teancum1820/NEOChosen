@@ -1,0 +1,9 @@
+[
+  {
+    "command": "node scripts/analytics.browser.mjs",
+    "exit": 0,
+    "sha": "7a92bc94c543bc7bef416c9639117ff8aedd0010",
+    "seconds": 32.2,
+    "log": "C:\\Users\\caleb\\OneDrive\\Documents\\New project\\Analytics_Review_2026-10-15\\independent-final-audit\\neo\\browser.txt"
+  }
+]

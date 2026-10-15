@@ -1,0 +1,30 @@
+[
+  {
+    "command": "npm test",
+    "exit": 0,
+    "sha": "7a92bc94c543bc7bef416c9639117ff8aedd0010",
+    "seconds": 82.3,
+    "log": "C:\\Users\\caleb\\OneDrive\\Documents\\New project\\Analytics_Review_2026-10-15\\independent-final-audit\\neo\\validation-1.txt"
+  },
+  {
+    "command": "npm run lint",
+    "exit": 0,
+    "sha": "7a92bc94c543bc7bef416c9639117ff8aedd0010",
+    "seconds": 2.9,
+    "log": "C:\\Users\\caleb\\OneDrive\\Documents\\New project\\Analytics_Review_2026-10-15\\independent-final-audit\\neo\\validation-2.txt"
+  },
+  {
+    "command": "npm run typecheck",
+    "exit": 0,
+    "sha": "7a92bc94c543bc7bef416c9639117ff8aedd0010",
+    "seconds": 5.2,
+    "log": "C:\\Users\\caleb\\OneDrive\\Documents\\New project\\Analytics_Review_2026-10-15\\independent-final-audit\\neo\\validation-3.txt"
+  },
+  {
+    "command": "npm run format:check",
+    "exit": 0,
+    "sha": "7a92bc94c543bc7bef416c9639117ff8aedd0010",
+    "seconds": 1.3,
+    "log": "C:\\Users\\caleb\\OneDrive\\Documents\\New project\\Analytics_Review_2026-10-15\\independent-final-audit\\neo\\validation-4.txt"
+  }
+]

@@ -1,0 +1,9 @@
+Commit: 7a92bc94c543bc7bef416c9639117ff8aedd0010
+Command: npm run format:check
+UTC start: 2026-10-15T22:27:50.936631+00:00
+
+> neochosen-site@1.0.0 format:check
+> prettier --check .storybook stories design-system tests/browser playwright.config.mjs lighthouserc.json eslint.config.mjs tsconfig.tooling.json
+
+Checking formatting...
+All matched files use Prettier code style!

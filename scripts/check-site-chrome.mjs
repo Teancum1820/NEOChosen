@@ -35,7 +35,8 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   }
   pages.set(route, { html, ids, chrome });
 }
-assert.equal(pages.size, process.env.NEOCHOSEN_REVIEW === 'true' ? 30 : 29, 'Expected all content pages including breakfast and confirmations to have shared navigation and footer');
+assert.equal(pages.size, process.env.NEOCHOSEN_REVIEW === 'true' ? 31 : 30, 'Expected all content pages including privacy, breakfast and confirmations to have shared navigation and footer');
+assert(pages.has('/privacy/'), 'Missing draft privacy notice');
 for (const route of ['/vip-dinner/', '/lakewood/', '/piano-guys/', '/fairlawn/', '/chesterland/']) {
   assert(pages.has(route), `Missing dedicated event route ${route}`);
 }
