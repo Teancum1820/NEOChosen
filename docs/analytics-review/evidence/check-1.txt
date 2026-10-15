@@ -1,0 +1,121 @@
+Command: npm.cmd test
+Commit: fa5a6a9d0978128ef20973c39e547431c7bb7539
+Exit: 0
+
+
+> neochosen-site@1.0.0 test
+> npm run build && npm run check:sponsorships && npm run check:site-chrome && npm run check:local-links && npm run check:events && npm run check:sponsors && npm run check:raffle && npm run test:raffle-functions && npm run test:breakfast-functions && npm run check:unlisted-breakfast && npm run test:analytics
+
+
+> neochosen-site@1.0.0 build
+> node scripts/review-no-deploy.cjs && node scripts/build-static.mjs
+
+
+> neochosen-site@1.0.0 check:sponsorships
+> node scripts/check-sponsorship-pages.mjs
+
+Validated the sponsorship landing page, contact page, 8 detail routes, PDFs, summaries, metadata, and contact controls.
+
+> neochosen-site@1.0.0 check:site-chrome
+> node scripts/check-site-chrome.mjs
+
+Validated shared navigation, footer, controls, links, anchors, and signup removal on 30 pages.
+
+> neochosen-site@1.0.0 check:local-links
+> node scripts/check-local-links.mjs
+
+Validated 1650 local page, asset, and anchor references across 40 HTML files.
+
+> neochosen-site@1.0.0 check:events
+> node scripts/check-event-pages.mjs
+
+Validated five event cards, detail routes, admission types, sponsor roles, CTAs, and event metadata.
+
+> neochosen-site@1.0.0 check:sponsors
+> node scripts/check-sponsor-system.mjs
+
+Validated sponsor hierarchy, approved event relationships, directory links, and shared credits.
+
+> neochosen-site@1.0.0 check:raffle
+> node scripts/check-raffle-coming-soon.mjs
+
+Validated minimal cash raffle holding copy, no notifications/rules/purchase UI, deferred-rules redirect, and excluded archives.
+
+> neochosen-site@1.0.0 test:raffle-functions
+> node scripts/test-raffle-functions.mjs
+
+Validated raffle analytics and prize-submission handlers with mocked D1, R2, and Resend.
+
+> neochosen-site@1.0.0 test:breakfast-functions
+> node --test tests/breakfast-sheets.test.mjs
+
+{"event":"breakfast_save_failed","requestId":"595c2af4-79b6-4c2d-8a8f-14eda05950d1"}
+✔ refuses Google redirects without following them or confirming receipt (62.2952ms)
+✔ confirms receipt only after signed authentication, schema check and a literal saved row (17.0653ms)
+✔ both release switches and all server bindings are required (5.229ms)
+✔ rejects foreign, missing and cross-site origins and mismatched host (3.31ms)
+✔ rejects invalid, duplicate, uploaded, unknown and honeypot fields (17.2985ms)
+✔ bounds request bodies with and without Content-Length; refuses other content types (3.242ms)
+✔ rate limit rejection never contacts Google (1.8279ms)
+✔ Google failures and mismatched columns or save acknowledgements never claim success or log private data (36.8564ms)
+✔ API has no public read endpoint and ordinary static routes still work (2.9352ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 468.0574
+
+> neochosen-site@1.0.0 check:unlisted-breakfast
+> node scripts/check-unlisted-breakfast.mjs
+
+Breakfast is unlinked, excluded from sitemaps and the production review hub, and marked noindex in HTML and HTTP headers.
+
+> neochosen-site@1.0.0 test:analytics
+> node --test scripts/analytics.runtime.cjs tests/breakfast-analytics.test.cjs
+
+✔ no provider scripts or events before consent, no retroactive clicks (55.5142ms)
+✔ one GA initialization, one Meta PageView, no duplicate listeners (3.277ms)
+✔ only analytics consent loads GA/Metricool, no Meta (1.9925ms)
+✔ one custom click and correct parameters without purchase semantics (3.5334ms)
+✔ only configured acknowledged form success, local per-record deduplication (2.5508ms)
+✔ clicks and forged purchase name cannot create a purchase (2.2657ms)
+✔ manual outbound fallback is explicit, sanitized, and does not add a Meta conversion (1.9372ms)
+✔ disabled config, missing privacy, blocked fetch fail closed (3.7595ms)
+✔ unapproved host, private routes, GPC, DNT prevent all new providers (5.5381ms)
+✔ sensitive document query suppresses URL-reading vendors and sanitizes GA (9.7161ms)
+✔ existing GTM/pixel is not double initialized (1.5245ms)
+✔ known public schedule anchors initialize vendors while unknown fragments remain suppressed (2.35ms)
+✔ URL-reading vendors do not receive sensitive referrer queries (1.8096ms)
+✔ campaign referrers and consented Meta click attribution survive while Metricool does not receive fbclid (1.8743ms)
+✔ withdrawal applies denial and reloads to stop automatic vendor events (1.8695ms)
+✔ expired consent requests new choice, no provider initializes (1.4829ms)
+✔ broken analytics dispatch never throws or cancels navigation (2.8071ms)
+✔ future-dated consent fails closed (1.4257ms)
+✔ invalid Metricool hash cannot load a tag or use a brand ID as a hash (5.3011ms)
+✔ Metricool receives the configured hash once after analytics consent (2.9763ms)
+✔ payment link intent stays separate from checkout and purchase (1.6515ms)
+✔ release config has exact authorized mapping and stays dormant (12.2858ms)
+✔ missing provider IDs remain safe after consent (6.5356ms)
+✔ Metricool rejects whitespace, encoding tricks, wrong types and script injection (41.0721ms)
+✔ all three syntactically valid reported brand hashes work only in a synthetic fixture (7.8744ms)
+✔ disabled feature stays inert even after acceptance and acknowledged success (3.5293ms)
+✔ declined consent survives another page load without a new prompt (2.862ms)
+✔ corrupted consent shapes fail closed (6.1404ms)
+✔ unsafe notice paths cannot activate providers or create unsafe links (9.6618ms)
+✔ provider IDs reject coercible arrays and malformed identifiers (4.5798ms)
+✔ withdrawal blocks future custom events and delayed Metricool initialization (3.6467ms)
+✔ storage quota failure removes the previous grant before withdrawal reload (9.9434ms)
+✔ missing configuration document remains inert after user actions (1.5896ms)
+✔ actual breakfast script emits no saved-lead event for invalid, disabled, failed or ambiguous submissions (20.0627ms)
+✔ actual breakfast success callback emits one non-personal saved-lead acknowledgement after HTTP 201 (3.1312ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 408.3844

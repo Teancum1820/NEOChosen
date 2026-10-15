@@ -12,10 +12,14 @@ Run the focused tests documented in the handoff. Production publication requires
 
 Use `document.dispatchEvent(new CustomEvent("khg:form-success", {detail:{form_type:"a configured type",submission_key:"local deduplication key"}}))` only in an authoritative success callback. The key stays local. A provider dispatch/queue is not a delivery receipt.
 
-RTG only: manualOutboundClicks=true emits sanitized GA4 outbound click events because its audited enhanced measurement was disabled. Set it false before enabling automatic outbound clicks. Other sites leave this option absent/false. Known public NEO schedule anchors are allowed explicitly; arbitrary fragments remain suppressed.
+Site-specific current account and consent decisions are recorded in docs/analytics-review/; cross-site historical outbound assumptions must not be used for activation.
 
 ## October 14 continuation
 
 Metricool Brand 7369579; exact supplied hash `1a629a9567d67d551e83d8c4e0081e3d`. Brand IDs are documentation metadata; only the tag hash is passed to the supported JavaScript tracker. Global activation stays disabled pending privacy review and provider checks.
 
 Consent timestamps in the future are rejected. Existing event names are retained. No Purchase or CompleteRegistration event is added.
+
+## October 15 review
+
+See [the complete review](docs/analytics-review/README.md) for draft notices, verified account mappings, current evidence and activation blockers. Every release config remains disabled. Draft notices explicitly document that existing vendor cookies are not deleted on withdrawal. Public privacy/settings links remain available while disabled.
