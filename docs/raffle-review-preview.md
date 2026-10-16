@@ -14,6 +14,17 @@ Preview source: `source-assets/raffle-preview/public-launch.html`, `.css`, and `
 
 Rules source: `source-assets/raffle-preview/official-rules.html`, aligned to Joe’s September 30, 2026 setup email, especially section 8 and its supporting pricing, drawing, ownership, and delivery instructions. The earlier preview already contained most of these working terms. This revision adds the omitted no-fixed-cap/payment wording, restrictions on discounts/bonus entries and purchases for minors, rounding review, social-consent wording, ticket-number/printing controls, check-in clarification, separate Zeffy contribution/prize-payment wording, and unresolved dispute/material-rule-change provisions. It identifies the source date without representing the working terms as approved rules. The historical archive is preserved. The private proposed drawing location remains withheld as Joe instructed.
 
+Organizer fields were completed for Joe’s review on October 16, 2026:
+
+- Name: Kirtland Heritage Group. Do not invent an “Inc.” or other suffix.
+- EIN: 99-1301074, supplied by Joe in his [October 16 website-update email](https://mail.google.com/mail/u/0/#all/1a144b3b9eaadb0b) and corroborated by the [Charity Navigator EIN profile](https://www.charitynavigator.org/ein/991301074).
+- Mailing address: 38323 Apollo Parkway, Unit 7, Willoughby, Ohio 44094, supplied in [Joe’s address-correction email](https://mail.google.com/mail/u/0/#all/1a036463647f4871), and currently published on [KHG’s website](https://kirtlandheritagegroup.com/) and [NEOChosen’s donation page](https://neochosen.com/donations/).
+- Contact: info@kirtlandheritagegroup.com and 440-796-1642, using the existing NEOChosen event contact, published on the donation page and shared site footer. A separate KHG contact page lists a different general phone; this preview deliberately retains NEOChosen’s established number. No claim is made that contact-response staffing or ticket-delivery testing is complete.
+- Website and 501(c)(3) description: KHG’s current public website.
+- Rules version: October 16, 2026 review draft. Effective date says the draft is not in effect, rather than inventing approval or an opening date.
+
+No bracketed organizer placeholders remain. The hosted update matches the build exactly, and its organizer section was checked on desktop and at 390px with no horizontal overflow. Legal/operating provisions that were unresolved in Joe’s source remain identified for review.
+
 Rebuild and redeploy only this review service:
 
 ```powershell
