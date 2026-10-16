@@ -22,7 +22,7 @@ const style = `<style>.raffle-review-notice{background:#fff1cc;color:#332707;pad
 
 for (const [source, route, file] of [
   ["raffle-preview/public-launch.html", "/raffle/", "raffle/index.html"],
-  ["raffle-archive/cash-raffle-draft-rules.html", "/raffle/rules/", "raffle/rules/index.html"],
+  ["raffle-preview/official-rules.html", "/raffle/rules/", "raffle/rules/index.html"],
 ]) {
   let html = await readFile(path.join("source-assets", source), "utf8");
   html = html.replace(/\s*<script src="\/raffle\/cash-raffle\.js" defer><\/script>/, "")

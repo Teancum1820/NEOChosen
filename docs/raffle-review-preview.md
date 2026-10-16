@@ -12,6 +12,8 @@ Public-style wording about ticket delivery describes the intended service, not c
 
 Preview source: `source-assets/raffle-preview/public-launch.html`, `.css`, and `.js`. These files are excluded from the ordinary production build.
 
+Rules source: `source-assets/raffle-preview/official-rules.html`, aligned to Joe’s September 30, 2026 setup email, especially section 8 and its supporting pricing, drawing, ownership, and delivery instructions. The earlier preview already contained most of these working terms. This revision adds the omitted no-fixed-cap/payment wording, restrictions on discounts/bonus entries and purchases for minors, rounding review, social-consent wording, ticket-number/printing controls, check-in clarification, separate Zeffy contribution/prize-payment wording, and unresolved dispute/material-rule-change provisions. It identifies the source date without representing the working terms as approved rules. The historical archive is preserved. The private proposed drawing location remains withheld as Joe instructed.
+
 Rebuild and redeploy only this review service:
 
 ```powershell
