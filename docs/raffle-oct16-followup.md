@@ -1,6 +1,6 @@
 # October 16 raffle follow-up
 
-Joe's [latest raffle reply](https://mail.google.com/mail/u/0/#all/1a146fb6602601fa) requests U.S.-resident eligibility, confirmation-email delivery and copy review, numbered ticket delivery, and social-follow links. Caleb authorized implementing these changes. “Other tickets” was interpreted in the raffle context as all numbered raffle entries; the email also explains how separately registered event tickets are accessed through their own confirmation emails. No additional event admission is issued or promised.
+Joe's [latest raffle reply](https://mail.google.com/mail/u/0/#all/1a146fb6602601fa) requests U.S.-resident eligibility, confirmation-email delivery and copy review, ticket links, and social-follow links. Caleb authorized implementing these changes and clarified that “other tickets” means links to the other NEO Chosen events. The saved Zeffy custom message and review preview now link directly to the five current event pages: VIP Sponsor Dinner and The Piano Guys Live (paid), plus Lakewood, Fairlawn and Chesterland (free, registration required). The links use NEOChosen event pages, whose ticket/registration destinations were verified. Existing registrants are directed to each event's own confirmation email. No additional event admission is issued or promised.
 
 ## Changes
 
