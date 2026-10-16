@@ -1,5 +1,7 @@
 # Legacy raffle infrastructure — reference only
 
+October 16 update: the existing cash-raffle draft has now been inspected in Zeffy. Use [launch readiness](docs/raffle-launch-readiness.md), [operations](docs/raffle-operations-guide.md), and the [approval checklist](docs/raffle-launch-checklist.md) for current evidence and remaining gates. The campaign remains unpublished; the historical infrastructure instructions below are not launch authorization.
+
 Current display is a minimal cash-raffle Coming Soon page. Notification signup and the public draft rules have been deferred; neither is exposed by the holding page. See the current-display notice in `RAFFLE-REVIEW-NOTES.md` before using any older setup instructions below.
 
 The current cash-raffle preparation supersedes the donated-prize/basket plan below. See `RAFFLE-REVIEW-NOTES.md` for current proposals, unresolved approvals, and record-preservation requirements. Sales remain closed. The new notification UI is a non-transactional preview; no email is sent or saved. Do not enable any legacy submission form or raffle checkout as part of this preparation task.
