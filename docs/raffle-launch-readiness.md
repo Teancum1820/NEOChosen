@@ -1,6 +1,6 @@
 # NEO Chosen Cash Raffle launch readiness
 
-Reviewed October 16, 2026. **NOT READY TO OPEN SALES.** The existing site is a working Coming Soon page. The existing Zeffy raffle is an unpublished draft with correct bundle settings and several other preparations already in place. Final rules, legal/platform clearance, delivered-ticket/payment testing, and organizer decisions remain material launch blockers.
+Reviewed October 16, 2026. **NOT READY TO OPEN SALES.** The initial audit below is a historical snapshot. Later same-day updates are documented in [October 16 follow-up](raffle-oct16-followup.md): Joe requested U.S.-resident eligibility; the confirmation message was revised and a Zeffy test email reached Caleb's inbox. During editing the initial draft was inadvertently finalized, then sales were closed immediately on discovery. Zeffy now has a public page with sales closed, not an unpublished draft. No tickets or money were shown in the campaign dashboard. The production NEOChosen site remains Coming Soon. Final approvals, paid-ticket tests, and the real-ticket drawing-stub workflow remain unfinished.
 
 ## Evidence and requirement precedence
 
@@ -15,7 +15,7 @@ Reviewed received and sent Gmail in `calebday1820@gmail.com`, including searches
 | [September 3 retirement/Coming Soon thread](https://mail.google.com/mail/u/0/#all/1a068402d3d92078) | Old raffle replaced; preserve prior records; physical drawing and legal review required |
 | [May raffle thread](https://mail.google.com/mail/u/0/#all/19e3cd3af30932a8) | Historical fixed-prize/3,000-ticket/US-resident plan, superseded for the new cash proposal; do not retroactively alter any old purchasers' terms |
 
-The September donated-basket plan and May guaranteed-dollar plan are superseded for current preparation. The $20 option was **not revoked** by October 12's emphasis on the two bundles: September 30 explicitly calls all three packages approved. The earlier November 1 close, November 13 drawing, later-evening drawing times, and US-wide eligibility must not be copied into this campaign. Ohio/18+/physical-location terms remain proposed pending final legal review. The missed October 1 opening is not permission to open now.
+The September donated-basket plan and May guaranteed-dollar plan are superseded for current preparation. The $20 option was **not revoked** by October 12's emphasis on the two bundles: September 30 explicitly calls all three packages approved. The earlier November 1 close, November 13 drawing, and later-evening drawing times must not be copied into this campaign. Joe's later October 16 instruction replaces the earlier Ohio-residency/physical-in-Ohio proposal with U.S.-resident wording for review; it does not establish nationwide legal clearance. The missed October 1 opening is not permission to open now.
 
 ## Existing website and source
 
@@ -26,7 +26,7 @@ The September donated-basket plan and May guaranteed-dollar plan are superseded 
 - Production uses the `neochosen` Cloudflare Worker and static `dist` assets through `production/wrangler.jsonc`. This task did not deploy, merge, change bindings, or alter analytics/consent. PR #106 remains separate and unmerged.
 - Source base: `origin/main` at `273ff5c77beba41c1180063de6fb9a129eac169e`. Work branch: `feature/raffle-launch-preparation`. No applicable AGENTS.md was found in the repository. Existing other worktrees were preserved.
 
-## Existing Zeffy configuration, observed in authenticated UI
+## Initial Zeffy configuration, observed before the follow-up changes
 
 Existing KHG organization, campaign **NEO Chosen Cash Raffle**, ID `e2d45f03-d16e-4e0c-816b-464489fc4782`.
 
