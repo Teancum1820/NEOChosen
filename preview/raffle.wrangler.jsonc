@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "neochosen-raffle-review",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-16",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "../artifacts/raffle-preview",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "observability": { "enabled": true, "head_sampling_rate": 0.1 }
+}
