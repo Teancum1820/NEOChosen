@@ -125,12 +125,12 @@ test("cash raffle information and reviewed rules work on desktop tablet and mobi
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/raffle/");
     await expect(page.locator("main h1")).toHaveText("NEO Chosen Cash Raffle");
-    await expect(page.locator('[aria-label="Raffle sales status"]')).toContainText('Ticket sales are currently closed');
+    await expect(page.locator('[aria-label="Raffle sales status"]')).toContainText('Ticket sales are open');
     await expect(page.locator("main .cash-statement")).toContainText(
       "Six cash prizes.",
     );
     await expect(
-      page.locator('.cash-ticket-card button[disabled]'),
+      page.locator('.cash-ticket-card a[href="https://www.zeffy.com/en-US/ticketing/neo-chosen-cash-raffle"]'),
     ).toHaveCount(3);
     expect(
       await page.evaluate(

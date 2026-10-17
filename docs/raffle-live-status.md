@@ -1,5 +1,15 @@
 # Raffle publication and remaining launch blockers
 
+## Current update: sales opened at Caleb's explicit instruction
+
+Caleb subsequently instructed: **“Make the Zeffy live so people can start buying tickets.”** The existing Zeffy campaign was opened using its **Open sales** control. Public Add buttons are enabled for $20/1, $50/3 and $100/7. Selecting one $50 package and continuing reached the required buyer questions, $50 order summary, optional Zeffy contribution and live payment methods. The cart was cleared afterward. No acknowledgments were accepted, no payment information was entered, and no purchase was submitted.
+
+The saved native schedule was rechecked after opening: drawing November 15 at 6 PM, end 6:01 PM, blank opening, sales closing November 15 at 5 PM. Existing America/New_York configuration was preserved. Public description and automatic-email copy were updated to remove obsolete closed/pre-launch wording and link to the current production rules. The five event links and social links remain.
+
+The NEOChosen website was deployed with all three package buttons connected to the existing checkout. Production version **764697e2-8479-4194-8cdc-9a1d06b02356**. Browser verification showed “Ticket sales are open,” three correct checkout links and no disabled package buttons. Build/site/function tests and lint passed. A screenshot records the enabled native Add buttons.
+
+`salesAuthorized` records Caleb's direct instruction separately from `rulesFinalized`, which remains false. Opening sales does not establish that the unresolved legal/accounting terms have been finalized or that paid issuance/export/physical-print tests passed. Those limits below remain factual. The draft rules and the live description continue to identify terms under review; no missing policy was invented. The remainder of this report is the immediately preceding closed-sales snapshot.
+
 October 16, 2026 Mountain Time (verification completed October 17 UTC).
 
 Joe's [reply](https://mail.google.com/mail/u/0/#all/1a1471c29daa1dde) explicitly says to make it live. Caleb directly authorized launch and thorough testing in this chat. The earlier lack of launch authorization is resolved. **The information page is live; paid sales are not open. Do not report the raffle as fully functional or fully tested.**

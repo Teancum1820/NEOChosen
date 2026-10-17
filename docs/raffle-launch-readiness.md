@@ -1,6 +1,6 @@
 # NEO Chosen Cash Raffle launch readiness
 
-**Latest status:** [Publication and verification report](raffle-live-status.md). Joe and Caleb have now authorized launch. The raffle information and reviewed draft rules are published on NEOChosen, with sales accurately shown as closed. Missing final rules decisions, the populated provider purchase/export test and physical rehearsal remain open. The historical audit below predates these changes.
+**Latest status:** [Publication and verification report](raffle-live-status.md). The existing Zeffy raffle and NEOChosen purchase links are now open at Caleb's explicit instruction. Missing final rules decisions, the populated provider purchase/export test and physical rehearsal remain unverified. The historical audit below predates these changes.
 
 Reviewed October 16, 2026. **NOT READY TO OPEN SALES.** The initial audit below is a historical snapshot. Later same-day updates are documented in [October 16 follow-up](raffle-oct16-followup.md): Joe requested U.S.-resident eligibility; the confirmation message was revised and a Zeffy test email reached Caleb's inbox. During editing the initial draft was inadvertently finalized, then sales were closed immediately on discovery. Zeffy now has a public page with sales closed, not an unpublished draft. No tickets or money were shown in the campaign dashboard. The production NEOChosen site remains Coming Soon. Final approvals, paid-ticket tests, and the real-ticket drawing-stub workflow remain unfinished.
 

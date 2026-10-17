@@ -6,12 +6,12 @@ const source = new URL('../source-assets/raffle-preview/', import.meta.url);
 
 export function renderRaffleLanding(html, config = raffleLaunch, current = new Date()) {
   if (config.checkoutUrl !== 'https://www.zeffy.com/en-US/ticketing/neo-chosen-cash-raffle') throw new Error('Unexpected raffle checkout');
-  if (config.salesOpen && !config.rulesFinalized) throw new Error('Finalize the unresolved rules before enabling checkout');
+  if (config.salesOpen && config.salesAuthorized !== true) throw new Error('Explicit sales authorization required');
   const open = config.salesOpen && current < new Date(config.closing);
   const status = open ? 'Ticket sales are open' : 'Ticket sales are currently closed';
   html = html.replace('<meta name="robots" content="noindex,nofollow,noarchive" />', '<link rel="canonical" href="https://neochosen.com/raffle/" />')
     .replace(/\s*<script src="\/raffle\/public-launch\.js" defer><\/script>/, '')
-    .replace(/<aside class="cash-preview-bar"[\s\S]*?<\/aside>/, `<aside class="cash-preview-bar" aria-label="Raffle sales status"><strong>${status}</strong>${open ? '' : '<span>Tickets cannot be purchased at this time. Please check back for an opening announcement.</span>'}</aside>`)
+    .replace(/<aside class="cash-preview-bar"[\s\S]*?<\/aside>/, `<aside class="cash-preview-bar" aria-label="Raffle sales status"><strong>${status}</strong>${open ? '<span>Purchase securely through Zeffy. Please review the current raffle rules.</span>' : '<span>Tickets cannot be purchased at this time. Please check back for an opening announcement.</span>'}</aside>`)
     .replace(/\s*<dialog[\s\S]*?<\/dialog>/g, '')
     .replace(/<button class="cash-button" type="button" data-ticket-option="(\d+)" data-ticket-price="(\d+)">[\s\S]*?<\/button>/g,
       (_, entries, price) => open ? `<a class="cash-button" href="${config.checkoutUrl}">Get ${entries} ${entries === '1' ? 'ticket' : 'tickets'} for $${price} <span aria-hidden="true">→</span></a>` : '<button class="cash-button" type="button" disabled>Sales closed</button>')
@@ -35,6 +35,20 @@ export async function writeRafflePages(outDir) {
     .replace(/If required approvals are not completed by the intended opening[\s\S]*?sales will remain closed\./,
       'Ticket sales are currently closed. The original October 1 opening did not occur.')
     .replace(/<main id="main-content">/, '<main id="main-content"><aside class="cash-preview-bar"><strong>Rules under final review · Sales closed</strong><span>These proposed terms are available for review. They do not authorize a purchase.</span></aside>');
+  if (raffleLaunch.salesOpen) {
+    rules = rules.replace('Rules under final review · Sales closed', 'Rules under final review · Ticket sales are open')
+      .replace('These proposed terms are available for review. They do not authorize a purchase.', 'KHG has authorized sales. Some operating terms in this version remain under final review.')
+      .replaceAll('RAFFLE SALES ARE NOT YET AUTHORIZED', 'CURRENT RULES VERSION UNDER REVIEW')
+      .replace('Raffle sales are not yet authorized.', 'Ticket sales are open; some rules terms remain under review.')
+      .replace('Opening announcement pending', 'Ticket sales are open')
+      .replace('Ticket sales are currently closed. The original October 1 opening did not occur.', 'Ticket sales are open. All sales close November 15, 2026 at 5:00 PM Eastern Time.')
+      .replaceAll('Proposed · sales closed', 'Current ticket package')
+      .replace(/Ticket sales\s+must not begin until the required approvals are complete and\s+Kirtland Heritage Group authorizes launch\./, 'Kirtland Heritage Group has authorized launch. The unresolved terms below remain identified for review.')
+      .replace('Final approvals required before sales open', 'Outstanding rules and operations review')
+      .replace(/Final approvals required before sales open/g, 'Outstanding rules and operations review')
+      .replace(/Final approvals required\s+before sales open/g, 'Outstanding rules and operations review')
+      .replace(/Sales remain closed until approvals are complete and KHG\s+authorizes launch\./, 'KHG has authorized sales. Outstanding review and operations items are listed above.');
+  }
   await writeFile(path.join(dir, 'rules/index.html'), rules);
   const redirects = await readFile(path.join(outDir, '_redirects'), 'utf8');
   await writeFile(path.join(outDir, '_redirects'), redirects.replace(/^\/raffle\/rules\/? \/raffle\/ 302\r?\n/gm, ''));
