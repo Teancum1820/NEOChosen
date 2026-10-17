@@ -1,5 +1,7 @@
 # Reconciliation reference data contract
 
+The new [private print-register tool](raffle-print-register.md) accepts this normalized format inside a reviewed snapshot envelope. It adds persistent batch reservations and physical-check logs. The raw Zeffy XLSX-to-normalized mapping still requires a populated native purchase/export test; neither of the observed empty XLSX headers includes a stable payment ID.
+
 This is an offline rehearsal schema, not Zeffy's export schema. No production CSV adapter has been verified. Prefer native reports/ticket documents. Do not paste raw purchaser records into source or sample folders.
 
 The reference `reconcile` function consumes a **complete authoritative snapshot**, not an append-only event stream. Exact duplicate records are ignored. Two differing records with the same campaign/payment ID quarantine that order until an operator obtains and reviews the current native source. Do not combine historical snapshots and assume the last row is current.

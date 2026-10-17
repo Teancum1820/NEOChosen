@@ -54,7 +54,7 @@
   .cash-launch-page .cash-ticket-grid { gap:28px; margin-top:28px; }
   .cash-launch-page .cash-ticket-card { padding:26px; }
   .cash-launch-page .cash-ticket-card--featured { padding:25px; }
-  .cash-preview-bar { gap:8px; font-size:11px; padding-inline:24px; }
+  .cash-preview-bar { flex-wrap:wrap; gap:8px; font-size:12px; padding-inline:24px; }
   .cash-preview-bar button { flex:none; min-height:36px; }
   .cash-preview-dialog { padding:28px; }
 }

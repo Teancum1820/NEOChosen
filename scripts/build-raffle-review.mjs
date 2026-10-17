@@ -28,11 +28,11 @@ for (const [source, route, file] of [
   html = html.replace(/\s*<script src="\/raffle\/cash-raffle\.js" defer><\/script>/, "")
     .replace(/<link rel="canonical"[^>]*>/, '<meta name="robots" content="noindex,nofollow,noarchive">')
     .replace(/<time datetime="2026-10-01T13:00:00-04:00"[\s\S]*?<\/time\s*>/g,
-      '<strong>New opening date and time pending Joe’s approval</strong>')
+      '<strong>Opening announcement pending final rules and testing</strong>')
     .replace(/The opening time is not guaranteed\.[\s\S]*?sales will remain closed\./,
       'The original October 1 opening has passed. Sales will remain closed until a new opening is approved and all launch requirements are met.')
     .replace(/If required approvals are not completed by the intended opening[\s\S]*?sales will remain closed\./,
-      'The original October 1 opening has passed. A new opening requires Joe’s approval. Sales remain closed.');
+      'The original October 1 opening has passed. Joe has authorized launch; final rules and testing remain unfinished. Sales remain closed.');
   if (route === "/raffle/rules/") {
     html = html.replace("</head>", `${style}</head>`)
       .replace(/<main id="main-content">/, `<main id="main-content">${notice}`);

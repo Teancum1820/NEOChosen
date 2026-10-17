@@ -4,7 +4,9 @@ on:
   pull_request:
     paths:
       - 'scripts/raffle_ops.py'
+      - 'scripts/raffle_print.py'
       - 'tests/test_raffle_ops.py'
+      - 'tests/test_raffle_print.py'
       - 'docs/raffle-*'
       - 'docs/raffle-samples/**'
       - '.github/workflows/raffle-ops.yml'
@@ -22,4 +24,4 @@ jobs:
         with:
           python-version: '3.12'
       - name: Test offline reconciliation and schedule boundaries
-        run: python -m unittest discover -s tests -p test_raffle_ops.py -v
+        run: python -m unittest discover -s tests -p 'test_raffle*.py' -v

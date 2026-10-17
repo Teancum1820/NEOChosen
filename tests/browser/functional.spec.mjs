@@ -118,30 +118,28 @@ test("registration actions and forms render without submitting", async ({
   await expect(page.locator("[data-zeffy-embed]")).toHaveCount(0);
 });
 
-test("cash raffle shows only holding copy and defers rules on desktop tablet and mobile", async ({
+test("cash raffle information and reviewed rules work on desktop tablet and mobile", async ({
   page,
 }) => {
   for (const width of [1440, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/raffle/");
     await expect(page.locator("main h1")).toHaveText("NEO Chosen Cash Raffle");
-    await expect(page.locator("main .cash-kicker")).toHaveText(
-      "NEO Chosen Cash Raffle — Coming Soon",
-    );
+    await expect(page.locator('[aria-label="Raffle sales status"]')).toContainText('Ticket sales are currently closed');
     await expect(page.locator("main .cash-statement")).toContainText(
       "Six cash prizes.",
     );
     await expect(
-      page.locator("main form, main a, main button, main aside, main section"),
-    ).toHaveCount(0);
+      page.locator('.cash-ticket-card button[disabled]'),
+    ).toHaveCount(3);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true);
     await page.goto("/raffle/rules/");
-    await expect(page).toHaveURL(/\/raffle\/$/);
-    await expect(page.locator("main h1")).toHaveText("NEO Chosen Cash Raffle");
+    await expect(page).toHaveURL(/\/raffle\/rules\/$/);
+    await expect(page.locator("main h1")).toContainText("DRAFT Official Raffle Rules");
   }
 });
 
