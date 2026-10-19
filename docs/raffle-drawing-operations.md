@@ -24,7 +24,7 @@ Output exclusively creates a new snapshot file. Reimporting identical canonical 
 
 ## Validity and accounting
 
-Only settled, no-refund/reversal, active-ticket, eligibility-approved orders with correct $20/1, $50/3, $100/7 package counts can be included. Preserve leading zeroes as ticket-number strings. Purchaser references are private short codes; names alone cannot determine winner exclusion. Raffle-only revenue is counted once per unique payment, never once per ticket. Optional Zeffy contributions, donations, admissions and sponsorships are excluded by the reviewed ticket-sales mapping. Separate settled gross/refund/net from eligibility-approved prize basis; unresolved amounts never become an assumed zero.
+Only settled, no-refund/reversal, active-ticket, eligibility-approved orders with correct $20/1, $50/3, $100/7 package counts can be included. Preserve leading zeroes as ticket-number strings. The current adapter accepts numeric text only and preserves it exactly; any native alphanumeric or differently formatted identifier requires a reviewed adapter change, never stripping or renumbering. Purchaser references are private short codes; names alone cannot determine winner exclusion. Raffle-only revenue is counted once per unique payment, never once per ticket. Optional Zeffy contributions, donations, admissions and sponsorships are excluded by the reviewed ticket-sales mapping. Separate settled gross/refund/net from eligibility-approved prize basis; unresolved amounts never become an assumed zero.
 
 ## Prepare and print a batch
 

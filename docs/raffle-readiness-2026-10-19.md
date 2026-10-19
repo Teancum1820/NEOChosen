@@ -34,7 +34,7 @@ Public website purchase paths and the existing Zeffy campaign were open when ins
 - Existing register hardened with reviewed snapshot metadata, stale-import protection, permanent ownership reservations, strict JSON, leading-zero ticket preservation, hashed manifests, sample/live separation, custody/damage/quarantine/void audit and explicit physical checks.
 - Explicit mapped CSV adapter and isolated sample-generation CLI added. These do not establish a populated native Zeffy mapping.
 - 81 Python tests passed; 32 functional, 32 accessibility and 4 visual checks passed. Format/lint/types/site tests/build/Storybook passed; 91 responsive captures had zero overflow; local Lighthouse assertions passed on 3 URLs.
-- Shared top-level Raffle Info link and stronger closed-sales gates prepared on the review branch; only the emergency closed-site restoration was deployed.
+- Shared top-level Raffle Info link and stronger closed-sales gates prepared on the review branch; production received only the emergency closed-site restoration. The existing review-only site was separately refreshed at version 3bf3cdda-b8df-4747-81ff-6d227a95dd1b and verified nontransactional.
 - Native confirmation test delivered October 19 at 13:55:09 MDT. Sanitized copy and mobile rendering reviewed.
 - Square/story editable graphics, standalone canonical QR, 29 fictional printable stubs/manifests, six-person simulation, sample prize report and operations documents prepared for review.
 
