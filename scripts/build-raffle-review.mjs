@@ -1,9 +1,10 @@
 // Build the public launch design into a separate, non-transactional review
-// bundle. The ordinary production build continues to show Coming Soon.
+// bundle. The ordinary production build honors the closed-sales release gate.
 import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { applySiteChrome } from "./site-chrome.mjs";
 import { applySponsorSystem } from "./sponsor-system.mjs";
+import { renderRaffleLanding, raffleLaunch } from "./raffle-page.mjs";
 
 await import("./build-static.mjs");
 const output = path.resolve("artifacts/raffle-preview");
@@ -32,7 +33,8 @@ for (const [source, route, file] of [
     .replace(/The opening time is not guaranteed\.[\s\S]*?sales will remain closed\./,
       'The original October 1 opening has passed. Sales will remain closed until a new opening is approved and all launch requirements are met.')
     .replace(/If required approvals are not completed by the intended opening[\s\S]*?sales will remain closed\./,
-      'The original October 1 opening has passed. Joe has authorized launch; final rules and testing remain unfinished. Sales remain closed.');
+      'The original October 1 opening has passed. Joe requires sales to remain closed until final approvals and ticket-to-drawing checks are complete.');
+  if (route === "/raffle/") html = renderRaffleLanding(html, { ...raffleLaunch, salesOpen: false, salesAuthorized: false });
   if (route === "/raffle/rules/") {
     html = html.replace("</head>", `${style}</head>`)
       .replace(/<main id="main-content">/, `<main id="main-content">${notice}`);
@@ -48,5 +50,5 @@ await writeFile(path.join(output, "index.html"), '<!doctype html><html lang="en"
 await writeFile(path.join(output, "robots.txt"), "User-agent: *\nDisallow: /\n");
 const emailContent = await readFile("source-assets/raffle-preview/confirmation-message.html", "utf8");
 await mkdir(path.join(output, "raffle/confirmation-preview"), { recursive: true });
-await writeFile(path.join(output, "raffle/confirmation-preview/index.html"), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Raffle confirmation email — review preview</title></head><body style="margin:0;background:#eee8df;color:#122035;font:15px/1.7 Arial,sans-serif"><main style="max-width:620px;margin:24px auto;padding:28px;background:#fff"><p style="padding:16px;background:#fff1cc"><strong>EMAIL PREVIEW — not a ticket or receipt.</strong><br>This is the review message saved in the existing Zeffy campaign, which now has ticket sales open. Zeffy adds the buyer greeting, actual order summary, receipt, and native View tickets button. This page does not issue or deliver tickets.</p><p><strong>Subject:</strong> Your NEO Chosen Cash Raffle tickets</p><h1 style="font-size:26px">Your NEO Chosen Cash Raffle tickets</h1>${emailContent}<hr><a href="/raffle/">Back to raffle preview</a></main></body></html>`);
+await writeFile(path.join(output, "raffle/confirmation-preview/index.html"), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Raffle confirmation email — review preview</title></head><body style="margin:0;background:#eee8df;color:#122035;font:15px/1.7 Arial,sans-serif"><main style="max-width:620px;margin:24px auto;padding:28px;background:#fff"><p style="padding:16px;background:#fff1cc"><strong>EMAIL PREVIEW — not a ticket or receipt.</strong><br>This is the review message saved in the existing Zeffy campaign, with sales currently closed. Final rules and paid-ticket fulfillment remain unverified. Zeffy adds the buyer greeting, actual order summary, receipt, and native View tickets button. This page does not issue or deliver tickets.</p><p><strong>Subject:</strong> Your NEO Chosen Cash Raffle tickets</p><h1 style="font-size:26px">Your NEO Chosen Cash Raffle tickets</h1>${emailContent}<hr><a href="/raffle/">Back to raffle preview</a></main></body></html>`);
 console.log(`Raffle review bundle: ${output}`);

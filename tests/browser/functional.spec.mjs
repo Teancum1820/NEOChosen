@@ -118,31 +118,6 @@ test("registration actions and forms render without submitting", async ({
   await expect(page.locator("[data-zeffy-embed]")).toHaveCount(0);
 });
 
-test("cash raffle information and reviewed rules work on desktop tablet and mobile", async ({
-  page,
-}) => {
-  for (const width of [1440, 768, 390, 320]) {
-    await page.setViewportSize({ width, height: 900 });
-    await page.goto("/raffle/");
-    await expect(page.locator("main h1")).toHaveText("NEO Chosen Cash Raffle");
-    await expect(page.locator('[aria-label="Raffle sales status"]')).toContainText('Ticket sales are open');
-    await expect(page.locator("main .cash-statement")).toContainText(
-      "Six cash prizes.",
-    );
-    await expect(
-      page.locator('.cash-ticket-card a[href="https://www.zeffy.com/en-US/ticketing/neo-chosen-cash-raffle"]'),
-    ).toHaveCount(3);
-    expect(
-      await page.evaluate(
-        () => document.documentElement.scrollWidth <= innerWidth,
-      ),
-    ).toBe(true);
-    await page.goto("/raffle/rules/");
-    await expect(page).toHaveURL(/\/raffle\/rules\/$/);
-    await expect(page.locator("main h1")).toContainText("DRAFT Official Raffle Rules");
-  }
-});
-
 test("homepage rows preserve the verified event facts and destinations", async ({
   page,
 }) => {

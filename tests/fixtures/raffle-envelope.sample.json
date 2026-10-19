@@ -1,0 +1,13 @@
+{
+  "campaign_id": "SAMPLE-NOT-A-CAMPAIGN",
+  "source_reference": "SAMPLE ONLY synthetic CSV; no actual purchaser records or native Zeffy verification",
+  "source_as_of": "2026-10-01T00:00:00Z",
+  "reviewed_at": "2026-10-01T00:02:00Z",
+  "reviewed_by": "FICTIONAL fixture reviewer",
+  "complete_snapshot_verified": true,
+  "authoritative_snapshot_verified": true,
+  "native_ids_verified": true,
+  "person_references_verified": true,
+  "ticket_statuses_verified": true,
+  "currency": "USD"
+}

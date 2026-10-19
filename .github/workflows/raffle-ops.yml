@@ -5,8 +5,12 @@ on:
     paths:
       - 'scripts/raffle_ops.py'
       - 'scripts/raffle_print.py'
+      - 'scripts/raffle_import.py'
+      - 'scripts/raffle_rehearsal.py'
       - 'tests/test_raffle_ops.py'
       - 'tests/test_raffle_print.py'
+      - 'tests/test_raffle_import.py'
+      - 'tests/fixtures/raffle-*'
       - 'docs/raffle-*'
       - 'docs/raffle-samples/**'
       - '.github/workflows/raffle-ops.yml'

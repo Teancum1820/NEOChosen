@@ -1,0 +1,71 @@
+{
+  "campaign_id": "SAMPLE-NOT-A-CAMPAIGN",
+  "source_reference": "SAMPLE ONLY six-person draw rehearsal; no native Zeffy evidence",
+  "source_as_of": "2026-10-01T00:00:00Z",
+  "reviewed_at": "2026-10-01T00:02:00Z",
+  "reviewed_by": "FICTIONAL fixture reviewer",
+  "complete_snapshot_verified": true,
+  "authoritative_snapshot_verified": true,
+  "native_ids_verified": true,
+  "person_references_verified": true,
+  "ticket_statuses_verified": true,
+  "currency": "USD",
+  "transactions": [
+    {
+      "campaign_id": "SAMPLE-NOT-A-CAMPAIGN", "transaction_id": "SAMPLE-A-20",
+      "purchaser_ref": "SAMPLE-PERSON-A", "payment_status": "settled",
+      "eligibility_status": "approved", "refund_status": "none", "ticket_status": "active",
+      "ticket_sales_cents": 2000, "refunded_cents": 0,
+      "packages": [{"price_cents": 2000, "quantity": 1, "ticket_numbers": ["3001"]}]
+    },
+    {
+      "campaign_id": "SAMPLE-NOT-A-CAMPAIGN", "transaction_id": "SAMPLE-B-100",
+      "purchaser_ref": "SAMPLE-PERSON-B", "payment_status": "settled",
+      "eligibility_status": "approved", "refund_status": "none", "ticket_status": "active",
+      "ticket_sales_cents": 10000, "refunded_cents": 0,
+      "packages": [{"price_cents": 10000, "quantity": 1, "ticket_numbers": ["3002", "3003", "3004", "3005", "3006", "3007", "3008"]}]
+    },
+    {
+      "campaign_id": "SAMPLE-NOT-A-CAMPAIGN", "transaction_id": "SAMPLE-C-FIRST-50",
+      "purchaser_ref": "SAMPLE-PERSON-C", "payment_status": "settled",
+      "eligibility_status": "approved", "refund_status": "none", "ticket_status": "active",
+      "ticket_sales_cents": 5000, "refunded_cents": 0,
+      "packages": [{"price_cents": 5000, "quantity": 1, "ticket_numbers": ["3009", "3010", "3011"]}]
+    },
+    {
+      "campaign_id": "SAMPLE-NOT-A-CAMPAIGN", "transaction_id": "SAMPLE-C-SECOND-100",
+      "purchaser_ref": "SAMPLE-PERSON-C", "payment_status": "settled",
+      "eligibility_status": "approved", "refund_status": "none", "ticket_status": "active",
+      "ticket_sales_cents": 10000, "refunded_cents": 0,
+      "packages": [{"price_cents": 10000, "quantity": 1, "ticket_numbers": ["3012", "3013", "3014", "3015", "3016", "3017", "3018"]}]
+    },
+    {
+      "campaign_id": "SAMPLE-NOT-A-CAMPAIGN", "transaction_id": "SAMPLE-D-50",
+      "purchaser_ref": "SAMPLE-PERSON-D", "payment_status": "settled",
+      "eligibility_status": "approved", "refund_status": "none", "ticket_status": "active",
+      "ticket_sales_cents": 5000, "refunded_cents": 0,
+      "packages": [{"price_cents": 5000, "quantity": 1, "ticket_numbers": ["3019", "3020", "3021"]}]
+    },
+    {
+      "campaign_id": "SAMPLE-NOT-A-CAMPAIGN", "transaction_id": "SAMPLE-E-20",
+      "purchaser_ref": "SAMPLE-PERSON-E", "payment_status": "settled",
+      "eligibility_status": "approved", "refund_status": "none", "ticket_status": "active",
+      "ticket_sales_cents": 2000, "refunded_cents": 0,
+      "packages": [{"price_cents": 2000, "quantity": 1, "ticket_numbers": ["3022"]}]
+    },
+    {
+      "campaign_id": "SAMPLE-NOT-A-CAMPAIGN", "transaction_id": "SAMPLE-F-100",
+      "purchaser_ref": "SAMPLE-PERSON-F", "payment_status": "settled",
+      "eligibility_status": "approved", "refund_status": "none", "ticket_status": "active",
+      "ticket_sales_cents": 10000, "refunded_cents": 0,
+      "packages": [{"price_cents": 10000, "quantity": 1, "ticket_numbers": ["3023", "3024", "3025", "3026", "3027", "3028", "3029"]}]
+    },
+    {
+      "campaign_id": "SAMPLE-NOT-A-CAMPAIGN", "transaction_id": "SAMPLE-G-REFUNDED-50",
+      "purchaser_ref": "SAMPLE-PERSON-G", "payment_status": "settled",
+      "eligibility_status": "approved", "refund_status": "full", "ticket_status": "void",
+      "ticket_sales_cents": 5000, "refunded_cents": 5000,
+      "packages": [{"price_cents": 5000, "quantity": 1, "ticket_numbers": ["3030", "3031", "3032"]}]
+    }
+  ]
+}

@@ -21,7 +21,7 @@ test("approved Concept A desktop header, hero, event card, sponsor, and footer",
   ]) {
     const item = page.locator(selector).first();
     await item.scrollIntoViewIfNeeded();
-    await expect(item).toHaveScreenshot(`${name}.png`);
+    await expect.soft(item).toHaveScreenshot(`${name}.png`);
   }
 });
 

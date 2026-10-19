@@ -26,12 +26,13 @@ export function applySiteChrome(html, currentPath) {
   <nav class="site-nav" aria-label="Main navigation">
     <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
     <div class="site-nav-links" id="primary-nav">
+      ${item('/raffle/', 'Raffle Info')}
       ${item('/#events', 'Events')}
       ${item('/#performers', 'Performers')}
       ${item('/about-us/', 'About Us')}
       ${item('/get-involved/', 'Get Involved')}
       ${dropdown('sponsor-navigation', 'Sponsors', item('/sponsors/', 'Our Sponsors') + item('/sponsorship-opportunities/', 'Become a Sponsor'))}
-      ${dropdown('resource-navigation', 'More', item('/vip-dinner/', 'VIP Sponsor Dinner') + item('/lakewood/', 'Lakewood Event') + item('/piano-guys/', 'The Piano Guys Concert') + item('/fairlawn/', 'Fairlawn Meet &amp; Greet') + item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/raffle/', 'Raffle — Coming Soon') + item('/social-media-links/', 'Social Media'))}
+      ${dropdown('resource-navigation', 'More', item('/vip-dinner/', 'VIP Sponsor Dinner') + item('/lakewood/', 'Lakewood Event') + item('/piano-guys/', 'The Piano Guys Concert') + item('/fairlawn/', 'Fairlawn Meet &amp; Greet') + item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/social-media-links/', 'Social Media'))}
       ${item('/donations/', 'Donate', 'nav-donate')}
       ${item('/#events', 'Explore Weekend', 'nav-ticket')}
     </div>
@@ -50,7 +51,7 @@ export function applySiteChrome(html, currentPath) {
       </div>
       <nav class="site-footer-links" aria-label="Explore NEOChosen">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}
+        ${item('/#events', 'Weekend Events')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}${item('/raffle/', 'Raffle Info')}
       </nav>
       <div class="site-footer-contact">
         <h2>Contact</h2>
@@ -70,7 +71,7 @@ export function applySiteChrome(html, currentPath) {
       </div>
       <nav class="site-footer-links" aria-label="Events and information">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/#tickets', eventTicketLabel)}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}${item('/raffle/', 'Raffle — Coming Soon')}
+        ${item('/#events', 'Weekend Events')}${item('/#tickets', eventTicketLabel)}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}${item('/raffle/', 'Raffle Info')}
       </nav>
       <nav class="site-footer-links" aria-label="Support and resources">
         <h2>Get Involved</h2>

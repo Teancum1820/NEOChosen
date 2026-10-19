@@ -32,33 +32,79 @@ def sales_allowed(now, opening, closing, authorized=False):
     return authorized is True and start <= current < stop
 
 
-def reconcile(transactions):
+def canonical_json(value):
+    """Stable, strict JSON, also distinguishing booleans from integer amounts."""
+    return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)
+
+
+def strict_json(value):
+    """Reject ambiguous object keys and non-finite amounts at every JSON boundary."""
+    def pairs(items):
+        result = {}
+        for key, item in items:
+            if key in result:
+                raise ValueError('Duplicate JSON key: ' + key)
+            result[key] = item
+        return result
+
+    def bad_constant(value):
+        raise ValueError('Non-finite JSON value: ' + value)
+
+    return json.loads(value, object_pairs_hook=pairs, parse_constant=bad_constant)
+
+
+def native_numbers(tx):
+    """Reserve exact ASCII digit strings, including leading and all-zero values."""
+    packages = tx.get('packages')
+    if isinstance(packages, list):
+        for package in packages:
+            if isinstance(package, dict) and isinstance(package.get('ticket_numbers'), list):
+                for number in package['ticket_numbers']:
+                    if isinstance(number, str) and re.fullmatch(r'[0-9]+', number):
+                        yield number, package
+
+
+def ticket_number_key(number):
+    """Numeric display order with exact-string ties; no identifier conversion."""
+    significant = number.lstrip('0')
+    return len(significant), significant, number
+
+
+def reconcile(transactions, holds=None):
     """Validate a complete normalized snapshot; preserve native ticket numbers.
 
     Exact duplicate orders collapse. Conflicting versions require a fresh
     authoritative snapshot, never last-row-wins. Refunds are review holds,
     not an invented final refund policy. Amounts are integer USD cents.
+    Legacy rows default missing ticket_status to active; reviewed envelopes
+    must attest native status review. The mapped CSV adapter requires it explicitly.
     """
-    groups = defaultdict(list)
+    if not isinstance(transactions, list) or any(not isinstance(t, dict) for t in transactions):
+        raise ValueError('Transactions must be a list of objects')
+    holds = holds or {}
+    groups = defaultdict(dict)
     for index, tx in enumerate(transactions):
         key = (tx.get('campaign_id'), tx.get('transaction_id'))
-        if not all(isinstance(k, str) and k.strip() for k in key):
+        if not all(isinstance(k, str) and k.strip() == k and k for k in key):
             raise ValueError(f'Missing campaign/transaction key at input row {index + 1}')
-        if tx not in groups[key]:
-            groups[key].append(copy.deepcopy(tx))
+        groups[key][canonical_json(tx)] = copy.deepcopy(tx)
     owners = defaultdict(set)
     prepared = []
-    for key, versions in sorted(groups.items()):
+    for key, serialized in sorted(groups.items()):
+        versions = [serialized[k] for k in sorted(serialized)]
         tx = versions[0]
-        reasons = []
+        reasons = list(holds.get(key, []))
         if len(versions) != 1:
             reasons.append('conflicting_transaction_versions')
-        if not isinstance(tx.get('purchaser_ref'), str) or not tx['purchaser_ref'].strip():
+        if (not isinstance(tx.get('purchaser_ref'), str) or not tx['purchaser_ref']
+                or tx['purchaser_ref'].strip() != tx['purchaser_ref']):
             reasons.append('missing_purchaser_reference')
         if tx.get('payment_status') != 'settled':
             reasons.append('payment_not_settled')
         if tx.get('eligibility_status') != 'approved':
             reasons.append('eligibility_not_approved')
+        if tx.get('ticket_status', 'active') != 'active':
+            reasons.append('ticket_status_review')
         if tx.get('refund_status') != 'none' or tx.get('refunded_cents') != 0:
             reasons.append('refund_or_reversal_review')
         amount = tx.get('ticket_sales_cents')
@@ -75,23 +121,26 @@ def reconcile(transactions):
             reasons.append('missing_packages')
             packages = []
         for package in packages:
+            if not isinstance(package, dict):
+                reasons.append('invalid_package')
+                continue
             price, qty = package.get('price_cents'), package.get('quantity')
             numbers = package.get('ticket_numbers')
             if type(price) is not int or price not in PACKAGES or type(qty) is not int or qty < 1:
                 reasons.append('invalid_package')
                 continue
+            if package.get('ticket_status', 'active') != 'active':
+                reasons.append('ticket_status_review')
             expected_amount += price * qty
             if not isinstance(numbers, list) or len(numbers) != PACKAGES[price] * qty:
                 reasons.append('ticket_count_mismatch')
                 numbers = numbers if isinstance(numbers, list) else []
             for number in numbers:
-                if not isinstance(number, str) or not re.fullmatch(r'[1-9][0-9]*', number):
+                if not isinstance(number, str) or not re.fullmatch(r'[0-9]+', number):
                     reasons.append('invalid_native_ticket_number')
                     continue
-                native_key = (key[0], number)
                 if any(e['ticket_number'] == number for e in entries):
                     reasons.append('duplicate_ticket_within_transaction')
-                owners[native_key].add(key)
                 entries.append({'campaign_id': key[0], 'transaction_id': key[1],
                                 'purchaser_ref': tx.get('purchaser_ref', ''),
                                 'ticket_number': number, 'package_price_cents': price})
@@ -99,11 +148,17 @@ def reconcile(transactions):
             reasons.append('payment_package_total_mismatch')
         # Reserve numbers from conflicting versions too, so another order cannot
         # claim them while the conflict is unresolved.
-        for version in versions[1:]:
-            for package in version.get('packages', []):
-                for number in package.get('ticket_numbers', []):
-                    if isinstance(number, str):
-                        owners[(key[0], number)].add(key)
+        # All valid identities survive malformed packages and every conflicting
+        # version. No first-row choice, duplicate ledger identities, or laundering
+        # a collision through a bad price/quantity is permitted.
+        identities = {}
+        for version in versions:
+            for number, package in native_numbers(version):
+                owners[(key[0], number)].add(key)
+                identities.setdefault(number, {'campaign_id': key[0], 'transaction_id': key[1],
+                    'purchaser_ref': version.get('purchaser_ref', ''), 'ticket_number': number,
+                    'package_price_cents': package.get('price_cents')})
+        entries = list(identities.values())
         prepared.append((key, tx, entries, reasons))
     ledger, orders = [], []
     collisions = {key for key, txs in owners.items() if len(txs) > 1}
@@ -129,9 +184,9 @@ def reconcile(transactions):
                        'refund_status': tx.get('refund_status'),
                        'included_entries': len(entries) if include else 0,
                        'drawing_inclusion': include, 'reason': ';'.join(reasons)})
-    ledger.sort(key=lambda row: (row['campaign_id'], int(row['ticket_number']), row['transaction_id']))
+    ledger.sort(key=lambda row: (row['campaign_id'], ticket_number_key(row['ticket_number']), row['transaction_id']))
     valid = [row for row in ledger if row['drawing_inclusion']]
-    return {'orders': orders, 'ledger': ledger,
+    return {'orders': orders, 'ledger': ledger, 'accounting': revenue_accounting(orders),
             'summary': {'input_rows': len(transactions), 'unique_orders': len(groups),
                         'duplicate_rows_ignored': len(transactions) - sum(map(len, groups.values())),
                         'included_entries': len(valid),
@@ -141,9 +196,56 @@ def reconcile(transactions):
                         'launch_authorized': False}}
 
 
+def revenue_accounting(orders):
+    """Order-level cash view, separate from eligibility and any approved prize basis."""
+    settled, unresolved = [], []
+    for order in orders:
+        amount, refund = order['ticket_sales_cents'], order['refunded_cents']
+        if ('conflicting_transaction_versions' in order['reason'] or type(amount) is not int
+                or type(refund) is not int or not 0 <= refund <= amount):
+            unresolved.append(order['transaction_id'])
+        elif order['payment_status'] == 'settled':
+            settled.append(order)
+        elif order['payment_status'] not in ('pending', 'failed', 'canceled'):
+            unresolved.append(order['transaction_id'])
+    gross = sum(o['ticket_sales_cents'] for o in settled)
+    refunds = sum(o['refunded_cents'] for o in settled)
+    return {'settled_gross_ticket_sales_cents': gross, 'settled_refunds_cents': refunds,
+            'settled_net_ticket_sales_cents': gross - refunds,
+            'included_ticket_sales_cents': sum(o['ticket_sales_cents'] for o in orders if o['drawing_inclusion']),
+            'unresolved_order_ids': sorted(set(unresolved)),
+            'prize_basis_approved': False}
+
+
 def exclude_winner(ledger, purchaser_ref):
     """Rehearse removal of ALL of one person's orders; does not select a winner."""
     return [row for row in ledger if row['drawing_inclusion'] and row['purchaser_ref'] != purchaser_ref]
+
+
+def simulate_draw(ledger, selected_numbers, minimum_purchasers=6):
+    """Rehearse supplied physical selections; never randomly select a winner."""
+    if type(minimum_purchasers) is not int or minimum_purchasers < 1:
+        raise ValueError('Positive minimum purchaser count required')
+    if not isinstance(selected_numbers, list) or len(selected_numbers) > len(PERCENTAGES):
+        raise ValueError('Supply at most six explicit native ticket selections')
+    remaining = [copy.deepcopy(e) for e in ledger if e['drawing_inclusion'] is True]
+    if (len({e['campaign_id'] for e in remaining}) != 1
+            or len({e['ticket_number'] for e in remaining}) != len(remaining)
+            or any(not isinstance(e.get('purchaser_ref'), str) or not e['purchaser_ref'].strip() for e in remaining)):
+        raise ValueError('One campaign, unique native numbers and reviewed people required')
+    if len({e['purchaser_ref'] for e in remaining}) < minimum_purchasers:
+        raise ValueError('Insufficient distinct eligible purchasers')
+    selections = []
+    for rank, number in enumerate(selected_numbers, 1):
+        chosen = next((e for e in remaining if e['ticket_number'] == number), None)
+        if chosen is None:
+            raise ValueError('Selection is held, unknown, repeated, or belongs to a previous winner')
+        person = chosen['purchaser_ref']
+        removed = [e['ticket_number'] for e in remaining if e['purchaser_ref'] == person]
+        remaining = exclude_winner(remaining, person)
+        selections.append({'rank': rank, 'ticket_number': number, 'purchaser_ref': person,
+                           'removed_ticket_numbers': removed, 'remaining_entries': len(remaining)})
+    return {'simulation_only': True, 'selections': selections, 'remaining': remaining}
 
 
 def prize_example(gross_cents, refunded_cents=0):
