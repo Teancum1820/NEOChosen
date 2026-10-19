@@ -7,7 +7,6 @@
   Cache-Control: no-cache
 
 /raffle/rules/*
-  X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
 
 /interfaith-community-breakfast

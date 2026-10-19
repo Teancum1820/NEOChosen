@@ -1,8 +1,8 @@
 {
   "informationPublished": true,
-  "salesOpen": false,
-  "salesAuthorized": false,
-  "rulesFinalized": false,
+  "salesOpen": true,
+  "salesAuthorized": true,
+  "rulesFinalized": true,
   "checkoutUrl": "https://www.zeffy.com/en-US/ticketing/neo-chosen-cash-raffle",
   "closing": "2026-11-15T17:00:00-05:00"
 }

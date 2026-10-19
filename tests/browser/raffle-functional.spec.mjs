@@ -1,12 +1,16 @@
 import { test, expect } from "@playwright/test";
-import { raffleLaunch } from "../../scripts/raffle-page.mjs";
+import { raffleLaunch, raffleSalesOpen } from "../../scripts/raffle-page.mjs";
+
+const open = raffleSalesOpen();
+const internalCopy =
+  /\bdraft\b|internal review|pending approval|proposed|working proposal|final approvals required|not yet authorized|preview only/i;
 
 test.beforeEach(async ({ page }) => {
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
 });
 
 for (const width of [320, 375, 390, 430, 768, 1024, 1200, 1440]) {
-  test(`held raffle and draft rules remain readable without checkout at ${width}px`, async ({
+  test(`raffle packages and official rules work at ${width}px`, async ({
     page,
   }, testInfo) => {
     await page.setViewportSize({ width, height: 900 });
@@ -16,7 +20,8 @@ for (const width of [320, 375, 390, 430, 768, 1024, 1200, 1440]) {
       expect((await page.goto(route))?.ok()).toBe(true);
       expect(
         await page.locator(`a[href="${raffleLaunch.checkoutUrl}"]`).count(),
-      ).toBe(0);
+      ).toBe(open && route === "/raffle/" ? 3 : 0);
+      await expect(page.locator("main")).not.toContainText(internalCopy);
       await expect(
         page.locator("iframe, [data-zeffy-embed], main form, dialog"),
       ).toHaveCount(0);
@@ -40,33 +45,54 @@ for (const width of [320, 375, 390, 430, 768, 1024, 1200, 1440]) {
           "NEO Chosen Cash Raffle",
         );
         await expect(page.getByLabel("Raffle sales status")).toContainText(
-          "Ticket sales are currently closed",
+          open ? "Ticket sales are open" : "Ticket sales are currently closed",
         );
         await expect(page.locator("main .cash-statement")).toContainText(
           "Six cash prizes.",
         );
-        const controls = page.locator(".cash-ticket-card button");
+        const controls = page.locator(
+          open ? ".cash-ticket-card a" : ".cash-ticket-card button",
+        );
         await expect(controls).toHaveCount(3);
-        for (const control of await controls.all()) {
-          await expect(control).toBeDisabled();
-          await expect(control).toHaveText("Sales closed");
+        for (const [index, control] of (await controls.all()).entries()) {
+          if (open) {
+            await expect(control).toHaveAttribute(
+              "href",
+              raffleLaunch.checkoutUrl,
+            );
+            const [count, price] = [
+              [1, 20],
+              [3, 50],
+              [7, 100],
+            ][index];
+            await expect(control).toContainText(
+              `Get ${count} ${count === 1 ? "ticket" : "tickets"} for $${price}`,
+            );
+          } else {
+            await expect(control).toBeDisabled();
+            await expect(control).toHaveText("Sales closed");
+          }
         }
         await page
-          .getByRole("link", { name: "View ticket packages" })
+          .getByRole("link", {
+            name: open ? "Buy raffle tickets" : "View ticket packages",
+          })
           .first()
           .click();
         await expect(page).toHaveURL(/#raffle-tickets$/);
         await expect(page.locator("#cash-ticket-heading")).toBeInViewport();
       } else {
         await expect(page.locator("main h1")).toContainText(
-          "DRAFT Official Raffle Rules",
+          "Official Raffle Rules",
         );
-        await expect(page.locator(".cash-draft-warning")).toContainText(
-          "RAFFLE SALES ARE NOT YET AUTHORIZED",
-        );
-        await expect(page.locator("#final-approvals")).toContainText(
-          "Final approvals required before sales open",
-        );
+        await expect(
+          page.locator(
+            ".cash-draft-warning, #final-approvals, .cash-review-note",
+          ),
+        ).toHaveCount(0);
+        await expect(
+          page.getByRole("navigation", { name: "Official rules sections" }),
+        ).toBeVisible();
       }
       await testInfo.attach(
         `${route === "/raffle/" ? "raffle" : "rules"}-${width}px`,
@@ -83,7 +109,7 @@ for (const width of [320, 375, 390, 430, 768, 1024, 1200, 1440]) {
   });
 }
 
-test("raffle navigation and all six event promotions show information during hold", async ({
+test("raffle navigation and all six event promotions match sales status", async ({
   page,
 }) => {
   for (const route of [
@@ -104,7 +130,9 @@ test("raffle navigation and all six event promotions show information during hol
     const feature = page.locator(
       'section[aria-labelledby="weekend-raffle-title"]',
     );
-    await expect(feature).toContainText("Ticket sales are currently closed");
+    await expect(feature).toContainText(
+      open ? "Tickets available now." : "Ticket sales are currently closed",
+    );
     await expect(feature.locator('a[href="/raffle/"]')).toHaveCount(1);
     await expect(
       page.locator(`a[href="${raffleLaunch.checkoutUrl}"]`),
@@ -152,7 +180,7 @@ for (const width of [320, 390, 768, 1200, 1440]) {
       ).toBeLessThanOrEqual(width);
       await expect(
         page.locator(`a[href="${raffleLaunch.checkoutUrl}"]`),
-      ).toHaveCount(0);
+      ).toHaveCount(open && route === "/raffle/" ? 3 : 0);
       if (route === "/raffle/")
         await expect(infoLink).toHaveAttribute("aria-current", "page");
     }
@@ -160,6 +188,69 @@ for (const width of [320, 390, 768, 1200, 1440]) {
 }
 
 for (const width of [390, 1440]) {
+  test(`package links, rule contents, and questions work at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.route(raffleLaunch.checkoutUrl, (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: "text/html",
+        body: "<h1>Checkout destination verified</h1>",
+      }),
+    );
+    for (const [count, price] of [
+      [1, 20],
+      [3, 50],
+      [7, 100],
+    ]) {
+      await page.goto("/raffle/");
+      if (open) {
+        await page
+          .getByRole("link", {
+            name: `Get ${count} ${count === 1 ? "ticket" : "tickets"} for $${price}`,
+          })
+          .click();
+        await expect(page).toHaveURL(raffleLaunch.checkoutUrl);
+      }
+    }
+    await page.goto("/raffle/");
+    for (const question of await page.locator(".cash-faq summary").all()) {
+      if ((await question.locator("..").getAttribute("open")) !== null)
+        await question.click();
+      await question.click();
+      await expect(question.locator("..")).toHaveAttribute("open", "");
+      await question.click();
+    }
+    await page.goto("/raffle/rules/");
+    const contents = page.getByRole("navigation", {
+      name: "Official rules sections",
+    });
+    const sections = await contents
+      .locator('a[href^="#"]')
+      .evaluateAll((links) =>
+        links.map((link) => ({
+          href: link.getAttribute("href"),
+          label: link.textContent,
+        })),
+      );
+    expect(sections).toHaveLength(17);
+    for (const section of sections) {
+      await contents
+        .getByRole("link", { name: section.label, exact: true })
+        .click();
+      await expect(page.locator(section.href)).toBeInViewport();
+    }
+    for (const asset of [
+      "cash-raffle.js",
+      "raffle.js",
+      "raffle-data.js",
+      "raffle.css",
+    ]) {
+      expect((await page.request.get(`/raffle/${asset}`)).status()).toBe(404);
+    }
+  });
+
   test(`raffle information navigation works with the keyboard at ${width}px`, async ({
     page,
   }) => {
