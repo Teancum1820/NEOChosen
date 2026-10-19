@@ -10,7 +10,7 @@
     "check:local-links": "node scripts/check-local-links.mjs",
     "check:events": "node scripts/check-event-pages.mjs",
     "check:sponsors": "node scripts/check-sponsor-system.mjs",
-    "check:raffle": "node scripts/check-raffle-coming-soon.mjs",
+    "check:raffle": "node scripts/check-raffle-release.mjs && node --test tests/raffle-page.test.mjs",
     "test:raffle-functions": "node scripts/test-raffle-functions.mjs",
     "storybook": "npm run build && storybook dev -p 6006 --no-open",
     "build-storybook": "npm run build && storybook build -o artifacts/storybook",
