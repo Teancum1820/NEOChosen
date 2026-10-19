@@ -1,0 +1,50 @@
+.cash-launch-page { scroll-behavior: smooth; }
+.cash-preview-bar { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:10px max(24px,calc((100% - 1248px)/2)); background:#fff1cc; color:#423317; font:12px/1.5 var(--font-body); }
+.cash-preview-bar strong { font-weight:700; }
+.cash-launch-page .cash-hero { padding-block:80px; }
+.cash-launch-page .cash-hero h1 { font-size:clamp(20px,2vw,28px); }
+.cash-launch-page .cash-statement { font-size:clamp(42px,4.6vw,66px); margin:24px 0; }
+.cash-launch-page .cash-hero-copy { max-width:640px; }
+.cash-hero-footnote { font-size:12px; color:#e0d4c2; margin:22px 0 0; }
+.cash-launch-page .cash-button { gap:18px; }
+.cash-launch-page .cash-prize-feature { padding:38px; text-align:center; position:relative; border-color:#9d7d4c; background:linear-gradient(145deg,#2c2d32,#202227); }
+.cash-prize-feature .cash-kicker { margin-bottom:10px; }
+.cash-launch-page .cash-grand-percent { font:400 clamp(80px,8vw,112px)/1 var(--font-display); color:#edcd95; margin:10px 0; }
+.cash-grand-percent span { font-size:.5em; }
+.cash-prize-feature .cash-prize-basis { font-size:13px; max-width:230px; margin:0 auto; color:#f4e8d4; }
+.cash-launch-page .cash-prize-feature .cash-qualification { font-size:12px; }
+.cash-section-intro { display:grid; grid-template-columns:1.2fr 1fr; gap:64px; align-items:end; }
+.cash-section-intro > p { max-width:510px; font-size:15px; }
+#raffle-tickets { scroll-margin-top:88px; }
+.cash-launch-page .cash-ticket-grid { margin-top:42px; }
+.cash-launch-page .cash-ticket-card { display:flex; flex-direction:column; position:relative; padding:32px; }
+.cash-launch-page .cash-ticket-card h3 { margin-bottom:16px; }
+.cash-launch-page .cash-ticket-card .cash-ticket-price { font-size:56px; margin-bottom:10px; }
+.cash-launch-page .cash-ticket-card > p:not(.cash-ticket-price):not(.cash-best-value) { font-size:14px; }
+.cash-launch-page .cash-ticket-card .cash-entry-count { font-weight:700; margin-bottom:8px; }
+.cash-ticket-card .cash-button { margin-top:auto; width:100%; }
+.cash-launch-page .cash-ticket-card--featured { border:2px solid #886331; padding:31px; background:#fffdf8; }
+.cash-best-value { position:absolute; inset:auto 20px calc(100% - 12px) auto; margin:0; padding:6px 14px; background:#122035; color:#f4d8a5; font:700 11px/1.5 var(--font-body); text-transform:uppercase; letter-spacing:.08em; }
+.cash-ticket-disclosure { max-width:940px; }
+.cash-launch-page .cash-prize-table tbody tr:first-child { background:#f6eddc; }
+.cash-entry-reminder h3 { font-size:24px; line-height:1.4; margin-bottom:20px; }
+.cash-entry-reminder { align-self:start; }
+.cash-launch-page .cash-final-cta { background:#191b20; color:#fff; border-top:1px solid #9d7d4c; }
+.cash-launch-page .cash-final-cta h2 { color:#fff; }
+.cash-launch-page .cash-final-cta .cash-kicker { color:#d9b97f; }
+.editorial-page.cash-raffle-page .cash-final-cta a.cash-text-link { color:#edd8b3; }
+.cash-order-summary { display:flex; justify-content:space-between; gap:24px; padding:20px 0; margin-bottom:24px; border-block:1px solid #d2c4ad; }
+.cash-order-summary strong { font-size:24px; }
+.cash-launch-page :is(button,a,summary):focus-visible { outline:3px solid #24857d; outline-offset:4px; }
+@media(max-width:800px) {
+  .cash-launch-page .cash-hero { padding-block:48px; }
+  .cash-launch-page .cash-hero h1 { font-size:22px; }
+  .cash-launch-page .cash-statement { font-size:42px; }
+  .cash-launch-page .cash-prize-feature { padding:30px 24px; }
+  .cash-section-intro { grid-template-columns:1fr; gap:8px; }
+  .cash-launch-page .cash-ticket-grid { gap:28px; margin-top:28px; }
+  .cash-launch-page .cash-ticket-card { padding:26px; }
+  .cash-launch-page .cash-ticket-card--featured { padding:25px; }
+  .cash-preview-bar { flex-wrap:wrap; gap:8px; font-size:12px; padding-inline:24px; }
+}
+@media(prefers-reduced-motion:reduce) { .cash-launch-page { scroll-behavior:auto; } }

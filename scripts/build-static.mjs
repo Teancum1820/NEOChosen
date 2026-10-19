@@ -12,6 +12,7 @@ import { writeInteriorPages } from "./interior-pages.mjs";
 import { writeApprovedMedia } from "./approved-media.mjs";
 import { writeBreakfastPage } from "./breakfast-page.mjs";
 import { writeReviewHub } from "./review-hub.mjs";
+import { writeRafflePages, applyRafflePromotion } from "./raffle-page.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -77,6 +78,7 @@ await writeEventPages(outDir);
 await writeInteriorPages(outDir);
 await writeApprovedMedia(outDir);
 await writeBreakfastPage(outDir);
+await writeRafflePages(outDir);
 if (process.env.NEOCHOSEN_REVIEW === "true") await writeReviewHub(outDir);
 
 async function updateChrome(dir) {
@@ -86,7 +88,7 @@ async function updateChrome(dir) {
     else if (entry.name.endsWith('.html')) {
       const route = '/' + path.relative(outDir, file).split(path.sep).join('/').replace(/index\.html$/, '');
       const source = await readFile(file, 'utf8');
-      await writeFile(file, applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : source), route), 'utf8');
+      await writeFile(file, applyRafflePromotion(applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : source), route), route), 'utf8');
     }
   }
 }

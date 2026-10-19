@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v29-raffle-holding';
+const CACHE_NAME = 'neochosen-v32-raffle-sales-closed';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
@@ -6,6 +6,7 @@ const OFFLINE_URLS = [
   '/donations/',
   '/get-involved/',
   '/raffle/',
+  '/raffle/rules/',
   '/social-media-links/',
   '/sponsors/',
   '/sponsorship-opportunities/',
@@ -29,6 +30,7 @@ const OFFLINE_URLS = [
   '/sponsorship-opportunities/sponsorship.css',
   '/raffle/raffle.css',
   '/raffle/cash-raffle.css',
+  '/raffle/public-launch.css',
   '/thank-you/styles.css',
   '/images/fonts/cinzel.woff2',
   '/images/fonts/montserrat.woff2',
