@@ -1,4 +1,0 @@
-campaign_id,transaction_id,purchaser_ref,ticket_sales_cents,refunded_cents,payment_status,eligibility_status,refund_status,included_entries,drawing_inclusion,reason
-SAMPLE-NOT-A-CAMPAIGN,SAMPLE-100,SAMPLE-PERSON-B,10000,0,settled,approved,none,7,True,
-SAMPLE-NOT-A-CAMPAIGN,SAMPLE-50,SAMPLE-PERSON-A,5000,0,settled,approved,none,3,True,
-SAMPLE-NOT-A-CAMPAIGN,SAMPLE-MULTIPLE,SAMPLE-PERSON-A,20000,0,settled,approved,none,13,True,

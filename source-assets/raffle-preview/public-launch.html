@@ -13,15 +13,11 @@
     <link rel="stylesheet" href="/raffle/cash-raffle.css" />
     <link rel="stylesheet" href="/raffle/public-launch.css" />
     <script src="/site.js" defer></script>
-    <script src="/raffle/public-launch.js" defer></script>
   </head>
   <body class="editorial-page cash-raffle-page cash-launch-page">
     <nav class="site-nav" aria-label="Main navigation"><a href="/">NEO Chosen</a></nav>
     <main id="main-content">
-      <aside class="cash-preview-bar" aria-label="Launch preview">
-        <span><strong>Launch preview</strong> · Purchases disabled</span>
-        <button type="button" data-preview-notes>Review notes <span aria-hidden="true">↗</span></button>
-      </aside>
+      <aside class="cash-preview-bar" aria-label="Raffle sales status"><strong>Ticket sales are currently closed</strong><span>Tickets cannot be purchased at this time. Please check back for an opening announcement.</span></aside>
       <header class="cash-hero">
         <div class="cash-shell cash-hero-grid">
           <div>
@@ -156,21 +152,5 @@
       </section>
     </main>
     <footer class="site-footer"><p>Kirtland Heritage Group</p></footer>
-    <dialog class="cash-preview-dialog" id="cash-checkout-preview" aria-labelledby="cash-checkout-title" aria-describedby="cash-checkout-note">
-      <form method="dialog"><button class="cash-dialog-close" aria-label="Close ticket preview">×</button></form>
-      <p class="cash-kicker">NEO Chosen Cash Raffle</p><h2 id="cash-checkout-title">Your ticket selection</h2>
-      <div class="cash-order-summary"><span id="cash-selected-tickets">1 raffle ticket</span><strong id="cash-selected-price">$20</strong></div>
-      <p id="cash-checkout-note">This is a launch-design preview. At launch, this button will take you to Zeffy to purchase your tickets. No payment is collected and no raffle entry is created here.</p>
-      <button class="cash-button" type="button" disabled>Continue to secure checkout <span aria-hidden="true">→</span></button>
-      <p class="cash-small">Checkout is disabled in this preview.</p>
-    </dialog>
-    <dialog class="cash-preview-dialog" id="cash-review-notes" aria-labelledby="cash-notes-title">
-      <form method="dialog"><button class="cash-dialog-close" aria-label="Close review notes">×</button></form>
-      <p class="cash-kicker">For Joe’s review</p><h2 id="cash-notes-title">The public launch design</h2>
-      <p>This page shows the intended public experience using the existing proposed prices, prize percentages, eligibility, and November 15 schedule. These terms still require final approval.</p>
-      <p>The ticket-delivery wording describes the intended launch service. Zeffy's automatic confirmation message has been updated and a test email was delivered. Real paid-ticket issuance and the drawing-stub workflow remain unverified.</p>
-      <p><a href="/raffle/confirmation-preview/">Review the automatic confirmation message</a>.</p>
-      <p>The linked rules still contain unresolved legal and accounting terms. KHG has authorized sales, and the live NEO Chosen website now links to the open Zeffy checkout. This preview does not collect payments.</p>
-    </dialog>
   </body>
 </html>

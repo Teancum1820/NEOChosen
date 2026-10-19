@@ -14,8 +14,4 @@ production/.dev.vars
 production/.dev.vars.*
 production/worker-configuration.d.ts
 npm-debug.log*
-__pycache__/
-*.pyc
-# Real raffle exports, eligibility reviews and drawing records must stay private.
-raffle-private/
 wrangler-pages.*.log

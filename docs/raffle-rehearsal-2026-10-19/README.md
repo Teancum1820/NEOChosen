@@ -1,3 +1,0 @@
-# SAMPLE ONLY - not valid drawing entries
-
-Generated from the fictional six-person fixture by scripts/raffle_rehearsal.py. Open the batch HTML to review printing and its JSON manifest to reconcile numbers. There are 29 eligible sample stubs; 3 refunded sample tickets are excluded. Files were prepared, not physically printed, checked or placed into custody. The explicit simulated selections produce C, A, B, D, E, F; C loses all 10 remaining entries across two orders after the first selection. No real winner was selected. The illustrative prize basis is $440, six prizes total $176 and retained funds $264 before expenses. HALF_UP cent rounding is illustrative, not approved policy. Use one set of sample stubs only. Keep all sample paper out of the real drawing.

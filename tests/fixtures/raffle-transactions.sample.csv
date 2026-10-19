@@ -1,4 +1,0 @@
-Campaign,Order,Reviewed person,Payment review,Eligibility review,Refund review,Ticket review,Raffle cents,Refund cents,Complete package JSON
-SAMPLE-NOT-A-CAMPAIGN,SAMPLE-50,SAMPLE-PERSON-A,REVIEWED SETTLED,REVIEWED APPROVED,REVIEWED NONE,REVIEWED ACTIVE,5000,0,"[{""price_cents"":5000,""quantity"":1,""ticket_numbers"":[""1001"",""1002"",""1003""]}]"
-SAMPLE-NOT-A-CAMPAIGN,SAMPLE-100,SAMPLE-PERSON-B,REVIEWED SETTLED,REVIEWED APPROVED,REVIEWED NONE,REVIEWED ACTIVE,10000,0,"[{""price_cents"":10000,""quantity"":1,""ticket_numbers"":[""1004"",""1005"",""1006"",""1007"",""1008"",""1009"",""1010""]}]"
-SAMPLE-NOT-A-CAMPAIGN,SAMPLE-MULTIPLE,SAMPLE-PERSON-A,REVIEWED SETTLED,REVIEWED APPROVED,REVIEWED NONE,REVIEWED ACTIVE,20000,0,"[{""price_cents"":5000,""quantity"":2,""ticket_numbers"":[""1011"",""1012"",""1013"",""1014"",""1015"",""1016""]},{""price_cents"":10000,""quantity"":1,""ticket_numbers"":[""1017"",""1018"",""1019"",""1020"",""1021"",""1022"",""1023""]}]"

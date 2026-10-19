@@ -1,7 +1,5 @@
 # NEO Chosen Cash Raffle — preparation and review notes
 
-October 16 follow-up: see [launch readiness](docs/raffle-launch-readiness.md), [operations guide](docs/raffle-operations-guide.md), and [approval checklist](docs/raffle-launch-checklist.md). Those files record authenticated inspection of the existing Zeffy draft, current Gmail requirements, offline reconciliation tests and fictional stubs. The older review narrative below is preserved as history. Sales remain unauthorized.
-
 ## Current display — simplified at Caleb's request
 
 The public raffle content is now only the Coming Soon label, NEO Chosen Cash Raffle heading, “Six cash prizes. One great cause.” line, and KHG preparation paragraph. Notification UI, rules links, status-card disclosures, pricing, prize table, dates, eligibility, and all other raffle sections have been removed from the current page. Shared site navigation and footer remain.

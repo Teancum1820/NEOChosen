@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neochosen-v31-raffle-sales-open';
+const CACHE_NAME = 'neochosen-v32-raffle-sales-closed';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
