@@ -18,6 +18,8 @@ const viewports = [
 ];
 const routes = [
   ["home", "/"],
+  ["raffle", "/raffle/"],
+  ["raffle-rules", "/raffle/rules/"],
   ["sponsors", "/sponsors/"],
   ["chesterland", "/chesterland/"],
   ["vip-dinner", "/vip-dinner/"],
