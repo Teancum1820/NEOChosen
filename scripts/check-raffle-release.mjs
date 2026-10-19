@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile, readdir } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { raffleLaunch, raffleSalesOpen } from "./raffle-page.mjs";
 
@@ -21,6 +21,27 @@ assert(landing.includes('href="/raffle/rules/"'));
 assert(rules.includes("99-1301074"));
 assert(rules.includes("U.S. resident"));
 assert(!redirects.includes("/raffle/rules/ /raffle/"));
+for (const [name, html] of [
+  ["landing", landing],
+  ["rules", rules],
+]) {
+  const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
+  assert(
+    !/\bdraft\b|internal review|pending approval|proposed|working proposal|final approvals required|not yet authorized|preview revision/i.test(
+      text,
+    ),
+    `${name}: internal review copy is public`,
+  );
+}
+assert(!rules.includes('name="robots" content="noindex'));
+for (const file of [
+  "cash-raffle.js",
+  "raffle.js",
+  "raffle-data.js",
+  "raffle.css",
+]) {
+  await assert.rejects(access(`dist/raffle/${file}`), { code: "ENOENT" });
+}
 if (!open) {
   assert.equal((landing.match(/disabled>Sales closed/g) || []).length, 3);
   assert(landing.includes("Ticket sales are currently closed"));

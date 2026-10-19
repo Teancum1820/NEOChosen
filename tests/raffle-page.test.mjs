@@ -20,17 +20,18 @@ const approved = {
   salesAuthorized: true,
   rulesFinalized: true,
 };
+const held = { ...raffleLaunch, salesOpen: false };
 const checkoutCount = (html) =>
   html.split('href="' + raffleLaunch.checkoutUrl + '"').length - 1;
 
-test("release config keeps all approvals and ticket sales on hold", () => {
-  assert.equal(raffleLaunch.salesOpen, false);
-  assert.equal(raffleLaunch.salesAuthorized, false);
-  assert.equal(raffleLaunch.rulesFinalized, false);
+test("release config records authorized sales and finalized rules", () => {
+  assert.equal(raffleLaunch.salesOpen, true);
+  assert.equal(raffleLaunch.salesAuthorized, true);
+  assert.equal(raffleLaunch.rulesFinalized, true);
 });
 
 test("held page closes all three package controls even with other approvals present", () => {
-  for (const config of [raffleLaunch, { ...approved, salesOpen: false }]) {
+  for (const config of [held, { ...approved, salesOpen: false }]) {
     const page = renderRaffleLanding(source, config, beforeClosing);
     assert.equal((page.match(/disabled>Sales closed/g) || []).length, 3);
     for (const marker of [
@@ -120,9 +121,9 @@ test("purchase links close at exact cutoff and refuse alternate campaigns", () =
 
 test("promotion uses the same approval and closing gate as checkout", () => {
   const html = "<main></main>";
-  const held = applyRafflePromotion(html, "/", raffleLaunch, beforeClosing);
-  assert(held.includes("Ticket sales are currently closed"));
-  assert(!held.includes("Tickets available now."));
+  const heldPage = applyRafflePromotion(html, "/", held, beforeClosing);
+  assert(heldPage.includes("Ticket sales are currently closed"));
+  assert(!heldPage.includes("Tickets available now."));
   assert(
     applyRafflePromotion(html, "/", approved, beforeClosing).includes(
       "Tickets available now.",

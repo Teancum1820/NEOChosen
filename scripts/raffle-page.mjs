@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 export const raffleLaunch = JSON.parse(
@@ -67,7 +67,9 @@ export function renderRaffleLanding(
     )
     .replace(
       "After your purchase, you’ll receive",
-      "After a successful purchase when sales are open, you’ll receive",
+      open
+        ? "After a successful purchase, you’ll receive"
+        : "After a successful purchase when sales are open, you’ll receive",
     );
   return html;
 }
@@ -76,6 +78,13 @@ export async function writeRafflePages(outDir) {
   if (!raffleLaunch.informationPublished) return;
   const dir = path.join(outDir, "raffle");
   await mkdir(path.join(dir, "rules"), { recursive: true });
+  for (const file of [
+    "cash-raffle.js",
+    "raffle.js",
+    "raffle-data.js",
+    "raffle.css",
+  ])
+    await rm(path.join(dir, file), { force: true });
   const landing = renderRaffleLanding(
     await readFile(new URL("public-launch.html", source), "utf8"),
   );
@@ -85,32 +94,19 @@ export async function writeRafflePages(outDir) {
     path.join(dir, "public-launch.css"),
   );
   let rules = await readFile(new URL("official-rules.html", source), "utf8");
-  // A config flag cannot turn the draft legal document into approved rules.
+  // Finalized rules must not publish editorial or internal review copy.
   if (
-    raffleLaunch.salesOpen &&
-    /DRAFT Official Raffle Rules|NOT FINAL|RAFFLE SALES ARE NOT YET AUTHORIZED/.test(
-      rules,
+    (raffleLaunch.salesOpen || raffleLaunch.rulesFinalized) &&
+    /\bdraft\b|NOT FINAL|not yet authorized|internal review|under final review|working proposal|pending approval|\bproposed\b|final approvals required/i.test(
+      rules.replace(/<[^>]*>/g, " ").replace(/\s+/g, " "),
     )
   ) {
     throw new Error("Final approved rules source required before sales open");
   }
-  rules = rules
-    .replace(
-      "</head>",
-      '<link rel="stylesheet" href="/raffle/public-launch.css" /></head>',
-    )
-    .replace(
-      /<time datetime="2026-10-01T13:00:00-04:00"[\s\S]*?<\/time\s*>/g,
-      "<strong>Opening announcement pending</strong>",
-    )
-    .replace(
-      /If required approvals are not completed by the intended opening[\s\S]*?sales will remain closed\./,
-      "Ticket sales are currently closed. The original October 1 opening did not occur.",
-    )
-    .replace(
-      /<main id="main-content">/,
-      '<main id="main-content"><aside class="cash-preview-bar"><strong>Rules under final review · Sales closed</strong><span>These proposed terms are available for review. They do not authorize a purchase.</span></aside>',
-    );
+  rules = rules.replace(
+    "</head>",
+    '<link rel="stylesheet" href="/raffle/public-launch.css" /></head>',
+  );
   await writeFile(path.join(dir, "rules/index.html"), rules);
   const redirects = await readFile(path.join(outDir, "_redirects"), "utf8");
   await writeFile(
