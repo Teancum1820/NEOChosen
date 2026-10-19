@@ -1,5 +1,7 @@
 # Raffle publication and remaining launch blockers
 
+> **October 19, 2026 superseding status:** Both website and native Zeffy sales are now closed under Joe's October 19 hold. Zero campaign payments/tickets and $0 raised observed; fresh native exports have zero rows. See [current readiness](raffle-readiness-2026-10-19.md) and [current QA](raffle-qa-2026-10-19.md). The October 16 activation and closed snapshots below are historical, not current authorization.
+
 ## Current update: sales opened at Caleb's explicit instruction
 
 Caleb subsequently instructed: **“Make the Zeffy live so people can start buying tickets.”** The existing Zeffy campaign was opened using its **Open sales** control. Public Add buttons are enabled for $20/1, $50/3 and $100/7. Selecting one $50 package and continuing reached the required buyer questions, $50 order summary, optional Zeffy contribution and live payment methods. The cart was cleared afterward. No acknowledgments were accepted, no payment information was entered, and no purchase was submitted.

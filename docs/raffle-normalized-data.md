@@ -1,5 +1,7 @@
 # Reconciliation reference data contract
 
+> October 19 update: use the stronger envelope and physical custody commands in [drawing operations](raffle-drawing-operations.md). The new explicitly mapped reviewed CSV adapter is not a native Zeffy importer. Current native header-only exports still lack a stable payment ID; populated mapping is blocked. The raw provider limitations below remain.
+
 The new [private print-register tool](raffle-print-register.md) accepts this normalized format inside a reviewed snapshot envelope. It adds persistent batch reservations and physical-check logs. The raw Zeffy XLSX-to-normalized mapping still requires a populated native purchase/export test; neither of the observed empty XLSX headers includes a stable payment ID.
 
 This is an offline rehearsal schema, not Zeffy's export schema. No production CSV adapter has been verified. Prefer native reports/ticket documents. Do not paste raw purchaser records into source or sample folders.

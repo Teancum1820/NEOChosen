@@ -1,0 +1,70 @@
+{
+  "status": "AUTOMATED_CHECKS_AND_AGENT_VISUAL_INSPECTION_PASS",
+  "approval": "DRAFT",
+  "engine_version": "Inkscape 1.4.4 (dcaf3e7, 2026-05-05)",
+  "prize_percentages": [
+    20,
+    6,
+    5,
+    4,
+    3,
+    2
+  ],
+  "prize_total_percent": 40,
+  "packages": [
+    [
+      20,
+      1
+    ],
+    [
+      50,
+      3
+    ],
+    [
+      100,
+      7
+    ]
+  ],
+  "fonts": "Arial regular/bold installed; no substitutions",
+  "outputs": [
+    {
+      "svg": "source-assets/raffle-review-2026-10-19/raffle-square-draft-v1.svg",
+      "png": "docs/raffle-review-2026-10-19/raffle-square-draft-v1.png",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "qr_full_size": "https://neochosen.com/raffle/",
+      "qr_half_size": "https://neochosen.com/raffle/",
+      "embedded_logos": 2,
+      "editable_text_nodes": 26,
+      "text_bounds": "PASS (Inkscape actual glyph bounds)",
+      "required_copy": "PASS",
+      "sha256_svg": "5cdf46a6241272b015e4c50d55ca58ef3493618a721397bce5fe80dd6f152d24",
+      "sha256_png": "9a0c0cdec51683b0d9156785305567a2a197c4711f0d62b7101f47661eba7e79",
+      "visual_review": "PASS_AGENT_INSPECTION; human approval remains DRAFT",
+      "human_approval": "DRAFT"
+    },
+    {
+      "svg": "source-assets/raffle-review-2026-10-19/raffle-story-draft-v1.svg",
+      "png": "docs/raffle-review-2026-10-19/raffle-story-draft-v1.png",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "qr_full_size": "https://neochosen.com/raffle/",
+      "qr_half_size": "https://neochosen.com/raffle/",
+      "embedded_logos": 2,
+      "editable_text_nodes": 38,
+      "text_bounds": "PASS (Inkscape actual glyph bounds)",
+      "required_copy": "PASS",
+      "sha256_svg": "5ea7143947d76726764f25229ff37c9de796b013c2c9dcd09ce4ff35c81f5b45",
+      "sha256_png": "09a5af118034999f84418f6a3961cf4cfbb3743dc46785ecda9031a859b8ec44",
+      "visual_review": "PASS_AGENT_INSPECTION; human approval remains DRAFT",
+      "human_approval": "DRAFT"
+    }
+  ],
+  "visual_review": "PASS_AGENT_INSPECTION; see visual-review-v1.md",
+  "source_provenance": "PASS; original and staged logo SHA256 match",
+  "inspected_render_identity_after_rebuild": "PASS; exact PNG SHA256 unchanged"
+}

@@ -1,0 +1,25 @@
+{
+  "fictional_example": true,
+  "gross_cents": 44000,
+  "refunded_cents": 0,
+  "eligible_basis_cents": 44000,
+  "percentages": [
+    20,
+    6,
+    5,
+    4,
+    3,
+    2
+  ],
+  "awards_cents": [
+    8800,
+    2640,
+    2200,
+    1760,
+    1320,
+    880
+  ],
+  "total_prizes_cents": 17600,
+  "retained_before_expenses_cents": 26400,
+  "rounding_and_refund_policy": "ILLUSTRATIVE ONLY - accountant and final rules must approve"
+}

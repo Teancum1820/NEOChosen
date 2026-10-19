@@ -1,0 +1,18 @@
+Subject: NEO Chosen Raffle — October 19 Status
+To: Joe Jackson <info@kirtlandheritagegroup.com>
+
+Hi Joe,
+
+1. Completed
+Sales are closed on the website and direct Zeffy checkout. The campaign and fresh exports show no orders or tickets and $0 raised. Native $20/1, $50/3 and $100/7 settings are correct, and today's test email arrived. All 81 simulated operations tests, 32 functional, 32 accessibility and 4 visual checks passed locally.
+
+2. Ready for Your Review
+The raffle page and draft rules: https://neochosen.com/raffle/
+The code, readiness report, graphics, QR, sample stubs and operations guide: https://github.com/Teancum1820/NEOChosen/pull/107
+New promotional materials remain unpublished. No real payment, refund or drawing was performed.
+
+3. Remaining Launch Blockers
+We need final legal/rules and financial approval, a human paid-ticket/export test, and a witnessed print rehearsal. The native exports are empty and lack a stable payment-ID column, so actual ticket-to-stub mapping remains unverified. Please assign operations/support owners and approve the controlled test plan ($170 ticket-only maximum; no optional Zeffy contribution). Keep sales closed until these checks and approvals are documented.
+
+Thanks,
+Caleb

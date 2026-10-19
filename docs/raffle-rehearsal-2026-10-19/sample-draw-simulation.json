@@ -1,0 +1,83 @@
+{
+  "simulation_only": true,
+  "selections": [
+    {
+      "rank": 1,
+      "ticket_number": "3012",
+      "purchaser_ref": "SAMPLE-PERSON-C",
+      "removed_ticket_numbers": [
+        "3009",
+        "3010",
+        "3011",
+        "3012",
+        "3013",
+        "3014",
+        "3015",
+        "3016",
+        "3017",
+        "3018"
+      ],
+      "remaining_entries": 19
+    },
+    {
+      "rank": 2,
+      "ticket_number": "3001",
+      "purchaser_ref": "SAMPLE-PERSON-A",
+      "removed_ticket_numbers": [
+        "3001"
+      ],
+      "remaining_entries": 18
+    },
+    {
+      "rank": 3,
+      "ticket_number": "3002",
+      "purchaser_ref": "SAMPLE-PERSON-B",
+      "removed_ticket_numbers": [
+        "3002",
+        "3003",
+        "3004",
+        "3005",
+        "3006",
+        "3007",
+        "3008"
+      ],
+      "remaining_entries": 11
+    },
+    {
+      "rank": 4,
+      "ticket_number": "3019",
+      "purchaser_ref": "SAMPLE-PERSON-D",
+      "removed_ticket_numbers": [
+        "3019",
+        "3020",
+        "3021"
+      ],
+      "remaining_entries": 8
+    },
+    {
+      "rank": 5,
+      "ticket_number": "3022",
+      "purchaser_ref": "SAMPLE-PERSON-E",
+      "removed_ticket_numbers": [
+        "3022"
+      ],
+      "remaining_entries": 7
+    },
+    {
+      "rank": 6,
+      "ticket_number": "3023",
+      "purchaser_ref": "SAMPLE-PERSON-F",
+      "removed_ticket_numbers": [
+        "3023",
+        "3024",
+        "3025",
+        "3026",
+        "3027",
+        "3028",
+        "3029"
+      ],
+      "remaining_entries": 0
+    }
+  ],
+  "remaining": []
+}

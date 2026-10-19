@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "id": "raffle-info-qr-v1",
+  "origin": "Generated locally from the same QR matrix as embedded graphics",
+  "payload": "https://neochosen.com/raffle/",
+  "dimensions": [
+    740,
+    740
+  ],
+  "matrix_modules_with_quiet_zone": 37,
+  "quiet_zone_modules": 4,
+  "error_correction": "Q",
+  "pixels_per_module": 20,
+  "svg": "docs/raffle-review-2026-10-19/raffle-info-qr-v1.svg",
+  "sha256_svg": "8fd9b8fab94eb083b66cf16716e4a79c3f0525047489c4b79e6f639d678cd8ba",
+  "png": "docs/raffle-review-2026-10-19/raffle-info-qr-v1.png",
+  "sha256_png": "df029756fb5bf2437f27730a4ed3979813226ce8c94c27377e84dbc1185c707d",
+  "independent_decoder": "zxing-cpp",
+  "decoded_at_widths": [
+    740,
+    370,
+    148
+  ],
+  "decoded_payload": "https://neochosen.com/raffle/",
+  "exact_module_match_to_embedded_pngs": [
+    "square",
+    "story"
+  ],
+  "existing_draft_graphic_sha256_unchanged": true,
+  "quiet_zone_and_module_pixels": "PASS",
+  "visual_review": "PASS_AGENT_INSPECTION; crisp modules and complete white quiet zone"
+}
