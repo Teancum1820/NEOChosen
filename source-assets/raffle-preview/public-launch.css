@@ -51,4 +51,39 @@
 
 .cash-hero-pricing { color:#edcd95; font-weight:700; font-size:18px; margin-top:26px; }
 .cash-hero-schedule { color:#fff8ec; font-size:14px; line-height:1.9; }
-.cash-launch-page .cash-ticket-card .cash-contribution { font-size:12px; line-height:1.7; margin:16px 0 0; }
+.cash-launch-page .cash-contribution { font-size:12px; line-height:1.7; margin:18px 0 0; padding:16px 18px; border:1px solid #b7a180; background:#fffdf8; max-width:100%; }
+.cash-mobile-purchase { display:none; }
+@media(max-width:800px) {
+  .cash-launch-page { scroll-padding-top:146px; }
+  .cash-mobile-purchase { display:flex; position:sticky; top:var(--site-header-height,68px); z-index:900; align-items:center; justify-content:space-between; gap:12px; padding:8px 16px; background:#fff8ec; border-bottom:1px solid #b7a180; color:#172438; }
+  .cash-mobile-purchase > span { font-size:11px; font-weight:700; }
+  .cash-mobile-purchase .cash-button { min-height:42px; padding:9px 12px; font-size:12px; }
+  .cash-launch-page .cash-preview-bar { padding:7px 24px; }
+  .cash-preview-bar span { display:none; }
+  .cash-launch-page .cash-hero { padding-block:24px; }
+  .cash-launch-page .cash-hero h1 { font-size:18px; margin:0 0 10px; }
+  .cash-launch-page .cash-hero .cash-kicker { font-size:10px; margin-bottom:10px; }
+  .cash-launch-page .cash-statement { font-size:34px; margin:12px 0; }
+  .cash-launch-page .cash-hero-copy { font-size:13px; line-height:1.65; margin:0; }
+  .cash-hero-pricing { font-size:16px; line-height:1.6; margin:14px 0 0; }
+  .cash-launch-page .cash-actions { margin-top:12px; gap:4px 14px; }
+  .cash-launch-page .cash-hero-schedule { font-size:12px; line-height:1.8; margin:12px 0 0; }
+  .cash-launch-page .cash-hero-footnote { font-size:10px; margin-top:10px; }
+  .cash-launch-page .cash-prize-feature { display:none; }
+  #raffle-tickets { scroll-margin-top:140px; padding-block:24px; }
+  .cash-launch-page .cash-section-intro { gap:6px; }
+  .cash-launch-page #raffle-tickets h2 { font-size:24px; margin:0; }
+  #raffle-tickets .cash-kicker { margin-bottom:4px; font-size:10px; }
+  .cash-section-intro > p { font-size:12px; line-height:1.65; margin:0; }
+  .cash-launch-page .cash-ticket-grid { gap:14px; margin:22px 0 0; }
+  .cash-launch-page .cash-ticket-card { display:grid; grid-template-columns:minmax(0,1fr) minmax(120px,1.1fr); grid-template-areas:'heading action' 'price action' 'entries action'; gap:2px 12px; padding:14px; }
+  .cash-launch-page .cash-ticket-card--featured { padding:13px; margin-top:4px; }
+  .cash-launch-page .cash-ticket-card h3 { grid-area:heading; font-size:11px; letter-spacing:0; line-height:1.4; margin:0; }
+  .cash-launch-page .cash-ticket-card .cash-ticket-price { grid-area:price; font-size:32px; margin:0; }
+  .cash-launch-page .cash-ticket-card .cash-entry-count { grid-area:entries; font-size:11px; line-height:1.5; margin:0; }
+  .cash-ticket-card .cash-button { grid-area:action; align-self:center; font-size:11px; line-height:1.5; gap:4px; margin:0; padding:10px 8px; min-height:48px; }
+  .cash-best-value { inset:-11px 10px auto auto; font-size:9px; padding:3px 8px; }
+  .cash-launch-page .cash-contribution { font-size:11px; line-height:1.7; padding:12px; margin-top:16px; }
+  .cash-launch-page :is(a,button,summary):focus { scroll-margin-top:150px; }
+}
+@media(prefers-reduced-motion:reduce) { .cash-mobile-purchase { scroll-behavior:auto; } }

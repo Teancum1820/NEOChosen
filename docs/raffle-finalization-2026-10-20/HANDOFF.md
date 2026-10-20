@@ -9,9 +9,11 @@ Prepared October 20, 2026. Website changes are live. Joe's email remains an **un
 - [ ] Approve the published six-prize structure (20%, 6%, 5%, 4%, 3%, 2%), eligible ticket-sales basis excluding Zeffy contributions, accounting/cent-rounding treatment, identity review and interruption/no-rerun procedure. Do not change the published rules through this checklist.
 - [ ] Approve the named closing operator's manual contingency described below.
 
-## Caleb or Joe: resolve Zeffy's generated 6:01 display
+## Zeffy support: resolve the generated 6:01 display
 
-Use [the prepared support message](zeffy-support-request.txt) in the existing Zeffy account's Help widget. It is ready to copy, but **has not been submitted or sent**. Ask Zeffy to suppress the internal end marker in the native confirmation/calendar and e-ticket output while preserving the real 5 PM close / 6 PM drawing, America/New_York. Request a supported way to associate each exported ticket with its stable native payment/order ID. The editor exposes no e-ticket date-format control; public hiding is already saved.
+**Submitted October 20 in the follow-up:** Zeffy's official contact form confirmed “Thank you for your message!” and a stated 1–6 business-hour response window. The complete request and time-validation screenshot were submitted for human review after the chat assistant said it could not open a case. No case number was displayed. See the [current follow-up report](../raffle-joe-followup-2026-10-20/REPORT.md).
+
+The request asks Zeffy to suppress the internal end marker in native confirmation/calendar and e-ticket output while preserving the real 5 PM close / 6 PM drawing, America/New_York; confirm cutoff enforcement for previously opened carts; and provide a stable native payment-to-ticket mapping with partial-refund/cancellation semantics. The editor exposes no e-ticket date-format control; public hiding is already saved. Awaiting Zeffy's answer is still pending. The earlier prepared message file is a historical copy, not an outstanding send task.
 
 After a provider fix, inspect the saved date/close settings, send a native test only to the existing authorized account, and check the actual delivered email and e-ticket output. Do not disable numbered e-ticket issuance or replace the campaign.
 

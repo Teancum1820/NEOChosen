@@ -54,9 +54,11 @@ export function renderRaffleLanding(
       /<button class="cash-button" type="button" data-ticket-option="(\d+)" data-ticket-price="(\d+)">[\s\S]*?<\/button>/g,
       (_, entries, price) =>
         open
-          ? `<a class="cash-button" href="${config.checkoutUrl}" aria-describedby="zeffy-contribution-${entries}">Choose tickets on Zeffy <span class="sr-only">— $${price} for ${entries} ${entries === "1" ? "ticket" : "tickets"}</span><span aria-hidden="true">→</span></a><p class="cash-small cash-contribution" id="zeffy-contribution-${entries}">${zeffyContribution}</p>`
+          ? `<a class="cash-button" href="${config.checkoutUrl}" aria-describedby="zeffy-contribution-packages">Choose tickets on Zeffy <span class="sr-only">— $${price} for ${entries} ${entries === "1" ? "ticket" : "tickets"}</span><span aria-hidden="true">→</span></a>`
           : '<button class="cash-button" type="button" disabled>Sales closed</button>',
     )
+    .replace('<!-- PACKAGE_CONTRIBUTION -->', open ? `<p class="cash-small cash-contribution" id="zeffy-contribution-packages">${zeffyContribution}</p>` : '')
+    .replace('<!-- MOBILE_PURCHASE -->', `<aside class="cash-mobile-purchase" aria-label="Raffle ticket shortcut"><span>${open ? 'Tickets from $20' : 'Ticket sales closed'}</span><a class="cash-button" href="#raffle-tickets">${open ? 'Get Raffle Tickets' : 'View ticket packages'} <span aria-hidden="true">↓</span></a></aside>`)
     .replace(
       "Get Raffle Tickets <span",
       `${open ? "Get Raffle Tickets" : "View ticket packages"} <span`,
@@ -132,6 +134,15 @@ export function applyRafflePromotion(
     ? "Tickets available now."
     : "View the packages, six-prize structure and drawing schedule. Ticket sales are currently closed.";
   const home = route === "/";
+  if (home) {
+    const quick = `<aside class="raffle-quick-promotion" aria-label="Cash Raffle"><a href="/raffle/"><span>Six cash prizes. ${open ? 'Tickets from $20.' : 'View the drawing details.'}</span><strong>Enter the Cash Raffle <span aria-hidden="true">→</span></strong></a></aside>`;
+    html = html.replace(/(<main\b[^>]*>)/, '$1' + quick);
+  } else {
+    const early = `<p class="raffle-early-event"><a href="/raffle/">Cash Raffle · Tickets from $20 <span aria-hidden="true">→</span></a><span>Raffle tickets are separate from event admission.</span></p>`;
+    const firstAction = route === '/vip-dinner/' ? /(<div class="vip-reservation">[\s\S]*?<\/a>)/ : /(<div class="event-actions">[\s\S]*?<\/a>)/;
+    if (!firstAction.test(html)) throw new Error(`Early raffle link placement missing on ${route}`);
+    html = html.replace(firstAction, '$1' + early);
+  }
   const feature = `<section class="raffle-promotion${home ? " raffle-promotion--home" : ""}" aria-labelledby="weekend-raffle-title"><div class="raffle-promotion-shell"><div><p class="raffle-promotion-kicker">${home ? "NEO Chosen Cash Raffle" : "Support Kirtland Heritage Group"}</p><h2 id="weekend-raffle-title">${home ? "Six cash prizes. One great cause." : "NEO Chosen Cash Raffle"}</h2><p>${home ? "Enter the NEO Chosen Cash Raffle and support Kirtland Heritage Group’s community programs throughout Northeast Ohio. Every valid ticket purchased grows the prize pool." : "Six cash prizes. One great cause."}</p><p class="raffle-promotion-pricing">$20 for 1 ticket · $50 for 3 · $100 for 7</p><p>Six cash prizes total 40% of eligible raffle-ticket sales. Final prize amounts depend on eligible sales; no minimum dollar prize is guaranteed.</p><p>Drawing November 15 at 6 p.m. Eastern. Winners need not be present.</p>${home ? "" : "<p><strong>Raffle tickets are separate from event admission.</strong></p>"}</div><div class="raffle-promotion-actions"><p class="raffle-promotion-status">${status}</p><a class="raffle-promotion-button" href="/raffle/">Get Raffle Tickets <span aria-hidden="true">→</span></a><a class="raffle-promotion-rules" href="/raffle/rules/">Official Raffle Rules</a></div></div></section>`;
   html = html.replace("</head>", '<link rel="stylesheet" href="/raffle-promotion.css" /></head>');
   // The shared sponsor renderer runs first. Insert directly after its ribbon,

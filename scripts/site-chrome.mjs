@@ -34,7 +34,7 @@ export function applySiteChrome(html, currentPath) {
       ${dropdown('sponsor-navigation', 'Sponsors', item('/sponsors/', 'Our Sponsors') + item('/sponsorship-opportunities/', 'Become a Sponsor'))}
       ${dropdown('resource-navigation', 'More', item('/vip-dinner/', 'VIP Sponsor Dinner') + item('/lakewood/', 'Lakewood Event') + item('/piano-guys/', 'The Piano Guys Concert') + item('/fairlawn/', 'Fairlawn Meet &amp; Greet') + item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/social-media-links/', 'Social Media'))}
       ${item('/donations/', 'Donate', 'nav-donate')}
-      ${item('/#events', 'Explore Weekend', 'nav-ticket')}
+      ${item(currentPath === '/raffle/' ? '#raffle-tickets' : '/#events', currentPath === '/raffle/' ? 'Get Raffle Tickets' : 'Explore Weekend', 'nav-ticket')}
     </div>
     <div class="site-nav-actions">
       <div class="nav-social-links" role="group" aria-label="Follow NEOChosen">${headerSocialLinks}</div>
