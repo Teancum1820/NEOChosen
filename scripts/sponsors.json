@@ -380,7 +380,9 @@
     "tier": "community",
     "events": [],
     "background": "light",
-    "confirmation": "Joe Jackson, October 20, 2026, Gmail 1a159b5c0ca37714: website only, no booklet. Original vector wordmark extracted from supplied Frostop_Ad_QuarterPg_Oct2025_v1.pdf. Existing Community Partners listing; no paid tier, event assignment, or website URL confirmed."
+    "confirmation": "Joe Jackson, October 20, 2026, Gmail 1a159b5c0ca37714: website only, no booklet. Original vector wordmark extracted from supplied Frostop_Ad_QuarterPg_Oct2025_v1.pdf. Existing Community Partners listing; no paid tier or event assignment inferred. Joe supplied https://frostop.com/ in reply 1a15b8613f6f7151; verified October 20, 2026.",
+    "url": "https://frostop.com/",
+    "linkIdentity": true
   },
   {
     "id": "squeaky-clean-neo",
