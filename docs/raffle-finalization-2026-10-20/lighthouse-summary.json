@@ -31,5 +31,16 @@
     },
     "lcp_ms": 2565.1416,
     "cls": 0.003801443348213264
+  },
+  {
+    "route": "raffle/",
+    "scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp_ms": 1519.0746,
+    "cls": 0.04923357567754678
   }
 ]

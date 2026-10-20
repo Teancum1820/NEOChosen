@@ -1,0 +1,77 @@
+{
+  "verifiedAt": "2026-10-20T19:26:46.400Z",
+  "method": "Actual production browser DOM and screenshots",
+  "home": "approved feature, prices, schedule and Cash Raffle navigation observed",
+  "raffle": "3 Zeffy links; electronic copy; no physical stub copy; correct prices, 5 PM close and 6 PM draw",
+  "rules": "production rule 7 electronic drawing amendment observed",
+  "events": [
+    {
+      "route": "/vip-dinner/",
+      "feature": true,
+      "prices": true,
+      "separateAdmission": true,
+      "raffleLinks": 1
+    },
+    {
+      "route": "/lakewood/",
+      "feature": true,
+      "prices": true,
+      "separateAdmission": true,
+      "raffleLinks": 1
+    },
+    {
+      "route": "/piano-guys/",
+      "feature": true,
+      "prices": true,
+      "separateAdmission": true,
+      "raffleLinks": 1
+    },
+    {
+      "route": "/fairlawn/",
+      "feature": true,
+      "prices": true,
+      "separateAdmission": true,
+      "raffleLinks": 1
+    },
+    {
+      "route": "/chesterland/",
+      "feature": true,
+      "prices": true,
+      "separateAdmission": true,
+      "raffleLinks": 1
+    }
+  ],
+  "httpProbe": "Python HTTP probe returned 403; browser verification used instead",
+  "assets": [
+    {
+      "file": "raffle-square-v2.webp",
+      "images": [
+        {
+          "height": 1080,
+          "loaded": true,
+          "width": 1080
+        }
+      ]
+    },
+    {
+      "file": "raffle-story-v2.webp",
+      "images": [
+        {
+          "height": 1920,
+          "loaded": true,
+          "width": 1080
+        }
+      ]
+    },
+    {
+      "file": "raffle-direct-qr.png",
+      "images": [
+        {
+          "height": 370,
+          "loaded": true,
+          "width": 370
+        }
+      ]
+    }
+  ]
+}
