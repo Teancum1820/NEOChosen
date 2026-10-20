@@ -20,7 +20,8 @@ for (const marker of [
 assert(landing.includes('href="/raffle/rules/"'));
 assert(!/physical drawing stub|matching physical|physical stubs/i.test(landing + rules));
 assert.equal((landing.match(/Choose tickets on Zeffy/g) || []).length, 3);
-assert.equal((landing.match(/Zeffy may suggest an optional contribution/g) || []).length, 3);
+assert.equal((landing.match(/Zeffy may suggest an optional contribution/g) || []).length, 1);
+assert.equal((landing.match(/aria-describedby="zeffy-contribution-packages"/g) || []).length, open ? 3 : 0);
 assert(landing.includes("Electronic drawing November 15, 2026, at 6 p.m. Eastern."));
 assert(rules.includes("99-1301074"));
 assert(rules.includes("U.S. resident"));

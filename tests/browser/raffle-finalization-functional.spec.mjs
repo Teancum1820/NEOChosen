@@ -38,7 +38,12 @@ for (const width of [390, 1440]) {
         await expect(page.locator(".cash-hero")).toContainText(
           "Electronic drawing November 15, 2026, at 6 p.m. Eastern.",
         );
-        await expect(page.locator(".cash-contribution")).toHaveCount(3);
+        await expect(page.locator(".cash-contribution")).toHaveCount(1);
+        for (const button of await page.locator(".cash-ticket-card a").all())
+          await expect(button).toHaveAttribute(
+            "aria-describedby",
+            "zeffy-contribution-packages",
+          );
         await expect(page.locator(".cash-ticket-card--featured")).toContainText(
           "Best value",
         );

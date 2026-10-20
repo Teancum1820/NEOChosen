@@ -74,6 +74,7 @@ for (const width of [320, 375, 390, 430, 768, 1024, 1200, 1440]) {
           }
         }
         await page
+          .locator("main")
           .getByRole("link", {
             name: open ? "Get Raffle Tickets" : "View ticket packages",
           })

@@ -154,7 +154,7 @@ test("raffle information is directly reachable in shared header and footer", () 
     for (const html of [
       applySiteChrome(source, route),
       applyRafflePromotion(
-        applySiteChrome(source.replace("</main>", '<section class="home-overview"></section><section class="editorial-section editorial-section--white vip-experience"></section></main>'), route),
+        applySiteChrome(source.replace("</main>", '<div class="vip-reservation"><a href="https://example.com/reserve">Reserve</a></div><section class="home-overview"></section><section class="editorial-section editorial-section--white vip-experience"></section></main>'), route),
         route,
         raffleLaunch,
         beforeClosing,
