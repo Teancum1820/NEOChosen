@@ -1,0 +1,104 @@
+{
+  "verifiedAt": "2026-10-20T21:12:31.711Z",
+  "note": "Post-merge Cloudflare build: normalize Windows/Linux text line endings and the media-kit CSS cache-busting hash derived from those bytes. The CSS itself is compared; PNG bytes must match exactly.",
+  "paths": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "f06dc37f0d89eaebda8a4257b10fa4ac7c3a9070942137f8cd9daf425b0fcd0e",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/raffle/",
+      "status": 200,
+      "sha256": "020eb9883edd53050c1b315315ac54e1294bf23fa759d514475e527d1a490ff7",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/raffle/rules/",
+      "status": 200,
+      "sha256": "aabec42bbe4615a109fc26ff3e46e733a5d6cf526dffdb0b715bcd36021ed263",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/vip-dinner/",
+      "status": 200,
+      "sha256": "c92f7c9f2467bc4644538383a65baa00a61d39272ac9e0df5dcab62284631b03",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/lakewood/",
+      "status": 200,
+      "sha256": "13b4ab785a7c82383e6a342013ca5285882c906fcc97af1694208777dff59c3b",
+      "matchesBuild": true,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/piano-guys/",
+      "status": 200,
+      "sha256": "46fa1df37224d79aabeb93e3d952420abeed7738295cd5028475fb94d595cb67",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/fairlawn/",
+      "status": 200,
+      "sha256": "8da703c7030bfbfe1bc3c2a4cdbcffc63264ee85a430e3c0a92a3f480fc07d98",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/chesterland/",
+      "status": 200,
+      "sha256": "31b46b74277c476ea1142905cba479e34fb3fdeee4479e79779a7578e50be51f",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/media-kit/",
+      "status": 200,
+      "sha256": "f5c1fc4ee0b6b75d7966f8cc9ed7eb4311a1cad4a46b6f0821523a636c15db0a",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/raffle-promotion.css",
+      "status": 200,
+      "sha256": "d01dcb4a25dbe0f183284a57730e42afa95c5396c56066ed52eb814c923a6544",
+      "matchesBuild": true,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/raffle/public-launch.css",
+      "status": 200,
+      "sha256": "8a29366c2fb768e5b68194802b5c7bac5debb2a43c8ee8cbac535b87acbb743f",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/media-kit/media-kit.css",
+      "status": 200,
+      "sha256": "2b19aeea54ecf8bcfac8a6db39aee348268994828b4f32d7b9f3b1ffa3459b54",
+      "matchesBuild": false,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/media-kit/neo-chosen-raffle-square.png",
+      "status": 200,
+      "sha256": "385aacbd7431c15090ab6dbd62f97193a63e7cfa9ed05ca07c3d39c772260813",
+      "matchesBuild": true,
+      "matchesBuildAfterLineEndingNormalization": true
+    },
+    {
+      "path": "/media-kit/neo-chosen-raffle-story.png",
+      "status": 200,
+      "sha256": "b33fb9d8ba11bb62998d12c44bdd1882c703f5739eb9aabf4631c3949cb656e8",
+      "matchesBuild": true,
+      "matchesBuildAfterLineEndingNormalization": true
+    }
+  ]
+}
