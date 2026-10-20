@@ -1,0 +1,20 @@
+UNSENT SUPPORT MESSAGE — ready to copy into the authenticated Zeffy Help widget
+
+Subject: Hide generated raffle end marker and confirm ticket-to-payment mapping
+
+Our existing campaign is NEO Chosen Cash Raffle, Kirtland Heritage Group:
+https://www.zeffy.com/en-US/ticketing/neo-chosen-cash-raffle
+Campaign ID: e2d45f03-d16e-4e0c-816b-464489fc4782
+
+The approved schedule is November 15, 2026: ticket sales close at 5:00 PM Eastern, and the electronic drawing begins at 6:00 PM Eastern, timezone America/New_York. We saved the explicit 5 PM Sales closing date.
+
+The editor requires an end later than the 6 PM start and rejects an equal end with "End date should be later than start date." Its required marker is currently 6:01 PM. We hid the date on the public campaign. The custom description and email state the correct schedule, but the delivered native test confirmation's RAFFLE DETAILS/calendar section and the native e-ticket header still show 6:00 PM–6:01 PM EST. The e-ticket editor exposes only issuance and banner controls.
+
+Please provide a supported way to suppress the generated end time in confirmation emails, calendar output and e-tickets, without changing the 6 PM drawing start, the explicit 5 PM automatic sales close, numbered ticket issuance, campaign identity or existing records. Please do not substitute a different invented event duration. If suppression is unavailable, please confirm that limitation and the supported alternative.
+
+Please also confirm:
+1. Does the explicit 5 PM close reject payment from a checkout cart opened before the cutoff? How should an organizer verify this without making a charge?
+2. How can each ticket in an Itemized payments export be reliably associated with its stable native payment/order ID? Our observed exports include Ticket #, Rate Title, Item Amount, Payment Status, Refund Amount and Canceled Tickets, but no explicit stable order/payment ID column. What supported record/detail field or export supplies that join?
+3. How do partial refunds and canceled bundle tickets appear in those exports, so the organizer can reconcile exact eligible entries without guessing?
+
+Please give the exact setting or supported workflow and whether any change affects already-issued confirmations/tickets. We can provide the fictional native test preview privately if needed; no purchaser data is included here.
