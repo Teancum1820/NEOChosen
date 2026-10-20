@@ -33,6 +33,8 @@ jobs:
         run: npm run typecheck
       - name: Existing tests
         run: npm run test
+      - name: Electronic drawing rehearsal tests (synthetic only)
+        run: python -m unittest discover -s tests -p test_raffle_electronic.py -v
       - name: Production build
         run: npm run build
       - name: Storybook build

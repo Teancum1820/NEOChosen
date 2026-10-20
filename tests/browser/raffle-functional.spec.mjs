@@ -66,7 +66,7 @@ for (const width of [320, 375, 390, 430, 768, 1024, 1200, 1440]) {
               [7, 100],
             ][index];
             await expect(control).toContainText(
-              `Get ${count} ${count === 1 ? "ticket" : "tickets"} for $${price}`,
+              `Choose tickets on Zeffy — $${price} for ${count} ${count === 1 ? "ticket" : "tickets"}`,
             );
           } else {
             await expect(control).toBeDisabled();
@@ -75,7 +75,7 @@ for (const width of [320, 375, 390, 430, 768, 1024, 1200, 1440]) {
         }
         await page
           .getByRole("link", {
-            name: open ? "Buy raffle tickets" : "View ticket packages",
+            name: open ? "Get Raffle Tickets" : "View ticket packages",
           })
           .first()
           .click();
@@ -122,10 +122,10 @@ test("raffle navigation and all six event promotions match sales status", async 
   ]) {
     await page.goto(route);
     const headerLink = page.locator('.site-nav-links > a[href="/raffle/"]');
-    await expect(headerLink).toHaveText("Raffle Info");
+    await expect(headerLink).toHaveText("Cash Raffle");
     await expect(headerLink).toBeVisible();
     await expect(page.locator('.site-footer a[href="/raffle/"]')).toHaveText(
-      "Raffle Info",
+      "Cash Raffle",
     );
     const feature = page.locator(
       'section[aria-labelledby="weekend-raffle-title"]',
@@ -165,7 +165,7 @@ for (const width of [320, 390, 768, 1200, 1440]) {
       if (width < 1200) await page.locator(".nav-toggle").click();
       const infoLink = page.locator('.site-nav-links > a[href="/raffle/"]');
       await expect(infoLink).toHaveCount(1);
-      await expect(infoLink).toHaveText("Raffle Info");
+      await expect(infoLink).toHaveText("Cash Raffle");
       await expect(infoLink).toBeVisible();
       await expect(infoLink).toBeInViewport();
       await expect(
@@ -208,7 +208,7 @@ for (const width of [390, 1440]) {
       if (open) {
         await page
           .getByRole("link", {
-            name: `Get ${count} ${count === 1 ? "ticket" : "tickets"} for $${price}`,
+            name: `Choose tickets on Zeffy — $${price} for ${count} ${count === 1 ? "ticket" : "tickets"}`,
           })
           .click();
         await expect(page).toHaveURL(raffleLaunch.checkoutUrl);

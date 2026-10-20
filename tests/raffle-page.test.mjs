@@ -78,7 +78,7 @@ test("opening requires explicit authorization and final rules independently", ()
   ])
     assert(
       page.includes(
-        `Get ${count} ${count === 1 ? "ticket" : "tickets"} for $${price}`,
+        `— $${price} for ${count} ${count === 1 ? "ticket" : "tickets"}`,
       ),
     );
 });
@@ -120,7 +120,7 @@ test("purchase links close at exact cutoff and refuse alternate campaigns", () =
 });
 
 test("promotion uses the same approval and closing gate as checkout", () => {
-  const html = "<main></main>";
+  const html = '<main><section class="home-overview"></section></main>';
   const heldPage = applyRafflePromotion(html, "/", held, beforeClosing);
   assert(heldPage.includes("Ticket sales are currently closed"));
   assert(!heldPage.includes("Tickets available now."));
@@ -154,7 +154,7 @@ test("raffle information is directly reachable in shared header and footer", () 
     for (const html of [
       applySiteChrome(source, route),
       applyRafflePromotion(
-        applySiteChrome(source, route),
+        applySiteChrome(source.replace("</main>", '<section class="home-overview"></section><section class="editorial-section editorial-section--white vip-experience"></section></main>'), route),
         route,
         raffleLaunch,
         beforeClosing,
@@ -164,7 +164,7 @@ test("raffle information is directly reachable in shared header and footer", () 
         /<div class="site-nav-links"[^>]*>([\s\S]*?)<div class="nav-dropdown">/,
       )[1];
       assert(header.includes('href="/raffle/"'));
-      assert(header.includes("Raffle Info"));
+      assert(header.includes("Cash Raffle"));
       assert.equal(
         header.includes('href="/raffle/" aria-current="page"'),
         route === "/raffle/",
@@ -173,7 +173,7 @@ test("raffle information is directly reachable in shared header and footer", () 
         /<footer class="site-footer"[\s\S]*?<\/footer>/,
       )[0];
       assert(footer.includes('href="/raffle/"'));
-      assert(!html.includes("Raffle — Coming Soon"));
+      assert(!html.includes("Raffle â€” Coming Soon"));
       assert.equal((header.match(/href="\/raffle\/"/g) || []).length, 1);
       assert.equal((footer.match(/href="\/raffle\/"/g) || []).length, 1);
       assert(!html.includes(raffleLaunch.checkoutUrl));

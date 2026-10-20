@@ -26,12 +26,12 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
     + html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)[0];
   const header = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0];
   const primaryLinks = header.match(/<div class="site-nav-links"[^>]*>([\s\S]*?)<div class="nav-dropdown">/)[1];
-  const raffleLinks = primaryLinks.match(/<a href="\/raffle\/"[^>]*>Raffle Info<\/a>/g) || [];
-  assert.equal(raffleLinks.length, 1, `${route}: one top-level Raffle Info link`);
+  const raffleLinks = primaryLinks.match(/<a href="\/raffle\/"[^>]*>Cash Raffle<\/a>/g) || [];
+  assert.equal(raffleLinks.length, 1, `${route}: one top-level Cash Raffle link`);
   assert.equal(header.split('href="/raffle/"').length - 1, 1, `${route}: no duplicate raffle link under More`);
   assert.equal(raffleLinks[0].includes('aria-current="page"'), route === '/raffle/', `${route}: current raffle link`);
   const footer = html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)[0];
-  assert.equal((footer.match(/<a href="\/raffle\/"[^>]*>Raffle Info<\/a>/g) || []).length, 1, `${route}: one footer Raffle Info link`);
+  assert.equal((footer.match(/<a href="\/raffle\/"[^>]*>Cash Raffle<\/a>/g) || []).length, 1, `${route}: one footer Cash Raffle link`);
   assert(!chrome.includes('Raffle — Coming Soon'), `${route}: outdated raffle label`);
   assert(!html.includes('class="site-follow-bar"'), `${route}: duplicate social strip`);
   for (const [name, url] of [

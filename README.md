@@ -15,6 +15,10 @@ Static marketing website for the **Kirtland Heritage Group** "NEO Chosen" weeken
 - `sponsorships/` — the eight downloadable sponsorship PDFs and static Quick Summary images.
 - `manifest.webmanifest`, `sw.js`, `pwa-register.js` — PWA metadata and service worker support.
 
+## Current raffle operations
+
+See [October 20 finalization and QA](docs/raffle-finalization-2026-10-20/REPORT.md) and the [electronic drawing operator guide](docs/raffle-electronic-drawing-2026-10-20.md). The latter supersedes historical physical-stub operations. The candidate tool supports synthetic rehearsals only; official use requires separate review and approval.
+
 ## Local Preview
 
 The frontend review and QA workflow is documented in [docs/frontend-workflow.md](docs/frontend-workflow.md). Design tokens and image guidance are in [docs/design-system.md](docs/design-system.md); the initial Lighthouse results are in [docs/performance-baseline.md](docs/performance-baseline.md).

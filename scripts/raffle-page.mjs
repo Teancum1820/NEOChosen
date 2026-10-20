@@ -54,12 +54,12 @@ export function renderRaffleLanding(
       /<button class="cash-button" type="button" data-ticket-option="(\d+)" data-ticket-price="(\d+)">[\s\S]*?<\/button>/g,
       (_, entries, price) =>
         open
-          ? `<a class="cash-button" href="${config.checkoutUrl}">Get ${entries} ${entries === "1" ? "ticket" : "tickets"} for $${price} <span aria-hidden="true">→</span></a>`
+          ? `<a class="cash-button" href="${config.checkoutUrl}" aria-describedby="zeffy-contribution-${entries}">Choose tickets on Zeffy <span class="sr-only">— $${price} for ${entries} ${entries === "1" ? "ticket" : "tickets"}</span><span aria-hidden="true">→</span></a><p class="cash-small cash-contribution" id="zeffy-contribution-${entries}">${zeffyContribution}</p>`
           : '<button class="cash-button" type="button" disabled>Sales closed</button>',
     )
     .replace(
-      "Buy raffle tickets <span",
-      `${open ? "Buy raffle tickets" : "View ticket packages"} <span`,
+      "Get Raffle Tickets <span",
+      `${open ? "Get Raffle Tickets" : "View ticket packages"} <span`,
     )
     .replace(
       "Choose your tickets <span",
@@ -131,6 +131,14 @@ export function applyRafflePromotion(
   const status = open
     ? "Tickets available now."
     : "View the packages, six-prize structure and drawing schedule. Ticket sales are currently closed.";
-  const feature = `<section class="editorial-section" aria-labelledby="weekend-raffle-title"><div class="editorial-shell"><p class="editorial-kicker">Support Kirtland Heritage Group</p><h2 id="weekend-raffle-title">NEO Chosen Cash Raffle</h2><p>Six cash prizes. One great cause. ${status}</p><p>A raffle entry is separate from event admission.</p><a class="event-text-link" href="/raffle/">Explore the cash raffle →</a></div></section>`;
-  return html.replace("</main>", feature + "</main>");
+  const home = route === "/";
+  const feature = `<section class="raffle-promotion${home ? " raffle-promotion--home" : ""}" aria-labelledby="weekend-raffle-title"><div class="raffle-promotion-shell"><div><p class="raffle-promotion-kicker">${home ? "NEO Chosen Cash Raffle" : "Support Kirtland Heritage Group"}</p><h2 id="weekend-raffle-title">${home ? "Six cash prizes. One great cause." : "NEO Chosen Cash Raffle"}</h2><p>${home ? "Enter the NEO Chosen Cash Raffle and support Kirtland Heritage Group’s community programs throughout Northeast Ohio. Every valid ticket purchased grows the prize pool." : "Six cash prizes. One great cause."}</p><p class="raffle-promotion-pricing">$20 for 1 ticket · $50 for 3 · $100 for 7</p><p>Six cash prizes total 40% of eligible raffle-ticket sales. Final prize amounts depend on eligible sales; no minimum dollar prize is guaranteed.</p><p>Drawing November 15 at 6 p.m. Eastern. Winners need not be present.</p>${home ? "" : "<p><strong>Raffle tickets are separate from event admission.</strong></p>"}</div><div class="raffle-promotion-actions"><p class="raffle-promotion-status">${status}</p><a class="raffle-promotion-button" href="/raffle/">Get Raffle Tickets <span aria-hidden="true">→</span></a><a class="raffle-promotion-rules" href="/raffle/rules/">Official Raffle Rules</a></div></div></section>`;
+  html = html.replace("</head>", '<link rel="stylesheet" href="/raffle-promotion.css" /></head>');
+  // The shared sponsor renderer runs first. Insert directly after its ribbon,
+  // before the overview/events; event placements follow registration details.
+  const marker = home ? '<section class="home-overview' : route === "/vip-dinner/" ? '<section class="editorial-section editorial-section--white vip-experience' : '<section class="editorial-section"><div class="editorial-shell"><p class="editorial-kicker">The venue';
+  if (!html.includes(marker)) throw new Error(`Raffle promotion placement missing on ${route}`);
+  return html.replace(marker, feature + marker);
 }
+
+export const zeffyContribution = "Zeffy may suggest an optional contribution to support its platform. You can change the amount or choose not to contribute. This contribution does not provide additional raffle entries and is excluded from the prize calculation.";

@@ -1,0 +1,24 @@
+[
+  {
+    "shape": "square",
+    "source_original_sha256": "cde813d494fac767c353294f0f39e388077e4fc89fa06d0424367abf746f292c",
+    "svg_sha256": "8ab5dee88a002893340914a1187f684064516156ca921645bd66b72f2177256c",
+    "png_sha256": "385aacbd7431c15090ab6dbd62f97193a63e7cfa9ed05ca07c3d39c772260813",
+    "webp_sha256": "260a397afbf7f5d37087120d7179c9c459756a897c0d108f1d65a30e9adc5a11",
+    "decoded_full_and_half_size": "https://neochosen.com/raffle/",
+    "text_bounds": "PASS",
+    "logos": "Existing embedded artwork preserved",
+    "live_sales_evidence": "2026-10-20 public Zeffy enabled Add controls"
+  },
+  {
+    "shape": "story",
+    "source_original_sha256": "58592e1f7ac48de5e0e1032cc54db86867c25b03e301db8fa5df9660a1807dc2",
+    "svg_sha256": "e7156e6d02702098578534c3d18dfa73ab2aef2e6602419f98d47120d65f5c5e",
+    "png_sha256": "b33fb9d8ba11bb62998d12c44bdd1882c703f5739eb9aabf4631c3949cb656e8",
+    "webp_sha256": "e77ede8d8736412967de314e50a25e8dcaf60656acf014b2226d26a3facb98c2",
+    "decoded_full_and_half_size": "https://neochosen.com/raffle/",
+    "text_bounds": "PASS",
+    "logos": "Existing embedded artwork preserved",
+    "live_sales_evidence": "2026-10-20 public Zeffy enabled Add controls"
+  }
+]

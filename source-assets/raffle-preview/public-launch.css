@@ -48,3 +48,7 @@
   .cash-preview-bar { flex-wrap:wrap; gap:8px; font-size:12px; padding-inline:24px; }
 }
 @media(prefers-reduced-motion:reduce) { .cash-launch-page { scroll-behavior:auto; } }
+
+.cash-hero-pricing { color:#edcd95; font-weight:700; font-size:18px; margin-top:26px; }
+.cash-hero-schedule { color:#fff8ec; font-size:14px; line-height:1.9; }
+.cash-launch-page .cash-ticket-card .cash-contribution { font-size:12px; line-height:1.7; margin:16px 0 0; }
