@@ -372,5 +372,25 @@
     "events": [],
     "background": "light",
     "confirmation": "Jessica Barber, October 20, 2026, Gmail 1a15a602f6ffbc38: participation and booklet inclusion confirmed. Official logos and mission supplied by Sandra Slater. Event assignment remains unconfirmed; event-neutral listing only."
+  },
+  {
+    "id": "frostop",
+    "name": "Frostop",
+    "logo": "/images/partners/frostop-logo.svg",
+    "tier": "community",
+    "events": [],
+    "background": "light",
+    "confirmation": "Joe Jackson, October 20, 2026, Gmail 1a159b5c0ca37714: website only, no booklet. Original vector wordmark extracted from supplied Frostop_Ad_QuarterPg_Oct2025_v1.pdf. Existing Community Partners listing; no paid tier, event assignment, or website URL confirmed."
+  },
+  {
+    "id": "squeaky-clean-neo",
+    "name": "Squeaky Clean NEO",
+    "logo": "/images/partners/squeaky-clean-neo-logo.webp",
+    "url": "https://squeakycleanneo.com/",
+    "linkIdentity": true,
+    "tier": "community",
+    "events": [],
+    "background": "light",
+    "confirmation": "Joe Jackson, October 19, 2026, Gmail 1a15567e0cc58aa9: add website logo. Complete circular logo cropped from Kim’s SCNEO_Quarter_Page_Ad_QR_300dpi.jpg. Website printed on supplied artwork and verified October 20. Existing Community Partners listing; no paid tier or event assignment inferred."
   }
 ]
