@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "campaign_id": "e2d45f03-d16e-4e0c-816b-464489fc4782",
+  "snapshot_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "tool_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "prize_percentages": [20, 6, 5, 4, 3, 2],
+  "drawing_at_utc": "2026-11-15T23:00:00+00:00",
+  "operator": "",
+  "official_use_approved": false,
+  "cutoff_verified": false,
+  "private_storage_approved": false,
+  "native_mapping_approved": false,
+  "identity_review_approved": false,
+  "accounting_approved": false,
+  "recovery_and_no_rerun_approved": false,
+  "signed_references": {
+    "organizer": "",
+    "legal_organizational": "",
+    "technical_reviewer": "",
+    "reconciliation_lead": "",
+    "independent_checker": "",
+    "operator": "",
+    "witness": ""
+  }
+}

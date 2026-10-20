@@ -1,0 +1,126 @@
+{
+  "rehearsal_only": true,
+  "official_draw_authorized": false,
+  "randomness": "Python secrets.randbelow: OS cryptographic randomness, rejection sampling",
+  "source_sha256": "e466948818380ef4ea2f9285f083a39d7098bba0ea75bd79019ec30300e121eb",
+  "snapshot_sha256": "18aac5fc782b51e7ec02113e096f544bb7836ccf0c01e2833de4321fbc91afff",
+  "excluded_ticket_ids": [
+    "VOID-1"
+  ],
+  "selections": [
+    {
+      "rank": 1,
+      "percentage": 20,
+      "pool_size": 23,
+      "pool_sha256": "90db8258240ea96583c752fdcb1d79c972a9fe2ca1db2af861cf14486877c829",
+      "selected_index": 22,
+      "ticket_id": "F-1",
+      "order_id": "F",
+      "person_id": "F",
+      "removed_ticket_ids": [
+        "F-1"
+      ],
+      "timestamp_utc": "2026-10-20T19:45:54.607447+00:00",
+      "previous_event_sha256": "18aac5fc782b51e7ec02113e096f544bb7836ccf0c01e2833de4321fbc91afff",
+      "event_sha256": "a473ac3ee6a1a83ba5db0a35b411f9825204da2615ccf5f1ae83558264105c83"
+    },
+    {
+      "rank": 2,
+      "percentage": 6,
+      "pool_size": 22,
+      "pool_sha256": "c842455e6f2e836b23ae1316293875517904559fb669ea92432902997fbdea3c",
+      "selected_index": 0,
+      "ticket_id": "A1-1",
+      "order_id": "A1",
+      "person_id": "A",
+      "removed_ticket_ids": [
+        "A1-1",
+        "A1-2",
+        "A1-3",
+        "A2-1",
+        "A2-2",
+        "A2-3",
+        "A2-4",
+        "A2-5",
+        "A2-6",
+        "A2-7"
+      ],
+      "timestamp_utc": "2026-10-20T19:45:54.607537+00:00",
+      "previous_event_sha256": "a473ac3ee6a1a83ba5db0a35b411f9825204da2615ccf5f1ae83558264105c83",
+      "event_sha256": "15af903300d0513cc712134b3590eedd1fea73c3a6f03ef1c8ab46c7c895f2bb"
+    },
+    {
+      "rank": 3,
+      "percentage": 5,
+      "pool_size": 12,
+      "pool_sha256": "804c8eb1aecaf77945760136bb25bf3880ad40089d623a8711ac17d2e01ffcdb",
+      "selected_index": 10,
+      "ticket_id": "D-7",
+      "order_id": "D",
+      "person_id": "D",
+      "removed_ticket_ids": [
+        "D-1",
+        "D-2",
+        "D-3",
+        "D-4",
+        "D-5",
+        "D-6",
+        "D-7"
+      ],
+      "timestamp_utc": "2026-10-20T19:45:54.607581+00:00",
+      "previous_event_sha256": "15af903300d0513cc712134b3590eedd1fea73c3a6f03ef1c8ab46c7c895f2bb",
+      "event_sha256": "82a17bb22278ba8bd9c7bbe9d33c13987edecc6822bdb0d6ee7e71348f63b74e"
+    },
+    {
+      "rank": 4,
+      "percentage": 4,
+      "pool_size": 5,
+      "pool_sha256": "2a1fd67c490f03b5eae40f523466329f7af8fc7e2d957022e351f444f8254e44",
+      "selected_index": 2,
+      "ticket_id": "C-2",
+      "order_id": "C",
+      "person_id": "C",
+      "removed_ticket_ids": [
+        "C-1",
+        "C-2",
+        "C-3"
+      ],
+      "timestamp_utc": "2026-10-20T19:45:54.607609+00:00",
+      "previous_event_sha256": "82a17bb22278ba8bd9c7bbe9d33c13987edecc6822bdb0d6ee7e71348f63b74e",
+      "event_sha256": "f3fcfb27e5f5b0ac9bfd6feba428edec1037019bc79e260ad693a36219ac0336"
+    },
+    {
+      "rank": 5,
+      "percentage": 3,
+      "pool_size": 2,
+      "pool_sha256": "41959fb5eb481dcff9a0dc91435a8fae84df211f253cb2711afac5a05c68df83",
+      "selected_index": 0,
+      "ticket_id": "B-1",
+      "order_id": "B",
+      "person_id": "B",
+      "removed_ticket_ids": [
+        "B-1"
+      ],
+      "timestamp_utc": "2026-10-20T19:45:54.607631+00:00",
+      "previous_event_sha256": "f3fcfb27e5f5b0ac9bfd6feba428edec1037019bc79e260ad693a36219ac0336",
+      "event_sha256": "d01648f1dfe5ea557cb63ef8344bc4b20d40f83ae45a94bb3445be7ed89657ca"
+    },
+    {
+      "rank": 6,
+      "percentage": 2,
+      "pool_size": 1,
+      "pool_sha256": "942efb971cbd0223694c5a6154fb9c1f095845085dc4422479d7736633f0b352",
+      "selected_index": 0,
+      "ticket_id": "E-1",
+      "order_id": "E",
+      "person_id": "E",
+      "removed_ticket_ids": [
+        "E-1"
+      ],
+      "timestamp_utc": "2026-10-20T19:45:54.607650+00:00",
+      "previous_event_sha256": "d01648f1dfe5ea557cb63ef8344bc4b20d40f83ae45a94bb3445be7ed89657ca",
+      "event_sha256": "889ecb22fe645842cb7066b597d98263d01a4fb334cddef9897eac8c19c714f4"
+    }
+  ],
+  "final_event_sha256": "889ecb22fe645842cb7066b597d98263d01a4fb334cddef9897eac8c19c714f4"
+}

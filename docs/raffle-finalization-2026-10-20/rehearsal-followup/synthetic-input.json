@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "campaign_id": "SYNTHETIC-NO-PRIZES",
+  "synthetic": true,
+  "source_sha256": "e466948818380ef4ea2f9285f083a39d7098bba0ea75bd79019ec30300e121eb",
+  "reviewed_by": "SYNTHETIC TEST",
+  "review_reference": "Fictional fixture; no real people or orders",
+  "complete_export_reviewed": true,
+  "identity_reconciliation_approved": true,
+  "statuses_reviewed": true,
+  "tickets": [
+    {
+      "ticket_id": "A1-1",
+      "order_id": "A1",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "A1-2",
+      "order_id": "A1",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "A1-3",
+      "order_id": "A1",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "A2-1",
+      "order_id": "A2",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "A2-2",
+      "order_id": "A2",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "A2-3",
+      "order_id": "A2",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "A2-4",
+      "order_id": "A2",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "A2-5",
+      "order_id": "A2",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "A2-6",
+      "order_id": "A2",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "A2-7",
+      "order_id": "A2",
+      "person_id": "A",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "B-1",
+      "order_id": "B",
+      "person_id": "B",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "C-1",
+      "order_id": "C",
+      "person_id": "C",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "C-2",
+      "order_id": "C",
+      "person_id": "C",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "C-3",
+      "order_id": "C",
+      "person_id": "C",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "D-1",
+      "order_id": "D",
+      "person_id": "D",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "D-2",
+      "order_id": "D",
+      "person_id": "D",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "D-3",
+      "order_id": "D",
+      "person_id": "D",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "D-4",
+      "order_id": "D",
+      "person_id": "D",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "D-5",
+      "order_id": "D",
+      "person_id": "D",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "D-6",
+      "order_id": "D",
+      "person_id": "D",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "D-7",
+      "order_id": "D",
+      "person_id": "D",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "E-1",
+      "order_id": "E",
+      "person_id": "E",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "F-1",
+      "order_id": "F",
+      "person_id": "F",
+      "status": "active",
+      "identity_status": "verified"
+    },
+    {
+      "ticket_id": "VOID-1",
+      "order_id": "VOID",
+      "person_id": "VOID",
+      "status": "refunded",
+      "identity_status": "verified"
+    }
+  ]
+}

@@ -6,12 +6,16 @@ Zeffy has no native winner-selection tool. Its [current drawing instructions](ht
 
 ## Candidate and rehearsal
 
-`scripts/raffle_electronic.py` is a small offline, standard-library candidate. `validate` accepts reviewed normalized JSON; `rehearse` generates only fictional records. There is deliberately no official-draw command. Code review and separately documented operator authorization must precede implementation of any real selection entry point. Changing a campaign label to bypass the rehearsal guard is not authorization.
+`scripts/raffle_electronic.py` is a small offline, standard-library candidate. `validate` accepts reviewed normalized JSON; `rehearse` generates only fictional records. Follow-up work prepared a guarded `draw-approved` command for independent review, with read-only `check-approval` and `verify-official` commands. Independent code review and separately documented operator authorization must precede any real use. Changing a campaign label to bypass the rehearsal guard is not authorization.
+
+October 20 follow-up adds source integrity checks, approval-bound official selection with durable per-event logging and accidental-repeat protection in the designated custody folder, and read-only audit verification. See the [exact human handoff, official command procedure and blank signoff form](raffle-finalization-2026-10-20/HANDOFF.md) and [technical review](raffle-finalization-2026-10-20/drawing-code-review.md). The expanded suite passes 25 tests; official-path tests use fictional records/approvals and a mocked future clock only. These additions do not authorize official use.
 
 ```powershell
 python -m unittest discover -s tests -p test_raffle_electronic.py -v
 python scripts/raffle_electronic.py rehearse --output '<new local rehearsal folder>'
 python scripts/raffle_electronic.py validate '<restricted reviewed snapshot.json>'
+python scripts/raffle_electronic.py preflight '<restricted reviewed snapshot.json>' --source '<unchanged native source or manifest>' --campaign e2d45f03-d16e-4e0c-816b-464489fc4782
+python scripts/raffle_electronic.py verify-rehearsal '<synthetic-input.json>' '<audit.json>'
 ```
 
 The saved [rehearsal](raffle-finalization-2026-10-20/rehearsal/audit.json) used 23 active fictional tickets for six people, including a three-ticket order and a seven-ticket order for the same person, plus a refunded ticket excluded from the pool. Six distinct people were selected. The deterministic unit test forces that ten-ticket person to win first and verifies that the next pool contains 13 tickets. It also checks the 1/3/7 weights, all excluded statuses, duplicate ticket identifiers, missing identifiers, uncertain identities, order conflicts, empty/malformed input, fewer than six people, exhaustion prevention, file errors, immutable input, output overwrite refusal, cryptographic randomness calls and the audit chain. All 11 tests passed.
@@ -29,6 +33,8 @@ Cryptographic selection cannot be reproduced from a seed; the logged index, immu
 5. Never put names, emails, addresses, native e-ticket access URLs or purchaser exports into Git. The normalized drawing data should use minimal private IDs. Ticket ownership and winner verification remain restricted human tasks. Reviewer attestations are not automated identity verification.
 
 Normalized envelope: `schema_version: 1`, `campaign_id`, `source_sha256` (original native source hash; if multiple originals, hash an immutable source-manifest file), `reviewed_by`, `review_reference` (restricted signed reconciliation record), and literal `true` values for `complete_export_reviewed`, `identity_reconciliation_approved`, `statuses_reviewed`. `tickets` is a nonempty array of `{ticket_id, order_id, person_id, status, identity_status}`. Ticket IDs are exact provider strings; preserve leading zeros. Status is `active`, `canceled`, `voided`, `refunded`, `invalid` or `ineligible`. Identity status is `verified` or `pending`. Reject every unmapped value. The validator does not verify the source file itself, authenticate reviewer identity, calculate monetary eligibility, or convert Zeffy exports automatically: those remain documented human reconciliation gates. The synthetic fixture demonstrates the JSON format without private data.
+
+Use `preflight`, rather than `validate` alone, to additionally compare the actual original file's bytes against `source_sha256`, bind the expected campaign ID and require six eligible people. For a source manifest it verifies only the manifest bytes; reviewers must recheck every listed original file separately. It does not inspect native spreadsheet contents or authenticate the human review. `verify-rehearsal` deterministically checks the synthetic transcript's transitions and hashes without selecting any new winners. It does not prove randomness, source truth or independent custody.
 
 ## Mandatory signed authorization before the official drawing
 
