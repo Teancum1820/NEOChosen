@@ -346,5 +346,31 @@
     "events": [],
     "background": "light",
     "confirmation": "Joe Jackson, October 13, 2026, Gmail 1a135f7aea45fcf1. Approved embedded image in Jessica forward 1a135d58f893ebbc; original URL https://680418.17hats.com/perl/client/account/0/logo/1. No confirmed website link."
+  },
+  {
+    "id": "honey-from-the-rock",
+    "name": "Honey from the Rock — The Cleveland Foster Care Closet",
+    "logo": "/images/partners/honey-from-the-rock.svg",
+    "url": "https://www.clevelandfostercarecloset.com/",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "events": [
+      "lakewood"
+    ],
+    "background": "light",
+    "confirmation": "Jessica Barber, October 19, 2026, Gmail 1a154e6002f8510a: fifth Lakewood nonprofit partner. Official PNG/SVG supplied by Kathy DiVincenzo."
+  },
+  {
+    "id": "project-hope-for-the-homeless",
+    "name": "Project Hope for the Homeless",
+    "logo": "/images/partners/project-hope-for-the-homeless.png",
+    "url": "https://projecthopeforthehomeless.org/",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "events": [],
+    "background": "light",
+    "confirmation": "Jessica Barber, October 20, 2026, Gmail 1a15a602f6ffbc38: participation and booklet inclusion confirmed. Official logos and mission supplied by Sandra Slater. Event assignment remains unconfirmed; event-neutral listing only."
   }
 ]
