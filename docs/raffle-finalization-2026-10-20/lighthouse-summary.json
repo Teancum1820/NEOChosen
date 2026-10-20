@@ -1,0 +1,46 @@
+[
+  {
+    "route": "",
+    "scores": {
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp_ms": 2288.304,
+    "cls": 0
+  },
+  {
+    "route": "sponsors/",
+    "scores": {
+      "performance": 94,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp_ms": 2114.847625,
+    "cls": 0.1245682484563295
+  },
+  {
+    "route": "chesterland/",
+    "scores": {
+      "performance": 97,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp_ms": 2565.1416,
+    "cls": 0.003801443348213264
+  },
+  {
+    "route": "raffle/",
+    "scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp_ms": 1519.0746,
+    "cls": 0.04923357567754678
+  }
+]

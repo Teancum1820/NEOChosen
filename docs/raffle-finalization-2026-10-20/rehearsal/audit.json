@@ -1,0 +1,126 @@
+{
+  "rehearsal_only": true,
+  "official_draw_authorized": false,
+  "randomness": "Python secrets.randbelow: OS cryptographic randomness, rejection sampling",
+  "source_sha256": "e466948818380ef4ea2f9285f083a39d7098bba0ea75bd79019ec30300e121eb",
+  "snapshot_sha256": "18aac5fc782b51e7ec02113e096f544bb7836ccf0c01e2833de4321fbc91afff",
+  "excluded_ticket_ids": [
+    "VOID-1"
+  ],
+  "selections": [
+    {
+      "rank": 1,
+      "percentage": 20,
+      "pool_size": 23,
+      "pool_sha256": "90db8258240ea96583c752fdcb1d79c972a9fe2ca1db2af861cf14486877c829",
+      "selected_index": 15,
+      "ticket_id": "D-2",
+      "order_id": "D",
+      "person_id": "D",
+      "removed_ticket_ids": [
+        "D-1",
+        "D-2",
+        "D-3",
+        "D-4",
+        "D-5",
+        "D-6",
+        "D-7"
+      ],
+      "timestamp_utc": "2026-10-20T19:05:28.616688+00:00",
+      "previous_event_sha256": "18aac5fc782b51e7ec02113e096f544bb7836ccf0c01e2833de4321fbc91afff",
+      "event_sha256": "7a94f6aba0a09e6e919068723a7811a042e9769a426c77ccdad52c93998769bc"
+    },
+    {
+      "rank": 2,
+      "percentage": 6,
+      "pool_size": 16,
+      "pool_sha256": "dd63814f6a3581ea32b283d941ee07d83dc838e513c73caa531c793ccf5631ff",
+      "selected_index": 8,
+      "ticket_id": "A2-6",
+      "order_id": "A2",
+      "person_id": "A",
+      "removed_ticket_ids": [
+        "A1-1",
+        "A1-2",
+        "A1-3",
+        "A2-1",
+        "A2-2",
+        "A2-3",
+        "A2-4",
+        "A2-5",
+        "A2-6",
+        "A2-7"
+      ],
+      "timestamp_utc": "2026-10-20T19:05:28.616757+00:00",
+      "previous_event_sha256": "7a94f6aba0a09e6e919068723a7811a042e9769a426c77ccdad52c93998769bc",
+      "event_sha256": "ef3d7ca169a62799cb52403dfea7c67e0da53cbb427af1d9b306974c6f86e600"
+    },
+    {
+      "rank": 3,
+      "percentage": 5,
+      "pool_size": 6,
+      "pool_sha256": "5eaa6e0064455233bb57c9e19d0d1e25f0dc2697cf1cb2a8a15acdb56f91ce2e",
+      "selected_index": 3,
+      "ticket_id": "C-3",
+      "order_id": "C",
+      "person_id": "C",
+      "removed_ticket_ids": [
+        "C-1",
+        "C-2",
+        "C-3"
+      ],
+      "timestamp_utc": "2026-10-20T19:05:28.616793+00:00",
+      "previous_event_sha256": "ef3d7ca169a62799cb52403dfea7c67e0da53cbb427af1d9b306974c6f86e600",
+      "event_sha256": "7f6b8d0304458058eb079da3bf0b9b0fde8c2d38d3b2cd26eb0054d21e3870d5"
+    },
+    {
+      "rank": 4,
+      "percentage": 4,
+      "pool_size": 3,
+      "pool_sha256": "c955c2406f958cda29457dc713561819876a175ea92ecf0beeda00d932ebffbf",
+      "selected_index": 1,
+      "ticket_id": "E-1",
+      "order_id": "E",
+      "person_id": "E",
+      "removed_ticket_ids": [
+        "E-1"
+      ],
+      "timestamp_utc": "2026-10-20T19:05:28.616819+00:00",
+      "previous_event_sha256": "7f6b8d0304458058eb079da3bf0b9b0fde8c2d38d3b2cd26eb0054d21e3870d5",
+      "event_sha256": "7d04988f6ae0bb529b259dcaa180a6621190b4d3ee910cc37f15e241481a5d8a"
+    },
+    {
+      "rank": 5,
+      "percentage": 3,
+      "pool_size": 2,
+      "pool_sha256": "b47a3380ea2e291021ede3d6c5a93f5d90e187612f623d1f18cccfcda1cb51c2",
+      "selected_index": 1,
+      "ticket_id": "F-1",
+      "order_id": "F",
+      "person_id": "F",
+      "removed_ticket_ids": [
+        "F-1"
+      ],
+      "timestamp_utc": "2026-10-20T19:05:28.616841+00:00",
+      "previous_event_sha256": "7d04988f6ae0bb529b259dcaa180a6621190b4d3ee910cc37f15e241481a5d8a",
+      "event_sha256": "639a20f46b1cae7951c19a9e4a312f6aff64a05978286ac04092d6194760e191"
+    },
+    {
+      "rank": 6,
+      "percentage": 2,
+      "pool_size": 1,
+      "pool_sha256": "91ac87ee35b930dc3827d4e8e2e622259d6695da018b18437179f7b21a8e1e51",
+      "selected_index": 0,
+      "ticket_id": "B-1",
+      "order_id": "B",
+      "person_id": "B",
+      "removed_ticket_ids": [
+        "B-1"
+      ],
+      "timestamp_utc": "2026-10-20T19:05:28.616867+00:00",
+      "previous_event_sha256": "639a20f46b1cae7951c19a9e4a312f6aff64a05978286ac04092d6194760e191",
+      "event_sha256": "d367c6a51f3fb100c8cc430404e7e5888697d716d38ffe7e0d4ef3d7a08776e2"
+    }
+  ],
+  "final_event_sha256": "d367c6a51f3fb100c8cc430404e7e5888697d716d38ffe7e0d4ef3d7a08776e2"
+}

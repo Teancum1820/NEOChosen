@@ -18,6 +18,10 @@ for (const marker of [
   assert(!landing.includes(marker), `Preview control leaked: ${marker}`);
 }
 assert(landing.includes('href="/raffle/rules/"'));
+assert(!/physical drawing stub|matching physical|physical stubs/i.test(landing + rules));
+assert.equal((landing.match(/Choose tickets on Zeffy/g) || []).length, 3);
+assert.equal((landing.match(/Zeffy may suggest an optional contribution/g) || []).length, 3);
+assert(landing.includes("Electronic drawing November 15, 2026, at 6 p.m. Eastern."));
 assert(rules.includes("99-1301074"));
 assert(rules.includes("U.S. resident"));
 assert(!redirects.includes("/raffle/rules/ /raffle/"));
@@ -129,6 +133,16 @@ for (const page of [
     page + ": raffle feature missing",
   );
   if (!open) assert(!html.includes("Tickets available now."));
+  assert(html.includes("$20 for 1 ticket · $50 for 3 · $100 for 7"));
+  if (page) {
+    assert(html.includes("Raffle tickets are separate from event admission."));
+    const following = page === "vip-dinner" ? 'class="editorial-section editorial-section--white vip-experience' : '>The venue<';
+    assert(html.indexOf('id="weekend-raffle-title"') < html.indexOf(following));
+  } else {
+    assert(html.includes("Enter the NEO Chosen Cash Raffle and support Kirtland Heritage Group’s community programs throughout Northeast Ohio. Every valid ticket purchased grows the prize pool."));
+    assert(html.indexOf('class="home-sponsor-ribbon') < html.indexOf('id="weekend-raffle-title"'));
+    assert(html.indexOf('id="weekend-raffle-title"') < html.indexOf('class="home-overview'));
+  }
 }
 console.log(
   `Validated raffle information, rules, six promotion placements, navigation on ${pageCount} pages and ${open ? "approved open" : "held (no checkout)"} sales controls.`,
