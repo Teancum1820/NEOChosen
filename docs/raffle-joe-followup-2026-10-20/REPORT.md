@@ -22,11 +22,11 @@ The 6:01 display is **not fixed**. Existing public date hiding and correct custo
 
 ## Testing and limits
 
-Static build/release/link checks, lint, typecheck, formatting and the 25 synthetic drawing tests passed. Browser functional coverage includes 36 existing cases plus three new 320/390/1440 cases for opening-screen promotion, actual navigation, unobscured mobile package heading, all three compact cards, early event links and valid PNG downloads. Four established visual comparisons passed without baseline changes. Final accessibility, Lighthouse, CI and deployment evidence are recorded below once complete.
+Static build/release/link checks, lint, typecheck, formatting and the 25 synthetic drawing tests passed. Browser functional coverage includes 36 existing cases plus three new 320/390/1440 cases for opening-screen promotion, actual navigation, unobscured mobile package heading, all three compact cards, early event links and valid PNG downloads. All 32 accessibility checks and four established visual comparisons passed without baseline changes. Storybook built successfully. Lighthouse assertions passed on all three configured routes; local performance scores were 98 homepage, 94 sponsors and 97 Chesterland, with accessibility/best practices/SEO 100 on each. These are local lab results, not field performance guarantees.
 
 Live Zeffy no-payment checks selected one of each package and confirmed $20 + $50 + $100 = $170. The suggested contribution was $25.50; choosing Other and entering 0 produced USD 170.00. The individual purchaser eligibility attestations remain; Zeffy's native corporate/organization checkbox is still present and does not override the published individual-only rules. No eligibility checkboxes, payment methods or payment button were submitted. Mobile checkout had viewport/scroll width 390/390. Screenshots contain no purchaser records.
 
-The production Payments tab showed “You have no payments”; Ticket list showed “You have no guests”. There is therefore no legitimate production order available for ticket-count, unique-number, actual delivered confirmation/link or refund verification. Prior separate free 1/3/7-ticket tests and the native production email fixture remain historical evidence, not proof of a paid production order.
+The production Payments tab showed “You have no payments”; Ticket list showed “You have no guests”. There is therefore no legitimate production order available for ticket-count, unique-number, actual delivered confirmation/link or refund verification. Prior separate free 1/3/7-ticket tests and the native production email fixture remain historical evidence, not proof of a paid production order. After saving the branded banner, the saved Date panel was re-opened read-only and still showed the hidden November 15 date, 6:00 PM start, required 6:01 PM end marker, and explicit 5:00 PM sales close.
 
 No paid purchases, refunds, cancellations, live eligible test entries, official drawing, prize payments or messages to Joe were made.
 
@@ -46,4 +46,10 @@ Detailed existing operating procedure and private signoff template: [HANDOFF.md]
 
 ## Release evidence
 
-To be completed after the final checks and live deployment. Previous production version for rollback: `63daf98b-e0e5-4f35-85b6-400fa08af99d`.
+- Application changes: [PR 113](https://github.com/Teancum1820/NEOChosen/pull/113), tested source commit `c048603`.
+- GitHub [Frontend QA](https://github.com/Teancum1820/NEOChosen/actions/runs/39497221493) completed successfully, including functional/accessibility/visual checks, responsive screenshots and Lighthouse. Cloudflare Workers Builds check passed.
+- Published through the existing `neochosen` Worker with unchanged config/bindings. Manual release version: `6208d6c3-7fda-4695-98e3-8a9d797d6bce`. Previous version for rollback: `63daf98b-e0e5-4f35-85b6-400fa08af99d`.
+- [production-verification.json](production-verification.json): all 14 checked production pages/assets returned HTTP 200 and matched the tested build's SHA256 bytes, including official rules, all five event pages, styles and both PNGs.
+- Live desktop/mobile screenshots are in `screenshots/`: opening homepage, actual raffle navigation, compact packages, branded Zeffy artwork, media-kit downloads, early event link and support confirmation.
+- [joe-reply.html](joe-reply.html) is the saved text of the actual Gmail reply draft. Gmail read-back confirmed DRAFT status, correct recipient/thread/reply reference, 11 JPEG screenshot attachments and explicit unresolved 6:01 wording. Nothing was sent to Joe.
+- A local accessibility run was interrupted by another local rebuild; its complete stable-build rerun passed 32/32. The initial new download tests had an ambiguous selector matching both preview and download links; selecting the actual download control fixed the tests, and all three reran successfully. The independent GitHub run then passed the complete final suite.

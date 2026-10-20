@@ -1,0 +1,90 @@
+{
+  "verifiedAt": "2026-10-20T21:05:10.501Z",
+  "workerVersion": "6208d6c3-7fda-4695-98e3-8a9d797d6bce",
+  "paths": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "45d38815466289ebdf68aaebd7a77b730612c7f1d175589679e7941b20571444",
+      "matchesBuild": true
+    },
+    {
+      "path": "/raffle/",
+      "status": 200,
+      "sha256": "a8e10fada3c0780371a6a15378d9975ebdd71ffa40329799896520ad57033f79",
+      "matchesBuild": true
+    },
+    {
+      "path": "/raffle/rules/",
+      "status": 200,
+      "sha256": "276189e482113aab27abc3fc7cb43f9ef629d9054fcd8174a020da23bd9b3d00",
+      "matchesBuild": true
+    },
+    {
+      "path": "/vip-dinner/",
+      "status": 200,
+      "sha256": "fd053c621f16ab719e3ad726bba333b5b6c4eac525ca34e9a6c3e1deafb7637d",
+      "matchesBuild": true
+    },
+    {
+      "path": "/lakewood/",
+      "status": 200,
+      "sha256": "13b4ab785a7c82383e6a342013ca5285882c906fcc97af1694208777dff59c3b",
+      "matchesBuild": true
+    },
+    {
+      "path": "/piano-guys/",
+      "status": 200,
+      "sha256": "be07ee1ad989499b4c1a08349424b13767af27225e8d0736c9d6e9a069f3f4ce",
+      "matchesBuild": true
+    },
+    {
+      "path": "/fairlawn/",
+      "status": 200,
+      "sha256": "ae30f7fe1d9fe113b89626ef2c237181cf53e61187ebbf83946d0014ce5e00e9",
+      "matchesBuild": true
+    },
+    {
+      "path": "/chesterland/",
+      "status": 200,
+      "sha256": "dce8b93948ef6daafbd304e534096b83ddfcea9907087f33cba152e5ffba77a0",
+      "matchesBuild": true
+    },
+    {
+      "path": "/media-kit/",
+      "status": 200,
+      "sha256": "7e2f2ffc494f90f875855a7cc45c99c0f75accd360a1e319b1c644d8c3ed2574",
+      "matchesBuild": true
+    },
+    {
+      "path": "/raffle-promotion.css",
+      "status": 200,
+      "sha256": "d01dcb4a25dbe0f183284a57730e42afa95c5396c56066ed52eb814c923a6544",
+      "matchesBuild": true
+    },
+    {
+      "path": "/raffle/public-launch.css",
+      "status": 200,
+      "sha256": "93ae17cd4da0e89126b2373161676c83b79a1ff786968f88b1b93d117a129c7c",
+      "matchesBuild": true
+    },
+    {
+      "path": "/media-kit/media-kit.css",
+      "status": 200,
+      "sha256": "d40c6859300efa518735fc7ab5b5bb9ad1011e63c84381657187e46fc68cd63d",
+      "matchesBuild": true
+    },
+    {
+      "path": "/media-kit/neo-chosen-raffle-square.png",
+      "status": 200,
+      "sha256": "385aacbd7431c15090ab6dbd62f97193a63e7cfa9ed05ca07c3d39c772260813",
+      "matchesBuild": true
+    },
+    {
+      "path": "/media-kit/neo-chosen-raffle-story.png",
+      "status": 200,
+      "sha256": "b33fb9d8ba11bb62998d12c44bdd1882c703f5739eb9aabf4631c3949cb656e8",
+      "matchesBuild": true
+    }
+  ]
+}
