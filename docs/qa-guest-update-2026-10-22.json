@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-22",
+  "failed_run": "https://github.com/Teancum1820/NEOChosen/actions/runs/39831778832",
+  "cause": "Desktop and mobile hero snapshots still contained Vanessa's retired portrait. After correcting those references, the desktop test also exposed an older footer snapshot using Raffle Info instead of the existing Cash Raffle link.",
+  "review": "Image diffs were inspected before updating references. Hero differences are confined to the approved replacement portrait. Footer wording matches the existing main-branch navigation; no production footer change is introduced.",
+  "updated_snapshots": ["hero.png", "mobile-hero.png", "footer.png"],
+  "comparison_rules_changed": false,
+  "authorization": "Caleb requested fixing QA and publishing both website updates on October 22.",
+  "remaining_separate_work": "Reissue downloadable flyers, schedule posters, social and TV graphics, and the original press-release PDF; check third-party registrations."
+}
