@@ -87,32 +87,6 @@
       }
     ]
   },
-  "vanessa-benavente": {
-    "width": 1000,
-    "height": 1340,
-    "variants": [
-      {
-        "width": 160,
-        "webp": "/images/performers/vanessa-benavente-160.webp",
-        "avif": "/images/performers/vanessa-benavente-160.avif"
-      },
-      {
-        "width": 320,
-        "webp": "/images/performers/vanessa-benavente-320.webp",
-        "avif": "/images/performers/vanessa-benavente-320.avif"
-      },
-      {
-        "width": 480,
-        "webp": "/images/performers/vanessa-benavente-480.webp",
-        "avif": "/images/performers/vanessa-benavente-480.avif"
-      },
-      {
-        "width": 720,
-        "webp": "/images/performers/vanessa-benavente-720.webp",
-        "avif": "/images/performers/vanessa-benavente-720.avif"
-      }
-    ]
-  },
   "yasmine-al-bustami": {
     "width": 1000,
     "height": 1500,
@@ -136,6 +110,32 @@
         "width": 720,
         "webp": "/images/performers/yasmine-al-bustami-720.webp",
         "avif": "/images/performers/yasmine-al-bustami-720.avif"
+      }
+    ]
+  },
+  "zhaleh-vossough": {
+    "width": 3808,
+    "height": 5457,
+    "variants": [
+      {
+        "width": 160,
+        "webp": "/images/performers/zhaleh-vossough-160.webp",
+        "avif": "/images/performers/zhaleh-vossough-160.avif"
+      },
+      {
+        "width": 320,
+        "webp": "/images/performers/zhaleh-vossough-320.webp",
+        "avif": "/images/performers/zhaleh-vossough-320.avif"
+      },
+      {
+        "width": 480,
+        "webp": "/images/performers/zhaleh-vossough-480.webp",
+        "avif": "/images/performers/zhaleh-vossough-480.avif"
+      },
+      {
+        "width": 720,
+        "webp": "/images/performers/zhaleh-vossough-720.webp",
+        "avif": "/images/performers/zhaleh-vossough-720.avif"
       }
     ]
   }

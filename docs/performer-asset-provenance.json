@@ -21,12 +21,19 @@
     "id": "vanessa-benavente",
     "file": "source-assets/performers/vanessa-benavente.png",
     "sourceSHA256": "f7b146ccd882f052b276386cc6bad604c42bf7c2d131b8e36610d257790d666a",
-    "origin": "Exact image bytes from approved Figma Concept A image asset d2728.png."
+    "origin": "Exact image bytes from approved Figma Concept A image asset d2728.png.",
+    "status": "Historical asset; removed from current roster after Joe call October 22, 2026"
   },
   {
     "id": "yasmine-al-bustami",
     "file": "source-assets/performers/yasmine-al-bustami.png",
     "sourceSHA256": "677e35fd6ceace8876bcf28b034c2599ae492ef20a8dda8a2156171c991e9e5a",
     "origin": "Exact image bytes from approved Figma Concept A image asset bf6cb.png."
+  },
+  {
+    "id": "zhaleh-vossough",
+    "file": "source-assets/performers/zhaleh-vossough.jpg",
+    "sourceSHA256": "9d70605b5a34c037132ea64048b961c683fad544577d17177369dec8590077a2",
+    "origin": "Official artist website https://www.heyzhaleh.com/; source URL and review holds in docs/joe-call-2026-10-22.json"
   }
 ]

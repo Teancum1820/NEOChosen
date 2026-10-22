@@ -1,0 +1,37 @@
+{
+  "status": "Draft for review; not deployed",
+  "source": "Caleb's October 22 notes from his call with Joe",
+  "guest_change": {
+    "outgoing": "Vanessa Benavente (Mother Mary)",
+    "incoming": "Zhaleh Vossough (Veronica)",
+    "scope": ["Homepage hero", "Homepage cast cards", "Lakewood, Fairlawn and Chesterland event photo grids", "VIP dinner guest photo grid", "Online press-release guest list"],
+    "dates": "Existing event dates preserved"
+  },
+  "partner_change": "Akron Snow Angels removed from current sponsor data and generated recognition",
+  "portrait_source": {
+    "page": "https://www.heyzhaleh.com/",
+    "image": "https://static.wixstatic.com/media/9b94bd_88b38fbd2de04f6894c3f8081d258a50~mv2.jpg",
+    "file": "source-assets/performers/zhaleh-vossough.jpg",
+    "notes": "Official artist website portrait; use and appearance require review. Delivery files only resize and encode the original; no face alteration."
+  },
+  "release_holds": [
+    "Reissue downloadable event flyers, schedule posters, social graphics and the press-release PDF with the new guest lineup.",
+    "Check third-party registration and ticket pages for outdated guest claims.",
+    "Review portrait selection and event grid appearance before production release."
+  ],
+  "next_work": [
+    "Advanced Care premium ad redesign using Barons Bus ad as reference",
+    "New program cover concept",
+    "Update existing KHG Lamb of God and Heritage Days pages",
+    "Confirm Heritage Days guest names from source material before announcing them",
+    "Improve Heritage Days photos and build page 19 photo content",
+    "Find original Rogish Farm ad",
+    "Donation and event-idea calls to action",
+    "Christmas in Kirtland ad featuring 5–6 events"
+  ],
+  "validation": {
+    "npm_test": "Passed",
+    "functional_browser_tests": "39 passed",
+    "roster_and_portrait_checks": "Eight desktop/mobile page checks passed with no horizontal overflow or legacy photo grids"
+  }
+}

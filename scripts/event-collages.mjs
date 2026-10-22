@@ -1,16 +1,15 @@
-import { readFile } from 'node:fs/promises';
-import { renderImage } from '../design-system/image.mjs';
+import { performers, renderPhoto } from './performer-images.mjs';
 
-const manifest = JSON.parse(await readFile(new URL('../images/collages/manifest.json', import.meta.url), 'utf8'));
-const names = {lakewood:'chosen-cast',fairlawn:'chosen-and-piano-guys',chesterland:'chosen-and-piano-guys'};
-
+// Assemble the current roster from source photographs to avoid stale guests
+// in event artwork after a lineup change.
 export function eventCollage(slug) {
-  const collage = manifest[names[slug]];
-  if (!collage) return null;
-  const fallback = collage.variants.find(image => image.width >= 800) || collage.variants.at(-1);
-  return {...collage,src:fallback.src,alt:slug === 'lakewood' ? 'Collage of Noah James, Shaan Sharma, Vanessa Benavente and Yasmine Al-Bustami' : 'Collage of The Piano Guys with Noah James, Shaan Sharma, Vanessa Benavente and Yasmine Al-Bustami'};
+  if (!['lakewood', 'fairlawn', 'chesterland', 'vip-dinner'].includes(slug)) return null;
+  return { includePiano: slug !== 'lakewood' };
 }
 
-export function renderEventCollage(collage) {
-  return renderImage({src:collage.src,alt:collage.alt,width:collage.width,height:collage.height,srcSet:collage.variants,sizes:'(max-width:800px) min(100vw, 460px), 53vw',priority:true});
+export function renderEventCollage({ includePiano }, { priority = true } = {}) {
+  const sizes = '(max-width:800px) 45vw, 25vw';
+  const cast = performers.map(person => `<div class="event-cast-photo" data-cast-member="${person.id}">${renderPhoto(person.id, { alt: `${person.name} (${person.role})`, sizes, eager: true, position: 'center 20%' })}</div>`).join('');
+  const piano = includePiano ? `<div class="event-cast-photo event-cast-piano">${renderPhoto('piano-guys', { alt: 'The Piano Guys standing together with a cello', sizes: '(max-width:800px) 90vw, 50vw', priority, position: 'center 30%' })}</div>` : '';
+  return `<div class="event-cast-grid${includePiano ? ' event-cast-grid--with-piano' : ''}">${piano}${cast}</div>`;
 }
