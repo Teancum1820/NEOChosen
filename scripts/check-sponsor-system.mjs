@@ -50,19 +50,11 @@ for (const document of [akron, fairlawn, vip, chesterland, thanks]) {
 for (const document of [akron, vip, chesterland, thanks]) {
   assert.doesNotMatch(document, /event-community-sponsors-heading/);
 }
-const snowAngels = byId('akron-snow-angels');
-assert.equal(snowAngels.tier, 'community');
-assert.deepEqual(snowAngels.events, ['fairlawn']);
-assert.equal(snowAngels.url, 'https://akronsnowangels.com/');
-for (const document of [home, directory, fairlawn]) {
-  assert.equal([...document.matchAll(/data-sponsor="akron-snow-angels"/g)].length, 1);
-  assert.match(document, /href="https:\/\/akronsnowangels\.com\/"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
-  assert.match(document, /src="\/images\/partners\/akron-snow-angels\.png"/);
-  assert.ok(document.indexOf('Community Partners') < document.indexOf('data-sponsor="akron-snow-angels"'));
-}
-assert.ok(fairlawn.indexOf('data-sponsor="advanced-care"') < fairlawn.indexOf('data-sponsor="akron-snow-angels"'));
-for (const document of [akron, lakewood, vip, chesterland, thanks]) {
+// Joe's October 22 call removes Snow Angels from the current lineup.
+assert.equal(byId('akron-snow-angels'), undefined);
+for (const document of [home, directory, media, fairlawn, akron, lakewood, vip, chesterland, thanks]) {
   assert.doesNotMatch(document, /data-sponsor="akron-snow-angels"/);
+  assert.doesNotMatch(document, /Akron Snow Angels|akronsnowangels\.com/);
 }
 assert.ok(sponsors.filter(s => s.tier === 'community').length > 0);
 assert.ok(directory.indexOf('Weekend Presenting Sponsor') < directory.indexOf('Event Presenting Sponsors'));

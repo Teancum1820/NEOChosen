@@ -227,19 +227,6 @@
     "confirmation": "Jessica, September 30, 2026"
   },
   {
-    "id": "akron-snow-angels",
-    "name": "Akron Snow Angels",
-    "logo": "/images/partners/akron-snow-angels.png",
-    "url": "https://akronsnowangels.com/",
-    "linkIdentity": true,
-    "tier": "community",
-    "events": [
-      "fairlawn"
-    ],
-    "background": "light",
-    "confirmation": "User campaign brief, October 7, 2026: Community Partner participating at the Fairlawn Meet & Greet. Jessica confirmed participation in her October 6 email; no paid sponsorship tier was assigned."
-  },
-  {
     "id": "camp-quality-usa",
     "name": "Camp Quality USA",
     "logo": "/images/partners/camp-quality-usa.png",

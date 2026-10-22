@@ -5,7 +5,7 @@ const manifest = JSON.parse(await readFile(new URL('../images/performers/manifes
 export const performers = [
   { id: 'shaan-sharma', name: 'Shaan Sharma', role: 'Shmuel' },
   { id: 'noah-james', name: 'Noah James', role: 'Andrew' },
-  { id: 'vanessa-benavente', name: 'Vanessa Benavente', role: 'Mother Mary' },
+  { id: 'zhaleh-vossough', name: 'Zhaleh Vossough', role: 'Veronica' },
   { id: 'yasmine-al-bustami', name: 'Yasmine Al-Bustami', role: 'Ramah' },
 ];
 

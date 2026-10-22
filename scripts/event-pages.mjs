@@ -49,7 +49,7 @@ const schema = event => ({
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   url: `https://neochosen.com/${event.slug}/`,
-  image: eventCollage(event.slug) ? `https://neochosen.com${eventCollage(event.slug).variants.at(-1).src}` : `https://neochosen.com/images/${event.slug === 'vip-dinner' ? 'venues/windows-dinner-hero-1110.webp' : 'NeoHeader.webp'}`,
+  image: eventCollage(event.slug) ? 'https://neochosen.com/images/performers/zhaleh-vossough-720.webp' : 'https://neochosen.com/images/performers/piano-guys-1440.webp',
   location: { '@type': 'Place', name: event.venue, address: { '@type': 'PostalAddress', streetAddress: event.street, addressLocality: event.city, addressRegion: 'OH', postalCode: event.zip, addressCountry: 'US' } },
   organizer: { '@type': 'Organization', name: 'Kirtland Heritage Group', url: 'https://www.kirtlandheritagegroup.com/' },
   ...(event.admission.startsWith('Free') ? { offers: { '@type': 'Offer', url: event.url, price: '0', priceCurrency: 'USD' } } : {})
@@ -73,7 +73,7 @@ const dinnerPage = event => {
  const v = venues[event.slug];
  const reservation = () => `<p class="vip-reserve-label">Seating is limited — reserve your seat or table</p>${action(event.url, 'Reserve now')}`;
  const venueImage = renderImage({src:'/images/venues/windows-dinner-hero-960.webp',alt:event.imageAlt,width:1110,height:556,srcSet:[480,960,1110].map(width=>({src:`/images/venues/windows-dinner-hero-${width}.webp`,width})),sizes:'(max-width:800px) 100vw, 47vw',priority:true});
- const guestImage = renderImage({src:'/images/collages/chosen-and-piano-guys-800.webp',alt:'The Piano Guys and cast members from The Chosen',width:1254,height:1254,srcSet:[480,800,1200,1254].map(width=>({src:`/images/collages/chosen-and-piano-guys-${width}.webp`,width})),sizes:'(max-width:800px) calc(100vw - 48px), 34vw'});
+ const guestImage = renderEventCollage(eventCollage('vip-dinner'), { priority: false });
  const includes = ['Dinner at Windows on the River','An intimate setting with The Piano Guys and cast members from The Chosen','Opportunities for conversation and photos','Special experiences and surprises throughout the evening','The opportunity to support the free community events throughout NEOChosen Weekend'];
  return editorialPage({title:`${event.title} | NEOChosen 2026`,description:`${event.description} ${event.date} at ${event.venue} in ${event.city}. Limited seating. $200 per person or $1,400 for a table of eight.`,route:'/vip-dinner/',className:'event-page vip-dinner-page',extraHead:`<link rel="stylesheet" href="/events/event.css"><link rel="stylesheet" href="/events/vip-dinner.css"><link rel="stylesheet" href="${mediaStyles}"><script type="application/ld+json">${JSON.stringify(schema(event))}</script>`,body:`
  <header class="event-hero vip-hero">

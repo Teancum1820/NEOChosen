@@ -8,7 +8,7 @@ const sources = {
   "piano-guys": "images/piano-guys-feature.webp",
   "shaan-sharma": "source-assets/performers/shaan-sharma.png",
   "noah-james": "source-assets/performers/noah-james.png",
-  "vanessa-benavente": "source-assets/performers/vanessa-benavente.png",
+  "zhaleh-vossough": "source-assets/performers/zhaleh-vossough.jpg",
   "yasmine-al-bustami": "source-assets/performers/yasmine-al-bustami.png",
 };
 const output = path.resolve("images/performers");
