@@ -402,5 +402,18 @@
     "events": [],
     "background": "light",
     "confirmation": "Joe Jackson, October 23, 2026, Gmail 1a169890e04d69f8: smaller logo-only event sponsor in program recognition and website, no ad. Original full-color logo supplied by Rob Stoddard in forwarded Gmail 1a1698681ebe4591. Official website verified October 23, 2026. No individual event assignment inferred."
+  },
+  {
+    "id": "marians-closet",
+    "name": "Marian's Closet",
+    "logo": "/images/partners/marians-closet.png",
+    "url": "https://marianscloset.org/",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "description": "Fairlawn Meet & Greet nonprofit partner, helping families meet basic needs with encouragement, hope and dignity.",
+    "events": ["fairlawn"],
+    "background": "light",
+    "confirmation": "Caleb authorized website recognition as a Fairlawn nonprofit partner on October 23, 2026. Jessica's forwarded email 1a169964dd5897c7 confirms Marian's Closet participation at St. Hilary Parish on November 14 at 7 PM Eastern. Official website logo https://marianscloset.org/wp-content/uploads/2022/08/logo.png used unchanged because the emailed Drive assets were inaccessible."
   }
 ]
