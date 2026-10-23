@@ -21,6 +21,16 @@ test("approved Concept A desktop header, hero, event card, sponsor, and footer",
   ]) {
     const item = page.locator(selector).first();
     await item.scrollIntoViewIfNeeded();
+    if (name === "footer") {
+      // The sponsor content changes the footer's fractional page offset.
+      // Align this crop to whole pixels while retaining its measured height.
+      await item.evaluate((footer) => {
+        const bounds = footer.getBoundingClientRect();
+        const pageTop = bounds.top + window.scrollY;
+        footer.style.top = `${Math.ceil(pageTop) - pageTop}px`;
+        footer.style.height = `${Math.ceil(bounds.height)}px`;
+      });
+    }
     await expect(item).toHaveScreenshot(`${name}.png`);
   }
 });
