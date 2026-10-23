@@ -122,6 +122,16 @@ test("raffle navigation and all six event promotions match sales status", async 
     "/chesterland/",
   ]) {
     await page.goto(route);
+    if (route === "/piano-guys/") {
+      await expect(page.locator("#in-person-raffle")).toHaveText(
+        "In-person-only 50/50 raffle",
+      );
+      await expect(page.locator('a[href*="/raffle/"]')).toHaveCount(0);
+      await expect(page.locator(".raffle-promotion")).toContainText(
+        "No online raffle-ticket sales.",
+      );
+      continue;
+    }
     const headerLink = page.locator('.site-nav-links > a[href="/raffle/"]');
     await expect(headerLink).toHaveText("Cash Raffle");
     await expect(headerLink).toBeVisible();
@@ -164,16 +174,21 @@ for (const width of [320, 390, 768, 1200, 1440]) {
     ]) {
       expect((await page.goto(route))?.ok(), route).toBe(true);
       if (width < 1200) await page.locator(".nav-toggle").click();
-      const infoLink = page.locator('.site-nav-links > a[href="/raffle/"]');
+      const inPersonOnly = route === "/piano-guys/";
+      const infoLink = page.locator(
+        `.site-nav-links > a[href="${inPersonOnly ? "#in-person-raffle" : "/raffle/"}"]`,
+      );
       await expect(infoLink).toHaveCount(1);
-      await expect(infoLink).toHaveText("Cash Raffle");
+      await expect(infoLink).toHaveText(
+        inPersonOnly ? "50/50 Raffle" : "Cash Raffle",
+      );
       await expect(infoLink).toBeVisible();
       await expect(infoLink).toBeInViewport();
       await expect(
         page.locator('#resource-navigation a[href="/raffle/"]'),
       ).toHaveCount(0);
       await expect(page.locator('.site-footer a[href="/raffle/"]')).toHaveCount(
-        1,
+        inPersonOnly ? 0 : 1,
       );
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth),
