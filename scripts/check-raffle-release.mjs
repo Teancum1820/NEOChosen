@@ -1,160 +1,50 @@
 import assert from "node:assert/strict";
 import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
-import { raffleLaunch, raffleSalesOpen } from "./raffle-page.mjs";
 
-// Validate approvals even when an already-built dist is being checked.
-const open = raffleSalesOpen();
-const landing = await readFile("dist/raffle/index.html", "utf8");
-const rules = await readFile("dist/raffle/rules/index.html", "utf8");
-const redirects = await readFile("dist/_redirects", "utf8");
-assert.equal(raffleLaunch.informationPublished, true);
-assert(landing.includes("<h1>NEO Chosen Cash Raffle</h1>"));
-for (const marker of [
-  "cash-checkout-preview",
-  "data-preview-notes",
-  "public-launch.js",
-]) {
-  assert(!landing.includes(marker), `Preview control leaked: ${marker}`);
-}
-assert(landing.includes('href="/raffle/rules/"'));
-assert(!/physical drawing stub|matching physical|physical stubs/i.test(landing + rules));
-assert.equal((landing.match(/Choose tickets on Zeffy/g) || []).length, 3);
-assert.equal((landing.match(/Zeffy may suggest an optional contribution/g) || []).length, 1);
-assert.equal((landing.match(/aria-describedby="zeffy-contribution-packages"/g) || []).length, open ? 3 : 0);
-assert(landing.includes("Electronic drawing November 15, 2026, at 6 p.m. Eastern."));
-assert(rules.includes("99-1301074"));
-assert(rules.includes("U.S. resident"));
-assert(!redirects.includes("/raffle/rules/ /raffle/"));
-for (const [name, html] of [
-  ["landing", landing],
-  ["rules", rules],
-]) {
-  const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
-  assert(
-    !/\bdraft\b|internal review|pending approval|proposed|working proposal|final approvals required|not yet authorized|preview revision/i.test(
-      text,
-    ),
-    `${name}: internal review copy is public`,
-  );
-}
-assert(!rules.includes('name="robots" content="noindex'));
-for (const file of [
-  "cash-raffle.js",
-  "raffle.js",
-  "raffle-data.js",
-  "raffle.css",
-]) {
-  await assert.rejects(access(`dist/raffle/${file}`), { code: "ENOENT" });
-}
-if (!open) {
-  assert.equal((landing.match(/disabled>Sales closed/g) || []).length, 3);
-  assert(landing.includes("Ticket sales are currently closed"));
-  assert(!landing.includes(raffleLaunch.checkoutUrl));
-  if (!raffleLaunch.rulesFinalized) {
-    assert(rules.includes("Rules under final review"));
-    assert(rules.includes("RAFFLE SALES ARE NOT YET AUTHORIZED"));
-  }
-} else {
-  assert.equal(
-    raffleLaunch.salesAuthorized,
-    true,
-    "Explicit sales authorization required",
-  );
-  assert.equal(
-    raffleLaunch.rulesFinalized,
-    true,
-    "Final approved rules required",
-  );
-  assert(landing.includes("Ticket sales are open"));
-  assert.equal(
-    landing.split('href="' + raffleLaunch.checkoutUrl + '"').length - 1,
-    3,
-  );
-  assert(!landing.includes("disabled>Sales closed"));
-  assert(
-    !/DRAFT Official Raffle Rules|NOT FINAL|RAFFLE SALES ARE NOT YET AUTHORIZED/.test(
-      rules,
-    ),
-    "Draft rules cannot be released with sales open",
-  );
-  assert(!rules.includes("Sales remain closed"));
-}
-
-async function checkPages(dir) {
+const retired = JSON.parse(await readFile("source-assets/retired-raffle-assets.json", "utf8"));
+for (const url of retired) await assert.rejects(access(`dist${url}`), { code: "ENOENT" });
+await assert.rejects(access("dist/source-assets"), { code: "ENOENT" });
+const archive = "source-assets/raffle-archive/retired-2026-10-23";
+for (const file of ["live-official-rules.html", "source-assets/raffle-preview/official-rules.html"])
+  assert((await readFile(`${archive}/${file}`, "utf8")).includes("electronic drawing"));
+const forbidden = /neo-chosen-cash-raffle|six cash prizes|six-prize|40%|Tickets from \$20|\$20 for 1 ticket|Get Raffle Tickets|Raffle — Coming Soon|cash-raffle-artwork|Electronic drawing November 15/i;
+async function check(dir) {
   let count = 0;
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const file = path.join(dir, entry.name);
-    if (entry.isDirectory()) count += await checkPages(file);
-    else if (entry.name.endsWith(".html")) {
+    if (entry.isDirectory()) count += await check(file);
+    else if (/\.(html|js|json|svg)$/.test(file)) {
       const html = await readFile(file, "utf8");
-      // The raffle landing page explicitly explains that it is not a 50/50.
-      const raffleText = html
-        .replace(/<[^>]*>/g, " ")
-        .replace(/\s+/g, " ")
-        .replace("This is a cash raffle, not a 50/50 raffle.", "");
-      assert(
-        !/50\s*[/-]\s*50|fifty[- ]fifty|in-person-only raffle|no online raffle-ticket sales|no raffle at Sunday/i.test(raffleText),
-        `${file}: conflicting raffle promotion`,
-      );
-      assert(!html.includes("#in-person-raffle"), `${file}: obsolete raffle link`);
-      if (!open)
-        assert(
-          !html.includes(raffleLaunch.checkoutUrl),
-          `${file}: held checkout leaked`,
-        );
-      if (!html.includes('class="site-nav"')) continue;
-      const header = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)?.[0];
-      const footer = html.match(
-        /<footer class="site-footer"[\s\S]*?<\/footer>/,
-      )?.[0];
-      assert(
-        header?.includes('href="/raffle/"'),
-        `${file}: raffle navigation missing`,
-      );
-      assert(
-        footer?.includes('href="/raffle/"'),
-        `${file}: raffle footer missing`,
-      );
-      assert(
-        !html.includes("Raffle — Coming Soon"),
-        `${file}: outdated raffle label`,
-      );
+      assert(!forbidden.test(html), `${file}: obsolete online raffle content`);
+      if (!file.endsWith(".html")) continue;
+      const chrome = (html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)?.[0] || "") + (html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)?.[0] || "");
+      assert(!/raffle/i.test(chrome), `${file}: raffle navigation remains`);
+      assert(!html.includes('href="/raffle/rules/"'), `${file}: old rules promotion`);
       count++;
     }
   }
   return count;
 }
-
-const pageCount = await checkPages("dist");
-for (const page of [
-  "",
-  "vip-dinner",
-  "lakewood",
-  "piano-guys",
-  "fairlawn",
-  "chesterland",
-]) {
-  const html = await readFile(
-    "dist/" + (page ? page + "/" : "") + "index.html",
-    "utf8",
-  );
-  assert(
-    html.includes('id="weekend-raffle-title"'),
-    page + ": raffle feature missing",
-  );
-  if (!open) assert(!html.includes("Tickets available now."));
-  assert(html.includes("$20 for 1 ticket · $50 for 3 · $100 for 7"));
-  if (page) {
-    assert(html.includes("Raffle tickets are separate from event admission."));
-    const following = page === "vip-dinner" ? 'class="editorial-section editorial-section--white vip-experience' : '>The venue<';
-    assert(html.indexOf('id="weekend-raffle-title"') < html.indexOf(following));
-  } else {
-    assert(html.includes("Enter the NEO Chosen Cash Raffle and support Kirtland Heritage Group’s community programs throughout Northeast Ohio. Every valid ticket purchased grows the prize pool."));
-    assert(html.indexOf('class="home-sponsor-ribbon') < html.indexOf('id="weekend-raffle-title"'));
-    assert(html.indexOf('id="weekend-raffle-title"') < html.indexOf('class="home-overview'));
-  }
+const count = await check("dist");
+const landing = await readFile("dist/raffle/index.html", "utf8");
+assert(landing.includes("50/50 Raffle — In Person Only"));
+assert(landing.includes("No online raffle-ticket sales."));
+assert.equal((landing.match(/<li>/g) || []).length, 4);
+assert(!/<iframe|<form|zeffy|\$\d|winner.*present/i.test(landing));
+for (const slug of ["", "vip-dinner", "lakewood", "piano-guys", "fairlawn"]) {
+  const html = await readFile(`dist/${slug ? slug + "/" : ""}index.html`, "utf8");
+  assert(html.includes('id="weekend-raffle-title"'), `${slug}: announcement missing`);
+  assert(html.includes("No online raffle-ticket sales."));
+  assert(html.includes("Mayfield United Methodist Church."));
+  assert(!html.includes("raffle-quick-promotion"));
+  if (slug) assert(html.includes("raffle-early-event"));
 }
-console.log(
-  `Validated raffle information, rules, six promotion placements, navigation on ${pageCount} pages and ${open ? "approved open" : "held (no checkout)"} sales controls.`,
-);
+assert((await readFile("dist/fairlawn/index.html", "utf8")).includes("This is the final raffle location."));
+assert(!/raffle/i.test(await readFile("dist/chesterland/index.html", "utf8")));
+const rules = await readFile("dist/raffle/rules/index.html", "utf8");
+assert(rules.includes('http-equiv="refresh" content="0; url=/raffle/"'));
+const redirects = await readFile("dist/_redirects", "utf8");
+for (const route of ["/raffle/rules/", "/media-kit/neo-chosen-raffle-*", "/media-kit/2026-weekend-schedule*", "/images/raffle/*", "/images/media-previews/2026-weekend-schedule*"])
+  assert(redirects.includes(`${route} /raffle/ 302`), `${route}: retirement redirect missing`);
+console.log(`Validated ${count} HTML files, the archived rules, four participating events, Sunday exclusion, and ${retired.length} retired assets.`);

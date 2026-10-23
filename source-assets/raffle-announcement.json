@@ -1,0 +1,29 @@
+{
+  "heading": "50/50 Raffle — In Person Only",
+  "intro": "We'll have a 50/50 raffle with tickets available for purchase in person only, by cash or credit card, at these NEOChosen events:",
+  "events": [
+    {
+      "route": "/vip-dinner/",
+      "announcement": "Friday, November 13: VIP Donor/Sponsor Dinner at Windows on the River, Cleveland.",
+      "venue": "Windows on the River"
+    },
+    {
+      "route": "/lakewood/",
+      "announcement": "Friday, November 13: An Evening with Cast Members from The Chosen at Lakewood Civic Auditorium.",
+      "venue": "Lakewood Civic Auditorium"
+    },
+    {
+      "route": "/piano-guys/",
+      "announcement": "Saturday, November 14: The Piano Guys concert at Akron Civic Theatre.",
+      "venue": "Akron Civic Theatre"
+    },
+    {
+      "route": "/fairlawn/",
+      "announcement": "Saturday, November 14: Fairlawn Meet & Greet at St. Hilary Church.",
+      "venue": "St. Hilary Church"
+    }
+  ],
+  "closing": "The raffle ends at the conclusion of the St. Hilary meet-and-greet on Saturday, November 14.",
+  "online": "No online raffle-ticket sales.",
+  "sunday": "There will be no raffle at Sunday's November 15 event at Mayfield United Methodist Church."
+}

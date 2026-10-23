@@ -17,7 +17,9 @@ Static marketing website for the **Kirtland Heritage Group** "NEO Chosen" weeken
 
 ## Current raffle operations
 
-See [October 20 finalization and QA](docs/raffle-finalization-2026-10-20/REPORT.md) and the [electronic drawing operator guide](docs/raffle-electronic-drawing-2026-10-20.md). The latter supersedes historical physical-stub operations. The candidate tool supports synthetic rehearsals only; official use requires separate review and approval.
+The website now announces an in-person-only 50/50 raffle at four Friday/Saturday events, ending at the conclusion of the November 14 St. Hilary meet-and-greet. There are no online raffle-ticket sales and no raffle at Sunday's event. Joe's announcement is maintained in `source-assets/raffle-announcement.json`; the generated landing page remains at `/raffle/` for old links and QR codes.
+
+The former online rules, sales-page sources and retired graphics/downloads are preserved in `source-assets/raffle-archive/retired-2026-10-23/`, which is excluded from the published build. `/raffle/rules/` and old download URLs redirect to the announcement. The October 20 drawing guides and reports are historical records of the retired format, not current operating instructions. This website change does not disable the separate Zeffy campaign or email automations, or alter purchaser/order records.
 
 ## Local Preview
 

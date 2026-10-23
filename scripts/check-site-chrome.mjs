@@ -25,13 +25,7 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   const chrome = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0]
     + html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)[0];
   const header = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0];
-  const primaryLinks = header.match(/<div class="site-nav-links"[^>]*>([\s\S]*?)<div class="nav-dropdown">/)[1];
-  const raffleLinks = primaryLinks.match(/<a href="\/raffle\/"[^>]*>Cash Raffle<\/a>/g) || [];
-  assert.equal(raffleLinks.length, 1, `${route}: one top-level Cash Raffle link`);
-  assert.equal(header.split('href="/raffle/"').length - 1, 1, `${route}: no duplicate raffle link under More`);
-  assert.equal(raffleLinks[0].includes('aria-current="page"'), route === '/raffle/', `${route}: current raffle link`);
-  const footer = html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)[0];
-  assert.equal((footer.match(/<a href="\/raffle\/"[^>]*>Cash Raffle<\/a>/g) || []).length, 1, `${route}: one footer Cash Raffle link`);
+  assert(!/raffle/i.test(chrome), `${route}: retired raffle navigation`);
   assert(!chrome.includes('Raffle — Coming Soon'), `${route}: outdated raffle label`);
   assert(!html.includes('class="site-follow-bar"'), `${route}: duplicate social strip`);
   for (const [name, url] of [
@@ -43,7 +37,7 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   }
   pages.set(route, { html, ids, chrome });
 }
-assert.equal(pages.size, process.env.NEOCHOSEN_REVIEW === 'true' ? 31 : 30, 'Expected all content pages including raffle rules, breakfast and confirmations to have shared navigation and footer');
+assert.equal(pages.size, process.env.NEOCHOSEN_REVIEW === 'true' ? 30 : 29, 'Expected all content pages including raffle announcement, breakfast and confirmations to have shared navigation and footer');
 for (const route of ['/vip-dinner/', '/lakewood/', '/piano-guys/', '/fairlawn/', '/chesterland/']) {
   assert(pages.has(route), `Missing dedicated event route ${route}`);
 }

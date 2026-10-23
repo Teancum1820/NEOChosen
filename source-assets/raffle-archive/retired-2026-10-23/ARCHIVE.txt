@@ -1,0 +1,5 @@
+Retired online raffle materials, archived October 23, 2026.
+These are historical records, not current rules or sales authorization.
+This source-assets directory is not copied into dist or deployed as site assets.
+The exact publicly retrieved rules are in live-official-rules.html.
+Purchaser and payment records were not modified.
