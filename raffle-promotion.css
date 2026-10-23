@@ -12,3 +12,89 @@
 .raffle-early-event strong { display:block; font-size:14px; line-height:1.6; }
 .raffle-early-event > span { display:block; font-size:13px; line-height:1.7; margin-top:4px; }
 @media(max-width:800px) { .raffle-promotion { padding:36px 24px; } }
+
+/* Announcement page: the current in-person format, using the site's navy and gold. */
+.raffle-landing { background:#f7f3eb; }
+.raffle-landing-hero { background:#101a2d; color:#fff8ec; border-bottom:1px solid #c8a66d; }
+.raffle-landing-hero-grid { display:grid; grid-template-columns:1.25fr 1fr; align-items:center; gap:64px; padding-block:76px 84px; }
+.raffle-landing-eyebrow { font:700 12px/1.6 var(--font-body,sans-serif); letter-spacing:.13em; text-transform:uppercase; }
+.raffle-landing-hero .raffle-landing-eyebrow { color:#edcd95; margin:0 0 24px; }
+.raffle-landing h1 { color:#fff8ec; font:400 clamp(40px,4.8vw,68px)/1.08 var(--font-display,serif); letter-spacing:-.025em; max-width:650px; margin:0 0 24px; text-wrap:balance; }
+.raffle-landing-intro { color:#e4e7ec; font-size:18px; line-height:1.8; max-width:540px; margin:0 0 28px; }
+.editorial-page main a.raffle-landing-jump:not(.editorial-button):not(.event-button) { display:inline-flex; align-items:center; justify-content:space-between; gap:28px; padding:16px 22px; color:#101a2d; background:#edcd95; border-radius:4px; font-size:14px; font-weight:700; text-decoration:none; }
+.editorial-page main .raffle-landing-jump:hover { background:#fff0d3; }
+.raffle-landing .raffle-landing-no-online { color:#e4e7ec; font-size:13px; line-height:1.6; margin:16px 0 0; }
+.raffle-ticket-art { position:relative; width:min(100%,360px); aspect-ratio:1.25; margin:24px auto; }
+.raffle-ticket-art-back, .raffle-ticket-art-front { position:absolute; inset:0; border-radius:12px; }
+.raffle-ticket-art-back { background:#355049; border:1px solid #8b9f8f; transform:rotate(-10deg); }
+.raffle-ticket-art-front { padding:25px 28px 0; color:#101a2d; background:#edcd95; transform:rotate(6deg); box-shadow:0 18px 45px #0004; overflow:hidden; }
+.raffle-ticket-art-front::before, .raffle-ticket-art-front::after { content:""; position:absolute; width:26px; height:26px; border-radius:50%; background:#101a2d; bottom:44px; }
+.raffle-ticket-art-front::before { left:-13px; }
+.raffle-ticket-art-front::after { right:-13px; }
+.raffle-ticket-art-top, .raffle-ticket-art-name, .raffle-ticket-art-stub { font:700 11px/1.6 var(--font-body,sans-serif); letter-spacing:.12em; text-transform:uppercase; }
+.raffle-ticket-art-number { margin:8px 0 0; font:400 clamp(72px,8vw,108px)/1.1 var(--font-display,serif); letter-spacing:-.07em; white-space:nowrap; }
+.raffle-ticket-art-number span { color:#51604f; padding-inline:5px; }
+.raffle-ticket-art-name { margin:0 0 24px; }
+.raffle-ticket-art-stub { display:flex; justify-content:space-between; gap:12px; border-top:1px dashed #776341; padding-top:16px; font-size:10px; letter-spacing:.08em; }
+.raffle-landing-events { padding:72px 0; scroll-margin-top:100px; }
+.raffle-landing-section-heading { max-width:720px; margin-bottom:32px; }
+.raffle-landing-section-heading .raffle-landing-eyebrow { color:#24625d; margin:0 0 12px; }
+.raffle-landing h2 { font:400 clamp(30px,3.1vw,44px)/1.2 var(--font-display,serif); letter-spacing:-.015em; margin:0 0 18px; }
+.raffle-landing-section-heading > p:last-child { color:#465263; font-size:16px; line-height:1.8; margin:0; }
+.raffle-event-grid { list-style:none; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; padding:0; margin:0; }
+.raffle-event-grid > li { min-width:0; }
+.raffle-event-card { display:flex; gap:24px; height:100%; background:#fffdf8; border:1px solid #ded8cd; border-radius:8px; padding:28px; }
+.raffle-event-date { flex:0 0 72px; align-self:start; display:flex; flex-direction:column; align-items:center; border-right:1px solid #ded8cd; padding-right:20px; text-align:center; color:#24625d; }
+.raffle-event-date span { font-size:10px; font-weight:700; line-height:1.7; letter-spacing:.05em; text-transform:uppercase; }
+.raffle-event-date strong { font:400 46px/1.2 var(--font-display,serif); color:#172438; }
+.raffle-event-info { display:flex; flex-direction:column; align-items:start; min-width:0; }
+.raffle-event-city { color:#465263; font-size:10px; font-weight:700; line-height:1.7; letter-spacing:.08em; text-transform:uppercase; margin:0 0 10px; }
+.raffle-event-city span { color:#24625d; }
+.raffle-landing h3 { color:#172438; font:400 25px/1.25 var(--font-display,serif); margin:0 0 12px; text-wrap:balance; }
+.raffle-event-info > p:not(.raffle-event-city) { color:#465263; font-size:14px; line-height:1.7; margin:0 0 20px; }
+.raffle-event-info a { margin-top:auto; font-size:13px; font-weight:700; text-decoration:underline; text-underline-offset:5px; padding-block:5px; }
+.raffle-event-info a span { margin-left:12px; }
+.raffle-landing-close { background:#e9eee8; padding:56px 0; border-block:1px solid #d7dfd5; }
+.raffle-landing-close-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:64px; align-items:start; }
+.raffle-landing-close .raffle-landing-eyebrow { color:#24625d; margin:0 0 12px; }
+.raffle-landing-close p:not(.raffle-landing-eyebrow) { font-size:16px; line-height:1.8; color:#35463e; max-width:600px; margin:0 0 16px; }
+.raffle-landing-close a { font-size:14px; font-weight:700; text-underline-offset:5px; }
+.raffle-sunday-note { border-left:1px solid #bdc9bc; padding:0 0 0 40px; }
+.raffle-landing main a:focus-visible { outline:3px solid #24625d; outline-offset:5px; }
+.raffle-landing main .raffle-landing-jump:focus-visible { outline-color:#fff8ec; }
+@media(max-width:1000px) {
+  .raffle-landing-hero-grid { gap:40px; }
+  .raffle-ticket-art { max-width:290px; }
+  .raffle-ticket-art-front { padding:20px 22px 0; }
+  .raffle-ticket-art-number { font-size:84px; }
+  .raffle-ticket-art-name { margin-bottom:16px; }
+  .raffle-ticket-art-stub { padding-top:12px; font-size:8px; }
+  .raffle-ticket-art-front::before, .raffle-ticket-art-front::after { bottom:30px; }
+  .raffle-event-card { gap:18px; padding:24px; }
+  .raffle-event-date { flex-basis:64px; padding-right:16px; }
+}
+@media(max-width:800px) {
+  .raffle-landing-hero-grid { grid-template-columns:1fr; padding-block:48px; gap:36px; }
+  .raffle-landing h1 { font-size:42px; max-width:530px; }
+  .raffle-landing-intro { font-size:16px; }
+  .raffle-ticket-art { width:260px; margin:12px auto; }
+  .raffle-ticket-art-number { font-size:78px; }
+  .raffle-ticket-art-name { margin-bottom:16px; font-size:10px; }
+  .raffle-ticket-art-top { font-size:10px; }
+  .raffle-landing-events { padding:48px 0; }
+  .raffle-event-grid { grid-template-columns:1fr; gap:16px; }
+  .raffle-landing-close { padding:40px 0; }
+  .raffle-landing-close-grid { grid-template-columns:1fr; gap:32px; }
+  .raffle-sunday-note { border-left:0; border-top:1px solid #bdc9bc; padding:28px 0 0; }
+}
+@media(max-width:360px) {
+  .raffle-landing h1 { font-size:36px; }
+  .raffle-landing-hero .raffle-landing-eyebrow { font-size:10px; }
+  .raffle-ticket-art { width:230px; }
+  .raffle-ticket-art-front { padding:18px 20px 0; }
+  .raffle-ticket-art-number { font-size:66px; }
+  .raffle-ticket-art-name { font-size:9px; margin-bottom:12px; }
+  .raffle-event-card { padding:20px 16px; gap:14px; }
+  .raffle-event-date { flex-basis:56px; padding-right:12px; }
+  .raffle-landing h3 { font-size:22px; }
+}

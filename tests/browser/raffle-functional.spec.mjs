@@ -35,7 +35,7 @@ for (const width of [320, 390, 768, 1440]) {
         page.locator(
           '.site-nav a[href="/raffle/"], .site-footer a[href="/raffle/"]',
         ),
-      ).toHaveCount(0);
+      ).toHaveCount(2);
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth),
       ).toBeLessThanOrEqual(width);
@@ -89,7 +89,10 @@ for (const width of [320, 390, 768, 1440]) {
         "aria-expanded",
         "true",
       );
-      await expect(page.locator(".site-nav")).not.toContainText(/raffle/i);
+      await expect(page.locator('.site-nav a[href="/raffle/"]')).toBeVisible();
+      await expect(
+        page.locator('.site-nav a[href="/raffle/"]'),
+      ).toHaveAttribute("aria-current", "page");
     }
     expect(errors).toEqual([]);
   });

@@ -19,7 +19,7 @@ async function check(dir) {
       assert(!forbidden.test(html), `${file}: obsolete online raffle content`);
       if (!file.endsWith(".html")) continue;
       const chrome = (html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)?.[0] || "") + (html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)?.[0] || "");
-      assert(!/raffle/i.test(chrome), `${file}: raffle navigation remains`);
+      assert(!/Cash Raffle|Get Raffle Tickets/i.test(chrome), `${file}: retired raffle sales navigation`);
       assert(!html.includes('href="/raffle/rules/"'), `${file}: old rules promotion`);
       count++;
     }
@@ -41,7 +41,7 @@ for (const slug of ["", "vip-dinner", "lakewood", "piano-guys", "fairlawn"]) {
   if (slug) assert(html.includes("raffle-early-event"));
 }
 assert((await readFile("dist/fairlawn/index.html", "utf8")).includes("This is the final raffle location."));
-assert(!/raffle/i.test(await readFile("dist/chesterland/index.html", "utf8")));
+assert(!/raffle/i.test((await readFile("dist/chesterland/index.html", "utf8")).match(/<main\b[\s\S]*?<\/main>/)[0]));
 const rules = await readFile("dist/raffle/rules/index.html", "utf8");
 assert(rules.includes('http-equiv="refresh" content="0; url=/raffle/"'));
 const redirects = await readFile("dist/_redirects", "utf8");

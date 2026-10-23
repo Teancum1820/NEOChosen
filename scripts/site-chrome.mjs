@@ -30,6 +30,7 @@ export function applySiteChrome(html, currentPath) {
       ${item('/#performers', 'Performers')}
       ${item('/about-us/', 'About Us')}
       ${item('/get-involved/', 'Get Involved')}
+      ${item('/raffle/', '50/50 Raffle')}
       ${dropdown('sponsor-navigation', 'Sponsors', item('/sponsors/', 'Our Sponsors') + item('/sponsorship-opportunities/', 'Become a Sponsor'))}
       ${dropdown('resource-navigation', 'More', item('/vip-dinner/', 'VIP Sponsor Dinner') + item('/lakewood/', 'Lakewood Event') + item('/piano-guys/', 'The Piano Guys Concert') + item('/fairlawn/', 'Fairlawn Meet &amp; Greet') + item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/social-media-links/', 'Social Media'))}
       ${item('/donations/', 'Donate', 'nav-donate')}
@@ -50,7 +51,7 @@ export function applySiteChrome(html, currentPath) {
       </div>
       <nav class="site-footer-links" aria-label="Explore NEOChosen">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}
+        ${item('/#events', 'Weekend Events')}${item('/raffle/', '50/50 Raffle')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}
       </nav>
       <div class="site-footer-contact">
         <h2>Contact</h2>
@@ -70,7 +71,7 @@ export function applySiteChrome(html, currentPath) {
       </div>
       <nav class="site-footer-links" aria-label="Events and information">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/#tickets', eventTicketLabel)}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}
+        ${item('/#events', 'Weekend Events')}${item('/#tickets', eventTicketLabel)}${item('/raffle/', '50/50 Raffle')}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}
       </nav>
       <nav class="site-footer-links" aria-label="Support and resources">
         <h2>Get Involved</h2>
