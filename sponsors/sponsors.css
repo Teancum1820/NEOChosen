@@ -37,3 +37,5 @@
 .sponsor-editorial-section:has(#production-partner-sponsors-heading) .sponsor-partner-grid { grid-template-columns:minmax(0,650px); }
 .sponsor-editorial-section:has(#hotel-sponsors-heading) .neo-sponsor-art,
 .sponsor-editorial-section:has(#production-partner-sponsors-heading) .neo-sponsor-art { width:min(100%,440px); height:115px; padding:18px; background:#fff; }
+
+.sponsor-editorial-section:has(#event-sponsor-sponsors-heading) .neo-sponsor-art { max-width:180px; height:100px; padding:10px; }
