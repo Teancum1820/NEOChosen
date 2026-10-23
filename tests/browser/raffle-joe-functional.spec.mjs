@@ -40,10 +40,7 @@ for (const width of [320, 390, 1440]) {
     ]) {
       await page.goto(`/${route}/`);
       const early = page.locator(".raffle-early-event");
-      await expect(early.getByRole("link")).toHaveAttribute(
-        "href",
-        route === "piano-guys" ? "#in-person-raffle" : "/raffle/",
-      );
+      await expect(early.getByRole("link")).toHaveAttribute("href", "/raffle/");
       await expect(early).toContainText(
         "Raffle tickets are separate from event admission.",
       );

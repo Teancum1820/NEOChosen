@@ -123,18 +123,6 @@ export function applyRafflePromotion(
   config = raffleLaunch,
   current = new Date(),
 ) {
-  if (route === "/piano-guys/") {
-    const early = '<p class="raffle-early-event"><a href="#in-person-raffle">50/50 raffle · In person only</a><span>Raffle tickets are separate from event admission. No online raffle-ticket sales.</span></p>';
-    const firstAction = /(<div class="event-actions">[\s\S]*?<\/a>)/;
-    const marker = '<section class="editorial-section"><div class="editorial-shell"><p class="editorial-kicker">The venue';
-    if (!firstAction.test(html) || !html.includes(marker))
-      throw new Error("Piano Guys in-person raffle placement missing");
-    const feature = `<section class="raffle-promotion" aria-labelledby="in-person-raffle"><div class="raffle-promotion-shell"><div><p class="raffle-promotion-kicker">Support Kirtland Heritage Group</p><h2 id="in-person-raffle">In-person-only 50/50 raffle</h2><p>Tickets will be available for purchase in person only, by cash or credit card, at these NEOChosen events:</p><p><strong>Friday, November 13</strong><br>VIP Donor/Sponsor Dinner at Windows on the River, Cleveland.<br>An Evening with Cast Members from The Chosen at Lakewood Civic Auditorium.</p><p><strong>Saturday, November 14</strong><br>The Piano Guys concert at Akron Civic Theatre.<br>Fairlawn Meet &amp; Greet at St. Hilary Church.</p><p>Raffle tickets are separate from event admission.</p></div><div class="raffle-promotion-actions"><p><strong>No online raffle-ticket sales.</strong></p><p>The raffle and drawing conclude at the end of the St. Hilary meet-and-greet on Saturday, November 14.</p><p>There will be no raffle at Sunday’s November 15 event at Mayfield United Methodist Church.</p></div></div></section>`;
-    return html
-      .replace(firstAction, "$1" + early)
-      .replace("</head>", '<link rel="stylesheet" href="/raffle-promotion.css" /></head>')
-      .replace(marker, feature + marker);
-  }
   if (!config.informationPublished) return html;
   const open = raffleSalesOpen(config, current);
   if (
