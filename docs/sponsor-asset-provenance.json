@@ -75,5 +75,16 @@
     ],
     "local": "/images/partners/fest.webp",
     "status": "saved"
+  },
+  {
+    "id": "covenant-eyes",
+    "source": "Gmail 1a1698681ebe4591, Full Color Vertical JPEGSFull Color Vertical Light Backgrounds (Registered_Aligned)Artboard 3@4x-100.jpg",
+    "sourceSHA256": "fa421ae1401272d4d544263695b6bc4a59bfecb61e6da7ea208db4377497dc8e",
+    "originalDimensions": [
+      1000,
+      492
+    ],
+    "local": "/images/partners/covenant-eyes-supplied.jpg",
+    "status": "saved unchanged; original supplied colors and aspect ratio preserved"
   }
 ]

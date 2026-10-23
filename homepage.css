@@ -287,3 +287,9 @@
   .home-sponsor-tier--hotel .home-sponsor-logo, .home-sponsor-tier--production-partner .home-sponsor-logo { grid-template-columns:minmax(0,1fr); gap:18px; }
   .home-sponsor-tier--hotel .home-sponsor-art, .home-sponsor-tier--production-partner .home-sponsor-art { height:95px; }
 }
+
+/* Logo-only event support stays smaller than presenting recognition. */
+.home-sponsor-tier--event-sponsor { grid-column:1/-1; background:transparent; padding:12px 0 0; color:var(--color-text-primary); }
+.home-sponsor-tier--event-sponsor h3 { color:var(--color-brand-gold); }
+.home-sponsor-tier--event-sponsor .home-sponsor-list { grid-template-columns:repeat(auto-fit,minmax(140px,180px)); }
+.home-sponsor-tier--event-sponsor .home-sponsor-art { width:160px; max-width:100%; height:90px; padding:10px; background:#fff; }
