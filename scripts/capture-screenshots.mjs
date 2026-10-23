@@ -43,6 +43,9 @@ try {
     await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
     for (const [name, route] of routes) {
       await page.goto(base + route);
+      // The retired rules page redirects in static previews as well as production.
+      // Wait for its destination document before injecting capture styles.
+      if (route === "/raffle/rules/") await page.waitForURL(base + "/raffle/");
       await page.addStyleTag({
         content:
           "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}.reveal{opacity:1!important;transform:none!important}",
