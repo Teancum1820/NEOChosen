@@ -11,6 +11,25 @@ export function renderRaffleAnnouncement() {
   return `<p>${escape(copy.intro)}</p><ul>${copy.events.map(event => `<li>${escape(event.announcement)}</li>`).join("")}</ul><p>${escape(copy.closing)}</p><p><strong>${escape(copy.online)}</strong> ${escape(copy.sunday)}</p>`;
 }
 
+function renderRaffleLanding() {
+  const copy = raffleAnnouncement;
+  const details = [
+    ["Friday", "13", "VIP Donor/Sponsor Dinner", "Cleveland"],
+    ["Friday", "13", "An Evening with Cast Members from The Chosen", "Lakewood"],
+    ["Saturday", "14", "The Piano Guys Concert", "Akron"],
+    ["Saturday", "14", "Fairlawn Meet & Greet", "Fairlawn"],
+  ];
+  return `<header class="raffle-landing-hero"><div class="editorial-shell raffle-landing-hero-grid">
+    <div class="raffle-landing-copy"><p class="raffle-landing-eyebrow">NEOChosen Weekend · November 13–14, 2026</p><h1>${escape(copy.heading)}</h1><p class="raffle-landing-intro">Join the excitement at four NEOChosen events. Purchase your raffle tickets at the event, by cash or credit card.</p><a class="raffle-landing-jump" href="#raffle-events">See participating events <span aria-hidden="true">↓</span></a><p class="raffle-landing-no-online">${escape(copy.online)}</p></div>
+    <div class="raffle-ticket-art" aria-hidden="true"><div class="raffle-ticket-art-back"></div><div class="raffle-ticket-art-front"><div class="raffle-ticket-art-top">NEOChosen · 2026</div><div class="raffle-ticket-art-number">50<span>/</span>50</div><div class="raffle-ticket-art-name">Weekend Raffle</div><div class="raffle-ticket-art-stub">In person only <span>Nov 13–14</span></div></div></div>
+  </div></header>
+  <section class="raffle-landing-events" id="raffle-events" aria-labelledby="raffle-events-heading"><div class="editorial-shell"><div class="raffle-landing-section-heading"><p class="raffle-landing-eyebrow">Four events. One weekend.</p><h2 id="raffle-events-heading">Where to join in</h2><p>${escape(copy.intro)}</p></div><ul class="raffle-event-grid">${copy.events.map((event, index) => {
+    const [day, date, name, city] = details[index];
+    return `<li><article class="raffle-event-card"><div class="raffle-event-date"><span>${day}</span><strong>${date}</strong><span>November</span></div><div class="raffle-event-info"><p class="raffle-event-city">${city}${index === 3 ? ' · <span>Final raffle location</span>' : ""}</p><h3>${escape(name)}</h3><p>${escape(event.venue)}</p><a href="${event.route}" aria-label="Event details: ${escape(name)}">Event details <span aria-hidden="true">↗</span></a></div></article></li>`;
+  }).join("")}</ul></div></section>
+  <section class="raffle-landing-close" aria-labelledby="raffle-close-heading"><div class="editorial-shell raffle-landing-close-grid"><div><p class="raffle-landing-eyebrow">Saturday · November 14</p><h2 id="raffle-close-heading">The final stop: St. Hilary</h2><p>${escape(copy.closing)}</p><a href="/fairlawn/">Fairlawn event details <span aria-hidden="true">↗</span></a></div><div class="raffle-sunday-note"><p class="raffle-landing-eyebrow">Sunday · November 15</p><h3>No Sunday raffle</h3><p>${escape(copy.sunday)}</p></div></div></section>`;
+}
+
 export async function writeRafflePages(outDir) {
   const dir = path.join(outDir, "raffle");
   await mkdir(path.join(dir, "rules"), { recursive: true });
@@ -19,7 +38,8 @@ export async function writeRafflePages(outDir) {
     description: "In-person-only 50/50 raffle at four NEOChosen events November 13–14. Ends at St. Hilary on Saturday. No online raffle-ticket sales or Sunday raffle.",
     route: "/raffle/",
     extraHead: '<link rel="stylesheet" href="/raffle-promotion.css">',
-    body: `<header class="editorial-hero"><div class="editorial-hero-copy"><p class="editorial-kicker">NEOChosen Weekend</p><h1>${escape(raffleAnnouncement.heading)}</h1></div></header><section class="editorial-section editorial-section--white"><div class="editorial-shell raffle-announcement">${renderRaffleAnnouncement()}</div></section>`,
+    className: "raffle-landing",
+    body: renderRaffleLanding(),
   }));
   await writeFile(path.join(dir, "rules/index.html"), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta http-equiv="refresh" content="0; url=/raffle/"><link rel="canonical" href="https://neochosen.com/raffle/"><title>Updated raffle announcement | NEOChosen</title></head><body><p>The previous online raffle rules have been retired. <a href="/raffle/">Read the current in-person raffle announcement.</a></p></body></html>`);
 }

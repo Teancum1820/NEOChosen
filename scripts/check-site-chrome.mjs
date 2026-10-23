@@ -25,7 +25,10 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   const chrome = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0]
     + html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)[0];
   const header = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0];
-  assert(!/raffle/i.test(chrome), `${route}: retired raffle navigation`);
+  assert.equal((header.match(/href="\/raffle\/"/g) || []).length, 1, `${route}: current raffle in main navigation`);
+  assert.equal((chrome.match(/href="\/raffle\/"/g) || []).length, 2, `${route}: current raffle in header and footer`);
+  assert(chrome.includes('>50/50 Raffle</a>'), `${route}: informational raffle label`);
+  assert(!/Cash Raffle|Get Raffle Tickets/i.test(chrome), `${route}: retired raffle sales labels`);
   assert(!chrome.includes('Raffle — Coming Soon'), `${route}: outdated raffle label`);
   assert(!html.includes('class="site-follow-bar"'), `${route}: duplicate social strip`);
   for (const [name, url] of [
