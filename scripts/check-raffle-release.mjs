@@ -99,11 +99,11 @@ async function checkPages(dir) {
         /<footer class="site-footer"[\s\S]*?<\/footer>/,
       )?.[0];
       assert(
-        header?.includes('href="/raffle/"'),
+        header?.includes(path.relative('dist', file).replaceAll(path.sep, '/') === 'piano-guys/index.html' ? 'href="#in-person-raffle"' : 'href="/raffle/"'),
         `${file}: raffle navigation missing`,
       );
       assert(
-        footer?.includes('href="/raffle/"'),
+        footer?.includes(path.relative('dist', file).replaceAll(path.sep, '/') === 'piano-guys/index.html' ? 'href="#in-person-raffle"' : 'href="/raffle/"'),
         `${file}: raffle footer missing`,
       );
       assert(
@@ -129,6 +129,14 @@ for (const page of [
     "dist/" + (page ? page + "/" : "") + "index.html",
     "utf8",
   );
+  if (page === "piano-guys") {
+    assert(html.includes('id="in-person-raffle"'));
+    for (const text of ["In-person-only 50/50 raffle", "cash or credit card", "Windows on the River", "Lakewood Civic Auditorium", "Akron Civic Theatre", "St. Hilary Church", "No online raffle-ticket sales.", "The raffle and drawing conclude at the end of the St. Hilary meet-and-greet on Saturday, November 14.", "There will be no raffle at Sunday’s November 15 event at Mayfield United Methodist Church."])
+      assert(html.includes(text), `Piano Guys: missing ${text}`);
+    assert(!/href=["'][^"']*(?:\/raffle\/|neo-chosen-cash-raffle)|\$(?:20|50|100)\b|six cash prizes|40%|drawing November 15|Winners need not be present/i.test(html), "Piano Guys: obsolete raffle material");
+    assert(html.includes('href="https://www.ticketmaster.com/event/05006538EC473EB4"'), "Concert ticket link preserved");
+    continue;
+  }
   assert(
     html.includes('id="weekend-raffle-title"'),
     page + ": raffle feature missing",

@@ -56,6 +56,23 @@ for (const width of [390, 1440]) {
           body: await page.screenshot({ fullPage: false }),
           contentType: "image/png",
         });
+      } else if (route === "/piano-guys/") {
+        const feature = page.locator(".raffle-promotion");
+        await expect(feature).toContainText("In-person-only 50/50 raffle");
+        await expect(feature).toContainText("No online raffle-ticket sales.");
+        await expect(feature).toContainText("cash or credit card");
+        await expect(feature).toContainText(
+          "The raffle and drawing conclude at the end of the St. Hilary meet-and-greet on Saturday, November 14.",
+        );
+        await expect(feature).toContainText(
+          "There will be no raffle at Sunday’s November 15 event at Mayfield United Methodist Church.",
+        );
+        await expect(page.locator('a[href*="/raffle/"]')).toHaveCount(0);
+        await feature.scrollIntoViewIfNeeded();
+        await testInfo.attach(`piano-guys-in-person-raffle-${width}`, {
+          body: await page.screenshot({ fullPage: false }),
+          contentType: "image/png",
+        });
       } else {
         const feature = page.locator(".raffle-promotion");
         await expect(feature).toContainText(

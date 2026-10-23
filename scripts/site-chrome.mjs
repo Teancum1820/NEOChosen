@@ -17,6 +17,7 @@ export function applySiteChrome(html, currentPath) {
     .replace('href="/images/favicon.png"', 'href="/images/neo-favicon.png"');
   if (!html.includes('href="/fonts.css"')) html = html.replace('</head>', '<link rel="stylesheet" href="/fonts.css">\n</head>');
   const item = (href, label, className) => link(href, label, currentPath, className);
+  const raffleLink = currentPath === '/piano-guys/' ? item('#in-person-raffle', '50/50 Raffle') : item('/raffle/', 'Cash Raffle');
   const eventTicketLabel = currentPath.startsWith('/raffle/') ? 'Concert &amp; event details' : 'Get Tickets';
   const dropdown = (id, label, content) => `<div class="nav-dropdown">
     <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="${id}">${label}</button>
@@ -26,7 +27,7 @@ export function applySiteChrome(html, currentPath) {
   <nav class="site-nav" aria-label="Main navigation">
     <a class="site-wordmark" href="/" aria-label="NEOChosen home">NEO<span> Chosen</span></a>
     <div class="site-nav-links" id="primary-nav">
-      ${item('/raffle/', 'Cash Raffle')}
+      ${raffleLink}
       ${item('/#events', 'Events')}
       ${item('/#performers', 'Performers')}
       ${item('/about-us/', 'About Us')}
@@ -51,7 +52,7 @@ export function applySiteChrome(html, currentPath) {
       </div>
       <nav class="site-footer-links" aria-label="Explore NEOChosen">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}${item('/raffle/', 'Cash Raffle')}
+        ${item('/#events', 'Weekend Events')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}${raffleLink}
       </nav>
       <div class="site-footer-contact">
         <h2>Contact</h2>
@@ -71,7 +72,7 @@ export function applySiteChrome(html, currentPath) {
       </div>
       <nav class="site-footer-links" aria-label="Events and information">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/#tickets', eventTicketLabel)}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}${item('/raffle/', 'Cash Raffle')}
+        ${item('/#events', 'Weekend Events')}${item('/#tickets', eventTicketLabel)}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}${raffleLink}
       </nav>
       <nav class="site-footer-links" aria-label="Support and resources">
         <h2>Get Involved</h2>
