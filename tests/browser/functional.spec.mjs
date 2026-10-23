@@ -34,6 +34,33 @@ test("community partners include Hallow and Haven remains last and no larger", a
       ).toHaveCount(0);
       const haven = advertiser.locator('[data-sponsor="haven-of-rest"]');
       await expect(haven).toHaveCount(1);
+      const vas = advertiser.locator('[data-sponsor="vas-car-care"]');
+      await expect(vas).toHaveCount(1);
+      await expect(vas).toContainText("Vas Car Care");
+      await expect(vas.locator("img, a[href]")).toHaveCount(0);
+      expect(
+        await vas.evaluate((node) =>
+          Boolean(
+            node.nextElementSibling?.matches('[data-sponsor="haven-of-rest"]'),
+          ),
+        ),
+      ).toBe(true);
+      const covenant = page.locator('[data-sponsor="covenant-eyes"]');
+      await expect(covenant).toHaveCount(1);
+      const covenantLink =
+        route === "/" ? covenant : covenant.locator(".neo-sponsor-identity");
+      await expect(covenantLink).toHaveAttribute(
+        "href",
+        "https://www.covenanteyes.com/",
+      );
+      const covenantLogo = covenant.locator("img");
+      await covenantLogo.scrollIntoViewIfNeeded();
+      expect(
+        await covenantLogo.evaluate(async (img) => {
+          await img.decode();
+          return img.naturalWidth;
+        }),
+      ).toBe(1000);
       await haven.scrollIntoViewIfNeeded();
       const havenArt = haven.locator(".neo-sponsor-art");
       const communityArt = community.locator(".neo-sponsor-art").first();

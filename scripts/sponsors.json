@@ -386,6 +386,7 @@
     "id": "vas-car-care",
     "name": "Vas Car Care",
     "tier": "program-advertiser",
+    "sortOrder": 1,
     "events": [],
     "background": "light",
     "confirmation": "Joe Jackson, October 23, 2026, Gmail 1a169890e04d69f8 and 1a1698989f0be97b: $250 ad sponsor, website recognition and quarter-page program ad. Vector logo, finished ad and preferred website are requested by end of business and remain pending. Name-only recognition; no guessed logo or URL."
