@@ -24,7 +24,7 @@ export const events = [
   {
     slug: 'piano-guys', title: 'The Piano Guys Live', eyebrow: 'Saturday · November 14', date: 'Saturday, November 14, 2026', time: '4:00 PM Eastern · Doors 3:00 PM', startDate: '2026-11-14T16:00:00-05:00', admission: 'Paid concert · tickets through Ticketmaster', venue: 'Akron Civic Theatre', city: 'Akron', street: '182 S Main Street', zip: '44308', address: '182 S Main Street, Akron, OH 44308', image: '/images/piano-guys-feature.webp', imageAlt: 'Two members of The Piano Guys with a cello',
     description: 'The Piano Guys take the stage for a separately ticketed concert at Akron Civic Theatre.',
-    detail: 'This concert requires a separate paid theater ticket through Ticketmaster. Free-event registrations do not include this concert. See Ticketmaster for seating, ticket prices, and availability.',
+    detail: 'Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit. 100% of concert proceeds go toward paying the talent and covering the costs of our free community events. This concert requires a separate paid theater ticket through Ticketmaster. Free-event registrations do not include this concert. See Ticketmaster for seating, ticket prices, and availability.',
     cta: 'Concert tickets', url: 'https://www.ticketmaster.com/event/05006538EC473EB4', sponsor: 'akron'
   },
   {
