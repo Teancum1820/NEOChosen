@@ -414,5 +414,33 @@
     "events": ["fairlawn"],
     "background": "light",
     "confirmation": "Caleb authorized website recognition as a Fairlawn nonprofit partner on October 23, 2026. Jessica's forwarded email 1a169964dd5897c7 confirms Marian's Closet participation at St. Hilary Parish on November 14 at 7 PM Eastern. Official website logo https://marianscloset.org/wp-content/uploads/2022/08/logo.png used unchanged because the emailed Drive assets were inaccessible."
+  },
+  {
+    "id": "resurrection-painting",
+    "name": "Resurrection Painting",
+    "logo": "/images/partners/resurrection-painting.svg",
+    "url": "https://resurrectionpaint.com/",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Sponsor",
+    "description": "Community Sponsor of NEO Chosen Weekend, November 13–15, 2026.",
+    "events": [],
+    "background": "light",
+    "confirmation": "Joe Jackson, October 23, 2026, Gmail 1a169ed8a7a4ab91: add Resurrection Painting as a Community Sponsor. Supplied original SVG from Jonah Byard used unchanged. Website printed on supplied ad and verified October 26, 2026. Weekend recognition; no event-specific assignment inferred."
+  },
+  {
+    "id": "fostering-family-ministries",
+    "name": "Fostering Family Ministries",
+    "logo": "/images/partners/fostering-family-ministries.svg",
+    "url": "https://www.fosteringfamilyministries.org",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "description": "A partnership of churches providing loving homes and support for children and families in foster care.",
+    "events": [
+      "fairlawn"
+    ],
+    "background": "light",
+    "confirmation": "Jessica Barber, October 23, 2026, Gmail 1a16a0906eeed17b: confirmed nonprofit partner for Fairlawn Meet & Greet at St. Hilary on November 14 at 7 PM Eastern. Original FFM SVG logo and approved description supplied by Hope Abel. SVG viewport trims transparent canvas padding only; artwork is unchanged. Nonprofit Community Partner; no paid sponsorship tier inferred."
   }
 ]
