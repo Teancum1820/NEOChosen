@@ -31,6 +31,7 @@ export function applySiteChrome(html, currentPath) {
 </script>
 </head>`);
   }
+  if (!html.includes('src="/ticket-interest.js"')) html = html.replace('</head>', '<script src="/ticket-interest.js" defer></script>\n</head>');
   const item = (href, label, className) => link(href, label, currentPath, className);
   const eventTicketLabel = currentPath.startsWith('/raffle/') ? 'Concert &amp; event details' : 'Get Tickets';
   const dropdown = (id, label, content) => `<div class="nav-dropdown">

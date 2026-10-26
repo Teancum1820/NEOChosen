@@ -65,3 +65,13 @@
 .event-related strong { font-size:13px; color:#cda76a; }
 @media(max-width:1100px) { .event-hero-content { padding:40px 32px; min-height:540px; } .event-facts { gap:22px; } .event-recognition .editorial-shell { align-items:start; } }
 @media(max-width:800px) { .event-hero { grid-template-columns:1fr; } .event-hero-photo { height:350px; } .event-hero-photo--collage { height:clamp(320px,100vw,460px); } .event-hero-photo--collage img { padding:8px; } .event-hero-content { padding:32px 24px 40px; min-height:0; gap:16px; } .event-hero-content h1 { font-size:clamp(28px,7.6vw,32px); } .event-page h2 { font-size:clamp(25px,6.5vw,30px); } .event-facts { grid-template-columns:1fr 1fr; gap:28px 24px; } .event-facts-band { padding:32px 0; } .event-facts strong { font-size:14px; } .event-recognition .editorial-shell { flex-direction:column; gap:25px; } .event-recognition .neo-event-sponsor-list { flex-wrap:wrap; } .event-related { grid-template-columns:1fr; gap:30px; } .event-related h3 { font-size:22px; } .event-venue-guide { padding:25px; } }
+
+/* Keep booking accessible on small screens without covering page content. */
+.event-mobile-booking { display:none; }
+@media(max-width:800px) {
+ .event-page--ticket-focus { padding-bottom:calc(112px + env(safe-area-inset-bottom)); }
+ .event-page--ticket-focus .event-hero-content { grid-row:1; }
+ .event-mobile-booking { display:flex; flex-direction:column; gap:6px; position:fixed; bottom:0; left:0; right:0; z-index:30; padding:10px 16px calc(10px + env(safe-area-inset-bottom)); background:#101a2d; color:#fff; box-shadow:0 -2px 12px #0003; text-align:center; }
+ .event-mobile-booking span { font:600 12px/1.4 Montserrat,Arial,sans-serif; }
+ .event-mobile-booking .event-button { min-height:44px; justify-content:center; padding:10px 18px; }
+}
