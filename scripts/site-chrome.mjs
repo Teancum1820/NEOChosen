@@ -16,6 +16,21 @@ export function applySiteChrome(html, currentPath) {
   html = html.replace(/\s*<link[^>]+href="https:\/\/(?:fonts.googleapis.com|fonts.gstatic.com)[^>]+>/g, '')
     .replace('href="/images/favicon.png"', 'href="/images/neo-favicon.png"');
   if (!html.includes('href="/fonts.css"')) html = html.replace('</head>', '<link rel="stylesheet" href="/fonts.css">\n</head>');
+  // Base Google Ads tag; conversion events are configured separately.
+  if (!html.includes('gtag/js?id=AW-18530665275')) {
+    html = html.replace('</head>', `<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18530665275"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18530665275', {
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false
+  });
+</script>
+</head>`);
+  }
   const item = (href, label, className) => link(href, label, currentPath, className);
   const eventTicketLabel = currentPath.startsWith('/raffle/') ? 'Concert &amp; event details' : 'Get Tickets';
   const dropdown = (id, label, content) => `<div class="nav-dropdown">
