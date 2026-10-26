@@ -4,6 +4,7 @@ import { page, hero, section, callout, action } from "./editorial-page.mjs";
 import { renderImage } from "../design-system/image.mjs";
 import { pressRelease } from "./press-release.mjs";
 import { approvedMedia, mediaCard, mediaStyles } from "./approved-media.mjs";
+import { churchTvSection } from "./church-tv-slides.mjs";
 
 const organization = "Kirtland Heritage Group";
 const volunteer =
@@ -20,7 +21,7 @@ const descriptions = {
   "social-media-links":
     "Follow Kirtland Heritage Group on Facebook and Instagram for NEOChosen news, photos, community stories and ticket updates.",
   "media-kit":
-    "Download the approved October 1, 2026 NEOChosen press release and find weekend artwork, sponsorship resources and event details.",
+    "Download the NEOChosen press release, event flyers, and 1920 × 1080 church lobby TV slides for print and digital sharing.",
 };
 const titles = {
   "about-us": "About Kirtland Heritage Group | NEOChosen",
@@ -132,7 +133,7 @@ const social =
   );
 
 function media() {
-  return hero("Media kit", "Share the weekend.") + pressRelease + section(
+  return hero("Media kit", "Share the weekend.") + pressRelease + churchTvSection() + section(
     "Official event artwork", "Download and share.",
     '<div class="approved-media-grid">' + approvedMedia.map(mediaCard).join("") + "</div>",
   );
