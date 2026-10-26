@@ -22,6 +22,11 @@
   .event-flyer .asset-preview-link { max-width:340px; }
 }
 /* Raffle downloads preserve the complete square/story artwork. */
+.church-tv-intro { max-width:76ch; margin-bottom:32px; }
+.church-tv-card .church-tv-preview { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; }
+.church-tv-card .asset-info { display:flex; flex-direction:column; flex:1; }
+.church-tv-card .asset-actions { margin-top:auto; padding-top:20px; }
+.church-tv-grid { align-items:stretch; }
 .raffle-media-preview { object-fit:contain !important; object-position:center !important; height:420px !important; background:#112636; }
 .raffle-story-guidance { margin-top:24px; padding:18px 22px; background:#f6eddc; color:#172438; }
 @media(max-width:800px) { .raffle-media-preview { height:auto !important; max-height:560px; } }
