@@ -37,7 +37,16 @@ test("community partners include Hallow and Haven remains last and no larger", a
       const vas = advertiser.locator('[data-sponsor="vas-car-care"]');
       await expect(vas).toHaveCount(1);
       await expect(vas).toContainText("Vas Car Care");
-      await expect(vas.locator("img, a[href]")).toHaveCount(0);
+      await vas.scrollIntoViewIfNeeded();
+      await expect(vas.locator("img")).toBeVisible();
+      const vasLink =
+        route === "/"
+          ? vas
+          : vas.getByRole("link", { name: "Visit Vas Car Care website" });
+      await expect(vasLink).toHaveAttribute(
+        "href",
+        "https://vascarcareohio.com/",
+      );
       expect(
         await vas.evaluate((node) =>
           Boolean(

@@ -385,11 +385,14 @@
   {
     "id": "vas-car-care",
     "name": "Vas Car Care",
+    "logo": "/images/partners/vas-car-care-official.svg",
+    "url": "https://vascarcareohio.com/",
+    "linkIdentity": true,
     "tier": "program-advertiser",
     "sortOrder": 1,
     "events": [],
     "background": "light",
-    "confirmation": "Joe Jackson, October 23, 2026, Gmail 1a169890e04d69f8 and 1a1698989f0be97b: $250 ad sponsor, website recognition and quarter-page program ad. Vector logo, finished ad and preferred website are requested by end of business and remain pending. Name-only recognition; no guessed logo or URL."
+    "confirmation": "Joe Jackson, October 23, 2026, Gmail 1a169890e04d69f8 and 1a1698989f0be97b: $250 ad sponsor, website recognition and quarter-page program ad. Caleb requested finding the logo October 26, 2026. Official website vascarcareohio.com/about names owner Vasyl Mniukh, matching the sponsorship email. Original website logo used unchanged inside an SVG viewport that removes empty black canvas padding. Finished print ad remains pending."
   },
   {
     "id": "covenant-eyes",
@@ -423,7 +426,6 @@
     "linkIdentity": true,
     "tier": "community",
     "recognition": "Community Sponsor",
-    "description": "Community Sponsor of NEO Chosen Weekend, November 13–15, 2026.",
     "events": [],
     "background": "light",
     "confirmation": "Joe Jackson, October 23, 2026, Gmail 1a169ed8a7a4ab91: add Resurrection Painting as a Community Sponsor. Supplied original SVG from Jonah Byard used unchanged. Website printed on supplied ad and verified October 26, 2026. Weekend recognition; no event-specific assignment inferred."
@@ -436,7 +438,6 @@
     "linkIdentity": true,
     "tier": "community",
     "recognition": "Community Partner",
-    "description": "A partnership of churches providing loving homes and support for children and families in foster care.",
     "events": [
       "fairlawn"
     ],
