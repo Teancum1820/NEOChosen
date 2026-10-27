@@ -1,5 +1,6 @@
 import sharp from "sharp";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 
 // Delivery derivatives only: resize and encode approved original pixels.
@@ -15,6 +16,10 @@ const output = path.resolve("images/performers");
 await mkdir(output, { recursive: true });
 const manifest = {};
 for (const [name, source] of Object.entries(sources)) {
+  // Performer deliveries are immutable, so replacement portraits need new URLs.
+  const revision = name === "zhaleh-vossough"
+    ? `-${createHash("sha256").update(await readFile(source)).digest("hex").slice(0, 12)}`
+    : "";
   const { width, height } = await sharp(source).metadata();
   const maximum = Math.min(width, name === "piano-guys" ? 1440 : 720);
   const widths = [...new Set([160, 320, 480, 800, 1200, maximum])]
@@ -22,15 +27,15 @@ for (const [name, source] of Object.entries(sources)) {
     .sort((a, b) => a - b);
   manifest[name] = { width, height, variants: [] };
   for (const size of widths) {
-    const prefix = `/images/performers/${name}-${size}`;
+    const prefix = `/images/performers/${name}${revision}-${size}`;
     await sharp(source)
       .resize({ width: size })
       .webp({ quality: 86 })
-      .toFile(path.join(output, `${name}-${size}.webp`));
+      .toFile(path.join(output, `${name}${revision}-${size}.webp`));
     await sharp(source)
       .resize({ width: size })
       .avif({ quality: 65 })
-      .toFile(path.join(output, `${name}-${size}.avif`));
+      .toFile(path.join(output, `${name}${revision}-${size}.avif`));
     manifest[name].variants.push({
       width: size,
       webp: `${prefix}.webp`,

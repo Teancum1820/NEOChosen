@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { renderWeekendTextRecognition, renderPresentingRecognition, renderEventPartnerLogos, renderEventCommunitySponsors } from './sponsor-system.mjs';
-import { renderPhoto } from './performer-images.mjs';
+import { renderPhoto, performerImageManifest } from './performer-images.mjs';
 import { page as editorialPage } from './editorial-page.mjs';
 import { renderImage } from '../design-system/image.mjs';
 import { eventCollage, renderEventCollage } from './event-collages.mjs';
@@ -49,7 +49,7 @@ const schema = event => ({
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   url: `https://neochosen.com/${event.slug}/`,
-  image: eventCollage(event.slug) ? 'https://neochosen.com/images/performers/zhaleh-vossough-720.webp' : 'https://neochosen.com/images/performers/piano-guys-1440.webp',
+  image: eventCollage(event.slug) ? `https://neochosen.com${performerImageManifest['zhaleh-vossough'].variants.at(-1).webp}` : 'https://neochosen.com/images/performers/piano-guys-1440.webp',
   location: { '@type': 'Place', name: event.venue, address: { '@type': 'PostalAddress', streetAddress: event.street, addressLocality: event.city, addressRegion: 'OH', postalCode: event.zip, addressCountry: 'US' } },
   organizer: { '@type': 'Organization', name: 'Kirtland Heritage Group', url: 'https://www.kirtlandheritagegroup.com/' },
   ...(event.admission.startsWith('Free') ? { offers: { '@type': 'Offer', url: event.url, price: '0', priceCurrency: 'USD' } } : {})
