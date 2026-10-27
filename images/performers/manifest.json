@@ -114,28 +114,28 @@
     ]
   },
   "zhaleh-vossough": {
-    "width": 3808,
-    "height": 5457,
+    "width": 1500,
+    "height": 2333,
     "variants": [
       {
         "width": 160,
-        "webp": "/images/performers/zhaleh-vossough-160.webp",
-        "avif": "/images/performers/zhaleh-vossough-160.avif"
+        "webp": "/images/performers/zhaleh-vossough-0e20dbb76154-160.webp",
+        "avif": "/images/performers/zhaleh-vossough-0e20dbb76154-160.avif"
       },
       {
         "width": 320,
-        "webp": "/images/performers/zhaleh-vossough-320.webp",
-        "avif": "/images/performers/zhaleh-vossough-320.avif"
+        "webp": "/images/performers/zhaleh-vossough-0e20dbb76154-320.webp",
+        "avif": "/images/performers/zhaleh-vossough-0e20dbb76154-320.avif"
       },
       {
         "width": 480,
-        "webp": "/images/performers/zhaleh-vossough-480.webp",
-        "avif": "/images/performers/zhaleh-vossough-480.avif"
+        "webp": "/images/performers/zhaleh-vossough-0e20dbb76154-480.webp",
+        "avif": "/images/performers/zhaleh-vossough-0e20dbb76154-480.avif"
       },
       {
         "width": 720,
-        "webp": "/images/performers/zhaleh-vossough-720.webp",
-        "avif": "/images/performers/zhaleh-vossough-720.avif"
+        "webp": "/images/performers/zhaleh-vossough-0e20dbb76154-720.webp",
+        "avif": "/images/performers/zhaleh-vossough-0e20dbb76154-720.avif"
       }
     ]
   }

@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { renderImage } from '../design-system/image.mjs';
 
 const manifest = JSON.parse(await readFile(new URL('../images/performers/manifest.json', import.meta.url), 'utf8'));
+export { manifest as performerImageManifest };
 export const performers = [
   { id: 'shaan-sharma', name: 'Shaan Sharma', role: 'Shmuel' },
   { id: 'noah-james', name: 'Noah James', role: 'Andrew' },
@@ -13,5 +14,5 @@ export function renderPhoto(id, { alt = '', sizes, priority = false, eager = fal
   const photo = manifest[id];
   if (!photo) throw Error(`Unknown approved photo: ${id}`);
   const fallback = photo.variants.find(v => v.width >= 480) || photo.variants.at(-1);
-  return `<picture><source type="image/avif" srcset="${photo.variants.map(v => `${v.avif} ${v.width}w`).join(', ')}" sizes="${sizes}">${renderImage({ src: fallback.webp, alt, width: photo.width, height: photo.height, srcSet: photo.variants.map(v => ({ src: v.webp, width: v.width })), sizes, priority, eager, className, position })}</picture>`;
+  return `<picture><source type="image/avif" srcset="${photo.variants.map(v => `${v.avif} ${v.width}w`).join(', ')}" sizes="${sizes}">${renderImage({ src: fallback.webp, alt, width: photo.width, height: photo.height, srcSet: photo.variants.map(v => ({ src: v.webp, width: v.width })), sizes, priority, eager, className, position: id === 'zhaleh-vossough' ? 'center top' : position })}</picture>`;
 }

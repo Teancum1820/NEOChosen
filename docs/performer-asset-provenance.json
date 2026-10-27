@@ -33,7 +33,9 @@
   {
     "id": "zhaleh-vossough",
     "file": "source-assets/performers/zhaleh-vossough.jpg",
-    "sourceSHA256": "9d70605b5a34c037132ea64048b961c683fad544577d17177369dec8590077a2",
-    "origin": "Official artist website https://www.heyzhaleh.com/; source URL and review holds in docs/joe-call-2026-10-22.json"
+    "sourceSHA256": "0e20dbb7615425810b976d35dc77989931bdf93ca885d0043b77e554a7a0e2a4",
+    "origin": "Caleb-selected navy studio portrait, already used in the approved booklet. Original source: https://logline.media/zhaleh-assets/img/gallery/fullsize/Z_001.jpg",
+    "approval": "Jessica requested the more conservative website photo on October 27, 2026; Caleb authorized the replacement in this chat.",
+    "processing": "Original JPEG preserved byte for byte; only full-frame resizing and WebP/AVIF delivery encoding. Content-hash filenames bypass the previous portrait’s immutable cache."
   }
 ]
