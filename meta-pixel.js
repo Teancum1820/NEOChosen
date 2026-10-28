@@ -28,6 +28,7 @@
       document.head.appendChild(script);
     }
 
+    window.fbq("set", "autoConfig", false, pixelId);
     window.fbq("init", pixelId);
     window.fbq("track", "PageView");
   }
