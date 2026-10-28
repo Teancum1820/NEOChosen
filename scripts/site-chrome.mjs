@@ -32,6 +32,7 @@ export function applySiteChrome(html, currentPath) {
 </head>`);
   }
   if (!html.includes('src="/ticket-interest.js"')) html = html.replace('</head>', '<script src="/ticket-interest.js" defer></script>\n</head>');
+  if (!html.includes('src="/meta-pixel.js"')) html = html.replace('</head>', '<script src="/meta-pixel.js" defer></script>\n</head>');
   const item = (href, label, className) => link(href, label, currentPath, className);
   const eventTicketLabel = currentPath.startsWith('/raffle/') ? 'Concert &amp; event details' : 'Get Tickets';
   const dropdown = (id, label, content) => `<div class="nav-dropdown">
@@ -77,7 +78,7 @@ export function applySiteChrome(html, currentPath) {
         <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group <span aria-label="(opens in a new tab)">↗</span></a>
       </div>
     </div>
-    <div class="site-footer-bottom"><p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p><a href="#main-content">Back to top ↑</a></div>
+    <div class="site-footer-bottom"><p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p><nav class="site-privacy-links" aria-label="Privacy"><a href="/privacy/">Privacy &amp; tracking</a><button type="button" data-meta-consent-open>Privacy settings</button></nav><a href="#main-content">Back to top ↑</a></div>
   </footer>` : `<footer class="site-footer">
     <div class="site-footer-grid">
       <div class="site-footer-brand">
@@ -102,7 +103,7 @@ export function applySiteChrome(html, currentPath) {
         <a href="https://www.kirtlandheritagegroup.com/" target="_blank" rel="noopener noreferrer">Kirtland Heritage Group <span aria-label="(opens in a new tab)">↗</span></a>
       </div>
     </div>
-    <div class="site-footer-bottom"><p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p><a href="#main-content">Back to top ↑</a></div>
+    <div class="site-footer-bottom"><p>&copy; 2026 Kirtland Heritage Group. All Rights Reserved.</p><nav class="site-privacy-links" aria-label="Privacy"><a href="/privacy/">Privacy &amp; tracking</a><button type="button" data-meta-consent-open>Privacy settings</button></nav><a href="#main-content">Back to top ↑</a></div>
   </footer>`;
   html = html.replace(/<a class="skip-link" href="#main-content">[^<]*<\/a>/, '')
     .replace(/<nav class="site-nav"[\s\S]*?<\/nav>/, nav)
