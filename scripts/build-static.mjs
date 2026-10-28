@@ -30,6 +30,7 @@ const siteDirs = [
   "giveaway-rules",
   "images",
   "media-kit",
+  "privacy",
   "raffle",
   "social-media-links",
   "sponsors",
