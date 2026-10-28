@@ -40,7 +40,7 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   }
   pages.set(route, { html, ids, chrome });
 }
-assert.equal(pages.size, process.env.NEOCHOSEN_REVIEW === 'true' ? 30 : 29, 'Expected all content pages including raffle announcement, breakfast and confirmations to have shared navigation and footer');
+assert.equal(pages.size, process.env.NEOCHOSEN_REVIEW === 'true' ? 33 : 32, 'Expected all content pages including privacy, raffle announcement, breakfast and confirmations to have shared navigation and footer');
 for (const route of ['/vip-dinner/', '/lakewood/', '/piano-guys/', '/fairlawn/', '/chesterland/']) {
   assert(pages.has(route), `Missing dedicated event route ${route}`);
 }

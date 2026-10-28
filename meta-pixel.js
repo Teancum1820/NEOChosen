@@ -54,9 +54,9 @@
   function createBanner() {
     banner = document.createElement("section");
     banner.className = "meta-consent-banner";
-    banner.setAttribute("aria-label", "Optional Meta tracking choice");
+    banner.setAttribute("aria-label", "Cookie preferences");
     banner.setAttribute("role", "region");
-    banner.innerHTML = '<div class="meta-consent-copy"><p><strong>Optional social-media measurement</strong><br>With your permission, Meta may receive page views and clicks on The Piano Guys ticket link. This helps Kirtland Heritage Group measure interest. Ticket purchase details are not tracked here. <a href="/privacy/">Privacy &amp; tracking details</a>.</p></div><div class="meta-consent-actions"><button type="button" data-meta-reject>Reject optional tracking</button><button type="button" data-meta-allow>Allow Meta tracking</button></div>';
+    banner.innerHTML = '<div class="meta-consent-copy"><p><strong>Cookies &amp; your privacy</strong><br>We use cookies and similar technologies to remember your choices and, with your permission, measure site visits and ticket-link clicks. You can accept or reject optional cookies. <a href="/privacy/">Privacy &amp; cookie details</a>.</p></div><div class="meta-consent-actions"><button type="button" data-meta-reject>Reject optional cookies</button><button type="button" data-meta-allow>Accept optional cookies</button></div>';
     banner.querySelector("[data-meta-reject]").addEventListener("click", () => setConsent("reject"));
     banner.querySelector("[data-meta-allow]").addEventListener("click", () => setConsent("allow"));
     document.body.appendChild(banner);
