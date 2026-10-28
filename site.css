@@ -405,3 +405,36 @@ nav.site-nav .site-nav-actions .nav-social-links a { flex:none; width:40px; min-
   nav.site-nav .site-nav-actions .nav-social-links a { width:32px; min-width:32px; padding:6px; }
 }
 @media(max-width:360px) { nav.site-nav .site-wordmark { font-size:15px!important; } }
+
+
+/* Optional Meta Pixel consent banner and persistent privacy controls. */
+.meta-consent-banner {
+  position: fixed; inset: auto 16px max(16px, env(safe-area-inset-bottom)); z-index: 2000;
+  box-sizing: border-box; width: min(720px, calc(100% - 32px)); margin-inline: auto;
+  padding: 20px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px;
+  border: 1px solid rgba(240,215,126,.65); border-radius: 12px; background: #101a2d; color: #fff;
+  box-shadow: 0 16px 48px rgba(0,0,0,.55); font: 15px/1.55 Montserrat,Arial,sans-serif;
+}
+.meta-consent-banner[hidden] { display: none; }
+.meta-consent-copy p { margin: 0; }
+.meta-consent-copy a { color: #f0d77e; text-underline-offset: 3px; }
+.meta-consent-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.meta-consent-actions button, .site-privacy-links button {
+  min-height: 44px; padding: 10px 15px; border: 1px solid #cda76a; border-radius: 6px;
+  background: transparent; color: #fff; font: 700 14px/1.3 Montserrat,Arial,sans-serif; cursor: pointer;
+}
+.meta-consent-actions [data-meta-allow] { background: #f0d77e; color: #122035; }
+.site-footer-bottom { flex-wrap: wrap; }
+.site-privacy-links { display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.site-privacy-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; }
+.site-privacy-links button { min-height: 40px; padding: 8px 12px; color: var(--site-cream); font-size: 13px; }
+.privacy-page { max-width: 850px; margin: 0 auto; padding: clamp(32px, 7vw, 80px) 24px; color: var(--site-cream); line-height: 1.75; }
+.privacy-page h1, .privacy-page h2 { color: var(--site-gold-bright); font-family: Cinzel,Georgia,serif; line-height: 1.25; }
+.privacy-page a { color: var(--site-gold-bright); text-underline-offset: 3px; }
+.privacy-page li { margin-block: .5rem; }
+@media (max-width: 680px) {
+  .meta-consent-banner { inset-inline: 10px; bottom: max(10px, env(safe-area-inset-bottom)); width: calc(100% - 20px); grid-template-columns: 1fr; padding: 16px; gap: 12px; }
+  .meta-consent-actions { justify-content: stretch; }
+  .meta-consent-actions button { flex: 1 1 120px; }
+  .site-privacy-links { justify-content: flex-start; }
+}
