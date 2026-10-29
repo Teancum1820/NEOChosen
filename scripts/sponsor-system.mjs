@@ -77,7 +77,7 @@ export function renderHomepageSponsorDirectory() {
     return `<div class="home-sponsor-tier home-sponsor-tier--${tier}"><h3>${title}</h3><div class="home-sponsor-list">${group.map(s => {
       const tag = s.url ? 'a' : 'div';
       const link = s.url ? ` ${external(s)} title="Visit ${escape(s.name)} website"` : '';
-      return `<${tag} class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" data-sponsor="${escape(s.id)}"${link}>${renderSponsorLogo(s, { className: 'home-sponsor-art', decorative: true })}<span class="home-sponsor-meta${s.logoOnly ? ' sr-only' : ''}"><strong>${escape(s.name)}</strong>${['hotel','production-partner'].includes(tier) && s.description ? `<small>${escape(s.description)}</small>` : ''}${tier === 'presenting' ? `<small>${s.events.map(event => escape(events[event])).join(' · ')}</small>` : tier === 'community' && s.events.length && s.description ? `<small>${escape(s.description)}</small>` : ''}${s.phone ? `<small>${escape(s.phone)}</small>`:''}</span></${tag}>`;
+      return `<${tag} class="home-sponsor-logo home-sponsor-logo--${escape(s.background || 'light')}" data-sponsor="${escape(s.id)}"${link}>${renderSponsorLogo(s, { className: 'home-sponsor-art', decorative: true })}<span class="home-sponsor-meta${s.logoOnly ? ' sr-only' : ''}"><strong>${escape(s.name)}</strong>${['hotel','production-partner'].includes(tier) && s.description ? `<small>${escape(s.description)}</small>` : ''}${tier === 'presenting' ? `<small>${s.eventCredit ? `${escape(s.eventCredit)} · ` : ''}${s.events.map(event => escape(events[event])).join(' · ')}</small>` : tier === 'community' && s.events.length && s.description ? `<small>${escape(s.description)}</small>` : ''}${s.phone ? `<small>${escape(s.phone)}</small>`:''}</span></${tag}>`;
     }).join('')}</div></div>`;
   }).join('');
 }
@@ -85,7 +85,7 @@ export function renderEventSponsorCredit(event, { compact = false } = {}) {
   const group = presenters(event);
   if (!group.length) return '';
   const label = event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsors';
-  return `<div class="neo-event-sponsor-credit${compact ? ' neo-event-sponsor-credit--compact' : ''}" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(label)}"><p class="neo-event-sponsor-label">${escape(label)}</p><div class="neo-event-sponsor-list">${group.map(s => `<a ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s, { decorative: true })}<strong>${escape(s.name)}</strong></a>`).join('')}</div></div>`;
+  return `<div class="neo-event-sponsor-credit${compact ? ' neo-event-sponsor-credit--compact' : ''}" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(label)}"><p class="neo-event-sponsor-label">${escape(label)}</p><div class="neo-event-sponsor-list">${group.map(s => `<a ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s, { decorative: true })}<strong>${escape(s.name)}${s.eventCredit ? `<small class="neo-event-partner-credit">${escape(s.eventCredit)}</small>` : ''}</strong></a>`).join('')}</div></div>`;
 }
 export const renderEventSponsors = event => renderEventSponsorCredit(event, { compact: true });
 export function renderEventCommunitySponsors(event) {
@@ -100,9 +100,10 @@ export function renderEventCommunitySponsors(event) {
   }).join('')}</div></section>`).join('');
 }
 export function renderEventPartnerLogos(event, { includeOrganizer = false } = {}) {
-  const partners = event ? presenters(event).map(s => ({ ...s, displayRole: event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsor' })) : [];
+  const partners = event ? presenters(event).map(s => ({ ...s, displayRole: s.eventCredit || (event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsor') })) : [];
   if (includeOrganizer) partners.push({ id:'kirtland-heritage-group', name:'Kirtland Heritage Group', logo:'/images/partners/kirtland-heritage-group.webp', url:'https://kirtlandheritagegroup.com/', background:'light', displayRole:'Presented by' });
   if (weekend) partners.push({ ...weekend, displayRole:'NEO Chosen Weekend Presenting Sponsor' });
+  for (const s of sponsors.filter(s => s.digitalRecognition && !s.events.includes(event))) partners.push({ ...s, displayRole:'With thanks to our concert partner' });
   return `<div class="event-brand-grid"${event ? ` data-sponsor-event="${escape(event)}"` : ''} role="group" aria-label="Event partners">${partners.map(s => `<article class="event-brand" data-sponsor="${escape(s.id)}"><p class="neo-event-sponsor-label">${escape(s.displayRole)}</p><a ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s,{decorative:true})}<strong>${escape(s.name)}</strong></a></article>`).join('')}</div>`;
 }
 export function renderWeekendTextRecognition() {
