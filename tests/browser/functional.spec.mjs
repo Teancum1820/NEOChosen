@@ -280,10 +280,10 @@ test("every concert action goes directly to Ticketmaster without a notice", asyn
   );
   for (const [route, expectedCount] of [
     ["/", 3],
-    ["/piano-guys/", 2],
+    ["/piano-guys/", 4],
   ]) {
     await page.goto(route);
-    const buttons = page.locator(`a[href="${ticketUrl}"]`);
+    const buttons = page.locator(`a[href="${ticketUrl}"]:visible`);
     await expect(buttons).toHaveCount(expectedCount);
     for (let index = 0; index < expectedCount; index++) {
       const trigger = buttons.nth(index);
