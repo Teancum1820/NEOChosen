@@ -3,6 +3,12 @@ import { test, expect } from "@playwright/test";
 test.beforeEach(async ({ page }) => {
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
   await page.goto("/");
+  // Compare the page after a real consent choice so the fixed notice cannot
+  // cover unrelated crops. The saved choice also survives later navigation.
+  await page.getByRole("button", { name: "Reject optional cookies" }).click();
+  await expect(
+    page.getByRole("region", { name: "Cookie preferences" }),
+  ).toBeHidden();
   await page.addStyleTag({
     content:
       "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}.reveal{opacity:1!important;transform:none!important}",
