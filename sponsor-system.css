@@ -126,3 +126,5 @@
   .neo-event-sponsor-list { flex-direction: column; gap: 3px; }
   .neo-event-sponsor-list strong { font-size: 13px; }
 }
+
+.neo-event-partner-credit { display:block; font-size:11px; font-weight:500; margin-top:3px; }

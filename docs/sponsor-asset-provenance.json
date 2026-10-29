@@ -86,5 +86,27 @@
     ],
     "local": "/images/partners/covenant-eyes-supplied.jpg",
     "status": "saved unchanged; original supplied colors and aspect ratio preserved"
+  },
+  {
+    "id": "solich-piano-black",
+    "source": "Jessica Barber, supplied Solich Piano logo attachment, October 29, 2026: Solich_Logo_Large_Format_Black-01.png",
+    "sourceSHA256": "ccf3502b6ae4ccf4a1205a7a60b7108d69d194656584867ef1162ff62436dae2",
+    "originalDimensions": [
+      5000,
+      1667
+    ],
+    "local": "/images/partners/solich-piano-black.webp",
+    "status": "Transparent outer padding cropped; aspect ratio and supplied logo colors preserved; lossless web derivative."
+  },
+  {
+    "id": "solich-piano-gold",
+    "source": "Jessica Barber, supplied Solich Piano logo attachment, October 29, 2026: Solich_Logo_Large_Format_Gold-01.png",
+    "sourceSHA256": "5287afae990eb5df296b0fd0534878439b56dc260e9bde3e0e233de8e9dd1d29",
+    "originalDimensions": [
+      5000,
+      1667
+    ],
+    "local": "/images/partners/solich-piano-gold.webp",
+    "status": "Transparent outer padding cropped; aspect ratio and supplied logo colors preserved; lossless web derivative."
   }
 ]

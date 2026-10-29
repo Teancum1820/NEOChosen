@@ -134,3 +134,20 @@ for (const document of [home, directory]) {
   assert.match(document, /capturing all five events/);
   assert.doesNotMatch(document, /<a\b[^>]+data-sponsor="brand-pros-media"/);
 }
+
+// Solich presents the concert in partnership and receives digital thanks elsewhere.
+const solich = byId('solich-piano');
+assert.deepEqual(solich.events, ['akron']);
+assert.equal(solich.eventCredit, 'Presented in partnership with');
+for (const document of [home, directory, akron, fairlawn, lakewood, vip, chesterland]) {
+  assert.equal(document.split('data-sponsor="solich-piano"').length - 1, 1);
+  assert.match(document, /src="\/images\/partners\/solich-piano-black.webp"/);
+  assert.match(document, /https:\/\/www.solichmusic.com\//);
+}
+assert.match(akron, /Presented in partnership with/);
+for (const document of [fairlawn, lakewood, vip, chesterland]) {
+  assert.match(document, /With thanks to our concert partner/);
+}
+assert.match(akron, /The Piano Guys Concert Presenting Sponsor/);
+assert.match(akron, /data-sponsor="fna"/);
+assert.match(akron, /data-sponsor="great-lakes-auto-group"/);

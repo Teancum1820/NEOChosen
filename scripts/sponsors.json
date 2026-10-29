@@ -593,5 +593,23 @@
     "background": "light",
     "confirmation": "Current saved original NEOChosen booklet DAHXWxMQazM, page 23, inspected October 29, 2026. Caleb authorized recognition of every listed sponsor October 29. Approved existing artwork retained. No paid level or event assignment inferred.",
     "recognition": "Community Supporter"
+  },
+  {
+    "id": "solich-piano",
+    "name": "Solich Piano",
+    "logo": "/images/partners/solich-piano-black.webp",
+    "logoReversed": "/images/partners/solich-piano-gold.webp",
+    "url": "https://www.solichmusic.com/",
+    "tier": "presenting",
+    "sortOrder": 3,
+    "roles": [
+      "The Piano Guys Live — Presented in partnership with Solich Piano"
+    ],
+    "eventCredit": "Presented in partnership with",
+    "digitalRecognition": true,
+    "events": [
+      "akron"
+    ],
+    "background": "light"
   }
 ]
