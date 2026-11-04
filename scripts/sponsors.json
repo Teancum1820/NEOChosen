@@ -21,13 +21,20 @@
     "photoAlt": "Barons Bus motorcoach outside the Rock & Roll Hall of Fame in Cleveland",
     "url": "https://baronsbus.com/",
     "linkLabel": "Visit Website",
-    "tier": "platinum",
-    "scope": "Platinum Sponsor of NEOChosen 2026",
-    "description": "Platinum partner supporting the NEOChosen weekend.",
+    "tier": "presenting",
+    "scope": "Lakewood Event Presenting Sponsor",
+    "description": "Presenting sponsor of the Lakewood event.",
     "tagline": "Ride Like Royalty",
-    "events": [],
+    "events": [
+      "lakewood"
+    ],
     "background": "light",
-    "linkIdentity": true
+    "linkIdentity": true,
+    "roles": [
+      "Lakewood Event Presenting Sponsor"
+    ],
+    "sortOrder": 4,
+    "confirmation": "Joe explicitly approved Lakewood presenting sponsorship October 22, 2026, 18:16:59 UTC, quoted in Gmail 1a16991d60272611 and 1a169ab00e4a1621. Supersedes older Platinum public title; no additional payment or exclusivity inferred."
   },
   {
     "id": "advanced-care",
@@ -191,9 +198,12 @@
     "logo": "/images/partners/trinity-commercial-realty.png",
     "url": "https://www.trinitycregroup.com/",
     "tier": "community",
-    "events": [],
+    "events": [
+      "lakewood"
+    ],
     "background": "light",
-    "confirmation": "Joe authorized website inclusion September 30, 2026; Caleb approved placement at our discretion. Original logo extracted from supplied Trinity Small Ad Gary 2026.pdf."
+    "confirmation": "Joe authorized website inclusion September 30, 2026; Caleb approved placement at our discretion. Original logo extracted from supplied Trinity Small Ad Gary 2026.pdf. Commitments Ledger row 31 confirms Supporting Sponsor of Lakewood; event placement reconciled November 4.",
+    "recognition": "Supporting Sponsor"
   },
   {
     "id": "catholic-cemeteries",
@@ -211,10 +221,11 @@
     "name": "Hallow",
     "logo": "/images/partners/hallow.png",
     "url": "https://hallow.com/",
-    "tier": "community",
+    "tier": "prayer",
     "events": [],
     "background": "light",
-    "confirmation": "Caleb, September 30, 2026: Community Partner"
+    "confirmation": "Commitments Ledger row 27 and Joe October 22, 2026, Gmail 1a16660c3002ce29 explicitly recognize Hallow as Official Prayer Sponsor. Campaign/gift-card fulfillment not asserted.",
+    "recognition": "Official Prayer Sponsor"
   },
   {
     "id": "haven-of-rest",
@@ -227,10 +238,10 @@
     "confirmation": "Jessica, September 30, 2026"
   },
   {
-    "id": "camp-quality-usa",
-    "name": "Camp Quality USA",
-    "logo": "/images/partners/camp-quality-usa.png",
-    "url": "https://campqualityusa.org/",
+    "id": "camp-quality-ohio",
+    "name": "Camp Quality Ohio",
+    "logo": "/images/partners/camp-quality-ohio.png",
+    "url": "https://linktr.ee/cqohio",
     "linkIdentity": true,
     "tier": "community",
     "recognition": "Community Partner",
@@ -238,7 +249,7 @@
       "akron"
     ],
     "background": "light",
-    "confirmation": "User campaign brief, October 7, 2026, and Jessica's October 6 email: Camp Quality Ohio participating at The Piano Guys concert as a Community Partner; no paid sponsorship designation."
+    "confirmation": "Nonprofit Partners row 12 confirms Camp Quality Ohio at the Akron concert. Ohio chapter artwork from existing October 30 nonprofit package. Chapter-owned Linktree verified November 4, 2026."
   },
   {
     "id": "love-inc-cuyahoga",
@@ -414,7 +425,9 @@
     "linkIdentity": true,
     "tier": "community",
     "recognition": "Community Partner",
-    "events": ["fairlawn"],
+    "events": [
+      "fairlawn"
+    ],
     "background": "light",
     "confirmation": "Caleb authorized website recognition as a Fairlawn nonprofit partner on October 23, 2026. Jessica's forwarded email 1a169964dd5897c7 confirms Marian's Closet participation at St. Hilary Parish on November 14 at 7 PM Eastern. Official website logo https://marianscloset.org/wp-content/uploads/2022/08/logo.png used unchanged because the emailed Drive assets were inaccessible."
   },
@@ -611,5 +624,85 @@
       "akron"
     ],
     "background": "light"
+  },
+  {
+    "id": "npi",
+    "name": "NPi",
+    "logo": "/images/partners/npi-primary.webp",
+    "url": "https://www.npiav.com/",
+    "linkIdentity": true,
+    "tier": "production-partner",
+    "recognition": "Concert Production Partner",
+    "description": "Production partner for The Piano Guys concert at Akron Civic Theatre.",
+    "events": [
+      "akron"
+    ],
+    "background": "light",
+    "confirmation": "Joe November 4 audit and Gmail 1a1a84910930119a authorize concert production-partner recognition using Alex Kay’s supplied logo options. No cash tier assigned."
+  },
+  {
+    "id": "love-inc-lorain",
+    "name": "Love INC of Lorain County",
+    "url": "https://loveinclorainco.org/",
+    "linkIdentity": true,
+    "tier": "event-sponsor",
+    "recognition": "Event Sponsor",
+    "events": [],
+    "background": "light",
+    "artworkStatus": "Approved John Schultz artwork not found in accessible Gmail or Drive; live name/link recognition pending approved logo.",
+    "confirmation": "Commitments Ledger row 46 and Joe November 4 audit 1a1a84a7e0db2e77 confirm the separate sponsor and website recognition. Official site identifies John Schultz and john.schultz@lilc.org. No chosen meet-and-greet assignment inferred; Cuyahoga entry retained."
+  },
+  {
+    "id": "berrodin-bed-breakfast",
+    "name": "Berrodin Bed & Breakfast",
+    "logo": "/images/partners/berrodin-bed-breakfast.webp",
+    "url": "https://berrodinbb.com/",
+    "linkIdentity": true,
+    "tier": "event-sponsor",
+    "recognition": "Event Sponsor",
+    "events": [],
+    "background": "dark",
+    "confirmation": "Joe November 4 audit authorizes website recognition. Approved identity reused with general event sponsor recognition; no premium tier or event-specific assignment inferred."
+  },
+  {
+    "id": "patterson-fruit-farms",
+    "name": "Patterson Fruit Farms",
+    "logo": "/images/partners/patterson-fruit-farms.png",
+    "url": "https://pattersonfarm.com/",
+    "linkIdentity": true,
+    "tier": "in-kind",
+    "recognition": "In-Kind Sponsor",
+    "description": "Supporting the Mayfield Meet & Greet with a committed donation of donuts.",
+    "events": [
+      "chesterland"
+    ],
+    "background": "light",
+    "confirmation": "Commitments Ledger row 41: 144 donuts committed for Mayfield November 15; delivery pending. Jessica November 4 artwork review approves actual Patterson logo. No receipt, FMV or delivery completion asserted."
+  },
+  {
+    "id": "forever-amber-acres",
+    "name": "Forever Amber Acres",
+    "logo": "/images/partners/forever-amber-acres.png",
+    "url": "https://www.foreveramber.org/",
+    "linkIdentity": true,
+    "tier": "community",
+    "recognition": "Community Partner",
+    "events": [
+      "fairlawn"
+    ],
+    "background": "light",
+    "confirmation": "Michele accepted Fairlawn October 22; official transparent logo, link and mission supplied November 3 via Jessica, Gmail 1a1a254be659aade. Jessica acknowledged packet November 3, Gmail 1a1a2dc860fec166. Setup/physical placement still pending."
+  },
+  {
+    "id": "come-and-see-foundation",
+    "name": "Come and See Foundation",
+    "url": "https://www.comeandseefoundation.org/",
+    "linkIdentity": true,
+    "tier": "event-sponsor",
+    "recognition": "Event Sponsor",
+    "events": [],
+    "background": "light",
+    "artworkStatus": "Approved artwork not found in accessible Gmail or Drive; live name/link recognition pending Jessica/Amy approved logo.",
+    "confirmation": "Joe November 4 Gmail 1a1a86fac5ae5656 explicitly requests general event sponsor recognition and official link, no tier/dollar amount. Booth attendance at Lakewood/Fairlawn/Mayfield is awaiting confirmation; no booth commitment or event assignment published."
   }
 ]

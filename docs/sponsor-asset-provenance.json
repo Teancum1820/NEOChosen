@@ -108,5 +108,30 @@
     ],
     "local": "/images/partners/solich-piano-gold.webp",
     "status": "Transparent outer padding cropped; aspect ratio and supplied logo colors preserved; lossless web derivative."
+  },
+  {
+    "local": "/images/partners/npi-primary.webp",
+    "source": "NPi Primary.png supplied by Alex Kay; Joe forward Gmail 1a1a84910930119a, November 4, 2026.",
+    "status": "Aspect ratio and artwork colors preserved; optimized web derivative."
+  },
+  {
+    "local": "/images/partners/camp-quality-ohio.png",
+    "source": "Existing Ohio chapter artwork in October 30 nonprofit production manifest; Nonprofit Partners row 12.",
+    "status": "Aspect ratio and artwork colors preserved; optimized web derivative."
+  },
+  {
+    "local": "/images/partners/forever-amber-acres.png",
+    "source": "Michele supplied transparent logo via Jessica, Gmail 1a1a254be659aade; only transparent outer padding trimmed.",
+    "status": "Aspect ratio and artwork colors preserved; optimized web derivative."
+  },
+  {
+    "local": "/images/partners/patterson-fruit-farms.png",
+    "source": "Actual Patterson logo from final LamPro artwork; Jessica approved November 4, Gmail 1a1a829cbe0679fa and 1a1a86419c9fa73f.",
+    "status": "Aspect ratio and artwork colors preserved; optimized web derivative."
+  },
+  {
+    "local": "/images/partners/berrodin-bed-breakfast.webp",
+    "source": "Official Berrodin logo, https://berrodinbb.com/images/logo.webp; same identity as supplied Berrodin - BBB-RECTANGLE(1).jpg.",
+    "status": "Aspect ratio and artwork colors preserved; optimized web derivative."
   }
 ]
