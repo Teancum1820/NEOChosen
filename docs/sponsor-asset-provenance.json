@@ -153,5 +153,13 @@
     "status": "Official header logo; user authorized website artwork November 4, 2026. SVG copied unchanged; displayed on dark background.",
     "sourceSHA256": "fa825b5d710da4181de1a3cb42d5b44a7705e22988195f0dd9c162d94e535e31",
     "retrieved": "2026-11-04"
+  },
+  {
+    "id": "lake-blue-native-vector",
+    "local": "/images/partners/lake-blue-supplied.svg",
+    "source": "Lake Blue supplied ad, graphics@lakeblueinc.com, October 23; Joe forward Gmail 1a1697c67cdc04c7. Original supplied-ad PDF retained in local print package.",
+    "original": "/source-assets/sponsor-audit-20261104/lake-blue-supplied-vector.pdf",
+    "sourceSHA256": "5339aee9ebace4f3f78975763fb6591a2b3b8094db5d154d70741808a6edd0d3",
+    "status": "Native logo circle from supplied PDF, recovered for the November 4 print package; exported original vector geometry to SVG without tracing, recoloring or upscaling. Replaces fuzzy booklet thumbnail."
   }
 ]

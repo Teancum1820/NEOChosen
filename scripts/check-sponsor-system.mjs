@@ -125,7 +125,7 @@ console.log('Validated sponsor hierarchy, approved event relationships, director
 assert.equal(byId('hyatt-regency-cleveland').tier, 'hotel');
 assert.equal(byId('hyatt-regency-cleveland').url, 'https://cleveland.hyatt.com/');
 assert.equal(byId('brand-pros-media').tier, 'production-partner');
-assert.equal(byId('brand-pros-media').url, undefined);
+assert.equal(byId('brand-pros-media').url, 'https://www.brandprosmedia.com/');
 for (const document of [home, directory]) {
   for (const id of ['hyatt-regency-cleveland', 'brand-pros-media']) {
     assert.equal(document.split(`data-sponsor="${id}"`).length - 1, 1);
@@ -134,7 +134,7 @@ for (const document of [home, directory]) {
   assert.match(document, /Official Hotel Sponsor/);
   assert.match(document, /Official Photography and Videography Partner for NEO Chosen Weekend/);
   assert.match(document, /capturing all five events/);
-  assert.doesNotMatch(document, /<a\b[^>]+data-sponsor="brand-pros-media"/);
+  assert.ok(document.includes('href="https://www.brandprosmedia.com/"'));
 }
 
 // Solich presents the concert in partnership and receives digital thanks elsewhere.
