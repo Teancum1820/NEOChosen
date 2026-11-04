@@ -18,12 +18,14 @@ const byId = id => sponsors.find(s => s.id === id);
 assert.equal(byId('great-lakes-auto-group').tier, 'weekend-presenting');
 assert.deepEqual(byId('fna').events, ['akron', 'fairlawn']);
 assert.deepEqual(byId('advanced-care').events, ['fairlawn']);
-assert.equal(byId('barons-bus').tier, 'platinum');
-assert.equal(byId('hallow').tier, 'community');
+assert.equal(byId('barons-bus').tier, 'presenting');
+assert.deepEqual(byId('barons-bus').events, ['lakewood']);
+assert.equal(byId('hallow').tier, 'prayer');
 assert.equal(byId('haven-of-rest').tier, 'program-advertiser');
-assert.doesNotMatch(home + directory, /Official Prayer Sponsor/);
+assert.match(home, /Official Prayer Sponsor/);
+assert.match(directory, /Official Prayer Sponsor/);
 for (const document of [home, directory]) {
-  assert.ok(document.indexOf('Community Partners') < document.indexOf('data-sponsor="hallow"'));
+  assert.ok(document.indexOf('Official Prayer Sponsor') < document.indexOf('data-sponsor="hallow"'));
   assert.ok(document.indexOf('data-sponsor="hallow"') < document.indexOf('Program Advertiser'));
   assert.ok(document.indexOf('Program Advertiser') < document.indexOf('data-sponsor="haven-of-rest"'));
 }
@@ -58,8 +60,8 @@ for (const document of [home, directory, media, fairlawn, akron, lakewood, vip, 
 }
 assert.ok(sponsors.filter(s => s.tier === 'community').length > 0);
 assert.ok(directory.indexOf('Weekend Presenting Sponsor') < directory.indexOf('Event Presenting Sponsors'));
-assert.ok(directory.indexOf('Event Presenting Sponsors') < directory.indexOf('Platinum Sponsor'));
-assert.ok(directory.indexOf('Platinum Sponsor') < directory.indexOf('Community Partners'));
+assert.ok(directory.indexOf('Event Presenting Sponsors') < directory.indexOf('Official Prayer Sponsor'));
+assert.ok(directory.indexOf('Official Prayer Sponsor') < directory.indexOf('Community Partners'));
 assert.match(home, /NEO CHOSEN WEEKEND<br>PRESENTING SPONSOR/);
 for (const document of [home, directory, media, akron, fairlawn, thanks]) {
   assert.doesNotMatch(document, /<!-- (?:EVENT_SPONSORS|WEEKEND_PRESENTING_CREDIT|PRESENTING_SPONSOR_RIBBON)/);
@@ -81,7 +83,7 @@ for (const document of [home, directory]) assert.doesNotMatch(document, /href="u
 
 // Confirm new nonprofits appear only in community recognition, once per page.
 for (const [id, event, url, logo, eventPage] of [
-  ['camp-quality-usa', 'akron', 'https://campqualityusa.org/', '/images/partners/camp-quality-usa.png', akron],
+  ['camp-quality-ohio', 'akron', 'https://linktr.ee/cqohio', '/images/partners/camp-quality-ohio.png', akron],
   ['love-inc-cuyahoga', 'lakewood', 'https://www.loveinccuyahoga.org/', '/images/partners/love-inc-cuyahoga.png', lakewood],
 ]) {
   assert.equal(byId(id).tier, 'community');
@@ -98,7 +100,7 @@ for (const [id, event, url, logo, eventPage] of [
     assert.ok(!document.includes(`data-sponsor="${id}"`));
   }
 }
-assert.ok(akron.indexOf('data-sponsor="fna"') < akron.indexOf('data-sponsor="camp-quality-usa"'));
+assert.ok(akron.indexOf('data-sponsor="fna"') < akron.indexOf('data-sponsor="camp-quality-ohio"'));
 assert.ok(lakewood.indexOf('data-sponsor="ascend-wealth-management"') < lakewood.indexOf('event-community-partners-heading'));
 
 // Gathering Place is a Chesterland community partner, not an event presenter.
@@ -151,3 +153,25 @@ for (const document of [fairlawn, lakewood, vip, chesterland]) {
 assert.match(akron, /The Piano Guys Concert Presenting Sponsor/);
 assert.match(akron, /data-sponsor="fna"/);
 assert.match(akron, /data-sponsor="great-lakes-auto-group"/);
+
+// November 4 audit: prevent conflating organizations, roles or booth invitations.
+for (const document of [home, directory]) {
+  for (const id of ['love-inc-cuyahoga','love-inc-lorain','come-and-see-foundation','npi','berrodin-bed-breakfast','patterson-fruit-farms','forever-amber-acres']) {
+    assert.equal(document.split(`data-sponsor="${id}"`).length - 1, 1, id);
+  }
+  assert.doesNotMatch(document, /Camp Quality USA|Platinum partner supporting/);
+}
+for (const id of ['love-inc-lorain','come-and-see-foundation','berrodin-bed-breakfast']) {
+  assert.equal(byId(id).tier, 'event-sponsor');
+  assert.deepEqual(byId(id).events, []);
+  for (const document of [akron,fairlawn,lakewood,vip,chesterland]) assert.ok(!document.includes(`data-sponsor="${id}"`));
+}
+assert.equal(byId('come-and-see-foundation').url,'https://www.comeandseefoundation.org/');
+assert.match(akron,/Concert Production Partner/);
+assert.match(akron,/data-sponsor="npi"/);
+assert.match(lakewood,/Lakewood Event Presenting Sponsor/);
+assert.match(lakewood,/data-sponsor="trinity-commercial-realty"/);
+assert.match(chesterland,/data-sponsor="patterson-fruit-farms"/);
+assert.match(fairlawn,/data-sponsor="forever-amber-acres"/);
+for (const document of [fairlawn,lakewood,vip,chesterland]) assert.doesNotMatch(document,/data-sponsor="npi"/);
+for (const document of [akron,lakewood,vip,chesterland]) assert.doesNotMatch(document,/data-sponsor="forever-amber-acres"/);

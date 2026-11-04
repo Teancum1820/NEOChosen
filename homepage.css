@@ -293,3 +293,6 @@
 .home-sponsor-tier--event-sponsor h3 { color:var(--color-brand-gold); }
 .home-sponsor-tier--event-sponsor .home-sponsor-list { grid-template-columns:repeat(auto-fit,minmax(140px,180px)); }
 .home-sponsor-tier--event-sponsor .home-sponsor-art { width:160px; max-width:100%; height:90px; padding:10px; background:#fff; }
+.home-sponsor-tier--event-sponsor .home-sponsor-art.neo-sponsor-art--dark { background:var(--color-brand-background); }
+.home-sponsor-tier--in-kind .home-sponsor-art { width:100%; height:110px; background:#fff; }
+.home-sponsor-tier--prayer .home-sponsor-art { background:#fff; }

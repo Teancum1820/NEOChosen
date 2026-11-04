@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
 });
 
-test("community partners include Hallow and Haven remains last and no larger", async ({
+test("Hallow prayer recognition and compact program advertisers", async ({
   page,
 }) => {
   for (const width of [390, 1440]) {
@@ -25,13 +25,13 @@ test("community partners include Hallow and Haven remains last and no larger", a
           : page.locator(
               'section[aria-labelledby="program-advertiser-sponsors-heading"]',
             );
-      await expect(community.locator('[data-sponsor="hallow"]')).toHaveCount(1);
+      await expect(page.locator('[data-sponsor="hallow"]')).toHaveCount(1);
       await expect(
         community.locator('[data-sponsor="haven-of-rest"]'),
       ).toHaveCount(0);
       await expect(
         page.getByText("Official Prayer Sponsor", { exact: true }),
-      ).toHaveCount(0);
+      ).toHaveCount(1);
       const haven = advertiser.locator('[data-sponsor="haven-of-rest"]');
       await expect(haven).toHaveCount(1);
       const vas = advertiser.locator('[data-sponsor="vas-car-care"]');

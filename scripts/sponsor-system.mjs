@@ -12,6 +12,7 @@ const tiers = [
   ['hotel', 'Official Hotel Sponsor'],
   ['production-partner', 'Production Partner'],
   ['event-sponsor', 'Event Sponsors'],
+  ['in-kind', 'In-Kind Sponsors'],
   ['community', 'Community Partners'],
   ['program-advertiser', 'Program Advertiser']
 ];
@@ -59,12 +60,12 @@ export function renderSponsorDirectory() {
   const major = byTier('platinum')[0];
   const compact = (tier,title) => {
     const group = byTier(tier);
-    return group.length ? `<section class="sponsor-editorial-section" aria-labelledby="${tier}-sponsors-heading"><div class="editorial-shell"><p class="editorial-kicker">With gratitude</p><h2 id="${tier}-sponsors-heading">${title}</h2><div class="sponsor-partner-grid">${group.map(s=>`<article data-sponsor="${escape(s.id)}">${s.linkIdentity && s.url ? `<a class="neo-sponsor-identity" ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s,{decorative:true})}</a>` : renderSponsorLogo(s,{decorative:true})}<h3${s.logoOnly ? ' class="sr-only"' : ''}>${escape(s.name)}</h3>${s.description ? `<p>${escape(s.description)}</p>`:''}${s.phone ? `<a class="sponsor-partner-phone" href="tel:+1${s.phone.replaceAll('-','')}">${escape(s.phone)}</a>`:''}${s.url ? `<a class="editorial-link" ${external(s)}>Visit website <span class="sr-only">for ${escape(s.name)}</span><span aria-hidden="true">↗</span></a>`:''}</article>`).join('')}</div></div></section>` : '';
+    return group.length ? `<section class="sponsor-editorial-section" aria-labelledby="${tier}-sponsors-heading"><div class="editorial-shell"><p class="editorial-kicker">With gratitude</p><h2 id="${tier}-sponsors-heading">${title}</h2><div class="sponsor-partner-grid">${group.map(s=>`<article data-sponsor="${escape(s.id)}">${s.linkIdentity && s.url && s.logo ? `<a class="neo-sponsor-identity" ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s,{decorative:true})}</a>` : renderSponsorLogo(s,{decorative:true})}<h3${s.logoOnly ? ' class="sr-only"' : ''}>${escape(s.name)}</h3>${s.description ? `<p>${escape(s.description)}</p>`:''}${s.phone ? `<a class="sponsor-partner-phone" href="tel:+1${s.phone.replaceAll('-','')}">${escape(s.phone)}</a>`:''}${s.url ? `<a class="editorial-link" ${external(s)}>Visit website <span class="sr-only">for ${escape(s.name)}</span><span aria-hidden="true">↗</span></a>`:''}</article>`).join('')}</div></div></section>` : '';
   };
   return `<section class="sponsor-weekend-feature" aria-labelledby="weekend-presenting-sponsors-heading"><div class="editorial-shell"><div data-sponsor="${weekend.id}"><p class="editorial-kicker">NEO Chosen Weekend Presenting Sponsor</p><h2 id="weekend-presenting-sponsors-heading">${escape(weekend.name)}</h2><p>Presenting partner across November 13–15, 2026. Thank you for helping bring five experiences of music, conversation, faith, and community to Northeast Ohio.</p><a class="editorial-link" ${external(weekend)}>Visit Great Lakes Auto Group <span aria-hidden="true">↗</span></a></div><a ${external(weekend)} aria-label="Visit Great Lakes Auto Group">${renderSponsorLogo(weekend,{decorative:true})}</a></div></section>
   <section class="sponsor-editorial-section" aria-labelledby="presenting-sponsors-heading"><div class="editorial-shell"><p class="editorial-kicker">Event Presenting Sponsors</p><h2 id="presenting-sponsors-heading">Partners at the heart of each event.</h2><div class="sponsor-presenter-grid">${byTier('presenting').map(s=>`<article data-sponsor="${escape(s.id)}">${renderSponsorLogo(s,{decorative:true})}<h3>${escape(s.name)}</h3><ul>${roleLines(s).map(role=>`<li>${escape(role)}</li>`).join('')}</ul><a class="editorial-link" ${external(s)}>Visit ${escape(s.name)} <span aria-hidden="true">↗</span></a></article>`).join('')}</div></div></section>
   ${major ? `<section class="sponsor-platinum-feature" aria-labelledby="platinum-sponsors-heading"><div class="editorial-shell" data-sponsor="${escape(major.id)}"><div><p class="editorial-kicker">Platinum Sponsor</p><h2 id="platinum-sponsors-heading">${escape(major.name)}</h2><p>${escape(major.description)}</p><p>${escape(major.tagline)}</p><a class="editorial-link" ${external(major)}>Visit ${escape(major.name)} <span aria-hidden="true">↗</span></a></div>${renderSponsorLogo(major,{decorative:true})}</div></section>`:''}
-  ${compact('silver','Silver Sponsor')}${compact('prayer','Official Prayer Sponsor')}${compact('hotel','Official Hotel Sponsor')}${compact('production-partner','Production Partner')}${compact('event-sponsor','Event Sponsors')}${compact('community','Community Partners')}${compact('program-advertiser','Program Advertiser')}`;
+  ${compact('silver','Silver Sponsor')}${compact('prayer','Official Prayer Sponsor')}${compact('hotel','Official Hotel Sponsor')}${compact('production-partner','Production Partners')}${compact('event-sponsor','Event Sponsors')}${compact('in-kind','In-Kind Sponsors')}${compact('community','Community Partners')}${compact('program-advertiser','Program Advertiser')}`;
 }
 
 export function renderPresentingSponsorRibbon() {
@@ -84,7 +85,7 @@ export function renderHomepageSponsorDirectory() {
 export function renderEventSponsorCredit(event, { compact = false } = {}) {
   const group = presenters(event);
   if (!group.length) return '';
-  const label = event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsors';
+  const label = event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : event === 'lakewood' ? 'Lakewood Event Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsors';
   return `<div class="neo-event-sponsor-credit${compact ? ' neo-event-sponsor-credit--compact' : ''}" data-sponsor-event="${escape(event)}" role="group" aria-label="${escape(label)}"><p class="neo-event-sponsor-label">${escape(label)}</p><div class="neo-event-sponsor-list">${group.map(s => `<a ${external(s)} aria-label="Visit ${escape(s.name)} website">${renderSponsorLogo(s, { decorative: true })}<strong>${escape(s.name)}${s.eventCredit ? `<small class="neo-event-partner-credit">${escape(s.eventCredit)}</small>` : ''}</strong></a>`).join('')}</div></div>`;
 }
 export const renderEventSponsors = event => renderEventSponsorCredit(event, { compact: true });
@@ -93,6 +94,7 @@ export function renderEventCommunitySponsors(event) {
   const groups = [
     { members: participants.filter(s => s.recognition !== 'Community Partner'), title: event === 'fairlawn' ? 'Community Partners' : 'Community Sponsors', heading: 'event-community-sponsors-heading' },
     { members: participants.filter(s => s.recognition === 'Community Partner'), title: 'Community Partners', heading: 'event-community-partners-heading' },
+    { members: byTier('in-kind').filter(s => s.events.includes(event)), title: 'In-Kind Sponsors', heading: 'event-in-kind-sponsors-heading' },
   ];
   return groups.filter(group => group.members.length).map(group => `<section class="event-community-sponsors" aria-labelledby="${group.heading}"><h2 id="${group.heading}">${group.title}</h2><div class="event-community-sponsor-list">${group.members.map(s => {
     const identity = `${renderSponsorLogo(s, { decorative: true })}<h3>${escape(s.name)}</h3>`;
@@ -100,7 +102,8 @@ export function renderEventCommunitySponsors(event) {
   }).join('')}</div></section>`).join('');
 }
 export function renderEventPartnerLogos(event, { includeOrganizer = false } = {}) {
-  const partners = event ? presenters(event).map(s => ({ ...s, displayRole: s.eventCredit || (event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsor') })) : [];
+  const partners = event ? presenters(event).map(s => ({ ...s, displayRole: s.eventCredit || (event === 'akron' ? 'The Piano Guys Concert Presenting Sponsor' : event === 'lakewood' ? 'Lakewood Event Presenting Sponsor' : 'Fairlawn Meet & Greet Presenting Sponsor') })) : [];
+  for (const s of byTier('production-partner').filter(s => s.events.includes(event))) partners.push({ ...s, displayRole:s.recognition || 'Production Partner' });
   if (includeOrganizer) partners.push({ id:'kirtland-heritage-group', name:'Kirtland Heritage Group', logo:'/images/partners/kirtland-heritage-group.webp', url:'https://kirtlandheritagegroup.com/', background:'light', displayRole:'Presented by' });
   if (weekend) partners.push({ ...weekend, displayRole:'NEO Chosen Weekend Presenting Sponsor' });
   for (const s of sponsors.filter(s => s.digitalRecognition && !s.events.includes(event))) partners.push({ ...s, displayRole:'With thanks to our concert partner' });
