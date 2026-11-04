@@ -133,5 +133,25 @@
     "local": "/images/partners/berrodin-bed-breakfast.webp",
     "source": "Official Berrodin logo, https://berrodinbb.com/images/logo.webp; same identity as supplied Berrodin - BBB-RECTANGLE(1).jpg.",
     "status": "Aspect ratio and artwork colors preserved; optimized web derivative."
+  },
+  {
+    "id": "love-inc-lorain",
+    "officialPage": "https://loveinclorainco.org/",
+    "source": "https://loveinclorainco.org/wp-content/uploads/2026/04/LoveINC_FullLogo_White_Lorain-County-scaled.png",
+    "original": "/source-assets/sponsor-audit-20261104/love-inc-lorain-official.png",
+    "local": "/images/partners/love-inc-lorain.webp",
+    "status": "Official Lorain County logo; user authorized website artwork November 4, 2026. Proportional 1024px resize and lossless WebP encoding; original colors preserved; displayed on dark background.",
+    "sourceSHA256": "3d30368ed06a1123dfb73ef3b2575229d4dca38513ba3f9068c7b9a2a547f6e0",
+    "retrieved": "2026-11-04"
+  },
+  {
+    "id": "come-and-see-foundation",
+    "officialPage": "https://www.comeandseefoundation.org/",
+    "source": "https://cdn.prod.website-files.com/64d3e03c60e1dcc1aca1c0d0/6adf9b2e6efb7941d89b9cc1_logo-header.svg",
+    "original": "/source-assets/sponsor-audit-20261104/come-and-see-official.svg",
+    "local": "/images/partners/come-and-see-foundation.svg",
+    "status": "Official header logo; user authorized website artwork November 4, 2026. SVG copied unchanged; displayed on dark background.",
+    "sourceSHA256": "fa825b5d710da4181de1a3cb42d5b44a7705e22988195f0dd9c162d94e535e31",
+    "retrieved": "2026-11-04"
   }
 ]

@@ -643,14 +643,14 @@
   {
     "id": "love-inc-lorain",
     "name": "Love INC of Lorain County",
+    "logo": "/images/partners/love-inc-lorain.webp",
     "url": "https://loveinclorainco.org/",
     "linkIdentity": true,
     "tier": "event-sponsor",
     "recognition": "Event Sponsor",
     "events": [],
-    "background": "light",
-    "artworkStatus": "Approved John Schultz artwork not found in accessible Gmail or Drive; live name/link recognition pending approved logo.",
-    "confirmation": "Commitments Ledger row 46 and Joe November 4 audit 1a1a84a7e0db2e77 confirm the separate sponsor and website recognition. Official site identifies John Schultz and john.schultz@lilc.org. No chosen meet-and-greet assignment inferred; Cuyahoga entry retained."
+    "background": "dark",
+    "confirmation": "Caleb November 4 authorizes using the logo from the official organization website. Commitments Ledger row 46 and Joe November 4 audit 1a1a84a7e0db2e77 confirm the separate sponsor and website recognition. Official site identifies John Schultz and john.schultz@lilc.org. No chosen meet-and-greet assignment inferred; Cuyahoga entry retained."
   },
   {
     "id": "berrodin-bed-breakfast",
@@ -696,13 +696,13 @@
   {
     "id": "come-and-see-foundation",
     "name": "Come and See Foundation",
+    "logo": "/images/partners/come-and-see-foundation.svg",
     "url": "https://www.comeandseefoundation.org/",
     "linkIdentity": true,
     "tier": "event-sponsor",
     "recognition": "Event Sponsor",
     "events": [],
-    "background": "light",
-    "artworkStatus": "Approved artwork not found in accessible Gmail or Drive; live name/link recognition pending Jessica/Amy approved logo.",
-    "confirmation": "Joe November 4 Gmail 1a1a86fac5ae5656 explicitly requests general event sponsor recognition and official link, no tier/dollar amount. Booth attendance at Lakewood/Fairlawn/Mayfield is awaiting confirmation; no booth commitment or event assignment published."
+    "background": "dark",
+    "confirmation": "Caleb November 4 authorizes using the logo from the official organization website. Joe November 4 Gmail 1a1a86fac5ae5656 explicitly requests general event sponsor recognition and official link, no tier/dollar amount. Booth attendance at Lakewood/Fairlawn/Mayfield is awaiting confirmation; no booth commitment or event assignment published."
   }
 ]
