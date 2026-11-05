@@ -161,5 +161,13 @@
     "original": "/source-assets/sponsor-audit-20261104/lake-blue-supplied-vector.pdf",
     "sourceSHA256": "5339aee9ebace4f3f78975763fb6591a2b3b8094db5d154d70741808a6edd0d3",
     "status": "Native logo circle from supplied PDF, recovered for the November 4 print package; exported original vector geometry to SVG without tracing, recoloring or upscaling. Replaces fuzzy booklet thumbnail."
+  },
+  {
+    "id": "central-catholic-canton",
+    "local": "/images/partners/central-catholic-canton.png",
+    "source": "Kristie Cramer supplied Crusaders Round_Transparent.png, forwarded by Joe November 5, 2026. Gmail 1a1ac9cfd945934d.",
+    "sourceSHA256": "b71904f02e183bdcdd103d1008a3e6be6261de86af77674c53cece23da45c8ae",
+    "status": "Original 500 × 500 PNG copied unchanged. Green artwork, transparency and aspect ratio preserved. Cup Logo.jpg retained in local handoff as alternate.",
+    "retrieved": "2026-11-05"
   }
 ]
