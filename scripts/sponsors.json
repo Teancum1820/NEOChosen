@@ -706,5 +706,20 @@
     "events": [],
     "background": "dark",
     "confirmation": "Caleb November 4 authorizes using the logo from the official organization website. Joe November 4 Gmail 1a1a86fac5ae5656 explicitly requests general event sponsor recognition and official link, no tier/dollar amount. Booth attendance at Lakewood/Fairlawn/Mayfield is awaiting confirmation; no booth commitment or event assignment published."
+  },
+  {
+    "id": "central-catholic-canton",
+    "name": "Central Catholic High School, Canton",
+    "logo": "/images/partners/central-catholic-canton.png",
+    "url": "http://www.starkcountycatholicschools.org/CrusaderStories.aspx",
+    "linkIdentity": true,
+    "tier": "event-sponsor",
+    "recognition": "Event Sponsor",
+    "description": "Supporting the Lakewood event.",
+    "events": [
+      "lakewood"
+    ],
+    "background": "light",
+    "confirmation": "Joe November 5 Gmail 1a1ac9cfd945934d requests website and sponsor-material recognition and Lakewood digital rotation using Kristie Cramer’s two supplied logos and exact requested link. General event sponsor recognition; no premium tier inferred. Finished static ad pending."
   }
 ]
