@@ -1,5 +1,27 @@
 import { test, expect } from "@playwright/test";
 
+async function expectAlignedScreenshot(locator, name) {
+  await locator.scrollIntoViewIfNeeded();
+  const originalStyle = await locator.getAttribute("style");
+  try {
+    // Upstream copy changes fractional page offsets. Keep component crops on
+    // whole pixels so text rasterization and clip edges stay deterministic.
+    await locator.evaluate((element) => {
+      const bounds = element.getBoundingClientRect();
+      const pageTop = bounds.top + window.scrollY;
+      element.style.position = "relative";
+      element.style.top = `${Math.ceil(pageTop) - pageTop}px`;
+      element.style.height = `${Math.ceil(bounds.height)}px`;
+    });
+    await expect(locator).toHaveScreenshot(name);
+  } finally {
+    await locator.evaluate((element, style) => {
+      if (style === null) element.removeAttribute("style");
+      else element.setAttribute("style", style);
+    }, originalStyle);
+  }
+}
+
 test.beforeEach(async ({ page }) => {
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
   await page.goto("/");
@@ -27,17 +49,21 @@ test("approved Concept A desktop header, hero, event card, sponsor, and footer",
   ]) {
     const item = page.locator(selector).first();
     await item.scrollIntoViewIfNeeded();
-    if (name === "footer") {
-      // The sponsor content changes the footer's fractional page offset.
-      // Align this crop to whole pixels while retaining its measured height.
-      await item.evaluate((footer) => {
-        const bounds = footer.getBoundingClientRect();
-        const pageTop = bounds.top + window.scrollY;
-        footer.style.top = `${Math.ceil(pageTop) - pageTop}px`;
-        footer.style.height = `${Math.ceil(bounds.height)}px`;
-      });
+    if (name === "event-card") {
+      await expectAlignedScreenshot(item, `${name}.png`);
+    } else {
+      if (name === "footer") {
+        // The sponsor content changes the footer's fractional page offset.
+        // Align this crop to whole pixels while retaining its measured height.
+        await item.evaluate((footer) => {
+          const bounds = footer.getBoundingClientRect();
+          const pageTop = bounds.top + window.scrollY;
+          footer.style.top = `${Math.ceil(pageTop) - pageTop}px`;
+          footer.style.height = `${Math.ceil(bounds.height)}px`;
+        });
+      }
+      await expect(item).toHaveScreenshot(`${name}.png`);
     }
-    await expect(item).toHaveScreenshot(`${name}.png`);
   }
 });
 
@@ -54,9 +80,31 @@ test("approved mobile navigation and event sponsor credit", async ({
     .soft(page.locator(".site-nav"))
     .toHaveScreenshot("mobile-header.png");
   const credit = page.locator('[data-sponsor-event="akron"]').first();
-  await credit.scrollIntoViewIfNeeded();
-  await expect(credit).toHaveScreenshot("mobile-event-sponsor.png");
+  await expectAlignedScreenshot(credit, "mobile-event-sponsor.png");
 });
+
+for (const width of [390, 1440]) {
+  test(`component crops survive upstream fractional spacing at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 1000 });
+    const crops =
+      width === 390
+        ? [["mobile-event-sponsor", '[data-sponsor-event="akron"]']]
+        : [["event-card", ".home-event-card"]];
+    for (const offset of [0.25, 0.5, 0.75]) {
+      await page.locator(".raffle-promotion").evaluate((element, value) => {
+        element.style.marginBottom = `${value}px`;
+      }, offset);
+      for (const [name, selector] of crops) {
+        await expectAlignedScreenshot(
+          page.locator(selector).first(),
+          `${name}.png`,
+        );
+      }
+    }
+  });
+}
 
 test("coordinated sponsor directory major tier", async ({ page }) => {
   await page.goto("/sponsors/");
