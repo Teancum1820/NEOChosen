@@ -30,9 +30,9 @@ const count = await check("dist");
 const landing = await readFile("dist/raffle/index.html", "utf8");
 assert(landing.includes("50/50 Raffle — In Person Only"));
 assert(landing.includes("No online raffle-ticket sales."));
-assert.equal((landing.match(/<li>/g) || []).length, 4);
+assert.equal((landing.match(/<li>/g) || []).length, 3);
 assert(!/<iframe|<form|zeffy|\$\d|winner.*present/i.test(landing));
-for (const slug of ["", "vip-dinner", "lakewood", "piano-guys", "fairlawn"]) {
+for (const slug of ["", "lakewood", "piano-guys", "fairlawn"]) {
   const html = await readFile(`dist/${slug ? slug + "/" : ""}index.html`, "utf8");
   assert(html.includes('id="weekend-raffle-title"'), `${slug}: announcement missing`);
   assert(html.includes("No online raffle-ticket sales."));
@@ -40,11 +40,12 @@ for (const slug of ["", "vip-dinner", "lakewood", "piano-guys", "fairlawn"]) {
   assert(!html.includes("raffle-quick-promotion"));
   if (slug) assert(html.includes("raffle-early-event"));
 }
-assert((await readFile("dist/fairlawn/index.html", "utf8")).includes("This is the final raffle location."));
+assert(!(await readFile("dist/fairlawn/index.html", "utf8")).includes("This is the final raffle location."));
+assert(!(await readFile("dist/vip-dinner/index.html", "utf8")).includes('id="weekend-raffle-title"'));
 assert(!/raffle/i.test((await readFile("dist/chesterland/index.html", "utf8")).match(/<main\b[\s\S]*?<\/main>/)[0]));
 const rules = await readFile("dist/raffle/rules/index.html", "utf8");
 assert(rules.includes('http-equiv="refresh" content="0; url=/raffle/"'));
 const redirects = await readFile("dist/_redirects", "utf8");
 for (const route of ["/raffle/rules/", "/media-kit/neo-chosen-raffle-*", "/media-kit/2026-weekend-schedule*", "/images/raffle/*", "/images/media-previews/2026-weekend-schedule*"])
   assert(redirects.includes(`${route} /raffle/ 302`), `${route}: retirement redirect missing`);
-console.log(`Validated ${count} HTML files, the archived rules, four participating events, Sunday exclusion, and ${retired.length} retired assets.`);
+console.log(`Validated ${count} HTML files, the archived rules, Lakewood-first event plans, Sunday exclusion, and ${retired.length} retired assets.`);
