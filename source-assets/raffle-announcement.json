@@ -1,29 +1,25 @@
 {
   "heading": "50/50 Raffle — In Person Only",
-  "intro": "We'll have a 50/50 raffle with tickets available for purchase in person only, by cash or credit card, at these NEOChosen events:",
+  "intro": "A separate 50/50 raffle is planned for Lakewood on Friday, November 13. Purchase entries at the event with raffle volunteers. Setup and final rules are being confirmed.",
   "events": [
     {
-      "route": "/vip-dinner/",
-      "announcement": "Friday, November 13: VIP Donor/Sponsor Dinner at Windows on the River, Cleveland.",
-      "venue": "Windows on the River"
-    },
-    {
       "route": "/lakewood/",
-      "announcement": "Friday, November 13: An Evening with Cast Members from The Chosen at Lakewood Civic Auditorium.",
+      "announcement": "Friday, November 13: Lakewood Civic Auditorium — its own entries, jackpot and winner.",
       "venue": "Lakewood Civic Auditorium"
     },
     {
       "route": "/piano-guys/",
-      "announcement": "Saturday, November 14: The Piano Guys concert at Akron Civic Theatre.",
+      "announcement": "Saturday, November 14: The Piano Guys concert at Akron Civic Theatre. A separate raffle is under consideration, subject to confirmation.",
       "venue": "Akron Civic Theatre"
     },
     {
       "route": "/fairlawn/",
-      "announcement": "Saturday, November 14: Fairlawn Meet & Greet at St. Hilary Church.",
+      "announcement": "Saturday, November 14: Fairlawn Meet & Greet at St. Hilary Church. A separate raffle is under consideration, subject to confirmation.",
       "venue": "St. Hilary Church"
     }
   ],
-  "closing": "The raffle ends at the conclusion of the St. Hilary meet-and-greet on Saturday, November 14.",
+  "closing": "Drawing during the Lakewood event on November 13. The precise sales cutoff and announcement time will be confirmed. There is no combined weekend jackpot.",
   "online": "No online raffle-ticket sales.",
-  "sunday": "There will be no raffle at Sunday's November 15 event at Mayfield United Methodist Church."
+  "sunday": "There will be no raffle at Sunday's November 15 event at Mayfield United Methodist Church.",
+  "prize": "The planned winner’s share is 50% of gross raffle sales. Processing fees and operating expenses come from the organization’s half."
 }
