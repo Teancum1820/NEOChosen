@@ -42,8 +42,7 @@
       <article class="card wide">
         <div class="eyebrow">Make a weekend of it</div>
         <h2>Explore the other NEOChosen events</h2>
-        <p>Each free event requires a separate reservation.</p>
-        <div class="event-list" id="events"></div>
+        <!-- CONFIRMATION_EVENT_LIST -->
         <p style="margin-top:18px">The Piano Guys concert at Akron Civic Theatre on Saturday, November 14 at 4:00 PM is a separate paid theater event. Watch our social channels and <a href="https://neochosen.com/" target="_blank" rel="noopener">NEOChosen.com</a> for the ticket link.</p>
       </article>
       <article class="card support wide">
@@ -64,11 +63,6 @@
       lakewood: { name: "An Evening with Cast Members from The Chosen in Lakewood", detail: "Friday, November 13 · 7:30 PM · Lakewood Civic Auditorium" },
       fairlawn: { name: "Fairlawn Meet & Greet with The Piano Guys and cast members from The Chosen", detail: "Saturday, November 14 · 7:00 PM · St. Hilary Church" },
       chesterland: { name: "Chesterland Meet & Greet with The Piano Guys and cast members from The Chosen", detail: "Sunday, November 15 · 2:00 PM · Mayfield United Methodist Church" }
-    };
-    const links = {
-      lakewood: "https://www.zeffy.com/en-US/ticketing/an-evening-with-the-chosen",
-      fairlawn: "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-experience-fairlawn",
-      chesterland: "https://www.zeffy.com/en-US/ticketing/chosen-and-piano-guys-meet-and-greet-chesterland"
     };
     document.querySelector('.social a.primary').href = NEOCHOSEN_LINKS.facebook;
     document.querySelector('.social a.outline').href = NEOCHOSEN_LINKS.instagram;
@@ -93,10 +87,6 @@
       document.getElementById("support-copy").textContent = "Your support helps cover venue, travel, production, hospitality, and community outreach costs for the NEOChosen weekend.";
       document.getElementById("donate-button").hidden = true;
     }
-    document.getElementById("events").innerHTML = Object.keys(data)
-      .filter(k => k !== key)
-      .map(k => `<a class="event" href="${links[k]}" target="_blank" rel="noopener"><strong>${data[k].name}</strong><span>${data[k].detail}</span></a>`)
-      .join("");
   </script>
 </body>
 </html>
