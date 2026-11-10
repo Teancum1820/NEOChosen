@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { events } from "../../scripts/event-pages.mjs";
+import { events, lakewood } from "../../scripts/event-pages.mjs";
 
 test.beforeEach(async ({ page }) => {
   // Keep automation on the local build; no Zeffy or production write requests.
@@ -165,10 +165,12 @@ test("homepage rows preserve the verified event facts and destinations", async (
     await expect(card.locator(".home-event-location")).toContainText(
       event.venue,
     );
-    await expect(card.locator(".home-status")).toHaveText(event.admission);
+    await expect(card.locator(".home-status")).toHaveText(
+      event.soldOut ? "Sold Out" : event.admission,
+    );
     await expect(card.locator(".home-event-cta")).toHaveAttribute(
       "href",
-      event.url,
+      event.soldOut ? lakewood.url : event.url,
     );
     await expect(card.locator(".home-event-secondary")).toHaveAttribute(
       "href",

@@ -4,7 +4,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { ChevronDown, Heart, Menu, Minus, Plus, Ticket, X } from "lucide-react";
 import { writeSponsorshipPages } from "./sponsorship-pages.mjs";
-import { writeEventPages } from "./event-pages.mjs";
+import { applyConfirmationEvents, writeEventPages } from "./event-pages.mjs";
 import { applySiteChrome } from "./site-chrome.mjs";
 import { applySponsorSystem } from "./sponsor-system.mjs";
 import { applyHomepage } from "./homepage.mjs";
@@ -91,7 +91,7 @@ async function updateChrome(dir) {
     else if (entry.name.endsWith('.html')) {
       const route = '/' + path.relative(outDir, file).split(path.sep).join('/').replace(/index\.html$/, '');
       const source = await readFile(file, 'utf8');
-      await writeFile(file, applyRafflePromotion(applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : source), route), route), 'utf8');
+      await writeFile(file, applyRafflePromotion(applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : applyConfirmationEvents(source, route)), route), route), 'utf8');
     }
   }
 }
