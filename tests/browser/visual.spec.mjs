@@ -56,6 +56,10 @@ test("approved Concept A desktop header, hero, event card, sponsor, and footer",
         // The sponsor content changes the footer's fractional page offset.
         // Align this crop to whole pixels while retaining its measured height.
         await item.evaluate((footer) => {
+          window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: "instant",
+          });
           const bounds = footer.getBoundingClientRect();
           const pageTop = bounds.top + window.scrollY;
           footer.style.top = `${Math.ceil(pageTop) - pageTop}px`;
