@@ -40,7 +40,7 @@ for (const width of [320, 390, 768, 1440]) {
         await page.evaluate(() => document.documentElement.scrollWidth),
       ).toBeLessThanOrEqual(width);
       if (route === "/raffle/") {
-        await expect(page.locator("main li")).toHaveCount(3);
+        await expect(page.locator("main li")).toHaveCount(4);
         await expect(page.locator("main")).toContainText(
           "No online raffle-ticket sales.",
         );
@@ -58,7 +58,7 @@ for (const width of [320, 390, 768, 1440]) {
           body: await page.screenshot({ fullPage: true }),
           contentType: "image/png",
         });
-      } else if (["/chesterland/", "/vip-dinner/"].includes(route)) {
+      } else if (route === "/chesterland/") {
         await expect(page.locator("main")).not.toContainText(/raffle/i);
       } else if (route === "/media-kit/") {
         await expect(
@@ -72,9 +72,9 @@ for (const width of [320, 390, 768, 1440]) {
           await expect(page.locator(".raffle-early-event")).toContainText(
             "In person only",
           );
-        if (route === "/fairlawn/")
+        if (route !== "/")
           await expect(page.locator(".raffle-promotion")).toContainText(
-            "subject to confirmation",
+            "Tickets sold here enter this event’s drawing.",
           );
       }
     }

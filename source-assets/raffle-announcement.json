@@ -1,25 +1,42 @@
 {
   "heading": "50/50 Raffle — In Person Only",
-  "intro": "A separate 50/50 raffle is planned for Lakewood on Friday, November 13. Purchase entries at the event with raffle volunteers. Setup and final rules are being confirmed.",
+  "intro": "The VIP Sponsor Dinner, Lakewood event, Piano Guys concert and Fairlawn Meet & Greet each have their own 50/50 raffle. Buy tickets from raffle volunteers at the event you’re attending.",
   "events": [
     {
+      "route": "/vip-dinner/",
+      "day": "Friday",
+      "date": "13",
+      "name": "VIP Sponsor Dinner",
+      "city": "Cleveland",
+      "venue": "Windows on the River"
+    },
+    {
       "route": "/lakewood/",
-      "announcement": "Friday, November 13: Lakewood Civic Auditorium — its own entries, jackpot and winner.",
+      "day": "Friday",
+      "date": "13",
+      "name": "An Evening with Cast Members from The Chosen",
+      "city": "Lakewood",
       "venue": "Lakewood Civic Auditorium"
     },
     {
       "route": "/piano-guys/",
-      "announcement": "Saturday, November 14: The Piano Guys concert at Akron Civic Theatre. A separate raffle is under consideration, subject to confirmation.",
+      "day": "Saturday",
+      "date": "14",
+      "name": "The Piano Guys Concert",
+      "city": "Akron",
       "venue": "Akron Civic Theatre"
     },
     {
       "route": "/fairlawn/",
-      "announcement": "Saturday, November 14: Fairlawn Meet & Greet at St. Hilary Church. A separate raffle is under consideration, subject to confirmation.",
+      "day": "Saturday",
+      "date": "14",
+      "name": "Fairlawn Meet & Greet",
+      "city": "Fairlawn",
       "venue": "St. Hilary Church"
     }
   ],
-  "closing": "Drawing during the Lakewood event on November 13. The precise sales cutoff and announcement time will be confirmed. There is no combined weekend jackpot.",
+  "closing": "Each event has its own entries, jackpot, drawing and winner. Tickets are valid only for the raffle at the event where they’re sold.",
   "online": "No online raffle-ticket sales.",
   "sunday": "There will be no raffle at Sunday's November 15 event at Mayfield United Methodist Church.",
-  "prize": "The planned winner’s share is 50% of gross raffle sales. Processing fees and operating expenses come from the organization’s half."
+  "prize": "The winner at each event receives 50% of that event’s gross raffle ticket sales. Processing fees and operating expenses come from Kirtland Heritage Group’s half."
 }
