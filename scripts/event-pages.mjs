@@ -29,7 +29,7 @@ export const events = [
     cta: 'Concert tickets', url: 'https://www.ticketmaster.com/event/05006538EC473EB4', sponsor: 'akron'
   },
   {
-    slug: 'fairlawn', title: 'Fairlawn Meet & Greet', eyebrow: 'Saturday · November 14', date: 'Saturday, November 14, 2026', time: '7:15 PM Eastern', startDate: '2026-11-14T19:15:00-05:00', admission: 'Free · registration required', venue: 'St. Hilary Church', city: 'Fairlawn', street: '2750 W Market St', zip: '44333', address: '2750 W Market St, Fairlawn, OH 44333', image: 'https://m.media-amazon.com/images/M/MV5BYjgxMjg5YzMtN2ZjNi00ZDIxLWFlOTktZWQ5MTJhMjYyNjFiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg', imageAlt: '',
+    slug: 'fairlawn', title: 'Fairlawn Meet & Greet', eyebrow: 'Saturday · November 14', date: 'Saturday, November 14, 2026', time: '7:00 PM Eastern', startDate: '2026-11-14T19:00:00-05:00', admission: 'Free · registration required', venue: 'St. Hilary Church', city: 'Fairlawn', street: '2750 W Market St', zip: '44333', address: '2750 W Market St, Fairlawn, OH 44333', image: 'https://m.media-amazon.com/images/M/MV5BYjgxMjg5YzMtN2ZjNi00ZDIxLWFlOTktZWQ5MTJhMjYyNjFiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg', imageAlt: '',
     description: 'A free community Meet & Greet with The Piano Guys and cast members from The Chosen.',
     detail: 'Registration is closed. If you already reserved a ticket, bring your Zeffy confirmation for check-in.',
     soldOut: true, sponsor: 'fairlawn'
@@ -47,8 +47,8 @@ export const lakewood = events.find(event => event.slug === 'lakewood');
 
 const delayReason = 'Grounded flights delayed The Piano Guys’ equipment and pushed back their sound check.';
 const scheduleNotice = event => {
-  if (event.slug === 'piano-guys') return `<p class="event-schedule-notice"><strong>Updated Saturday schedule.</strong> ${delayReason} <a href="/fairlawn/">Fairlawn now starts at 7:15 PM Eastern.</a></p>`;
-  if (event.slug === 'fairlawn') return `<p class="event-schedule-notice"><strong>Updated Saturday schedule.</strong> ${delayReason} <a href="/piano-guys/">The concert starts at 5:30 PM Eastern, with doors at 4:30 PM.</a> The later meet-and-greet start gives concertgoers time to attend both events.</p>`;
+  if (event.slug === 'piano-guys') return `<p class="event-schedule-notice"><strong>Updated Saturday schedule.</strong> ${delayReason} <a href="/fairlawn/">Fairlawn now starts at 7:00 PM Eastern.</a></p>`;
+  if (event.slug === 'fairlawn') return `<p class="event-schedule-notice"><strong>Updated Saturday schedule.</strong> ${delayReason} <a href="/piano-guys/">The concert starts at 5:30 PM Eastern, with doors at 4:30 PM.</a></p>`;
   return '';
 };
 
