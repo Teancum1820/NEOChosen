@@ -21,7 +21,7 @@ for (const card of cards) {
 for (const [slug,needed] of Object.entries({
   'vip-dinner':['VIP Sponsor Dinner','$200','$1,400','Table of eight','Save $200','Doors Open 4:30 PM | Dinner 5:00 PM','Windows on the River','This event took place Friday, November 13.','Grilled Chicken Vinaigrette','Pan Seared Atlantic Salmon','Vegetable Lasagna Roll','New Potatoes with Lemon &amp; Dill','Green Beans with Red Pepper &amp; Dill','Chocolate Tuxedo Mousse','Cheesecake with Raspberry Sauce','Dinner menu from Friday, November 13.'],
   lakewood:['Event ended','Lakewood Civic Auditorium'],
-  'piano-guys':['5:30 PM Eastern · Doors 4:30 PM','will call','FNA Wealth Management','Saturday, November 14, 2026','https://www.ticketmaster.com/event/05006538EC473EB4'],
+  'piano-guys':['5:30 PM Eastern · Doors 4:30 PM','FNA Wealth Management','Saturday, November 14, 2026','https://www.ticketmaster.com/event/05006538EC473EB4'],
   fairlawn:['Free · Sold Out','https://schema.org/SoldOut','7:15 PM Eastern','Advanced Care Endodontics','FNA Wealth Management'],
   chesterland:['Free · Sold Out','https://schema.org/SoldOut','2:00 PM Eastern','Mayfield United Methodist Church']
 })) {

@@ -30,10 +30,7 @@ for (const width of [320, 390, 768, 1440]) {
     const notice = page.locator("#schedule-update");
     await expect(notice).toContainText("Doors 4:30 PM · Concert 5:30 PM");
     await expect(notice).toContainText("7:15 PM");
-    await expect(notice).toContainText("will call");
-    await expect(
-      notice.getByRole("link", { name: "Email Joe Jackson" }),
-    ).toHaveAttribute("href", "mailto:info@kirtlandheritagegroup.com");
+    await expect(notice).not.toContainText(/will call|still need concert tickets/i);
   });
 }
 

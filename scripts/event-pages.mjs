@@ -25,7 +25,7 @@ export const events = [
   {
     slug: 'piano-guys', title: 'The Piano Guys Live', eyebrow: 'Saturday · November 14', date: 'Saturday, November 14, 2026', time: '5:30 PM Eastern · Doors 4:30 PM', startDate: '2026-11-14T17:30:00-05:00', admission: 'Paid concert · tickets through Ticketmaster', venue: 'Akron Civic Theatre', city: 'Akron', street: '182 S Main Street', zip: '44308', address: '182 S Main Street, Akron, OH 44308', image: '/images/piano-guys-feature.webp', imageAlt: 'Two members of The Piano Guys with a cello',
     description: 'The Piano Guys take the stage for a separately ticketed concert at Akron Civic Theatre.',
-    detail: 'Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit. 100% of concert proceeds go toward paying the talent and covering the costs of our free community events. Check Ticketmaster for seating, prices, and availability. If you reserved complimentary concert tickets, pick them up at will call at Akron Civic Theatre.',
+    detail: 'Presented by Kirtland Heritage Group, a 501(c)(3) nonprofit. 100% of concert proceeds go toward paying the talent and covering the costs of our free community events. Check Ticketmaster for seating, prices, and availability.',
     cta: 'Concert tickets', url: 'https://www.ticketmaster.com/event/05006538EC473EB4', sponsor: 'akron'
   },
   {
@@ -47,8 +47,8 @@ export const lakewood = events.find(event => event.slug === 'lakewood');
 
 const delayReason = 'Grounded flights delayed The Piano Guys’ equipment and pushed back their sound check.';
 const scheduleNotice = event => {
-  if (event.slug === 'piano-guys') return `<p class="event-schedule-notice"><strong>Updated Saturday schedule.</strong> ${delayReason} Reserved complimentary tickets will be at will call. <a href="/fairlawn/">Fairlawn now starts at 7:15 PM Eastern.</a></p>`;
-  if (event.slug === 'fairlawn') return `<p class="event-schedule-notice"><strong>Updated Saturday schedule.</strong> ${delayReason} <a href="/piano-guys/">The concert starts at 5:30 PM Eastern, with doors at 4:30 PM.</a> The later meet-and-greet start gives concertgoers time to attend both events.</p><p>Registered for Fairlawn and still need concert tickets? <a href="mailto:info@kirtlandheritagegroup.com">Email Joe Jackson</a> for help.</p>`;
+  if (event.slug === 'piano-guys') return `<p class="event-schedule-notice"><strong>Updated Saturday schedule.</strong> ${delayReason} <a href="/fairlawn/">Fairlawn now starts at 7:15 PM Eastern.</a></p>`;
+  if (event.slug === 'fairlawn') return `<p class="event-schedule-notice"><strong>Updated Saturday schedule.</strong> ${delayReason} <a href="/piano-guys/">The concert starts at 5:30 PM Eastern, with doors at 4:30 PM.</a> The later meet-and-greet start gives concertgoers time to attend both events.</p>`;
   return '';
 };
 
@@ -137,7 +137,7 @@ const visitPage = event => {
  const v = venues[event.slug];
  return editorialPage({title:`Plan Your Visit | ${event.venue} | NEOChosen`, description:`Arrival, parking and accessibility information for ${event.title} on ${event.date}.`,route:`/${event.slug}/plan-your-visit/`,className:'event-page',extraHead:'<link rel="stylesheet" href="/events/event.css">',body:`
  <header class="editorial-section"><div class="editorial-shell"><p class="editorial-kicker">Plan your visit</p><h1>${escape(event.venue)}</h1><p>${escape(event.date)} · ${escape(event.time)}</p><p>${escape(event.admission)}</p>${bookingAction(event)}</div></header>
- <section class="editorial-section editorial-section--white"><div class="editorial-shell editorial-columns"><div><h2>Getting there</h2><address>${escape(event.address)}</address>${action('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(event.address),'Get directions','event-text-link')}<h2>Parking & accessibility</h2><p>${escape(v.guide)}</p>${action(v.url,'Venue visitor information','event-text-link')}${(v.links||[]).map(([url,label])=>action(url,label,'event-text-link')).join('')}</div><div><h2>Before you arrive</h2><p>${event.slug==='piano-guys'?'Check Ticketmaster for current prices and seats. Reserved complimentary concert tickets will be at will call.':'The Lakewood event took place Friday, November 13.'}</p><p>All times are Eastern. For questions about your booking, refer to the ticket provider’s confirmation email.</p>${action('/'+event.slug+'/','Full event details','event-text-link')}</div></div></section>`});
+ <section class="editorial-section editorial-section--white"><div class="editorial-shell editorial-columns"><div><h2>Getting there</h2><address>${escape(event.address)}</address>${action('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(event.address),'Get directions','event-text-link')}<h2>Parking & accessibility</h2><p>${escape(v.guide)}</p>${action(v.url,'Venue visitor information','event-text-link')}${(v.links||[]).map(([url,label])=>action(url,label,'event-text-link')).join('')}</div><div><h2>Before you arrive</h2><p>${event.slug==='piano-guys'?'Check Ticketmaster for current prices and seats.':'The Lakewood event took place Friday, November 13.'}</p><p>All times are Eastern. For questions about your booking, refer to the ticket provider’s confirmation email.</p>${action('/'+event.slug+'/','Full event details','event-text-link')}</div></div></section>`});
 };
 const lakewoodThanks = () => editorialPage({
  title:'Your Lakewood Visit | NEOChosen', description:'Next steps after reserving your free Lakewood event ticket.',
