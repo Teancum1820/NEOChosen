@@ -5,10 +5,7 @@ import { escape } from "./editorial-page.mjs";
 import { renderImage } from "../design-system/image.mjs";
 
 const items = [
-  { id: "akron", base: "2026-akron-piano-guys-concert", title: "The Piano Guys — Akron", description: "Saturday, November 14 · 4:00 PM · Akron Civic Theatre", route: "/piano-guys/" },
-  { id: "fairlawn", base: "2026-fairlawn-meet-and-greet", title: "Fairlawn Meet & Greet", description: "Saturday, November 14 · 7:00 PM · St. Hilary Church", route: "/fairlawn/" },
   { id: "chesterland", base: "2026-chesterland-meet-and-greet-20261013", title: "Chesterland Meet & Greet", description: "Sunday, November 15 · 2:00 PM Eastern · Mayfield United Methodist Church · Print 8.5 × 11 inches", route: "/chesterland/" },
-  { id: "vip", base: "2026-vip-sponsor-dinner", title: "VIP Sponsor Dinner", description: "Friday, November 13 · Dinner 5:00 PM · Windows on the River", route: "/vip-dinner/" },
 ];
 const digest = (bytes) => createHash("sha256").update(bytes).digest("hex").slice(0, 12);
 export const mediaStyles = `/media-kit/media-kit.css?v=${digest(await readFile("media-kit/media-kit.css"))}`;

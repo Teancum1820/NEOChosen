@@ -13,7 +13,6 @@ import { writeApprovedMedia } from "./approved-media.mjs";
 import { writeChurchTvSlides } from "./church-tv-slides.mjs";
 import { writeBreakfastPage } from "./breakfast-page.mjs";
 import { writeReviewHub } from "./review-hub.mjs";
-import { writeRafflePages, applyRafflePromotion } from "./raffle-page.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "dist");
@@ -31,7 +30,6 @@ const siteDirs = [
   "images",
   "media-kit",
   "privacy",
-  "raffle",
   "social-media-links",
   "sponsors",
   "sponsorships",
@@ -66,13 +64,16 @@ await writeFile(
 );
 
 for (const entry of await readdir(root, { withFileTypes: true })) {
-  if (entry.isFile() && (rootFiles.has(entry.name) || rootFilePattern.test(entry.name))) {
+  if (entry.isFile() && !["raffle.html", "raffle-promotion.css"].includes(entry.name) && (rootFiles.has(entry.name) || rootFilePattern.test(entry.name))) {
     await cp(path.join(root, entry.name), path.join(outDir, entry.name));
   }
 }
 
 for (const dir of siteDirs) {
-  await cp(path.join(root, dir), path.join(outDir, dir), { recursive: true });
+  await cp(path.join(root, dir), path.join(outDir, dir), {
+    recursive: true,
+    filter: (source) => !/(?:2026-akron-piano-guys-concert|2026-fairlawn-meet-and-greet|01_Weekend_Overview_TV|04_Piano_Guys_Concert_TV|05_Fairlawn_Meet_Greet_TV)/.test(path.basename(source)),
+  });
 }
 
 await writeSponsorshipPages(outDir);
@@ -81,7 +82,6 @@ await writeInteriorPages(outDir);
 await writeApprovedMedia(outDir);
 await writeChurchTvSlides(outDir);
 await writeBreakfastPage(outDir);
-await writeRafflePages(outDir);
 if (process.env.NEOCHOSEN_REVIEW === "true") await writeReviewHub(outDir);
 
 async function updateChrome(dir) {
@@ -91,7 +91,7 @@ async function updateChrome(dir) {
     else if (entry.name.endsWith('.html')) {
       const route = '/' + path.relative(outDir, file).split(path.sep).join('/').replace(/index\.html$/, '');
       const source = await readFile(file, 'utf8');
-      await writeFile(file, applyRafflePromotion(applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : applyConfirmationEvents(source, route)), route), route), 'utf8');
+      await writeFile(file, applySiteChrome(applySponsorSystem(route === '/' ? applyHomepage(source) : applyConfirmationEvents(source, route)), route), 'utf8');
     }
   }
 }

@@ -2,16 +2,17 @@
 /chesterland.html /chesterland/ 301
 /donations.html /donations/ 301
 /get-involved.html /get-involved/ 301
-/raffle.html /raffle/ 301
-/raffle/rules /raffle/ 302
-/raffle/rules/ /raffle/ 302
-/thank-you /raffle/ 302
-/thank-you/ /raffle/ 302
-/thank-you.html /raffle/ 302
-/media-kit/2026-raffle-flyer.png /raffle/ 302
-/media-kit/2026-raffle-flyer.pdf /raffle/ 302
-/media-kit/2026-raffle-mail-in-form.png /raffle/ 302
-/media-kit/2026-raffle-mail-in-form.pdf /raffle/ 302
+/raffle.html /#schedule-update 302
+/raffle /#schedule-update 302
+/raffle/ /#schedule-update 302
+/raffle/* /#schedule-update 302
+/thank-you /#schedule-update 302
+/thank-you/ /#schedule-update 302
+/thank-you.html /#schedule-update 302
+/media-kit/2026-raffle-flyer.png /#schedule-update 302
+/media-kit/2026-raffle-flyer.pdf /#schedule-update 302
+/media-kit/2026-raffle-mail-in-form.png /#schedule-update 302
+/media-kit/2026-raffle-mail-in-form.pdf /#schedule-update 302
 /social-media-links.html /social-media-links/ 301
 /sponsors.html /sponsors/ 301
 /sponsorship-opportunities.html /sponsorship-opportunities/ 301
@@ -20,7 +21,19 @@
 /sponsorships/summaries/01_NEOChosen_Master_Sponsorship_Overview.png /sponsorships/summaries/neochosen-master-sponsorship-overview-quick-summary.png 301
 
 # Retired online raffle artwork and schedule downloads.
-/media-kit/neo-chosen-raffle-* /raffle/ 302
-/media-kit/2026-weekend-schedule* /raffle/ 302
-/images/raffle/* /raffle/ 302
-/images/media-previews/2026-weekend-schedule* /raffle/ 302
+/media-kit/neo-chosen-raffle-* /#schedule-update 302
+/media-kit/2026-weekend-schedule* /#schedule-update 302
+/images/raffle/* /#schedule-update 302
+/images/media-previews/2026-weekend-schedule* /#schedule-update 302
+
+# Superseded artwork that displays the former Saturday times.
+/media-kit/2026-akron-piano-guys-concert* /piano-guys/ 302
+/media-kit/2026-fairlawn-meet-and-greet* /fairlawn/ 302
+/media-kit/church-tv/01_Weekend_Overview_TV* /#schedule-update 302
+/media-kit/church-tv/04_Piano_Guys_Concert_TV* /piano-guys/ 302
+/media-kit/church-tv/05_Fairlawn_Meet_Greet_TV* /fairlawn/ 302
+/images/media-previews/2026-akron-piano-guys-concert* /piano-guys/ 302
+/images/media-previews/2026-fairlawn-meet-and-greet* /fairlawn/ 302
+/images/media-previews/01_Weekend_Overview_TV* /#schedule-update 302
+/images/media-previews/04_Piano_Guys_Concert_TV* /piano-guys/ 302
+/images/media-previews/05_Fairlawn_Meet_Greet_TV* /fairlawn/ 302

@@ -25,10 +25,8 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   const chrome = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0]
     + html.match(/<footer class="site-footer"[\s\S]*?<\/footer>/)[0];
   const header = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)[0];
-  assert.equal((header.match(/href="\/raffle\/"/g) || []).length, 1, `${route}: current raffle in main navigation`);
-  assert.equal((chrome.match(/href="\/raffle\/"/g) || []).length, 2, `${route}: current raffle in header and footer`);
-  assert(chrome.includes('>50/50 Raffle</a>'), `${route}: informational raffle label`);
-  assert(!/Cash Raffle|Get Raffle Tickets/i.test(chrome), `${route}: retired raffle sales labels`);
+  assert(!chrome.includes('href="/raffle/"'), `${route}: raffle link in navigation`);
+  assert(!/50\/50 Raffle|Cash Raffle|Get Raffle Tickets/i.test(chrome), `${route}: retired raffle sales labels`);
   assert(!chrome.includes('Raffle — Coming Soon'), `${route}: outdated raffle label`);
   assert(!html.includes('class="site-follow-bar"'), `${route}: duplicate social strip`);
   for (const [name, url] of [
@@ -40,7 +38,7 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   }
   pages.set(route, { html, ids, chrome });
 }
-assert.equal(pages.size, process.env.NEOCHOSEN_REVIEW === 'true' ? 33 : 32, 'Expected all content pages including privacy, raffle announcement, breakfast and confirmations to have shared navigation and footer');
+assert.equal(pages.size, process.env.NEOCHOSEN_REVIEW === 'true' ? 32 : 31, 'Expected all content pages including privacy, breakfast and confirmations to have shared navigation and footer');
 for (const route of ['/vip-dinner/', '/lakewood/', '/piano-guys/', '/fairlawn/', '/chesterland/']) {
   assert(pages.has(route), `Missing dedicated event route ${route}`);
 }

@@ -15,15 +15,15 @@ for (const card of cards) {
   for (const required of ['home-event-day','home-status','home-event-time','home-event-location','home-event-bottom','NEO Chosen Weekend Presenting Sponsor','Great Lakes Auto Group']) {
     assert(card.includes(required),`Event card missing ${required}`);
   }
-  assert(card.includes('home-event-cta'), 'Every event card needs a working primary action');
+  assert(card.includes('home-event-cta') !== /Event ended|Sold Out/.test(card), 'Only open events should have ticket links');
   assert(card.includes('home-event-secondary'), 'Every event card needs a detail route');
 }
 for (const [slug,needed] of Object.entries({
-  'vip-dinner':['VIP Sponsor Dinner','$200','$1,400','Table of eight','Save $200','Doors Open 4:30 PM | Dinner 5:00 PM','Windows on the River','Reserve now','Grilled Chicken Vinaigrette','Pan Seared Atlantic Salmon','Vegetable Lasagna Roll','New Potatoes with Lemon &amp; Dill','Green Beans with Red Pepper &amp; Dill','Chocolate Tuxedo Mousse','Cheesecake with Raspberry Sauce','Guests will select their entrée and dessert when purchasing their tickets.'],
-  lakewood:['Free','Lakewood Civic Auditorium'],
-  'piano-guys':['Paid concert','FNA Wealth Management','Saturday, November 14, 2026','https://www.ticketmaster.com/event/05006538EC473EB4'],
-  fairlawn:['Free · Sold Out','https://schema.org/SoldOut',fridayCheckout,'Advanced Care Endodontics','FNA Wealth Management'],
-  chesterland:['Free · Sold Out','https://schema.org/SoldOut',fridayCheckout,'Mayfield United Methodist Church']
+  'vip-dinner':['VIP Sponsor Dinner','$200','$1,400','Table of eight','Save $200','Doors Open 4:30 PM | Dinner 5:00 PM','Windows on the River','This event took place Friday, November 13.','Grilled Chicken Vinaigrette','Pan Seared Atlantic Salmon','Vegetable Lasagna Roll','New Potatoes with Lemon &amp; Dill','Green Beans with Red Pepper &amp; Dill','Chocolate Tuxedo Mousse','Cheesecake with Raspberry Sauce','Dinner menu from Friday, November 13.'],
+  lakewood:['Event ended','Lakewood Civic Auditorium'],
+  'piano-guys':['5:30 PM Eastern · Doors 4:30 PM','will call','FNA Wealth Management','Saturday, November 14, 2026','https://www.ticketmaster.com/event/05006538EC473EB4'],
+  fairlawn:['Free · Sold Out','https://schema.org/SoldOut','7:15 PM Eastern','Advanced Care Endodontics','FNA Wealth Management'],
+  chesterland:['Free · Sold Out','https://schema.org/SoldOut','2:00 PM Eastern','Mayfield United Methodist Church']
 })) {
   const page = await readFile(path.join(root,slug,'index.html'),'utf8');
   assert(home.includes(`href="/${slug}/"`),`Missing homepage link to /${slug}/`);
@@ -37,6 +37,6 @@ for (const [route, html] of [
   ...await Promise.all(['fairlawn', 'chesterland', 'thank-you/fairlawn', 'thank-you/chesterland', 'thank-you/donor-dinner'].map(async route => [route, await readFile(path.join(root,route,'index.html'),'utf8')]))
 ]) {
   assert(!closedCheckout.test(html), `Closed meet-and-greet checkout on ${route}`);
-  assert(html.includes(`href="${fridayCheckout}"`), `Missing Friday checkout on ${route}`);
+  assert(!html.includes(fridayCheckout), "Expired Friday checkout on " + route);
 }
 console.log('Validated five event cards, detail routes, admission types, sponsor roles, CTAs, and event metadata.');

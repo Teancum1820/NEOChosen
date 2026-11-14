@@ -31,7 +31,6 @@ for (const [name, route] of [
   ["Lakewood", "/lakewood/"],
   ["Piano Guys", "/piano-guys/"],
   ["Fairlawn", "/fairlawn/"],
-  ["form page", "/raffle/"],
   ["About", "/about-us/"],
   ["Get Involved", "/get-involved/"],
   ["Donations", "/donations/"],
@@ -96,7 +95,6 @@ test("mobile interior templates and sponsorship tables meet WCAG AA checks", asy
     "/media-kit/",
     "/sponsorship-opportunities/all/",
     "/thank-you/donor-dinner/",
-    "/raffle/",
   ]) {
     await page.goto(route);
     const result = await new AxeBuilder({ page })

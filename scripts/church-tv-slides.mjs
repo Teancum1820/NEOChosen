@@ -5,11 +5,6 @@ import { renderImage } from "../design-system/image.mjs";
 import { escape } from "./editorial-page.mjs";
 
 const slides = [
-  ["01_Weekend_Overview_TV", "NEO Chosen Weekend overview", "November 13–15 · All five weekend events"],
-  ["02_VIP_Dinner_TV", "VIP Chosen Dinner", "Friday, November 13 · 5:00 PM · Windows on the River"],
-  ["03_Lakewood_Cast_Evening_TV", "Lakewood — Evening with The Chosen Cast", "Friday, November 13 · 7:30 PM · Lakewood Civic Auditorium"],
-  ["04_Piano_Guys_Concert_TV", "The Piano Guys Concert — Akron", "Saturday, November 14 · 4:00 PM · Akron Civic Theatre"],
-  ["05_Fairlawn_Meet_Greet_TV", "Fairlawn Meet & Greet", "Saturday, November 14 · 7:00 PM · St. Hilary Church"],
   ["06_Chesterland_Meet_Greet_TV", "Chesterland Meet & Greet", "Sunday, November 15 · 2:00 PM · Mayfield United Methodist Church"],
 ];
 

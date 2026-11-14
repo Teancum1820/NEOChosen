@@ -97,7 +97,7 @@ for (const width of [390, 1440]) {
         ? [["mobile-event-sponsor", '[data-sponsor-event="akron"]']]
         : [["event-card", ".home-event-card"]];
     for (const offset of [0.25, 0.5, 0.75]) {
-      await page.locator(".raffle-promotion").evaluate((element, value) => {
+      await page.locator("#schedule-update").evaluate((element, value) => {
         element.style.marginBottom = `${value}px`;
       }, offset);
       for (const [name, selector] of crops) {

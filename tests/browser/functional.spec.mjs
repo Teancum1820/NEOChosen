@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { events, lakewood } from "../../scripts/event-pages.mjs";
+import { events } from "../../scripts/event-pages.mjs";
 
 test.beforeEach(async ({ page }) => {
   // Keep automation on the local build; no Zeffy or production write requests.
@@ -113,7 +113,6 @@ test("homepage and current canonical routes load without page-level exceptions",
     "/media-kit/",
     "/sponsorship-opportunities/",
     "/donations/",
-    "/raffle/",
     "/social-media-links/",
   ]) {
     const response = await page.goto(route);
@@ -145,11 +144,8 @@ test("registration actions and forms render without submitting", async ({
   page,
 }) => {
   await page.goto("/");
-  expect(
-    await page.locator('a[href*="zeffy.com/en-US/ticketing"]').count(),
-  ).toBeGreaterThan(0);
   await expect(page.locator("[data-zeffy-embed]").first()).toBeAttached();
-  await page.goto("/raffle/");
+  await page.goto("/piano-guys/");
   await expect(page.locator("main form")).toHaveCount(0);
   await expect(page.locator("[data-zeffy-embed]")).toHaveCount(0);
 });
@@ -166,12 +162,16 @@ test("homepage rows preserve the verified event facts and destinations", async (
       event.venue,
     );
     await expect(card.locator(".home-status")).toHaveText(
-      event.soldOut ? "Sold Out" : event.admission,
+      event.past ? "Event ended" : event.soldOut ? "Sold Out" : event.admission,
     );
-    await expect(card.locator(".home-event-cta")).toHaveAttribute(
-      "href",
-      event.soldOut ? lakewood.url : event.url,
-    );
+    if (event.past || event.soldOut) {
+      await expect(card.locator(".home-event-cta")).toHaveCount(0);
+    } else {
+      await expect(card.locator(".home-event-cta")).toHaveAttribute(
+        "href",
+        event.url,
+      );
+    }
     await expect(card.locator(".home-event-secondary")).toHaveAttribute(
       "href",
       `/${event.slug}/`,

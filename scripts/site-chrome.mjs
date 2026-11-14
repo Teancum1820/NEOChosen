@@ -34,7 +34,6 @@ export function applySiteChrome(html, currentPath) {
   if (!html.includes('src="/ticket-interest.js"')) html = html.replace('</head>', '<script src="/ticket-interest.js" defer></script>\n</head>');
   if (!html.includes('src="/meta-pixel.js"')) html = html.replace('</head>', '<script src="/meta-pixel.js" defer></script>\n</head>');
   const item = (href, label, className) => link(href, label, currentPath, className);
-  const eventTicketLabel = currentPath.startsWith('/raffle/') ? 'Concert &amp; event details' : 'Get Tickets';
   const dropdown = (id, label, content) => `<div class="nav-dropdown">
     <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="${id}">${label}</button>
     <div class="nav-dropdown-menu" id="${id}">${content}</div>
@@ -47,7 +46,6 @@ export function applySiteChrome(html, currentPath) {
       ${item('/#performers', 'Performers')}
       ${item('/about-us/', 'About Us')}
       ${item('/get-involved/', 'Get Involved')}
-      ${item('/raffle/', '50/50 Raffle')}
       ${dropdown('sponsor-navigation', 'Sponsors', item('/sponsors/', 'Our Sponsors') + item('/sponsorship-opportunities/', 'Become a Sponsor'))}
       ${dropdown('resource-navigation', 'More', item('/vip-dinner/', 'VIP Sponsor Dinner') + item('/lakewood/', 'Lakewood Event') + item('/piano-guys/', 'The Piano Guys Concert') + item('/fairlawn/', 'Fairlawn Meet &amp; Greet') + item('/chesterland/', 'Chesterland Meet &amp; Greet') + item('/media-kit/', 'Media Kit') + item('/social-media-links/', 'Social Media'))}
       ${item('/donations/', 'Donate', 'nav-donate')}
@@ -68,7 +66,7 @@ export function applySiteChrome(html, currentPath) {
       </div>
       <nav class="site-footer-links" aria-label="Explore NEOChosen">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/raffle/', '50/50 Raffle')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}
+        ${item('/#events', 'Weekend Events')}${item('/about-us/', 'About Us')}${item('/sponsors/', 'Our Sponsors')}${item('/get-involved/', 'Get Involved')}
       </nav>
       <div class="site-footer-contact">
         <h2>Contact</h2>
@@ -88,7 +86,7 @@ export function applySiteChrome(html, currentPath) {
       </div>
       <nav class="site-footer-links" aria-label="Events and information">
         <h2>Explore</h2>
-        ${item('/#events', 'Weekend Events')}${item('/#tickets', eventTicketLabel)}${item('/raffle/', '50/50 Raffle')}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}
+        ${item('/#events', 'Weekend Events')}${item('/#tickets', 'Get Tickets')}${item('/chesterland/', 'Chesterland Meet &amp; Greet')}${item('/about-us/', 'About Us')}
       </nav>
       <nav class="site-footer-links" aria-label="Support and resources">
         <h2>Get Involved</h2>

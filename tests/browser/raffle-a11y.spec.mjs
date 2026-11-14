@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 for (const width of [320, 390, 768, 1440]) {
-  for (const route of ["/raffle/", "/raffle/rules/"]) {
+  for (const route of ["/#schedule-update", "/fairlawn/"]) {
     test(`${route} meets WCAG AA at ${width}px including navigation`, async ({
       page,
     }) => {

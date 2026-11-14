@@ -1,11 +1,10 @@
-const CACHE_NAME = 'neochosen-v35-raffle-announcement-design';
+const CACHE_NAME = 'neochosen-v36-saturday-schedule';
 const OFFLINE_URLS = [
   '/',
   '/about-us/',
   '/chesterland/',
   '/donations/',
   '/get-involved/',
-  '/raffle/',
   '/social-media-links/',
   '/sponsors/',
   '/sponsorship-opportunities/',
@@ -27,7 +26,6 @@ const OFFLINE_URLS = [
   '/events/event.css',
   '/sponsors/sponsors.css',
   '/sponsorship-opportunities/sponsorship.css',
-  '/raffle-promotion.css',
   '/thank-you/styles.css',
   '/images/fonts/cinzel.woff2',
   '/images/fonts/montserrat.woff2',
