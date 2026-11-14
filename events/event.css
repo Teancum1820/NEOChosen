@@ -18,7 +18,7 @@
 .event-hero .editorial-kicker,.event-admission { color:#cda76a; }
 .event-hero-time { font-size:19px; font-weight:600; }
 .event-schedule-notice { border-inline-start: 3px solid currentColor; padding-inline-start: 1rem; }
-.editorial-page main .event-hero-content p a { color: var(--color-brand-gold-bright); text-decoration: underline; }
+.editorial-page main .event-hero .event-hero-content p a { color: var(--color-brand-gold-bright); text-decoration: underline; }
 .event-admission { font-size:14px; font-weight:600; }
 .event-actions { display:flex; gap:18px; flex-wrap:wrap; align-items:center; margin-top:15px; }
 .event-text-link { display:inline-flex; align-items:center; min-height:44px; gap:15px; color:#24625d; font-size:13px; font-weight:700; text-decoration:none; }
