@@ -25,9 +25,7 @@ try {
     });
     for (const [name, selector] of [
       ["hero", ".home-hero"],
-      ["events", "#events"],
       ["ribbon", ".home-sponsor-ribbon"],
-      ["performers", "#performers"],
       ["partners", "#partners"],
     ]) {
       await page

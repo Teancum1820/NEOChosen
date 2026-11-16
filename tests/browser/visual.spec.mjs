@@ -37,43 +37,32 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test("approved Concept A desktop header, hero, event card, sponsor, and footer", async ({
+test("approved Concept A desktop header, hero, sponsors, and footer", async ({
   page,
 }) => {
   for (const [name, selector] of [
     ["header", ".site-nav"],
     ["hero", ".home-hero"],
-    ["event-card", ".home-event-card"],
+    ["home-sponsor-tier", ".home-sponsor-tier--weekend-presenting"],
     ["weekend-sponsor", ".home-sponsor-ribbon"],
     ["footer", ".site-footer"],
   ]) {
     const item = page.locator(selector).first();
     await item.scrollIntoViewIfNeeded();
-    if (name === "event-card") {
+    if (name === "home-sponsor-tier") {
       await expectAlignedScreenshot(item, `${name}.png`);
+    } else if (name === "footer") {
+      // Keep unrelated content above the footer out of this crop.
+      await expect(item).toHaveScreenshot(`${name}.png`, {
+        style: "main { display: none !important; }",
+      });
     } else {
-      if (name === "footer") {
-        // The sponsor content changes the footer's fractional page offset.
-        // Align this crop to whole pixels while retaining its measured height.
-        await item.evaluate((footer) => {
-          window.scrollTo({
-            top: document.documentElement.scrollHeight,
-            behavior: "instant",
-          });
-          const bounds = footer.getBoundingClientRect();
-          const pageTop = bounds.top + window.scrollY;
-          footer.style.top = `${Math.ceil(pageTop) - pageTop}px`;
-          footer.style.height = `${Math.ceil(bounds.height)}px`;
-        });
-      }
       await expect(item).toHaveScreenshot(`${name}.png`);
     }
   }
 });
 
-test("approved mobile navigation and event sponsor credit", async ({
-  page,
-}) => {
+test("approved mobile navigation and sponsor recognition", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.reload();
   await page.addStyleTag({
@@ -83,8 +72,8 @@ test("approved mobile navigation and event sponsor credit", async ({
   await expect
     .soft(page.locator(".site-nav"))
     .toHaveScreenshot("mobile-header.png");
-  const credit = page.locator('[data-sponsor-event="akron"]').first();
-  await expectAlignedScreenshot(credit, "mobile-event-sponsor.png");
+  const credit = page.locator(".home-sponsor-tier--presenting").first();
+  await expectAlignedScreenshot(credit, "mobile-sponsor-tier.png");
 });
 
 for (const width of [390, 1440]) {
@@ -94,10 +83,10 @@ for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     const crops =
       width === 390
-        ? [["mobile-event-sponsor", '[data-sponsor-event="akron"]']]
-        : [["event-card", ".home-event-card"]];
+        ? [["mobile-sponsor-tier", ".home-sponsor-tier--presenting"]]
+        : [["home-sponsor-tier", ".home-sponsor-tier--weekend-presenting"]];
     for (const offset of [0.25, 0.5, 0.75]) {
-      await page.locator("#schedule-update").evaluate((element, value) => {
+      await page.locator(".home-hero").evaluate((element, value) => {
         element.style.marginBottom = `${value}px`;
       }, offset);
       for (const [name, selector] of crops) {

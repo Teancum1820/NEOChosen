@@ -63,13 +63,12 @@ for (const [name, route] of [
   });
 }
 
-test("mobile homepage and open navigation meet WCAG AA checks", async ({
+test("mobile thank-you and sponsor pages meet WCAG AA checks", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
-  for (const menuOpen of [false, true]) {
-    if (menuOpen) await page.locator(".nav-toggle").click();
+  for (const route of ["/", "/sponsors/"]) {
+    await page.goto(route);
     const result = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze();

@@ -29,13 +29,8 @@ for (const file of (await walk(root)).filter(file => file.endsWith('.html'))) {
   assert(!/50\/50 Raffle|Cash Raffle|Get Raffle Tickets/i.test(chrome), `${route}: retired raffle sales labels`);
   assert(!chrome.includes('Raffle — Coming Soon'), `${route}: outdated raffle label`);
   assert(!html.includes('class="site-follow-bar"'), `${route}: duplicate social strip`);
-  for (const [name, url] of [
-    ['Facebook', 'https://www.facebook.com/people/Kirtland-Heritage-Group/61572253884775/'],
-    ['Instagram', 'https://www.instagram.com/kirtland.heritage.group']
-  ]) {
-    assert(header.includes(`href="${url}" target="_blank" rel="noopener noreferrer" aria-label="Follow us on ${name}"`), `${route}: accessible header ${name} link`);
-    assert.equal(chrome.split(`href="${url}"`).length - 1, 2, `${route}: ${name} in header and footer`);
-  }
+  assert.deepEqual([...header.matchAll(/<a href="([^"]+)"[^>]*>([^<]*)<\/a>/g)].map(match => match.slice(1)), [['/', 'THANK YOU!'], ['/sponsors/', 'Sponsors']], `${route}: only the two public navigation items`);
+  assert.equal(/<meta name="robots" content="noindex\b/i.test(html), !['/', '/sponsors/'].includes(route), `${route}: archived content must be unlisted`);
   pages.set(route, { html, ids, chrome });
 }
 assert.equal(pages.size, process.env.NEOCHOSEN_REVIEW === 'true' ? 32 : 31, 'Expected all content pages including privacy, breakfast and confirmations to have shared navigation and footer');

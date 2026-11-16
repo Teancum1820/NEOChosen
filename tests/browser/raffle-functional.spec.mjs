@@ -27,10 +27,10 @@ for (const width of [320, 390, 768, 1440]) {
     }
 
     await page.goto("/");
-    const notice = page.locator("#schedule-update");
-    await expect(notice).toContainText("Doors 4:30 PM · Concert 5:30 PM");
-    await expect(notice).toContainText("7:00 PM");
-    await expect(notice).not.toContainText(/will call|still need concert tickets/i);
+    await expect(page.locator(".home-schedule-update")).toHaveCount(0);
+    await expect(page.locator("main")).not.toContainText(
+      "Saturday schedule change",
+    );
   });
 }
 

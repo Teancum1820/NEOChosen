@@ -79,14 +79,14 @@ try {
           .toFile(path.join(out, `${name}-${width}x${height}${suffix}.webp`));
       }
     }
-    await page.goto(base + "/#events");
-    const events = await page
-      .locator("#events")
+    await page.goto(base + "/#partners");
+    const sponsors = await page
+      .locator("#partners")
       .first()
       .screenshot({ animations: "disabled" });
-    await sharp(events)
+    await sharp(sponsors)
       .webp({ quality: 82 })
-      .toFile(path.join(out, `homepage-events-${width}x${height}.webp`));
+      .toFile(path.join(out, `homepage-sponsors-${width}x${height}.webp`));
     await page.close();
     console.log(`Captured ${width} × ${height}`);
   }

@@ -1,5 +1,4 @@
 import { test, expect } from "@playwright/test";
-import { events } from "../../scripts/event-pages.mjs";
 
 test.beforeEach(async ({ page }) => {
   // Keep automation on the local build; no Zeffy or production write requests.
@@ -122,61 +121,40 @@ test("homepage and current canonical routes load without page-level exceptions",
   expect(errors).toEqual([]);
 });
 
-test("navigation and local links stay usable", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
-  const menu = page.locator(".nav-toggle").first();
-  await menu.click();
-  await expect(menu).toHaveAttribute("aria-expanded", "true");
-  await expect(
-    page.locator('.site-nav a[href="/about-us/"]').first(),
-  ).toBeVisible();
-  await menu.focus();
+test("thank-you and Sponsors are the only public navigation items", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto("/#events");
+  const nav = page.locator(".site-closeout-links");
+  const thankYou = nav.getByRole("link", { name: "THANK YOU!", exact: true });
+  const sponsors = nav.getByRole("link", { name: "Sponsors", exact: true });
+  await expect(nav.getByRole("link")).toHaveCount(2);
+  await expect(thankYou).toHaveAttribute("aria-current", "page");
+  await sponsors.focus();
   await page.keyboard.press("Enter");
-  await expect(menu).toHaveAttribute("aria-expanded", "false");
-  await page.goto("/sponsors/");
+  await expect(page).toHaveURL(/\/sponsors\/$/);
+  await expect(sponsors).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Thank you to our sponsors and partners.",
+  );
   await expect(
-    page.locator('a[href="/sponsorship-opportunities/"]').first(),
-  ).toBeAttached();
+    page.locator('main a[href="/sponsorship-opportunities/"]'),
+  ).toHaveCount(0);
+  await thankYou.click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Thank you, Northeast Ohio!",
+  );
 });
 
-test("registration actions and forms render without submitting", async ({
+test("homepage only shows the thank-you and sponsor sections", async ({
   page,
 }) => {
   await page.goto("/");
-  await expect(page.locator("[data-zeffy-embed]").first()).toBeAttached();
-  await page.goto("/piano-guys/");
-  await expect(page.locator("main form")).toHaveCount(0);
-  await expect(page.locator("[data-zeffy-embed]")).toHaveCount(0);
-});
-
-test("homepage rows preserve the verified event facts and destinations", async ({
-  page,
-}) => {
-  await page.goto("/");
-  for (const event of events) {
-    const card = page.locator(`[data-event="${event.slug}"]`);
-    await expect(card.locator("h3")).toHaveText(event.title);
-    await expect(card.locator(".home-event-time")).toHaveText(event.time);
-    await expect(card.locator(".home-event-location")).toContainText(
-      event.venue,
-    );
-    await expect(card.locator(".home-status")).toHaveText(
-      event.past ? "Event ended" : event.soldOut ? "Sold Out" : event.admission,
-    );
-    if (event.past || event.soldOut) {
-      await expect(card.locator(".home-event-cta")).toHaveCount(0);
-    } else {
-      await expect(card.locator(".home-event-cta")).toHaveAttribute(
-        "href",
-        event.url,
-      );
-    }
-    await expect(card.locator(".home-event-secondary")).toHaveAttribute(
-      "href",
-      `/${event.slug}/`,
-    );
-  }
+  await expect(page.locator("main > section")).toHaveCount(2);
+  await expect(page.locator("main > .home-hero")).toBeVisible();
+  await expect(page.locator("main > #partners")).toBeVisible();
+  await expect(page.locator("main form, [data-zeffy-embed]")).toHaveCount(0);
 });
 
 test("responsive hero, header, and sponsor band fit all review widths", async ({
@@ -206,49 +184,12 @@ test("responsive hero, header, and sponsor band fit all review widths", async ({
       expect(image.source).toContain("/images/performers/");
     }
     if (width < 768) expect(geometry.ribbon).toBeLessThan(220);
-    if (width >= 1200) {
-      for (const selector of [
-        ".site-wordmark",
-        'a[href="/#events"]',
-        'a[href="/#performers"]',
-        ".nav-dropdown-toggle",
-        ".nav-ticket",
-      ]) {
-        const item = page.locator(".site-nav").locator(selector).first();
-        const box = await item.boundingBox();
-        expect(box.x + box.width).toBeLessThanOrEqual(width);
-      }
+    for (const item of await page.locator(".site-nav a").all()) {
+      await expect(item).toBeVisible();
+      const box = await item.boundingBox();
+      expect(box.x + box.width).toBeLessThanOrEqual(width);
     }
   }
-});
-
-test("mobile menu preserves focus and closes with Escape", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
-  const menu = page.locator(".nav-toggle");
-  await menu.click();
-  await expect(page.locator("main")).toHaveAttribute("inert", "");
-  await page.keyboard.press("Escape");
-  await expect(menu).toBeFocused();
-  await expect(menu).toHaveAttribute("aria-expanded", "false");
-  await expect(page.locator("main")).not.toHaveAttribute("inert", "");
-});
-
-test("newsletter script waits for signup visibility and retains the direct destination", async ({
-  page,
-}) => {
-  const requested = [];
-  page.on("request", (request) => {
-    if (request.url().includes("zeffy-embed.js")) requested.push(request.url());
-  });
-  await page.goto("/");
-  expect(requested).toEqual([]);
-  await page.locator("#event-updates").scrollIntoViewIfNeeded();
-  await expect.poll(() => requested.length).toBe(1);
-  await expect(page.locator(".home-updates-form > p a")).toHaveAttribute(
-    "href",
-    "https://www.zeffy.com/en-US/embed/newsletter-form/get-neochosen-event-updates",
-  );
 });
 
 test("sponsorship print previews load on demand with usable mobile download links", async ({
@@ -281,7 +222,7 @@ test("every concert action goes directly to Ticketmaster without a notice", asyn
     route.fulfill({ body: "Ticket destination" }),
   );
   for (const [route, expectedCount] of [
-    ["/", 3],
+    ["/", 0],
     ["/piano-guys/", 4],
   ]) {
     await page.goto(route);

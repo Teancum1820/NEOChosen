@@ -169,16 +169,10 @@ export async function writeInteriorPages(outDir) {
       body:
         hero(
           "Our sponsors",
-          "The people who make the weekend possible.",
-          "NEOChosen brings communities together with the support of presenting sponsors, event partners, and neighbors across Northeast Ohio.",
+          "Thank you to our sponsors and partners.",
+          "Your support brought NEO Chosen Weekend to communities across Northeast Ohio.",
         ) +
-        "<!-- SPONSOR_DIRECTORY -->" +
-        callout(
-          "Partner with the weekend.",
-          "Explore eight sponsorship paths and find the right fit for your organization.",
-          "/sponsorship-opportunities/",
-          "Explore sponsorship opportunities",
-        ),
+        "<!-- SPONSOR_DIRECTORY -->",
     }),
   );
 }

@@ -323,6 +323,26 @@ nav.site-nav .nav-social-links a:hover { background:rgba(215,185,86,.12) !import
   body.nav-open { padding-top: var(--site-header-height); }
   body.nav-open nav.site-nav { position: fixed !important; }
 }
+
+.site-closeout-links { display: flex; gap: clamp(4px, 1.3vw, 18px); }
+.site-closeout-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 clamp(8px, 1.3vw, 16px);
+  border-radius: var(--neo-radius-sm);
+  color: var(--color-text-primary);
+  font: 700 clamp(12px, 1.8vw, 14px)/1.3 var(--font-body);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-closeout-links a:hover { background: rgba(255, 255, 255, .1); }
+.site-closeout-links a[aria-current="page"] {
+  background: var(--color-brand-gold);
+  color: var(--color-text-inverse);
+}
+.site-footer:has(> .site-closeout-footer) { padding: 18px max(20px, 3vw) !important; }
+.site-closeout-footer { margin: 0 auto; padding-top: 0; border-top: 0; }
 html:root { --site-header-height: 68px; }
 @media (min-width: 1200px) { html:root { --site-header-height: 76px; } }
 nav.site-nav .site-wordmark { border: 0 !important; background: none !important; box-shadow: none !important; }
